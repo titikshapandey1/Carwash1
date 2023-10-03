@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
-import car1 from "../images/car1guest.png"
+import car1 from "../assests/images/car1guest.png"
 const Guest1 = () => {
   return (
     <>

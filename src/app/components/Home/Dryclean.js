@@ -31,7 +31,7 @@
 // export default Dryclean
 import { Box, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
-import wolks from '../../images/wolks.png';
+import wolks from '../../assests/images/wolks.png';
 
 const Dryclean = () => {
   return (

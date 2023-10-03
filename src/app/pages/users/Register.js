@@ -9,7 +9,7 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import car1 from "../../../images/car1guest.png"
+import car1 from "../../assests/images/car1guest.png"
 
 
 function RegisterPage() {

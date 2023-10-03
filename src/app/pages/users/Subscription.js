@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Box, Button, Card, CardContent, Grid, Typography } from '@mui/material';
-import Nav from "../../../partials/Nav"
+import Nav from "../../partials/Nav"
 
 const Subscriptions = () => {
   return (

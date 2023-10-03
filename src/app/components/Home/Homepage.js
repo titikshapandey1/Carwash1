@@ -1,14 +1,14 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import vector from '../../images/Vector.png'
-import vector2 from '../../images/Vector2.png'
-import HomeCards from "./HomeCards";
+import vector from '../../assests/images/Vector.png'
+import vector2 from '../../assests/images/Vector2.png'
+import HomeCards from "../Home/HomeCards";
 import Nav from "../../partials/Nav";
-import car1 from "../../images/AboutCar.png"
+import car1 from "../../assests/images/car1guest.png"
 
 import Dryclean from "./Dryclean";
 // import AboutGuest from "../pages/users/About";
-import wolks from '../../images/wolks.png'
+// import wolks from '../../assests/images/wolks.png'
 
 import Guest1 from "../Background";
 import Question from "../Question";

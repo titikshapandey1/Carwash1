@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Box, Button, Grid, Link, TextField, Typography } from "@mui/material";
-import car1 from "../../../images/car1guest.png"
+import car1 from "../../assests/images/car1guest.png"
 // import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined';
 // import color from "../utils"

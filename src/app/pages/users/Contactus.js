@@ -1,7 +1,7 @@
 import { Box, Grid, Typography, styled, Paper, Container, TextField, Button, AppBar, Toolbar } from "@mui/material";
 import ExploreIcon from '@mui/icons-material/Explore';
 import CallIcon from '@mui/icons-material/Call';
-import car1 from '../../../images/car1guest.png'
+import car1 from '../../assests/images/car1guest.png'
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -9,12 +9,11 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { createTheme } from '@mui/material/styles';
 // import imageUrl from '../assets/group_carwash.png';
-import DrawerComp from "../../../partials/Drawer"
-import Nav from "../../../partials/Nav";
-import Guest1 from "../../Background";
-import Question from "../../Question";
-import Ourplan from "./Ourplan";
-import Footer from "../../../partials/Footer";
+import Nav from "../../partials/Nav";
+import Guest1 from "../../components/Background";
+import Question from "../../components/Question";
+import Ourplan from "../users/Ourplan";
+import Footer from "../../partials/Footer";
 const StyledPaper = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,

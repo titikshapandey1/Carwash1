@@ -114,7 +114,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 // import Container from '@mui/material/Container';
-import carwash from '../assets/car_wash_1.png'
+// import carwash from '../assets/car_wash_1.png'
+import car1 from "../../assests/images/car1guest.png"
 import { TextField, Typography, Grid } from '@mui/material';
 
 export default function SimpleContainer() {
@@ -135,7 +136,7 @@ export default function SimpleContainer() {
               sx={{
                 // width: '100%',
                 minHeight: '50vh',
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${carwash})`,
+                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
                 borderRadius: '20px',
                 backgroundSize: '100% 100%',
                 backgroundRepeat: 'no-repeat',

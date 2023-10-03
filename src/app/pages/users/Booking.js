@@ -1,8 +1,8 @@
 
 import { Box, Button, Card, CardContent, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
-import Nav from "../../../partials/Nav"
-import Colors from '../../../utils/colors';
+import Nav from "../../partials/Nav"
+import Colors from '../../utils/colors';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
  import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
  import LocationOnIcon from '@mui/icons-material/LocationOn';

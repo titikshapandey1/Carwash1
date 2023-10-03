@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Grid, Paper,TextField, Button, Typography, Box, Link,Container} from '@mui/material';
+import { Grid, Paper,Button, Typography, Box,Container} from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
-import car1 from "../../images/car1guest.png";
+import car1 from "../assests/images/car1guest.png"
 import { blue } from '@mui/material/colors';
 // import {Link} from '@mui/material';
 function RectangleTextField({ label, name, value, onChange, error, helperText }) {

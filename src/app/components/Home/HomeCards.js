@@ -1,10 +1,10 @@
 import { Box, Container, Grid, Paper, Rating, Typography} from "@mui/material";
 import React from "react";
-import crate1 from "../../images/crate1.png";
-import crate2 from "../../images/crate2.png";
-import crate3 from "../../images/crate3.png";
-import crate4 from "../../images/crate4.png";
-import cardshome from "../../images/cardshome.png"
+import crate1 from "../../assests/images/crate1.png";
+import crate2 from "../../assests/images/crate2.png";
+import crate3 from "../../assests/images/crate3.png";
+import crate4 from "../../assests/images/crate4.png";
+// import Cardshome from "../../assests/images/cardshome.png"
 // import Color from "@mui/material"
 // import Colors from "../../utils/colors"
 const HomeCards = () => {
