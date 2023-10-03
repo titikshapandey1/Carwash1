@@ -29,39 +29,40 @@ import Guest2 from "./app/pages/users/Guest2";
 // import HomeCards from "./app/components/Home/HomeCards";
 
 
+
 // {hii}
 
 function App() {
   return (
-   <>
-   {/* <Dryclean/> */}
-   {/* <Card1/> */}
-   {/* <HomeCards/> */}
-   {/* <PaymentOptions/> */}
-   {/* <Ourplan/> */}
-   {/* <Nav/>  */}
-   {/* <Searcher/> */}
-   {/* <Guest5/> */}
-    {/* <HomePage/> */}
-   {/* <ServiceLocation/> */}
-    {/* <AboutGuest/> */}
-   {/* <Guest1/>   */}
- {/* <Login/> */}
- {/* <Question/> */}
- {/* <RegisterPage/> */}
- {/* <Mobile/> */}
- {/* <Otp/> */}
- {/* <Rectanglefield/> */}
- {/* <Subscriptions/> */}
- {/* <OurServices/> */}
- {/* <Booking/> */}
-  {/* <Footer/> */}
-  {/* <Contactus/> */}
-  <Guest2/>
-  {/* <Ourplans/> */}
- {/* <Subscribe/> */}
- 
-   </>
+    <>
+      {/* <Dryclean/> */}
+      {/* <Card1/> */}
+      {/* <HomeCards/> */}
+      {/* <PaymentOptions/> */}
+      {/* <Ourplan/> */}
+      {/* <Nav/>  */}
+      {/* <Searcher/> */}
+      {/* <Guest5/> */}
+      {/* <HomePage/> */}
+      {/* <ServiceLocation/> */}
+      {/* <AboutGuest/> */}
+      {/* <Guest1/>   */}
+      {/* <Login/> */}
+      {/* <Question/> */}
+      {/* <RegisterPage/> */}
+      {/* <Mobile/> */}
+      {/* <Otp/> */}
+      {/* <Rectanglefield/> */}
+      {/* <Subscriptions/> */}
+      {/* <OurServices/> */}
+      {/* <Booking/> */}
+      {/* <Footer/> */}
+      {/* <Contactus/> */}
+      <Guest2 />
+      {/* <Ourplans/> */}
+      {/* <Subscribe/> */}
+
+    </>
   );
 }
 

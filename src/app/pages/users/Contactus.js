@@ -23,7 +23,8 @@ import {
   import Question from "../../components/Question";
   import Ourplan from "../users/Ourplan";
   import Footer from "../../partials/Footer";
-  
+  import Colors from "../../utils/colors";
+
   const boxStyle = {
     padding: "20px",
     display: "flex",
@@ -47,9 +48,9 @@ import {
     width: "",
     padding: "10px",
     margin: "20px 0",
-    color: "white",
+    color:  Colors.palette.primary.main,
     borderRadius: "10px",
-    backgroundColor: "#002C4F",
+    backgroundColor: Colors.palette.primary.darkBlue,
   };
   
   const img = {
@@ -89,7 +90,7 @@ import {
         <Guest1 />
         <Box
           sx={{
-            backgroundColor: " #F5F5F5",
+            backgroundColor:  Colors.palette.secondary.cardBackground,
             backgroundSize: "cover",
             backgroundPosition: "center",
             height: "100%",
@@ -356,10 +357,9 @@ import {
                                 <Button
                                   type="submit"
                                   variant="contained"
-                                  color="primary"
                                   style={submitButtonStyle}
-                                >
-                                  Submit
+                                > 
+                                   Submit
                                 </Button>
                               </Box>
                             </form>
