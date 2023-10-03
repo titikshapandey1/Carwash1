@@ -19,44 +19,54 @@ import Card1 from "./app/components/Card";
 import Guest5 from "./app/pages/users/Guest5";
 import Guest2 from "./app/pages/users/Guest2";
 import Ourplans from "./app/pages/users/Ourplans";
+
 import Contactus from "./app/pages/users/Contactus";
 import Dryclean from "./app/components/Home/Dryclean";
 import HomeCards from "./app/components/Home/HomeCards";
 import Subscribe from "./app/pages/users/Subscribe";
 import Review from "./app/components/Review";
+// import Searcher from "./app/pages/users/Searcher";
+
+// import Contactus from "./app/pages/users/Contactus";
+// import Dryclean from "./app/components/Home/Dryclean";
+
+// import HomeCards from "./app/components/Home/HomeCards";
+
+
 
 // {hii}
 
 function App() {
   return (
-    <>
-      {/* <Dryclean/> */}
-      {/* <Card1/> */}
-      {/* <HomeCards/> */}
-      {/* <PaymentOptions/> */}
-      {/* <Ourplan/> */}
-      {/* <Nav/>  */}
-      {/* <Guest5/> */}
-      {/* <HomePage/> */}
-      {/* <ServiceLocation/> */}
-      {/* <AboutGuest/> */}
-      {/* <Guest1/>   */}
-      {/* <Login/> */}
-      {/* <Question/> */}
-      {/* <RegisterPage/> */}
-      {/* <Mobile/> */}
-      {/* <Otp/> */}
-      {/* <Rectanglefield/> */}
-      {/* <Subscriptions/> */}
-      {/* <OurServices/> */}
-      {/* <Booking/> */}
-      {/* <Footer/> */}
-      <Contactus/>
-      {/* <Guest2 /> */}
-      {/* <Ourplans/> */}
-      {/* <Subscribe/> */}
-      {/* <Review/> */}
-    </>
+   <>
+   {/* <Dryclean/> */}
+   {/* <Card1/> */}
+   {/* <HomeCards/> */}
+   {/* <PaymentOptions/> */}
+   {/* <Ourplan/> */}
+   {/* <Nav/>  */}
+   {/* <Searcher/> */}
+   {/* <Guest5/> */}
+    {/* <HomePage/> */}
+   {/* <ServiceLocation/> */}
+    {/* <AboutGuest/> */}
+   {/* <Guest1/>   */}
+ {/* <Login/> */}
+ {/* <Question/> */}
+ {/* <RegisterPage/> */}
+ {/* <Mobile/> */}
+ {/* <Otp/> */}
+ {/* <Rectanglefield/> */}
+ {/* <Subscriptions/> */}
+ {/* <OurServices/> */}
+ {/* <Booking/> */}
+  {/* <Footer/> */}
+  {/* <Contactus/> */}
+  <Guest2/>
+  {/* <Ourplans/> */}
+  {/* <Subscribe/> */}
+ 
+   </>
   );
 }
 

@@ -3,157 +3,124 @@ import { Box, Button, Card, CardContent, Container, Grid, Typography } from '@mu
 import React from 'react';
 
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
- import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
- import LocationOnIcon from '@mui/icons-material/LocationOn';
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 
 const Cards = () => {
-  return (
-    <>
- 
-    
-     <Container sx={{sm:"5"}}>
-    <Grid container item spacing={2} sx={{justifyContent:"center"}}>
-      <Grid item xs={12} sm={6} md={4} >
-    <Card sx={{borderRadius:"20px",bgcolor:" #FFFFFF"}}>
-      <CardContent>
-      <Typography variant='h5' sx={{marginTop:"5%", textAlign:"center", color:" #013C6B"}} >
-        <b> Routine Clean<br/>
-         ₹ 499</b>
-      </Typography>
-      <Typography >
-      <ul>
-           <li>
-               Exterior Wash, removing dust and grime.
-           </li> <br/>
-           <li>
-               Interior Vaccuming, dusting seats and carpets and floor mats.
-           </li> <br/>
-           <li>
-               Cleaning and Polishing all windows and mirrors.
-           </li> <br/>
-           <li>
-               Cleaning and Shining tires and rims.
-           </li> <br/>
-           <li>
-               Wiping down interior surface, including dashboard and door panels.
-           </li> 
-          </ul>
-      </Typography> <br/> <br/>
-      <Box sx={{display:"flex", justifyContent: "space-around"}}>
-           <Typography> <CalendarMonthIcon/><b>29-09-2023</b></Typography> 
-           <Typography> <AccessAlarmIcon /><b>2:00 PM</b></Typography> 
-          </Box> <br/> <br/>
-
-          <Typography>
-             <LocationOnIcon/>  Lorem ipsum dolor sit amet At laboriosam maiores 
-           </Typography>
+    return (
+        <>
 
 
-       <Typography align='center'>
+            <Container maxWidth="lg">
+                <Container>
 
-     
-       </Typography>
-      
+                    <Grid container item spacing={2} sx={{ justifyContent: "center" }}>
+                        <Grid item xs={12} sm={6} md={4} >
+                            <Card sx={{ borderRadius: "20px", bgcolor: " #FFFFFF" }}>
+                                <CardContent>
+                                    <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color: " #013C6B" }} >
+                                        <b> Routine Clean<br />
+                                            ₹ 499</b>
+                                    </Typography>
+                                    <Typography >
+                                        <ul>
+                                            <li>
+                                                Exterior Wash, removing dust and grime.
+                                            </li> <br />
+                                            <li>
+                                                Interior Vaccuming, dusting seats and carpets and floor mats.
+                                            </li> <br />
+                                            <li>
+                                                Cleaning and Polishing all windows and mirrors.
+                                            </li> <br />
+                                            <li>
+                                                Cleaning and Shining tires and rims.
+                                            </li> <br />
+                                            <li>
+                                                Wiping down interior surface, including dashboard and door panels.
+                                            </li>
+                                        </ul>
+                                    </Typography> <br /> <br />
+                                  
 
-      </CardContent>
-    </Card>
-    </Grid>
-
-    <Grid item xs={12} sm={6} md={4} >
-    <Card sx={{borderRadius:"20px",bgcolor:"#FFFFFF"}}>
-    <CardContent>
-    <Typography variant='h5' sx={{marginTop:"5%", textAlign:"center", color:" #013C6B"}} >
-        <b> Routine Clean<br/>
-         ₹ 499</b>
-      </Typography>
-      <Typography >
-      <ul>
-           <li>
-               Exterior Wash, removing dust and grime.
-           </li> <br/>
-           <li>
-               Interior Vaccuming, dusting seats and carpets and floor mats.
-           </li> <br/>
-           <li>
-               Cleaning and Polishing all windows and mirrors.
-           </li> <br/>
-           <li>
-               Cleaning and Shining tires and rims.
-           </li> <br/>
-           <li>
-               Wiping down interior surface, including dashboard and door panels.
-           </li> 
-          </ul>
-      </Typography><br/> <br/>
-
-      <Box sx={{display:"flex", justifyContent: "space-around"}}>
-            <Typography> <CalendarMonthIcon/><b>29-09-2023</b></Typography> 
-            <Typography> <AccessAlarmIcon /><b>2:00 PM</b></Typography> 
-           </Box> <br/> <br/>
-
-           <Typography>
-             <LocationOnIcon/>  Lorem ipsum dolor sit amet At laboriosam maiores 
-           </Typography>
-      <Typography align='center'>
+                                   
 
 
+                                </CardContent>
+                            </Card>
+                        </Grid>
 
- </Typography>
-      </CardContent>
-    </Card>
-    </Grid>
-      
-    <Grid item xs={12} sm={6} md={4}>
-    <Card sx={{borderRadius:"20px",bgcolor:"#FFFFFF"}}>
-      <CardContent>
-    <Typography variant='h5' sx={{marginTop:"5%", textAlign:"center", color:" #013C6B"}} >
-        <b> Routine Clean<br/>
-         ₹ 499</b>
-      </Typography>
-      <Typography >
-      <ul>
-           <li>
-               Exterior Wash, removing dust and grime.
-           </li> <br/>
-           <li>
-               Interior Vaccuming, dusting seats and carpets and floor mats.
-           </li> <br/>
-           <li>
-               Cleaning and Polishing all windows and mirrors.
-           </li> <br/>
-           <li>
-               Cleaning and Shining tires and rims.
-           </li> <br/>
-           <li>
-               Wiping down interior surface, including dashboard and door panels.
-           </li> 
-          </ul>
-      </Typography> <br/> <br/>
-      <Box sx={{display:"flex", justifyContent: "space-around"}}>
-           <Typography> <CalendarMonthIcon/><b>29-09-2023</b></Typography> 
-            <Typography> <AccessAlarmIcon /><b>2:00 PM</b></Typography> 
-           </Box> <br/> <br/>
-{/* hiii */}
-           <Typography justifyContent={'center'}>
-             <LocationOnIcon/> 
-              Lorem ipsum dolor sit amet At laboriosam maiores 
-           </Typography>
+                        <Grid item xs={12} sm={6} md={4} >
+                            <Card sx={{ borderRadius: "20px", bgcolor: "#FFFFFF" }}>
+                                <CardContent>
+                                    <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color: " #013C6B" }} >
+                                        <b> Routine Clean<br />
+                                            ₹ 499</b>
+                                    </Typography>
+                                    <Typography >
+                                        <ul>
+                                            <li>
+                                                Exterior Wash, removing dust and grime.
+                                            </li> <br />
+                                            <li>
+                                                Interior Vaccuming, dusting seats and carpets and floor mats.
+                                            </li> <br />
+                                            <li>
+                                                Cleaning and Polishing all windows and mirrors.
+                                            </li> <br />
+                                            <li>
+                                                Cleaning and Shining tires and rims.
+                                            </li> <br />
+                                            <li>
+                                                Wiping down interior surface, including dashboard and door panels.
+                                            </li>
+                                        </ul>
+                                    </Typography><br /> <br />
 
-      <Typography align='center'>
+                                   
+                                </CardContent>
+                            </Card>
+                        </Grid>
+
+                        <Grid item xs={12} sm={6} md={4}>
+                            <Card sx={{ borderRadius: "20px", bgcolor: "#FFFFFF" }}>
+                                <CardContent>
+                                    <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color: " #013C6B" }} >
+                                        <b> Routine Clean<br />
+                                            ₹ 499</b>
+                                    </Typography>
+                                    <Typography >
+                                        <ul>
+                                            <li>
+                                                Exterior Wash, removing dust and grime.
+                                            </li> <br />
+                                            <li>
+                                                Interior Vaccuming, dusting seats and carpets and floor mats.
+                                            </li> <br />
+                                            <li>
+                                                Cleaning and Polishing all windows and mirrors.
+                                            </li> <br />
+                                            <li>
+                                                Cleaning and Shining tires and rims.
+                                            </li> <br />
+                                            <li>
+                                                Wiping down interior surface, including dashboard and door panels.
+                                            </li>
+                                        </ul>
+                                    </Typography> <br /> <br />
+                                  
+                                </CardContent>
+                            </Card>
+                        </Grid>
 
 
- </Typography>
-      </CardContent> 
-    </Card>
-    </Grid>
-       
+                    </Grid>
+                </Container>
+            </Container>
 
-    </Grid>
-    </Container>
-      
-    </>
-  );
+        </>
+    );
 }
 
 export default Cards;
@@ -173,4 +140,3 @@ export default Cards;
 
 
 
- 
