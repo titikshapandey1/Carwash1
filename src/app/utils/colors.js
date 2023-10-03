@@ -47,12 +47,12 @@ const Colors = createTheme({
       text:'#FFFFFF',
    
     },
-    color:{
-       maincolor: '#000000',
-       body:' #FFFFFF',
-      HeadingText:'013C6B'
+    // color:{
+    //    maincolor: '#000000',
+    //    body:' #FFFFFF',
+    //   HeadingText:'013C6B'
 
-    },
+    // },
     shadows:{
       boxshadow: '4px 4px 4px 0px #00000040',
     }

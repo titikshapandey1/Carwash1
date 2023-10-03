@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import React from 'react';
+// import React, { useState } from "react";
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,7 +15,7 @@ import DrawerComp from './Drawer';
 // import React from 'react'
 
 const Nav = () => {
-        const [value, setValue] = useState();
+        // const [value, setValue] = useState();
   return (
    <>
    {/* hii */}
