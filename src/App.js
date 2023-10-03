@@ -53,7 +53,7 @@ function App() {
       {/* <Question/> */}
       {/* <RegisterPage/> */}
       {/* <Mobile/> */}
-      <Otp/>
+      {/* <Otp/> */}
       {/* <Rectanglefield/> */}
       {/* <Subscriptions/> */}
       {/* <OurServices/> */}
@@ -63,6 +63,7 @@ function App() {
       {/* <Guest2/> */}
       {/* <Ourplans/> */}
       {/* <Subscribe /> */}
+      <Review/>
     </>
   );
 }
