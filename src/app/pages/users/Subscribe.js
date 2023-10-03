@@ -64,7 +64,7 @@ const Subscribe = () => {
                   </ul>
                 </Typography>
 
-                <Typography sx={{ textAlign: "left", marginLeft: "4%" }}>
+                <Typography sx={{ textAlign: "left", marginLeft: "4%"}}>
                   Expiring on: 04/10/2023
                 </Typography>
 
