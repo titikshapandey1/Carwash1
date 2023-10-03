@@ -51,7 +51,7 @@ function App() {
    {/* <ServiceLocation/> */}
     {/* <AboutGuest/> */}
    {/* <Guest1/>   */}
- {/* <Login/> */}
+ <Login/>
  {/* <Question/> */}
  {/* <RegisterPage/> */}
  {/* <Mobile/> */}
@@ -62,7 +62,7 @@ function App() {
  {/* <Booking/> */}
   {/* <Footer/> */}
   {/* <Contactus/> */}
-  <Guest2/>
+  {/* <Guest2/> */}
   {/* <Ourplans/> */}
   {/* <Subscribe/> */}
  

@@ -16,7 +16,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
-    password: "",
+    password: "", 
   });
   const [formErrors, setFormErrors] = useState({});
 
