@@ -16,6 +16,8 @@ import Mobile from "./app/pages/users/Mobile";
 // import Subscriptions from "./app/pages/users/Subscription";
 // import Booking from "./app/pages/users/Booking";
 import OurServices from "./app/components/OurServices";
+import Card1 from "./app/components/Card";
+import Guest5 from "./app/pages/users/Guest5";
 // import Contactus from "./app/pages/users/Contactus";
 // import Dryclean from "./app/components/Home/Dryclean";
 
@@ -28,11 +30,12 @@ function App() {
   return (
    <>
    {/* <Dryclean/> */}
+   {/* <Card1/> */}
    {/* <HomeCards/> */}
    {/* <PaymentOptions/> */}
    {/* <Ourplan/> */}
    {/* <Nav/>  */}
-   
+   <Guest5/>
     {/* <HomePage/> */}
    {/* <ServiceLocation/> */}
     {/* <AboutGuest/> */}
@@ -44,7 +47,7 @@ function App() {
  {/* <Otp/> */}
  {/* <Rectanglefield/> */}
  {/* <Subscriptions/> */}
- <OurServices/>
+ {/* <OurServices/> */}
  {/* <Booking/> */}
   {/* <Footer/> */}
   {/* <Contactus/> */}

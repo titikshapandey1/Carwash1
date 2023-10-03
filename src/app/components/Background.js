@@ -14,7 +14,7 @@ const Guest1 = () => {
           backgroundSize: 'cover', // Optional: Adjust the background size as needed
           backgroundPosition: 'center', // Optional: Adjust the background position as needed
           minHeight: '500px', // Optional: Set a minimum height for the box
-          marginTop:{xl:"0%",md:"0%",xs:"2%"},
+          // marginTop:{xl:"0%",md:"0%",xs:"2%"},
         
           
         }}
