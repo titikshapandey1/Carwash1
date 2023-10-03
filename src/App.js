@@ -37,7 +37,7 @@ function App() {
  {/* <Rectanglefield/> */}
  {/* <Subscriptions/> */}
  {/* <Booking/> */}
-  {/* <Footer/> */}
+  <Footer/>
   {/* <Contactus/> */}
    </>
   );
