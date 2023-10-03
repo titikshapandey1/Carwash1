@@ -22,6 +22,8 @@ import Ourplans from "./app/pages/users/Ourplans";
 import Contactus from "./app/pages/users/Contactus";
 import Dryclean from "./app/components/Home/Dryclean";
 import HomeCards from "./app/components/Home/HomeCards";
+import Subscribe from "./app/pages/users/Subscribe";
+import Review from "./app/components/Review";
 
 // {hii}
 
@@ -52,6 +54,8 @@ function App() {
       <Contactus/>
       {/* <Guest2 /> */}
       {/* <Ourplans/> */}
+      {/* <Subscribe/> */}
+      {/* <Review/> */}
     </>
   );
 }

@@ -1,44 +1,40 @@
-import { Box, Grid, Typography } from '@mui/material'
-import React from 'react'
-import car1 from "../assests/images/car1guest.png"
+import { Box, Container, Grid, Typography } from "@mui/material";
+import React from "react";
+import car1 from "../assests/images/car1guest.png";
 const Guest1 = () => {
   return (
     <>
-
-<Box
+      <Box
         sx={{
-            display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
-          color: 'white',
-          backgroundImage: `url(${car1})`, // Use the backgroundImage property to set the image
-          backgroundSize: 'cover', // Optional: Adjust the background size as needed
-          backgroundPosition: 'center', // Optional: Adjust the background position as needed
-          minHeight: '500px', // Optional: Set a minimum height for the box
-          // marginTop:{xl:"0%",md:"0%",xs:"2%"},
-        
-          
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          color: "white",
+          backgroundImage: `url(${car1})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "500px",
         }}
       >
-      
-      <Grid container spacing={3}>
-          {/* Your Grid items here */}
-          
-          <Grid item xs={12} sm={8} md={6}  padding={"2%"} sx={{ marginInline: { xs: "0%", sm: "0%" }, mt:"6%"}}>
-          <Box marginLeft={"2%"}>
-            <Typography  variant="h2" gutterBottom>
-            Lorem ipsum
-dolor sit amet,
-consectetur adipiscing elit
-            </Typography>
-        
-          </Box>
+        <Grid container spacing={3}>
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={8}
+            padding={"2%"}
+            sx={{ marginInline: { xs: "0%", sm: "0%" }, mt: "8%" }}
+          >
+            <Container>
+              <Typography variant="h3"  sx={{ fontWeight: 600 }}>
+                Lorem ipsum <br /> dolor sit amet, <br /> consectetur adipiscing
+                elit
+              </Typography>
+            </Container>
+          </Grid>
         </Grid>
-           </Grid>
-
-        
-      </Box>   
+      </Box>
     </>
-  )
-}
+  );
+};
 
-export default Guest1
+export default Guest1;
