@@ -8,12 +8,12 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import Nav from "../../partials/Nav";
+
 
 const Subscribe = () => {
   return (
     <>
-    {/* hlo */}
+    {/* hiiii */}
     <Container>
       <Box sx={{ textAlign: "center", marginTop: "5%", marginBottom: "15%" }}>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
