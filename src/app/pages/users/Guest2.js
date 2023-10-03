@@ -3,8 +3,8 @@ import Nav from '../../partials/Nav';
 import Ourplans from './Ourplans';
 import Footer from '../../partials/Footer';
 import Cards from './Cards';
-import Subcribe from './Subcribe';
 import Searcher from './Searcher';
+import Subscribe from './Subscribe';
 
 
 
@@ -18,7 +18,7 @@ const Guest2 = () => {
       <Searcher/>
       <Ourplans/>
     <Cards/>
-<Subcribe/>
+<Subscribe/>
       <Footer/> 
     </>
   )

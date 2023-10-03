@@ -19,7 +19,7 @@ import Card1 from "./app/components/Card";
 import Guest5 from "./app/pages/users/Guest5";
 import Guest2 from "./app/pages/users/Guest2";
 import Ourplans from "./app/pages/users/Ourplans";
-import Subcribe from "./app/pages/users/Subcribe";
+import Subscribe from "./app/pages/users/Subscribe";
 // import Searcher from "./app/pages/users/Searcher";
 
 // import Contactus from "./app/pages/users/Contactus";
@@ -58,7 +58,7 @@ function App() {
   {/* <Contactus/> */}
   <Guest2/>
   {/* <Ourplans/> */}
-  {/* <Subcribe/> */}
+  {/* <Subscribe/> */}
  
    </>
   );
