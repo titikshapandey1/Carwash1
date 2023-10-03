@@ -1,20 +1,19 @@
-
-// import Login from "../src/app/pages/Login"
-// import Guest1 from './app/components/Background';
-// import HomePage from './app/components/Home/Homepage';
-// import PaymentOptions from './app/components/Paymentoption';
-// import AboutGuest from './app/pages/users/About';
-// import ServiceLocation from './app/pages/users/Service';
-// import Nav from "./app/partials/Nav";
-// import Question from "./app/components/Question";
-// import Footer from "./app/partials/Footer";
-// import RegisterPage from "./app/pages/users/Register";
+import Login from "../src/app/pages/Login"
+import Guest1 from './app/components/Background';
+import HomePage from './app/components/Home/Homepage';
+import PaymentOptions from './app/components/Paymentoption';
+import AboutGuest from './app/pages/users/About';
+import ServiceLocation from './app/pages/users/Service';
+import Nav from "./app/partials/Nav";
+import Question from "./app/components/Question";
+import Footer from "./app/partials/Footer";
+import RegisterPage from "./app/pages/users/Register";
 import Mobile from "./app/pages/users/Mobile";
-// import Rectanglefield from "./app/components/Rectanglefield";
-// import Otp from "./app/pages/users/otp";
-// import Ourplan from "./app/pages/users/Ourplan";
-// import Subscriptions from "./app/pages/users/Subscription";
-// import Booking from "./app/pages/users/Booking";
+import Rectanglefield from "./app/components/Rectanglefield";
+import Otp from "./app/pages/users/otp";
+import Ourplan from "./app/pages/users/Ourplan";
+import Subscriptions from "./app/pages/users/Subscription";
+import Booking from "./app/pages/users/Booking";
 import OurServices from "./app/components/OurServices";
 import Card1 from "./app/components/Card";
 import Guest5 from "./app/pages/users/Guest5";
