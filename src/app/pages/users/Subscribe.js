@@ -13,6 +13,7 @@ import Nav from "../../partials/Nav";
 const Subscribe = () => {
   return (
     <>
+    {/* hlo */}
     <Container>
       <Box sx={{ textAlign: "center", marginTop: "5%", marginBottom: "15%" }}>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
