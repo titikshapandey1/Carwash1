@@ -18,21 +18,20 @@ import OurServices from "./app/components/OurServices";
 import Card1 from "./app/components/Card";
 import Guest5 from "./app/pages/users/Guest5";
 import Guest2 from "./app/pages/users/Guest2";
-import Ourplans from "./app/pages/users/Ourplans";
+// import Ourplans from "./app/pages/users/Ourplans";
+// import Subscribe from "./app/pages/users/Subscribe";
 
 import Contactus from "./app/pages/users/Contactus";
 import Dryclean from "./app/components/Home/Dryclean";
 import HomeCards from "./app/components/Home/HomeCards";
 import Subscribe from "./app/pages/users/Subscribe";
 import Review from "./app/components/Review";
-
 // import Searcher from "./app/pages/users/Searcher";
 
 // import Contactus from "./app/pages/users/Contactus";
 // import Dryclean from "./app/components/Home/Dryclean";
 
 // import HomeCards from "./app/components/Home/HomeCards";
-
 
 function App() {
   return (
@@ -49,7 +48,7 @@ function App() {
       {/* <ServiceLocation/> */}
       {/* <AboutGuest/> */}
       {/* <Guest1/>   */}
-      {/* <Login/> */}
+      {/* <Login /> */}
       {/* <Question/> */}
       {/* <RegisterPage/> */}
       {/* <Mobile/> */}
@@ -62,7 +61,7 @@ function App() {
       {/* <Contactus/> */}
       {/* <Guest2/> */}
       {/* <Ourplans/> */}
-      {/* <Subscribe /> */}
+      {/* <Subscribe/> */}
       <Review/>
     </>
   );
