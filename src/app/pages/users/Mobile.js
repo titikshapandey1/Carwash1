@@ -61,9 +61,14 @@ const Mobile = () => {
                 padding: '16px',
               }}
             >
+            <Box>
+
                 <Button justifyContent={"inherit"} sx={{marginRight:"90%"}}>
             <b>{"<"}</b><br></br>
         </Button>
+
+            </Box>
+            
               <Typography variant="h6" color="darkblue" sx={{ marginTop: '20%' }}>
                 Enter your mobile number here
               </Typography>&nbsp;&nbsp;
