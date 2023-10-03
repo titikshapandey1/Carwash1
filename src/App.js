@@ -18,6 +18,8 @@ import Mobile from "./app/pages/users/Mobile";
 import OurServices from "./app/components/OurServices";
 import Card1 from "./app/components/Card";
 import Guest5 from "./app/pages/users/Guest5";
+import Guest2 from "./app/pages/users/Guest2";
+import Ourplans from "./app/pages/users/Ourplans";
 // import Contactus from "./app/pages/users/Contactus";
 // import Dryclean from "./app/components/Home/Dryclean";
 
@@ -35,7 +37,7 @@ function App() {
    {/* <PaymentOptions/> */}
    {/* <Ourplan/> */}
    {/* <Nav/>  */}
-   <Guest5/>
+   {/* <Guest5/> */}
     {/* <HomePage/> */}
    {/* <ServiceLocation/> */}
     {/* <AboutGuest/> */}
@@ -51,6 +53,8 @@ function App() {
  {/* <Booking/> */}
   {/* <Footer/> */}
   {/* <Contactus/> */}
+  <Guest2/>
+  {/* <Ourplans/> */}
    </>
   );
 }
