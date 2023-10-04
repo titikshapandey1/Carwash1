@@ -52,7 +52,7 @@ const Mobile = () => {
                 // minHeight: '50vh',
               backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
                 borderRadius: '20px',
-                backgroundSize: '100% ',
+                backgroundSize: '100%',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
                 display: 'flex',
@@ -63,13 +63,13 @@ const Mobile = () => {
             >
             <Box>
 
-                <Button justifyContent={"inherit"} sx={{marginRight:"90%"}}>
-            <b>{"<"}</b><br></br>
+                <Button  sx={{fontSize: "40px", marginRight: "22rem"}}>
+            <b>{"<"}</b>
         </Button>
 
             </Box>
             
-              <Typography variant="h6" color="darkblue" sx={{ marginTop: '20%' }}>
+              <Typography variant="h6" color="darkblue" sx={{ marginTop: '10%' }}>
                 Enter your mobile number here
               </Typography>&nbsp;&nbsp;
               <Box
@@ -105,7 +105,7 @@ const Mobile = () => {
                 <Typography fontWeight={600}>Submit &gt;</Typography>
               </Button>
               <Box sx={{ display: 'flex', flexDirection: 'row', marginTop: '16px' }}>
-               <Link> Already have an account? Login</Link>
+               <Link > Already have an account?Login  </Link>
               </Box>
             </Box>
           </Grid>

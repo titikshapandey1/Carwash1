@@ -8,7 +8,7 @@
 // import Question from "./app/components/Question";
 // import Footer from "./app/partials/Footer";
 // import RegisterPage from "./app/pages/users/Register";
-// import Mobile from "./app/pages/users/Mobile";
+import Mobile from "./app/pages/users/Mobile";
 // import Rectanglefield from "./app/components/Rectanglefield";
 // import Otp from "./app/pages/users/otp";
 // import Ourplan from "./app/pages/users/Ourplan";
@@ -17,7 +17,8 @@
 // import OurServices from "./app/components/OurServices";
 // import Card1 from "./app/components/Card";
 // import Guest5 from "./app/pages/users/Guest5";
-import Guest2 from "./app/pages/users/Guest2";
+// import Review from "./app/components/Review";
+// import Guest2 from "./app/pages/users/Guest2";
 // import Ourplans from "./app/pages/users/Ourplans";
 // import Subscribe from "./app/pages/users/Subscribe";
 
@@ -50,7 +51,7 @@ function App() {
       {/* <Login/> */}
       {/* <Question/> */}
       {/* <RegisterPage/> */}
-      {/* <Mobile/> */}
+      <Mobile/>
       {/* <Otp/> */}
       {/* <Rectanglefield/> */}
       {/* <Subscriptions/> */}
@@ -58,9 +59,10 @@ function App() {
       {/* <Booking/> */}
       {/* <Footer/> */}
       {/* <Contactus/> */}
-      <Guest2 />
+      {/* <Guest2 /> */}
       {/* <Ourplans/> */}
       {/* <Subscribe/> */}
+      {/* <Review/> */}
 
     </>
   );
