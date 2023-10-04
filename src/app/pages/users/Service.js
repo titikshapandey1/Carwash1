@@ -14,8 +14,8 @@ import PaymentOptions from"../../components/Paymentoption"
 import { useState } from 'react';
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 
-function ServiceLocation() {
-    const [selectedValue, setSelectedValue] = useState('CarWash centre');
+function ServiceLocation() {  
+    const [selectedValue, setSelectedValue] =  useState('CarWash centre');
 
     const handleChange = (event) => {
       setSelectedValue(event.target.value);
@@ -69,7 +69,7 @@ function ServiceLocation() {
         // mt:2,
       }}
     >
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
         <Grid container sx={{mt:10}}>
           <Paper elevation={10} style={paperStyle} >
 

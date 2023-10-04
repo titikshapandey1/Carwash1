@@ -20,6 +20,7 @@ const Colors = createTheme({
       darkPurple: "#A300F0",
       black:"#000000",
       cardBackground:"#F5F5F5",
+      grey:"#808080",
     },
   },
 });

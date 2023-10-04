@@ -7,10 +7,12 @@ import {
   Box,
   Container,
   TextField,
+  Link,
+  Navlink,
 } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 import car1 from "../assests/images/car1guest.png";
-import { blue } from "@mui/material/colors";
+import Colors from "../utils/colors";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function Login() {
@@ -32,14 +34,14 @@ function Login() {
     width: "100%",
     marginTop: "10%",
     position: "center",
-    // height:"100%",
-    // width:"100%",
   };
 
   const submitButtonStyle = {
+    padding: "12px",
     margin: "20px 0",
-    // width: '450px',
     borderRadius: 15,
+    fontWeight: "600",
+    backgroundColor: Colors.palette.secondary.main,
     display: "block",
     textAlign: "center",
     marginTop: "5%",
@@ -107,13 +109,20 @@ function Login() {
               <Paper elevation={3} style={paperStyle} sx={{ width: "100%" }}>
                 <Box style={{ display: "flex" }}>
                   <Button
-                    sx={{ color: "#013C6B", justifyContent: "flex-start" }}
+                    sx={{
+                      color: Colors.palette.secondary.main,
+                      justifyContent: "flex-start",
+                    }}
                   >
                     <ArrowBackIosIcon />
                   </Button>
                   <Typography
                     variant="h4"
-                    sx={{ color: "#013C6B", flex: 0.8, textAlign: "center" }}
+                    sx={{
+                      color: Colors.palette.secondary.main,
+                      flex: 0.8,
+                      textAlign: "center",
+                    }}
                   >
                     Log in
                   </Typography>
@@ -142,26 +151,46 @@ function Login() {
                     // InputProps={{ sx: { borderColor:"red" } }}
                   />
                   <Typography
-                    sx={{ color: "#013C6B", display: "flex", mt: "1rem" }}
+                    sx={{
+                      color: Colors.palette.secondary.main,
+                      display: "flex",
+                      mt: "1rem",
+                    }}
                   >
                     <LockIcon />
-                    {"  "}
-                    Forgot Password ?
+
+                    <Link
+                      sx={{
+                        textDecoration: "none",
+                        ml: 1,
+                        color: Colors.palette.secondary.main,
+                      }}
+                    >
+                      Forgot Password ?
+                    </Link>
                   </Typography>
                   <Box align="center">
                     <Button
                       type="submit"
                       fullWidth
                       variant="contained"
-                      style={{ ...submitButtonStyle, backgroundColor: blue }}
+                      style={{ ...submitButtonStyle }}
                     >
                       Login
                     </Button>
                   </Box>
                   <Box align="center">
-                    <Typography sx={{ color: blue }}>
+                    <Typography sx={{ color: Colors.palette.secondary.main }}>
                       Don't have an account?{" "}
-                      <span style={{ color: "#0061AE" }}>Register here</span>
+                      <Link
+                        sx={{
+                          textDecoration: "none",
+                          ml: 1,
+                          color: Colors.palette.secondary.main,
+                        }}
+                      >
+                        Register here
+                      </Link>
                     </Typography>
                   </Box>
                 </form>
