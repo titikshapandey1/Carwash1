@@ -1,258 +1,197 @@
 
-import React from 'react'
-import { Box, Button, Grid, Link, TextField, Typography } from "@mui/material";
-import car1 from "../../assests/images/car1guest.png"
-// import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
-import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined';
-// import color from "../utils"
-const otp1 = () => {
+import React, { useState } from "react";
+import {
+  Grid,
+  Paper,
+  Button,
+  Typography,
+  Box,
+  Container,
+  TextField,
+  Link,
+} from "@mui/material";
+import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
+import car1 from "../../assests/images/car1guest.png";
+import { blue } from "@mui/material/colors";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Colors from "../../utils/colors";
+
+function Login() {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const paperStyle = {
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: 5,
+    opacity: ".8",
+  };
+
+  const formStyle = {
+    width: "100%",
+    marginTop: "10%",
+    position: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  };
+
+  const submitButtonStyle = {
+    marginTop: "20px",
+    marginBottom: "20px",
+    padding: "15px",
+    borderRadius: 5,
+    display: "flex",
+    textAlign: "center",
+    backgroundColor: Colors.palette.secondary.main,
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
-     <Box>
       <Box
         sx={{
-          background: 'radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)',
-         minHeight: '100vh',
-          width:'100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          background:
+            "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100vh",
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        {/* <Grid container justifyContent="center" sx={{}}> */}
-
-        <Grid container item justifyContent={"center"}>
         <Box
-              sx={{
-                minHeight: '70vh',
-              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) , url(${car1})`,
-                borderRadius: '20px',
-                backgroundSize: '100% ,100%',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                padding: '16px',
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Container maxWidth="sm">
+            <Grid
+              container
+              style={{
+                backgroundImage: `url(${car1})`,
+                backgroundPosition: "center",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                // borderRadius: 50,
+                height: "100%",
               }}
             >
-    <Box 
-   
-      sx={{
-        height: { xs: 50, sm: 50, md: 50, lg: 50, xl: 50 },
-        width: { xs: 150, sm: 150, md: 150, lg: 150, xl: 150 },
-        position:"relative",
-        
-      }} />
-    <Box mt={15} ml={{ xs: 3, sm: 7, md: 30, lg: 15, xl: 20 }} sx={{marginRight:"30%"}}>
-      <Typography variant=''
-        color={"darkblue"}
-        // fontSize={{ xs: 8, sm: 8, md: 9, lg: 10, xl: 10 }}
- >
-        <b>You have received an OTP on your number xxxxxx6149</b>
-      </Typography><br/>
-     
-      <TextField
-        name="number"
-        type="text"
-        placeholder="-"
-        variant="outlined"
-        sx={{
-            // displayPrint:"solid",
-          width: {
-            xl: "40px",
-            lg: "40px",
-            md: "40px",
-            sm: "35px",
-            xs: "35px",
-          },
-          mt: 1,
-        //   ml: 0.3,
-        }}
-        InputProps={{
-          sx: {
-            height: "40px",
-            color: "#001478",
-            border: "1px solid #001478",
-          },
-        }} />
-        <TextField
-        name="number"
-        type="text"
-        placeholder="-"
-        variant="outlined"
-        sx={{
-          width: {
-            xl: "40px",
-            lg: "40px",
-            md: "40px",
-            sm: "35px",
-            xs: "35px",
-          },
-          mt: 1,
-          ml: 1,
-        }}
-        InputProps={{
-          sx: {
-            height: "40px",
-            color: "#001478",
-            border: "1px solid #001478",
-          },
-        }} />
-        <TextField
-        name="number"
-        type="text"
-        placeholder="-"
-        variant="outlined"
-        sx={{
-          width: {
-            xl: "40px",
-            lg: "40px",
-            md: "40px",
-            sm: "35px",
-            xs: "35px",
-          },
-          mt: 1,
-          ml: 1,
-        }}
-        InputProps={{
-            sx: {
-              height: "40px",
-              color: "#001478",
-              border: "1px solid #001478",
-            },
-          }} />
-             <TextField
-        name="number"
-        type="text"
-        placeholder="-"
-        variant="outlined"
-        sx={{
-          width: {
-            xl: "40px",
-            lg: "40px",
-            md: "40px",
-            sm: "35px",
-            xs: "35px",
-          },
-          mt: 1,
-          ml: 3.5,
-        }}
-        
-        InputProps={{
-            sx: {
-              height: "40px",
-              color: "#001478",
-              border: "1px solid #001478",
-            },
-          }} />
-        <TextField
-        name="number"
-        type="text"
-        placeholder="-"
-        variant="outlined"
-        sx={{
-          width: {
-            xl: "40px",
-            lg: "40px",
-            md: "40px",
-            sm: "35px",
-            xs: "35px",
-          },
-          mt: 1,
-          ml: 1,
-        }}
-        InputProps={{
-          sx: {
-            height: "40px",
-            color: "#001478",
-            border: "1px solid #001478",
-          },
-        }} />
-         <TextField
-        name="number"
-        type="text"
-        placeholder="-"
-        variant="outlined"
-        sx={{
-          width: {
-            xl: "40px",
-            lg: "40px",
-            md: "40px",
-            sm: "35px",
-            xs: "35px",
-          },
-          mt: 1,
-          ml:1,
-        }}
-        InputProps={{
-          sx: {
-            height: "40px",
-            color: "#001478",
-            border: "1px solid #001478",
-          },
-        }} />{" "}
-      <br />
-      <Grid container>
-      <Grid item>
-      <Typography  mt={3} variant=''
-    //   fontSize={{ xs: 13, sm: 13, md: 14, lg: 15, xl: 15 }} 
-      >
-      Didn’t received the OTP ?
+              <Paper elevation={3} sx={{ ...paperStyle, width: "100%" }}>
+                <Box style={{ display: "flex" }}>
+                  <Button
+                    sx={{
+                      color: Colors.palette.secondary.main,
+                      justifyContent: "flex-start",
+                    }}
+                  >
+                    <ArrowBackIosIcon />
+                  </Button>
+                </Box>
 
-      </Typography>
-      </Grid>
-      <Grid item>
-      <Typography  mt={2} variant=''
-    //   fontSize={{ xs: 13, sm: 13, md: 14, lg: 15, xl: 15 }} 
-      >
-        <Link >resend</Link>
+                <form style={formStyle} noValidate onSubmit={handleFormSubmit}>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: Colors.palette.secondary.main }}
+                  >
+                    <b>You have received an OTP on your number xxxxxx6149</b>
+                  </Typography>
+                  <br />
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {Array.from({ length: 6 }).map((_, index) => (
+                      <TextField
+                        key={index}
+                        name="number"
+                        type="text"
+                        placeholder="-"
+                        variant="outlined"
+                        sx={{
+                          display: "solid",
+                          width: {
+                            md: "40px",
+                            sm: "35px",
+                          },
+                          mt: 1,
+                          ml: index === 3 ? 3 : 1,
+                        }}
+                        InputProps={{
+                          sx: {
+                            height: "40px",
+                            color: "#001478",
+                            border: "1px solid #001478",
+                          },
+                        }}
+                      />
+                    ))}
+                  </Box>
 
-      </Typography>
-      </Grid>
-      <Grid item>
-       <Typography color={'darkblue'} mt={1} mb={1} 
-    //    fontSize={{ xs: 13, sm: 13, md: 14, lg: 15, xl: 15 }} ml={1} 
-       >
-       <TimerOutlinedIcon/> 00:56
-       </Typography>
-      </Grid>
-      </Grid>
-      <Button
-        variant="contained"
-        size="large" 
-        sx={{
-            borderRadius:3,
-          background: "darkblue",
-          color: "white",
-        //   height: 45,
-          width: {
-            xl: "300px",
-            lg: "300px",
-            md: "300px",
-            sm: "300px",
-            xs: "220px",
-          },
-          mt: 1,
-          ml: 0.3,
-        }}
-      >
-        Send
-      </Button>
-      
-       </Box>
-    </Box>
-    </Grid>
-    {/* </Grid> */}
-    </Box>
-    </Box>
- 
+                  <Box align="center">
+                    <Typography
+                      sx={{
+                        color: Colors.palette.secondary.main,
+                        display: "flex",
+                        mt: "1rem",
+                      }}
+                    >
+                      Didn’t receive the OTP?
+                      <span
+                        style={{
+                          color: Colors.palette.secondary.blue,
+                          marginRight: "1.5rem",
+                        }}
+                      >
+                        Resend
+                      </span>
+                      <TimerOutlinedIcon /> 00:45
+                    </Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ ...submitButtonStyle }}
+                    >
+                      Submit <ArrowForwardIosIcon />
+                    </Button>
+                  </Box>
+                </form>
+              </Paper>
+            </Grid>
+          </Container>
+        </Box>
+      </Box>
     </>
-  )
+  );
 }
 
-export default otp1
-
-
-
-
+export default Login;
