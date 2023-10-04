@@ -37,11 +37,11 @@ function App() {
       {/* <Ourplan/> */}
       {/* <Nav/>  */}
       {/* <Searcher/> */}
-      <HomePage/>
+      {/* <HomePage/> */}
       {/* <ServiceLocation/> */}
       {/* <AboutGuest/> */}
       {/* <BackgroundImg/>   */}
-      {/* <Guest1/> */}
+      <Guest1/>
       {/* <Guest5/> */}
       {/* <Guest2 /> */}
       {/* <Guest6 /> */}
