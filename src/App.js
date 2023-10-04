@@ -23,9 +23,6 @@ import Contactus from "./app/pages/users/Contactus";
 
 // import HomeCards from "./app/components/Home/HomeCards";
 
-
-// {hii}
-
 function App() {
   return (
    <>
