@@ -5,8 +5,7 @@ import crate2 from "../../assests/images/crate2.png";
 import crate3 from "../../assests/images/crate3.png";
 import crate4 from "../../assests/images/crate4.png";
 import Cardshome from "../../assests/images/cardshome.png";
-// import Color from "@mui/material"
-// import Colors from "../../utils/colors"
+import Colors from "../../utils/colors";
 
 const HomeCards = () => {
   return (
@@ -14,28 +13,35 @@ const HomeCards = () => {
       <Box
         sx={{
           backgroundImage: `url(${Cardshome})`,
-          backgroundSize: "cover",
-          backgroundPositionY: "top",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
           opacity: 1,
           position: "relative",
           width: "100%",
           height: "100%",
-          zIndex: -1, 
+          zIndex: -1,
+          "@media (max-width: 960px)": {
+            backgroundImage: "none",
+          },
         }}
       >
         <Container sx={{ mt: 10 }}>
           <Grid
             container
             item
-            spacing={6}
-            justifyContent={"left"}
+            // justifyContent={"left"}
             sx={{
               backdropFilter: "blur(100%)",
-              // marginTop: "12%",
             }}
           >
             <Grid item>
-              <Typography fontSize={60} color={"darkblue"} textAlign={"center"}>
+              <Typography
+                fontSize={50}
+                color={Colors.palette.secondary.main}
+                textAlign={"center"}
+                sx={{ml:3}}
+              >
                 <b>Our Washing Services</b>
               </Typography>
             </Grid>
@@ -43,10 +49,10 @@ const HomeCards = () => {
             <Grid item>
               <Typography
                 fontSize={16}
-                color={"darkblue"}
+                color={Colors.palette.secondary.main}
                 textAlign={"center"}
                 mt={3}
-                sx={{ marginTop: "16%" }}
+                sx={{ marginTop: "16%" ,ml:6}}
               >
                 WITH
                 <b> MODERN EQUIPMENT</b>
@@ -60,7 +66,7 @@ const HomeCards = () => {
               <Paper
                 // elevation={10}
                 sx={{
-                  height: 260,
+                  height: 290,
                   width: 240,
                   borderRadius: 5,
                   padding: 1,
@@ -77,7 +83,7 @@ const HomeCards = () => {
                 </Typography>
                 <Typography
                   fontSize={17}
-                  color={"darkblue"}
+                  color={Colors.palette.secondary.main}
                   textAlign={"center"}
                   mt={2}
                 >
@@ -91,7 +97,7 @@ const HomeCards = () => {
                   <Rating
                     name="size-medium"
                     defaultValue={4}
-                    sx={{ color: "darkblue" }}
+                    sx={{ color: Colors.palette.secondary.main }}
                   />
                 </Typography>
               </Paper>
@@ -101,7 +107,7 @@ const HomeCards = () => {
               <Paper
                 // elevation={10}
                 sx={{
-                  height: 260,
+                  height: 290,
                   width: 240,
                   borderRadius: 5,
                   padding: 1,
@@ -119,7 +125,7 @@ const HomeCards = () => {
                 </Typography>
                 <Typography
                   fontSize={17}
-                  color={"darkblue"}
+                  color={Colors.palette.secondary.main}
                   textAlign={"center"}
                   mt={2}
                 >
@@ -133,7 +139,7 @@ const HomeCards = () => {
                   <Rating
                     name="size-medium"
                     defaultValue={2}
-                    sx={{ color: "darkblue" }}
+                    sx={{ color: Colors.palette.secondary.main }}
                   />
                 </Typography>
               </Paper>
@@ -143,7 +149,7 @@ const HomeCards = () => {
               <Paper
                 // elevation={10}
                 sx={{
-                  height: 260,
+                  height: 290,
                   width: 240,
                   borderRadius: 5,
                   padding: 1,
@@ -161,7 +167,7 @@ const HomeCards = () => {
                 </Typography>
                 <Typography
                   fontSize={17}
-                  color={"darkblue"}
+                  color={Colors.palette.secondary.main}
                   textAlign={"center"}
                   mt={2}
                 >
@@ -175,7 +181,7 @@ const HomeCards = () => {
                   <Rating
                     name="size-medium"
                     defaultValue={2}
-                    sx={{ color: "darkblue" }}
+                    sx={{ color: Colors.palette.secondary.main }}
                   />
                 </Typography>
               </Paper>
@@ -185,7 +191,7 @@ const HomeCards = () => {
               <Paper
                 // elevation={10}
                 sx={{
-                  height: 260,
+                  height: 290,
                   width: 240,
                   borderRadius: 5,
                   padding: 1,
@@ -203,7 +209,7 @@ const HomeCards = () => {
                 </Typography>
                 <Typography
                   fontSize={17}
-                  color={"darkblue"}
+                  color={Colors.palette.secondary.main}
                   textAlign={"center"}
                   mt={2}
                 >
@@ -217,7 +223,7 @@ const HomeCards = () => {
                   <Rating
                     name="size-medium"
                     defaultValue={2}
-                    sx={{ color: "darkblue" }}
+                    sx={{ color: Colors.palette.secondary.main }}
                   />
                 </Typography>
               </Paper>

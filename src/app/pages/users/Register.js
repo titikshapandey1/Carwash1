@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 import {
   Container,
   Grid,
@@ -8,61 +7,56 @@ import {
   Button,
   Typography,
   Box,
-} from '@mui/material';
-import car1 from "../../assests/images/car1guest.png"
-
+} from "@mui/material";
+import car1 from "../../assests/images/car1guest.png";
 
 function RegisterPage() {
   const paperStyle = {
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '100%',
-    
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
   };
 
   const formStyle = {
-    width: '100%', // Full width
-    marginTop: '10%',
+    width: "100%", // Full width
+    marginTop: "10%",
   };
 
   const submitButtonStyle = {
-     margin: '20px 0',
-    width: '150px', // Adjust the width as needed
-  borderRadius: '10px', // Adjust the border radius as needed
-  //margin: '0 auto', // Center the button horizontally
-  display: 'block', // Ensure the button takes up the full width of its container
-  textAlign: 'center',
-  marginTop:"5%" ,
-  marginLeft:{xs:"20%",sm:"30%"}
+    margin: "20px 0",
+    width: "150px",
+    borderRadius: "10px",
+    //margin: '0 auto', // Center the button horizontally
+    display: "block", // Ensure the button takes up the full width of its container
+    textAlign: "center",
+    marginTop: "5%",
+    marginLeft: { xs: "20%", sm: "30%" },
   };
-  const img={
+  const img = {
     backgroundImage: `url(${car1})`,
-    backgroundPosition: 'center', // Center the background image
-  backgroundSize: 'cover',      // Make the background image cover the container
-
-
-
+    backgroundPosition: "center", // Center the background image
+    backgroundSize: "cover", // Make the background image cover the container
   };
 
   return (
     <Box
       sx={{
         backgroundImage: 'url("your-background-image-url.jpg")',
-        backgroundColor: '#023159',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: "#023159",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container component="main" maxWidth="xs">
         <Grid container style={img}>
-          <Paper elevation={3} style={paperStyle} >
-            <Button sx={{ marginLeft: '-80%', fontSize: '800' }}>
+          <Paper elevation={3} style={paperStyle}>
+            <Button sx={{ marginLeft: "-80%", fontSize: "800" }}>
               <b>{"<"}Log in</b>
             </Button>
             <Typography variant="h6">Enter your credentials here:</Typography>
@@ -118,7 +112,10 @@ function RegisterPage() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                <Typography variant='h4'>Address<br/></Typography>
+                  <Typography variant="h4">
+                    Address
+                    <br />
+                  </Typography>
                 </Grid>
 
                 <Grid item xs={12}>
@@ -179,7 +176,7 @@ function RegisterPage() {
                 color="primary"
                 style={submitButtonStyle}
               >
-              submit
+                submit
               </Button>
             </form>
           </Paper>
@@ -190,6 +187,3 @@ function RegisterPage() {
 }
 
 export default RegisterPage;
-
-
-

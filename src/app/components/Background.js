@@ -1,18 +1,22 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import car1 from "../assests/images/car1guest.png";
-const Guest1 = () => {
+import Colors from "../utils/colors";
+const BackgroundImg = () => {
   return (
     <>
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          color: "white",
           backgroundImage: `url(${car1})`,
-          backgroundSize: "cover",
+          backgroundSize: "contain",
+          // backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          minHeight: "500px",
+          maxHeight: "100%",
+          "@media (max-width: 960px)": {
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+          },
         }}
       >
         <Grid container spacing={3}>
@@ -25,7 +29,10 @@ const Guest1 = () => {
             sx={{ marginInline: { xs: "0%", sm: "0%" }, mt: "8%" }}
           >
             <Container>
-              <Typography variant="h3"  sx={{ fontWeight: 600 }}>
+              <Typography
+                variant="h3"
+                sx={{ fontWeight: 600, color: Colors.palette.primary.main }}
+              >
                 Lorem ipsum <br /> dolor sit amet, <br /> consectetur adipiscing
                 elit
               </Typography>
@@ -37,4 +44,4 @@ const Guest1 = () => {
   );
 };
 
-export default Guest1;
+export default BackgroundImg;
