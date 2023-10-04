@@ -11,7 +11,7 @@ import Footer from "./app/partials/Footer";
 // import RegisterPage from "./app/pages/users/Register";
 import Mobile from "./app/pages/users/Mobile";
 // import Rectanglefield from "./app/components/Rectanglefield";
-// import Otp from "./app/pages/users/otp";
+import Otp from "./app/pages/users/otp";
 // import Ourplan from "./app/pages/users/Ourplan";
 // import Subscriptions from "./app/pages/users/Subscription";
 // import Booking from "./app/pages/users/Booking";
@@ -37,7 +37,7 @@ function App() {
    {/* <ServiceLocation/> */}
     {/* <AboutGuest/> */}
    {/* <Guest1/>   */}
- <Login/>
+ {/* <Login/> */}
  {/* <Question/> */}
  {/* <RegisterPage/> */}
  {/* <Mobile/> */}
@@ -47,7 +47,7 @@ function App() {
  {/* <OurServices/> */}
  {/* <Booking/> */}
   {/* <Footer/>   */}
-  {/* <Contactus/> */}
+  <Contactus/>
    </>
   );
 }
