@@ -94,6 +94,7 @@ const Subscribe = () => {
                   sx={{ textAlign: "center", color: Colors.palette.secondary.main }}
                 >
                   <b>
+                  {/* hlo */}
                     {" "}
                     Gold  </b> <br />₹ 1499 / month
                  
