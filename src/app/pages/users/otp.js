@@ -19,8 +19,7 @@ import Colors from "../../utils/colors";
 
 function Login() {
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
+    
   });
 
   const paperStyle = {
@@ -51,8 +50,7 @@ function Login() {
   };
 
   const handleFormChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    
   };
 
   const handleFormSubmit = (e) => {
@@ -140,8 +138,8 @@ function Login() {
                         InputProps={{
                           sx: {
                             height: "40px",
-                            color: "#001478",
-                            border: "1px solid #001478",
+                            color: Colors.palette.secondary.main,
+                            border: `1px solid ${Colors.palette.secondary.main}`,
                           },
                         }}
                       />

@@ -4,135 +4,187 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 //import Car from "../images/Car.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
- import TwitterIcon from "@mui/icons-material/Twitter";
- import FacebookIcon from  "@mui/icons-material/Facebook";
- import { Box } from "@mui/material";
-import CopyrightIcon from '@mui/icons-material/Copyright';
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import { Box } from "@mui/material";
+import CopyrightIcon from "@mui/icons-material/Copyright";
+import Colors from "../utils/colors";
 
-  const Footer =()=> {
+const Footer = () => {
   return (
-  
     <Box
-    
       sx={{
-         backgroundColor: '#002C4F',
-         
-         Color:'white',
-         width:'100%',
-         marginTop:"5%",
-         overflow:"hidden",
-        
-        }}>
+        backgroundColor: Colors.palette.primary.darkBlue,
+        width: "100%",
+        marginTop: "5%",
+        overflow: "hidden",
+      }}
+    >
       <Container maxWidth="xl">
-        <Grid container spacing={2} sx={{marginInline:"3%"}}>
-          <Grid item xs={15} sm={3} md={3} marginTop='2%' sx={{color:"white"}} >
-            <Typography variant="h4" >
-            <b> Logo </b>
+        <Grid container spacing={2} sx={{ marginInline: "3%" }}>
+          <Grid
+            item
+            xs={15}
+            sm={3}
+            md={3}
+            marginTop="2%"
+            sx={{ color: Colors.palette.primary.main }}
+          >
+            <Typography variant="h4">
+              <b> Logo </b>
             </Typography>
-          <Typography sx={{marginTop:"11%"}}>
+            <Typography sx={{ marginTop: "11%" }}>
+              About us: Lorem ipsum dolor sit amet,
+              <br />
+              consectetur adipiscing elit,sed do <br />
+              eiusmod tempor incididunt ut labore et <br />
+              dolore magna aliqua. Ut enim ad minim <br />
+              veniam,quis nostrud exercitation.
+            </Typography>
 
-          About us: Lorem ipsum dolor sit amet,<br/>
-          consectetur adipiscing elit,sed do <br/> 
-          eiusmod tempor incididunt ut labore et <br/>
-          dolore magna aliqua. Ut enim ad minim <br/> 
-          veniam,quis nostrud exercitation.
-          </Typography>
-          
-            <Typography variant="body2" color="white" sx={{marginTop:'12%',marginBottom:"17%"}}>
-            <CopyrightIcon  />  2021 Car Wash.All Rights Reserved
+            <Typography
+              variant="body2"
+              sx={{
+                marginTop: "12%",
+                marginBottom: "17%",
+                color: Colors.palette.primary.main,
+              }}
+            >
+              <CopyrightIcon /> 2021 Car Wash.All Rights Reserved
             </Typography>
-            
           </Grid>
-          
-          <Grid item xs={15} sm={2}  marginTop='4%'>
-            <Typography variant="body1" color="white" gutterBottom>
-             <b> PAGES</b>
+
+          <Grid item xs={15} sm={2} marginTop="4%">
+            <Typography
+              variant="body1"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
+              <b> PAGES</b>
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom sx={{marginTop:'11%'}}>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ marginTop: "11%",color: Colors.palette.primary.main }}
+            >
               Services
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom >
-             About Us
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
+              About Us
             </Typography>
-            {/* <Typography variant="body2" color="white" gutterBottom>
-             Orders and Returns
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
+              Contact Us
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom>
-             Advanced Search 
-            </Typography> */}
-            <Typography variant="body2" color="white" gutterBottom>
-            Contact Us
-            </Typography>
-            
           </Grid>
 
-          <Grid item xs={15} sm={2} marginTop='4%'>
-            <Typography variant="body1" color="white" gutterBottom>
-             <b> CARS</b>
+          <Grid item xs={15} sm={2} marginTop="4%">
+            <Typography
+              variant="body1"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
+              <b> CARS</b>
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom sx={{marginTop:'11%'}}>
+            <Typography
+              variant="body2"
+              color="white"
+              gutterBottom
+              sx={{ marginTop: "11%" }}
+            >
               HatchBack
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
               Sedan
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom>
-             SUV
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
+              SUV
             </Typography>
-            {/* <Typography variant="body2" color="white" gutterBottom>
-             Advanced Search 
-            </Typography>
-            <Typography variant="body2" color="white" gutterBottom>
-            Contact Us
-            </Typography> */}
-            
           </Grid>
-          
-          <Grid item xs={15} sm={2} marginTop='4%' >
-            <Typography variant="body1" color="white" gutterBottom>
+
+          <Grid item xs={15} sm={2} marginTop="4%">
+            <Typography
+              variant="body1"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
               <b>SERVICES </b>
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom sx={{marginTop:'11%'}}>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ marginTop: "11%", color: Colors.palette.primary.main }}
+            >
               Routine Clean
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
               Dry Clean
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom>
-             Deep Clean
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ color: Colors.palette.primary.main }}
+            >
+              Deep Clean
             </Typography>
-            {/* <Typography variant="body2" color="white" gutterBottom>
-             Advanced Search 
-            </Typography>
-            <Typography variant="body2" color="white" gutterBottom>
-            Contact Us
-            </Typography>
-             */}
-           </Grid>
+          </Grid>
 
-           <Grid item xs={15} sm={3}  marginTop='4%' >
-            <Typography variant="body2" color="grey" gutterBottom>
+          <Grid item xs={15} sm={3} marginTop="4%">
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ color: Colors.palette.secondary.grey }}
+            >
               (303) 985-0105,(303) 355-0105
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom sx={{marginTop:'10%'}}>
-            mifs@info.com
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ marginTop: "10%", color: Colors.palette.primary.main }}
+            >
+              mifs@info.com
             </Typography>
-            <Typography variant="body2" color="grey" gutterBottom sx={{marginTop:'10%'}}>
-            2972 Westheimer Rd.Santa Ana,<br/>lllinois 85486
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ marginTop: "10%", color: Colors.palette.secondary.grey }}
+            >
+              2972 Westheimer Rd.Santa Ana,
+              <br />
+              lllinois 85486
             </Typography>
-            <Typography variant="body2" color="white" gutterBottom sx={{marginTop:'10%'}}>
-            <InstagramIcon />    <FacebookIcon  sx={{marginLeft:'15%'}}/>     <TwitterIcon  sx={{marginLeft:'15%'}}/>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ marginTop: "10%", color: Colors.palette.primary.main }}
+            >
+              <InstagramIcon /> <FacebookIcon sx={{ marginLeft: "15%" }} />{" "}
+              <TwitterIcon sx={{ marginLeft: "15%" }} />
             </Typography>
-            </Grid>
-             </Grid>
-        
+          </Grid>
+        </Grid>
       </Container>
-
-        
-   </Box>
-   
-   
+    </Box>
   );
- }
+};
 
- export default Footer;
+export default Footer;

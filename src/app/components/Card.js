@@ -2,6 +2,7 @@ import { Box, Button, Card, CardContent, Container, Grid, Typography } from '@mu
 import React from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import OurServices from '../components/OurServices';
+import Colors from "../utils/colors";
 
 const Card1 = () => {
   return (
@@ -11,9 +12,9 @@ const Card1 = () => {
     <Container sx={{ marginTop: "3%" }}>
       <Grid container item spacing={2} justifyContent="center">
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ borderRadius: "20px", bgcolor: "#FFFFFF" }}>
+          <Card sx={{ borderRadius: "20px", bgcolor: Colors.palette.primary.main }}>
             <CardContent>
-              <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color: "#013C6B" }}>
+              <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color:Colors.palette.secondary.main }}>
                 <b> Routine Clean<br />₹  199</b>
               </Typography>
               <Typography>
@@ -41,7 +42,7 @@ const Card1 = () => {
                 <Button variant='contained'
                   sx={{
                     borderRadius: "22px",
-                    bgcolor: "#002C4F",
+                    bgcolor: Colors.palette.primary.darkBlue,
                     height: "55px",
                     width: "150px",
                     marginInline: "30%",
@@ -56,9 +57,9 @@ const Card1 = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ borderRadius: "20px", bgcolor: "#FFFFFF" }}>
+          <Card sx={{ borderRadius: "20px", bgcolor: Colors.palette.primary.main }}>
             <CardContent>
-              <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color: "#013C6B" }}>
+              <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color: Colors.palette.secondary.main }}>
                 <b> Dry Clean<br />₹ 799</b>
               </Typography>
               <Typography>
@@ -87,7 +88,7 @@ const Card1 = () => {
                 <Button variant='contained'
                   sx={{
                     borderRadius: "22px",
-                    bgcolor: "#002C4F",
+                    bgcolor: Colors.palette.primary.darkBlue,
                     height: "55px",
                     width: "150px",
                     marginInline: "30%",
@@ -101,9 +102,9 @@ const Card1 = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ borderRadius: "20px", bgcolor: "#FFFFFF" }}>
+          <Card sx={{ borderRadius: "20px", bgcolor: Colors.palette.primary.main }}>
             <CardContent>
-              <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color: "#013C6B" }}>
+              <Typography variant='h5' sx={{ marginTop: "5%", textAlign: "center", color: Colors.palette.secondary.main }}>
                 <b> Deep Clean<br />₹ 999</b>
               </Typography>
               <Typography>
@@ -133,7 +134,7 @@ const Card1 = () => {
                 <Button variant='contained'
                   sx={{
                     borderRadius: "22px",
-                    bgcolor: "#002C4F",
+                    bgcolor: Colors.palette.primary.darkBlue,
                     height: "55px",
                     width: "150px",
                     marginInline: "30%",

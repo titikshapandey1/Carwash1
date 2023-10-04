@@ -1,9 +1,9 @@
-import Login from "../src/app/pages/Login"
-import Guest1 from './app/components/Background';
-import HomePage from './app/components/Home/Homepage';
-import PaymentOptions from './app/components/Paymentoption';
-import AboutGuest from './app/pages/users/About';
-import ServiceLocation from './app/pages/users/Service';
+import Login from "../src/app/pages/Login";
+import BackgroundImg from "./app/components/Background";
+import HomePage from "./app/components/Home/Homepage";
+import PaymentOptions from "./app/components/Paymentoption";
+import AboutGuest from "./app/pages/users/About";
+import ServiceLocation from "./app/pages/users/Service";
 import Dryclean from "./app/components/Home/Dryclean";
 import Nav from "./app/partials/Nav";
 import Question from "./app/components/Question";
@@ -19,6 +19,8 @@ import OurServices from "./app/components/OurServices";
 import Card1 from "./app/components/Card";
 import Guest5 from "./app/pages/users/Guest5";
 import Review from "./app/components/Review";
+import Guest1 from "./app/pages/users/Guest1";
+import Guest6 from "./app/pages/users/Guest6";
 import Guest2 from "./app/pages/users/Guest2";
 import Ourplans from "./app/pages/users/Ourplans";
 import Subscribe from "./app/pages/users/Subscribe";
@@ -27,9 +29,12 @@ import HomeCards from "./app/components/Home/HomeCards";
 import Profile from "./app/pages/users/Profile";
 import History from "./app/pages/users/History";
 
+
+
 function App() {
   return (
     <>
+
       {/* <Dryclean/> */}
       {/* <Card1/> */}
       {/* <HomeCards/> */}
@@ -40,12 +45,17 @@ function App() {
       {/* <Guest5/> */}
       {/* <HomePage/> */}
       {/* <Profile/> */}
+      <HomePage/>
       {/* <ServiceLocation/> */}
       {/* <AboutGuest/> */}
-      {/* <Guest1/>   */}
+      {/* <BackgroundImg/>   */}
+      {/* <Guest1/> */}
+      {/* <Guest5/> */}
+      {/* <Guest2 /> */}
+      {/* <Guest6 /> */}
       {/* <Login /> */}
       {/* <Question/> */}
-      {/* <RegisterPage/> */}
+      <RegisterPage/>
       {/* <Mobile/> */}
       {/* <Otp/> */}
       {/* <Rectanglefield/> */}
