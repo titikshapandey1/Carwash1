@@ -52,8 +52,8 @@ function App() {
       {/* <Login /> */}
       {/* <Question/> */}
       {/* <RegisterPage/> */}
-      {/* <Mobile/> */}
-      <Otp/>
+      <Mobile/>
+      {/* <Otp/> */}
       {/* <Rectanglefield/> */}
       {/* <Subscriptions/> */}
       {/* <OurServices/> */}

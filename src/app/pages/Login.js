@@ -16,7 +16,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
-    password: "", 
+    password: "",
   });
   const [formErrors, setFormErrors] = useState({});
 
@@ -49,8 +49,8 @@ function Login() {
   const img = {
     backgroundImage: `url(${car1})`,
     backgroundPosition: "center",
-    backgroundSize: 'contain', 
-    backgroundRepeat: 'no-repeat',
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
     borderRadius: 50,
     height: "100%",
   };
@@ -105,16 +105,15 @@ function Login() {
           <Container maxWidth="xs">
             <Grid container style={img}>
               <Paper elevation={3} style={paperStyle} sx={{ width: "100%" }}>
-                <Box style={{ display: "flex"}}>
-                  <Button  sx={{color:"#013C6B", justifyContent:"flex-start"}}>
-                    {" "}
-                    <b>
-                      <ArrowBackIosIcon />
-                    </b>
+                <Box style={{ display: "flex" }}>
+                  <Button
+                    sx={{ color: "#013C6B", justifyContent: "flex-start" }}
+                  >
+                    <ArrowBackIosIcon />
                   </Button>
                   <Typography
                     variant="h4"
-                    sx={{ color: "#013C6B", flex:0.8, textAlign: "center" }}
+                    sx={{ color: "#013C6B", flex: 0.8, textAlign: "center" }}
                   >
                     Log in
                   </Typography>
@@ -145,7 +144,8 @@ function Login() {
                   <Typography
                     sx={{ color: "#013C6B", display: "flex", mt: "1rem" }}
                   >
-                    <LockIcon />{"  "}
+                    <LockIcon />
+                    {"  "}
                     Forgot Password ?
                   </Typography>
                   <Box align="center">

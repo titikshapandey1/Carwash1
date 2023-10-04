@@ -7,6 +7,18 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { Link } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Colors from "../../utils/colors";
+
+const submitButtonStyle = {
+  marginTop: "20px",
+  marginBottom: "20px",
+  padding: "15px",
+  borderRadius: 5,
+  display: "flex",
+  textAlign: "center",
+  backgroundColor: Colors.palette.secondary.main,
+};
 
 const Mobile = () => {
   const [mobileNumber, setMobileNumber] = React.useState("");
@@ -50,38 +62,47 @@ const Mobile = () => {
             <Box
               sx={{
                 // minHeight: '50vh',
-              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
-                borderRadius: '20px',
-                backgroundSize: '100%',
-                backgroundSize: '100 100 ',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                padding: '16px',
+                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
+                borderRadius: "20px",
+                backgroundSize: "100%",
+
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                display: "flex",
+                flexDirection: "column",
+                // alignItems: 'center',
+                padding: "16px",
               }}
             >
-            <Box>
+              <Box style={{ display: "flex" }}>
+                <Button
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  <ArrowBackIosIcon />
+                </Button>
+              </Box>
 
-                <Button  sx={{fontSize: "40px", marginRight: "22rem"}}>
-            <b>{"<"}</b>
-        </Button>
-
-            </Box>
-            
-              <Typography variant="h6" color="darkblue" sx={{ marginTop: '10%' }}>
+              <Typography
+                variant="h6"
+                color="darkblue"
+                sx={{ marginTop: "10%", textAlign: "center" }}
+              >
                 Enter your mobile number here
               </Typography>
-             <br />
+              <br />
               <Box
                 component="form"
                 sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                   "& > :not(style)": {
                     m: 1,
                     width: "100%",
                     maxWidth: "300px",
-                    height: "40px",
                   },
                   marginBottom: "8%",
                 }}
@@ -99,20 +120,33 @@ const Mobile = () => {
                   helperText={errors.mobileNumber}
                 />
               </Box>
-              <Button
+              <Box
                 onClick={handleFormSubmit}
                 sx={{
-                    borderRadius:4,
-                  border: '1px solid darkblue',
-                  backgroundColor: '#023159',
-                  color: 'white',
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-                variant="contained"
               >
-                <Typography fontWeight={600}>Submit &gt;</Typography>
-              </Button>
-              <Box sx={{ display: 'flex', flexDirection: 'row', marginTop: '16px' }}>
-               <Link > Already have an account?Login  </Link>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{ ...submitButtonStyle }}
+                >
+                  Submit <ArrowForwardIosIcon />
+                </Button>
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  marginTop: "16px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Link> Already have an account?Login </Link>
               </Box>
             </Box>
           </Grid>
