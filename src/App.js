@@ -37,7 +37,7 @@ function App() {
    {/* <ServiceLocation/> */}
     {/* <AboutGuest/> */}
    {/* <Guest1/>   */}
- {/* <Login/> */}
+ <Login/>
  {/* <Question/> */}
  {/* <RegisterPage/> */}
  {/* <Mobile/> */}
@@ -47,7 +47,7 @@ function App() {
  {/* <OurServices/> */}
  {/* <Booking/> */}
   {/* <Footer/>   */}
-  <Contactus/>
+  {/* <Contactus/> */}
    </>
   );
 }

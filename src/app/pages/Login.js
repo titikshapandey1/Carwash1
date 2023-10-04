@@ -3,35 +3,8 @@ import { Grid, Paper,Button, Typography, Box,Container,TextField} from '@mui/mat
 import LockIcon from '@mui/icons-material/Lock';
 import car1 from "../assests/images/car1guest.png"
 import { blue } from '@mui/material/colors';
-// import {Link} from '@mui/material';
-// function RectangleTextField({ label, name, value, onChange, error, helperText }) {
-//     return (
-//         <div style={{
-//             width: '100%',
-//             background: 'rgba(255, 255, 255, 0.7)',
-//             padding: '10px',
-//             borderRadius: '5px',
-//             marginBottom: '10px',
-//         }}>
-//             <input
-//                 type="text"
-//                 name={name}
-//                 value={value}
-//                 onChange={onChange}
-//                 placeholder={label}
-//                 style={{
-//                     width: '100%',
-//                     border: 'solid',
-//                     borderColor:"darkblue",
-//                     // outline: 'solid',
-//                     background: 'transparent',
-//                     fontSize: '20px',
-//                 }}
-//             />
-//             {error && <p style={{ color: 'red', fontSize: '12px' }}>{helperText}</p>}
-//         </div>
-//     );
-// }
+
+
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -44,6 +17,9 @@ function Login() {
     padding: "20px",
     display: "flex",
     flexDirection: "column",
+    alignItems: 'center',
+    background:
+    "linear-gradient(30deg, #FFFFFF 30%, #B3A8A8 70%)",
     borderRadius: 25,
     opacity: ".8",
   };
@@ -51,9 +27,9 @@ function Login() {
   const formStyle = {
     width: "100%",
     marginTop: "10%",
-    position: "center",
+    // position: "center",
     // height:"100%",
-    // width:"100%",
+    
   };
 
   const submitButtonStyle = {
@@ -131,7 +107,7 @@ function Login() {
             }}>
              <Container component="main" maxWidth="xs" >
                     <Grid container style={img}>
-                        <Paper elevation={3} style={paperStyle} sx={{width:"100%"}}>
+                        <Paper elevation={10} style={paperStyle} sx={{width:"100%"}}>
                             <Button justifyContent={"inherit"}>
                                 <b>{"<"}</b>
                             </Button>
@@ -139,8 +115,9 @@ function Login() {
                                 Log in
                             </Typography>
          
-                        <form style={formStyle} noValidate onSubmit={handleFormSubmit}>
+                        <form style={formStyle} onSubmit={handleFormSubmit} >
                                <TextField
+                               fullWidth
                                    label="Username/Email"
                                     name="username"
                                      value={formData.username}
@@ -149,6 +126,8 @@ function Login() {
                                      helperText={formErrors.username}
                                  />
                                  <TextField
+                               fullWidth
+                                     
                                      label="Password"
                                      name="password"
                                      value={formData.password}
@@ -160,16 +139,7 @@ function Login() {
                                     <LockIcon />
                                    Forgot Password ?
                                  </Typography>
-                                 {/* <Box align="center">
-                                  <Button
-                                         type="submit"
-                                        fullWidth
-                                        variant="contained"
-                                         style={{ ...submitButtonStyle, backgroundColor: blue }}
-                                     >
-                                        Login
-                                     </Button>
-                                 </Box> */}
+                                
                                  <Box align="center">
                                     <Button
                                          type="submit"
@@ -194,6 +164,7 @@ function Login() {
                 </Box>
            
         </Box> 
+        </Box>
       </>
     );
 }

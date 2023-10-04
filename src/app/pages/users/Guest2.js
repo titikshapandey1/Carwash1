@@ -17,18 +17,11 @@ import Subscribe from './Subscribe';
 const Guest2 = () => {
   return (
     <>
-<<<<<<< HEAD
-      <Nav />
-      <Ourplans />
-      <Cards />
-      <Footer />
-=======
       <Nav/>
       <Ourplans/>
     <Cards/>
     <Subscribe/>
       <Footer/> 
->>>>>>> 4c47701d298d4a5fd3fb171ea9e65a52f1985dc8
     </>
   );
 };
