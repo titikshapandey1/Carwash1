@@ -131,13 +131,6 @@ function Login() {
                     error={!!formErrors.username}
                     helperText={formErrors.username}
                     InputProps={{ sx: { mb: 2 } }}
-                    // InputProps={{
-                    //   sx: {
-                       
-                    //     color: "#001478",
-                    //     border: "1px solid #001478",
-                    //   },
-                    // }}
                   />
                   <TextField
                     variant="outlined"
