@@ -1,11 +1,14 @@
+import React from "react";
+import Nav from "../../partials/Nav";
+import Ourplans from "./Ourplans";
+import Footer from "../../partials/Footer";
+import Cards from "./Cards";
+import Subscribe from "./Subscribe";
+import Searcher from './Searcher';
+import Question from '../../components/Question';
+import Review from "../../components/Review";
 
-import React from 'react'
-import Nav from '../../partials/Nav';
-import Ourplans from './Ourplans';
-import Footer from '../../partials/Footer';
-import Cards from './Cards';
-import Subscribe from './Subscribe';
-import Searcher from "../users/Searcher";
+
 
 
 
@@ -17,6 +20,8 @@ const Guest2 = () => {
       <Ourplans />
       <Cards />
       <Subscribe/>
+      <Review/>
+      <Question/>
       <Footer />
 
       
