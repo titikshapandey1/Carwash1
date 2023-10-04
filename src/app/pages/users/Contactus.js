@@ -1,106 +1,155 @@
-
+import React, { useState } from 'react';
 import {
-    Box,
-    Grid,
-    Typography,
-    styled,
-    Paper,
-    Container,
-    TextField,
-    Button,
-    Card,
-  } from "@mui/material";
-//   import { ErrorMessage } from "formik";
-//   import { useFormik, Formik } from "formik";
-//   import * as Yup from "yup";
-  import ExploreIcon from "@mui/icons-material/Explore";
-  import CallIcon from "@mui/icons-material/Call";
-  import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
-  import { createTheme } from "@mui/material/styles";
-  // import imageUrl from '../assets/group_carwash.png';
-  import Nav from "../../partials/Nav";
-  import Guest1 from "../../components/Background";
-  import Question from "../../components/Question";
-  import Ourplan from "../users/Ourplan";
-  import Footer from "../../partials/Footer";
-  import Colors from "../../utils/colors";
+  Box,
+  Grid,
+  Typography,
+  Container,
+  TextField,
+  Button,
+  Card,
+} from '@mui/material';
+import ExploreIcon from '@mui/icons-material/Explore';
+import CallIcon from '@mui/icons-material/Call';
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+import Footer from '../../partials/Footer';
+import Nav from "../../partials/Nav"
+import Guest1 from '../../components/Background';
+import Ourplan from './Ourplan';
+import Question from '../../components/Question';
 
-  const boxStyle = {
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    width: "100%",
-    //   backgroundImage: `url(${car1})`,
+const boxStyle = {
+  padding: '20px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: '100%',
+};
+
+const formStyle = {
+  width: '100%',
+  marginTop: '5%',
+};
+
+const buttonBoxStyles = {
+  display: 'flex',
+  justifyContent: 'center',
+};
+
+const submitButtonStyle = {
+  width: '',
+  padding: '10px',
+  margin: '20px 0',
+  color: 'white',
+  borderRadius: '10px',
+  backgroundColor: '#002C4F',
+};
+
+const img = {
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+};
+
+function ContactUs() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    contactNumber: '',
+    alternateNumber: '',
+    email: '',
+    message: '',
+    Address:'',
+        District:'',
+        city:'',
+        State:'',
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
-  
-  const formStyle = {
-    width: "100%",
-    marginTop: "5%",
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    
+    const newErrors = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First Name is required';
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last Name is required';
+    }
+
+    if (!formData.contactNumber.trim()) {
+      newErrors.contactNumber = 'Contact Number is required';
+    } else if (!/^\d{10}$/.test(formData.contactNumber)) {
+      newErrors.contactNumber = 'Invalid Contact Number';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (
+      !/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
+        formData.email
+      )
+    ) {
+      newErrors.email = 'Invalid Email';
+    }
+    if (!formData.Address.trim()) {
+        newErrors.Address = 'Field is required';
+      }
+      if (!formData.city.trim()) {
+        newErrors.city = 'Field is required';
+      }
+      if (!formData.State.trim()) {
+        newErrors.State = 'Field is required';
+      }
+      if (!formData.District.trim()) {
+        newErrors.District = 'Field is required';
+      }
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      // No errors, submit the form
+      console.log(formData);
+      // Reset form data
+      setFormData({
+        firstName: '',
+        lastName: '',
+        contactNumber: '',
+        alternateNumber: '',
+        email: '',
+        message: '',
+        District:'',
+        city:'',
+        State:'',
+      });
+    }
   };
-  
-  const buttonBoxStyles = {
-    display: "flex",
-    justifyContent: "center",
-  };
-  
-  const submitButtonStyle = {
-    width: "",
-    padding: "10px",
-    margin: "20px 0",
-    color:  Colors.palette.primary.main,
-    borderRadius: "10px",
-    backgroundColor: Colors.palette.primary.darkBlue,
-  };
-  
-  const img = {
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-  };
-  
-//   const validationSchema = Yup.object().shape({
-//     firstName: Yup.string().required("First Name is required"),
-//     lastName: Yup.string().required("Last Name is required"),
-//     contactNumber: Yup.string().required("Contact Number is required"),
-//     alternateNumber: Yup.string().required("Alternate Number is required"),
-//     email: Yup.string().email("Invalid email").required("Email is required"),
-//   });
-  
-  function ContactUs() {
-    //   const formik = useFormik({
-    //       initialValues: {
-    //         firstName: "",
-    //         lastName: "",
-    //         contactNumber: "",
-    //         alternateNumber: "",
-    //         email: "",
-    //         message: "", 
-            
-    //       },
-    //       validationSchema: validationSchema,
-    //       onSubmit: (values) => {
-    //         formik.handleSubmit();
-    //         console.log(values);
-    //       },
-    //     });
-        
-    return (
-      <>
-        <Nav />
-        <Guest1 />
+
+  return (
+    <>
+     <Nav />
+        <Guest1/>
         <Box
           sx={{
-            backgroundColor:  Colors.palette.secondary.cardBackground,
+            backgroundColor: " #F5F5F5",
             backgroundSize: "cover",
             backgroundPosition: "center",
             height: "100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-          }}
-        >
-          <Box>
-            <Ourplan />
+          }}>
+      
+      
+      {/* ...other components ... */}
+      <Box>
+          <Ourplan/> 
             <Box sx={{ mt: 2 }}>
               <Container>
                 <Grid container spacing={2}>
@@ -141,7 +190,7 @@ import {
                           borderRadius: "20px",
                         }}
                       >
-                        <Grid container wrap="wrap" spacing={6}>
+                        <Grid container wrap="nowrap" spacing={6}>
                           <Grid item marginTop="5%">
                             <CallIcon />
                           </Grid>
@@ -181,84 +230,99 @@ import {
                       </Card>
                     </Box>
                   </Grid>
+                  
+                 
+                 
   
-                  <Grid item xs={12} sm={6}>
-                    <Card>
-                      <Container component="main" maxWidth="xs">
-                        <Grid container style={img}>
-                          <Box
-                            style={{
-                              ...boxStyle,
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                            }}
-                          >
-                            <form
-                              style={formStyle}
-                              noValidate
-                            //   onSubmit={formik.handleSubmit}
-                            >
-                              <Grid container spacing={2}>
-                                <Grid item xs={12} sm={6}>
-                                  <TextField
-                                   variant="outlined"
-                                   required
-                                   fullWidth
-                                   id="firstName"
-                                   label="First Name"
-                                   name="firstName"
-                                //    onChange={formik.handleChange} 
-                                //    value={formik.values.firstName}
-                                  />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                  <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="lastName"
-                                    label="Last Name"
-                                    name="lastName"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
-                                  />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                  <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="contactNumber"
-                                    label="Contact Number"
-                                    name="contactNumber"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
-                                  />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                  <TextField
-                                    variant="outlined"
-                                    fullWidth
-                                    id="alternateNumber"
-                                    label="Alternate Number"
-                                    name="alternateNumber"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
-                                  />
-                                </Grid>
-                                <Grid item xs={12}>
-                                  <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
-                                  />
-                                </Grid>
-                                <Grid item xs={12}>
+      {/* <Container> */}
+        {/* <Grid container spacing={2}> */}
+          {/* ... Your other content ... */}
+          <Grid item xs={12} sm={6} >
+            <Card >
+              <Container component="main" maxWidth="xs" >
+                <Grid container style={img} >
+                  <Box 
+                    style={{
+                      ...boxStyle,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      
+                    }}
+                  >
+                    <form
+                      style={formStyle}
+                    //   noValidate
+                      onSubmit={handleSubmit}
+                    >
+                      <Grid container spacing={2} >
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="firstName"
+                            label="First Name"
+                            name="firstName"
+                            onChange={handleChange}
+                            value={formData.firstName}
+                            error={errors.firstName ? true : false}
+                            helperText={errors.firstName}
+                          />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="lastName"
+                            label="Last Name"
+                            name="lastName"
+                            onChange={handleChange}
+                            value={formData.lastName}
+                            error={errors.lastName ? true : false}
+                            helperText={errors.lastName}
+                          />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="contactNumber"
+                            label="Contact Number"
+                            name="contactNumber"
+                            onChange={handleChange}
+                            value={formData.contactNumber}
+                            error={errors.contactNumber ? true : false}
+                            helperText={errors.contactNumber}
+                          />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            variant="outlined"
+                            fullWidth
+                            id="alternateNumber"
+                            label="Alternate Number"
+                            name="alternateNumber"
+                            onChange={handleChange}
+                            value={formData.alternateNumber}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
+                          <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            onChange={handleChange}
+                            value={formData.email}
+                            error={errors.email ? true : false}
+                            helperText={errors.email}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
                                   <Typography variant="h5">
                                     Address
                                     <br />
@@ -273,8 +337,11 @@ import {
                                     id="Locality / Building / Street / Society"
                                     label="Locality / Building / Street / Society"
                                     name="Locality / Building / Street / Society"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
+                                  
+                                    onChange={handleChange}
+                                    value={formData.Address}
+                                    error={errors.email ? true : false}
+                                    helperText={errors.Address}
                                   />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -285,8 +352,11 @@ import {
                                     id="city/Town"
                                     label="City / Town  District"
                                     name="city/Town"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
+                                    onChange={handleChange}
+                                    // value={formData.city}
+                                    error={errors.email ? true : false}
+                                    
+                                    
                                   />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -297,8 +367,11 @@ import {
                                     id=" District"
                                     label=" District"
                                     name=" District"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
+                                    onChange={handleChange}
+                                    value={formData.District}
+                                    error={errors.email ? true : false}
+                                    helperText={errors.District}
+                                    
                                   />
                                 </Grid>
                                 <Grid item xs={12} sm={8}>
@@ -309,8 +382,11 @@ import {
                                     id="State"
                                     label="State"
                                     name="State"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
+                                    onChange={handleChange}
+                                    value={formData.State}
+                                    error={errors.email ? true : false}
+                                    helperText={errors.State}
+                                    
                                   />
                                 </Grid>
                                 <Grid item xs={12} sm={4}>
@@ -321,8 +397,11 @@ import {
                                     id="Pincode"
                                     label=" Pincode"
                                     name="Pincode"
-                                    // onChange={formik.handleChange} 
-                                    // value={formik.values.firstName}
+                                    onChange={handleChange}
+                                    value={formData.pincode}
+                                    error={errors.email ? true : false}
+                                    helperText={errors.pincode}
+                                    
                                   />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -341,42 +420,42 @@ import {
                                     placeholder="Send us your queries and suggestions.."
                                     id="message"
                                     name="message"
-                                    // onChange={formik.handleChange}
-                                    // value={formik.values.message}
+                                    onChange={handleChange}
+                                 
                                   />
-                                  {/* <ErrorMessage name="firstName" component="div" style={{ color: "red" }} />
-                                  <ErrorMessage name="lastName" component="div" style={{ color: "red" }} />
-                                  <ErrorMessage name="contactNumber" component="div" style={{ color: "red" }} />
-                                  <ErrorMessage name="alternateNumber" component="div" style={{ color: "red" }} />
-                                  <ErrorMessage name="email" component="div" style={{ color: "red" }} />
-                                  <ErrorMessage name="message" component="div" style={{ color: "red" }} /> */}
-                                  
-                                </Grid>
-                              </Grid>
-                              <Box style={buttonBoxStyles}>
-                                <Button
-                                  type="submit"
-                                  variant="contained"
-                                  style={submitButtonStyle}
-                                > 
-                                   Submit
-                                </Button>
-                              </Box>
-                            </form>
-                          </Box>
-                        </Grid>
-                      </Container>
-                    </Card>
-                  </Grid>
+                                  </Grid>
+                        {/* ... Other form fields ... */}
+                       
+                       
+                      </Grid>
+                      <Box style={buttonBoxStyles}>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          color="primary"
+                          style={submitButtonStyle}
+                        > 
+                          Submit
+                        </Button>
+                      </Box>
+                    </form>
+                  </Box>
+                  
                 </Grid>
+                
               </Container>
-            </Box>
-            <Question />
-          </Box>
-        </Box>
-        <Footer />
-      </>
-    );
-  }
-  
-  export default ContactUs;
+              
+            </Card>
+          </Grid>  
+      </Grid>
+      </Container>
+      </Box> 
+      <Question/>          
+      </Box>
+      </Box>
+      <Footer/>
+    </>
+  );
+}
+
+export default ContactUs;

@@ -50,28 +50,27 @@ const Mobile = () => {
             <Box
               sx={{
                 // minHeight: '50vh',
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
-                borderRadius: "20px",
-                backgroundSize: "100% ",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                display: "flex",
-                flexDirection: "column",
-                // alignItems: "center",
-                textAlign: "center",
-                padding: "16px",
+              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
+                borderRadius: '20px',
+                backgroundSize: '100%',
+                backgroundSize: '100 100 ',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '16px',
               }}
             >
-              <Box style={{ display: "flex" }}>
-                <Button sx={{ color: "#013C6B", justifyContent: "flex-start" }}>
-                  <ArrowBackIosIcon />
-                </Button>
-              </Box>
-              <Typography
-                variant="h6"
-                color="darkblue"
-                sx={{ marginTop: "10%" }}
-              >
+            <Box>
+
+                <Button  sx={{fontSize: "40px", marginRight: "22rem"}}>
+            <b>{"<"}</b>
+        </Button>
+
+            </Box>
+            
+              <Typography variant="h6" color="darkblue" sx={{ marginTop: '10%' }}>
                 Enter your mobile number here
               </Typography>
              <br />
@@ -103,23 +102,17 @@ const Mobile = () => {
               <Button
                 onClick={handleFormSubmit}
                 sx={{
-                  mt:3,
-                  borderRadius: 4,
-                  backgroundColor: "#023159",
-                  color: "white",
+                    borderRadius:4,
+                  border: '1px solid darkblue',
+                  backgroundColor: '#023159',
+                  color: 'white',
                 }}
                 variant="contained"
               >
                 <Typography fontWeight={600}>Submit &gt;</Typography>
               </Button>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  marginTop: "16px",
-                }}
-              >
-                <Link> Already have an account? Login</Link>
+              <Box sx={{ display: 'flex', flexDirection: 'row', marginTop: '16px' }}>
+               <Link > Already have an account?Login  </Link>
               </Box>
             </Box>
           </Grid>
