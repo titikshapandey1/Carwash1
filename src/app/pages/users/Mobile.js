@@ -131,7 +131,7 @@ const Mobile = () => {
                 <Button
                   type="submit"
                   variant="contained"
-                  sx={{ ...submitButtonStyle }}
+                  sx={{ ...submitButtonStyle  }}
                 >
                   Submit <ArrowForwardIosIcon />
                 </Button>
