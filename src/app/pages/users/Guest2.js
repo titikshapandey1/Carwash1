@@ -22,7 +22,6 @@ const Guest2 = () => {
       <Subscribe/>
       <Review/>
       <Question/>
-     
       <Footer />
 
       
