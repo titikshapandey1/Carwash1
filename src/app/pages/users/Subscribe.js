@@ -8,6 +8,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import Colors from "../../utils/colors";
 
 
 const Subscribe = () => {
@@ -18,11 +19,11 @@ const Subscribe = () => {
       <Box sx={{ textAlign: "center", marginTop: "5%", marginBottom: "15%" }}>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ borderRadius: "20px", bgcolor: " #FFFFFF" }}>
+            <Card sx={{ borderRadius: "20px", background: Colors.palette.primary.main }}>
               <CardContent>
                 <Typography
                   variant="h4"
-                  sx={{ textAlign: "center", color: "#013C6B"}}
+                  sx={{ textAlign: "center", color: Colors.palette.secondary.main}}
                 >
                   <b>
                     {" "}
@@ -73,7 +74,7 @@ const Subscribe = () => {
                     variant="contained"
                     sx={{
                       borderRadius: "22px",
-                      bgcolor: "#353535",
+                     background: Colors.palette.secondary.brown,
                       height: "55px",
                       width: "150px",
                       marginInline: "30%",
@@ -86,11 +87,11 @@ const Subscribe = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ borderRadius: "20px", bgcolor: " #FFFFFF" }}>
+            <Card sx={{ borderRadius: "20px", background: Colors.palette.primary.main }}>
               <CardContent>
                 <Typography
                   variant="h4"
-                  sx={{ textAlign: "center", color: "#013C6B" }}
+                  sx={{ textAlign: "center", color: Colors.palette.secondary.main }}
                 >
                   <b>
                     {" "}
@@ -141,7 +142,7 @@ const Subscribe = () => {
                     variant="contained"
                     sx={{
                       borderRadius: "22px",
-                      bgcolor: "#353535",
+                      background: Colors.palette.secondary.brown,
                       height: "55px",
                       width: "150px",
                       marginInline: "30%",
@@ -154,11 +155,11 @@ const Subscribe = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ borderRadius: "20px", bgcolor: " #FFFFFF" }}>
+            <Card sx={{ borderRadius: "20px", background: Colors.palette.primary.main  }}>
               <CardContent>
                 <Typography
                   variant="h4"
-                  sx={{ textAlign: "center", color: "#013C6B" }}
+                  sx={{ textAlign: "center",color: Colors.palette.secondary.main }}
                 >
                   <b>
                     {" "}
@@ -210,7 +211,7 @@ const Subscribe = () => {
                     variant="contained"
                     sx={{
                       borderRadius: "22px",
-                      bgcolor: "#353535",
+                      background: Colors.palette.secondary.brown,
                       height: "55px",
                       width: "150px",
                       marginInline: "30%",
