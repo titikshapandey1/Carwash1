@@ -24,6 +24,8 @@ import Ourplans from "./app/pages/users/Ourplans";
 import Subscribe from "./app/pages/users/Subscribe";
 import Contactus from "./app/pages/users/Contactus";
 import HomeCards from "./app/components/Home/HomeCards";
+import Profile from "./app/pages/users/Profile";
+import History from "./app/pages/users/History";
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
       {/* <Searcher/> */}
       {/* <Guest5/> */}
       {/* <HomePage/> */}
+      {/* <Profile/> */}
       {/* <ServiceLocation/> */}
       {/* <AboutGuest/> */}
       {/* <Guest1/>   */}
@@ -51,10 +54,11 @@ function App() {
       {/* <Booking/> */}
       {/* <Footer/> */}
       {/* <Contactus/> */}
-      <Guest2 />
+      {/* <Guest2 /> */}
       {/* <Ourplans/> */}
       {/* <Subscribe/> */}
       {/* <Review/> */}
+      <History/>
     </>
   );
 }
