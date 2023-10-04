@@ -10,10 +10,6 @@ import Colors  from "../utils/colors";
 import DrawerComp from './Drawer';
 
 
-
-
-// import React from 'react'
-
 const Nav = () => {
         // const [value, setValue] = useState();
   return (

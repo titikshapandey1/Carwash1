@@ -52,7 +52,7 @@ const Mobile = () => {
                 // minHeight: '50vh',
               backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
                 borderRadius: '20px',
-                backgroundSize: '100% ',
+                backgroundSize: '100 100 ',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
                 display: 'flex',
@@ -91,7 +91,7 @@ const Mobile = () => {
                 onClick={handleFormSubmit}
                 sx={{
                     borderRadius:4,
-                //   border: '1px solid darkblue',
+                  border: '1px solid darkblue',
                   backgroundColor: '#023159',
                   color: 'white',
                 }}
