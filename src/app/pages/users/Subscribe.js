@@ -13,7 +13,7 @@ import {
 const Subscribe = () => {
   return (
     <>
-    {/* hiiii */}
+   
     <Container>
       <Box sx={{ textAlign: "center", marginTop: "5%", marginBottom: "15%" }}>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
@@ -223,7 +223,7 @@ const Subscribe = () => {
             </Card>
           </Grid>
 
-          {/* Repeat the above Grid item for each additional card */}
+        
         </Grid>
       </Box>
       </Container>
