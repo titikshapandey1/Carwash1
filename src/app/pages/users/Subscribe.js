@@ -16,7 +16,7 @@ const Subscribe = () => {
     <>
    
     <Container>
-      <Box sx={{ textAlign: "center", marginTop: "5%", marginBottom: "15%" }}>
+      <Box sx={{ textAlign: "center", marginTop: "5%", marginBottom: "8%" }}>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
           <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ borderRadius: "20px", background: Colors.palette.primary.main }}>

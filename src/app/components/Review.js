@@ -32,7 +32,7 @@ const cards = [
 const Review = () => {
   return (
     <Container>
-      <Box sx={{ marginTop: "20px" }}>
+      <Box sx={{ marginTop: "5px" }}>
         <Typography
           variant="h4"
           sx={{ color: Colors.palette.secondary.main, marginBottom: "50px", fontWeight: "bold" }}

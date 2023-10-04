@@ -8,10 +8,10 @@ const Question = () => {
     <Box marginLeft={"3%"} sx={{mt:10}}>
 
         <Box >
-        <Typography variant="h4" sx={{color:Colors.palette.background.default}}>
+        <Typography variant="h4" sx={{color:Colors.palette.primary.darkBlue}}>
 
            <b>
-           Frequently Asked Question(FAQs)
+           Frequently Asked Question:
            </b> 
         </Typography><br/>
         </Box>
