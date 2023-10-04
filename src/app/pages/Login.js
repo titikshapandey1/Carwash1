@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
-import { Grid, Paper,Button, Typography, Box,Container,TextField} from '@mui/material';
-import LockIcon from '@mui/icons-material/Lock';
-import car1 from "../assests/images/car1guest.png"
-import { blue } from '@mui/material/colors';
-
-
+import React, { useState } from "react";
+import {
+  Grid,
+  Paper,
+  Button,
+  Typography,
+  Box,
+  Container,
+  TextField,
+} from "@mui/material";
+import LockIcon from "@mui/icons-material/Lock";
+import car1 from "../assests/images/car1guest.png";
+import { blue } from "@mui/material/colors";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -17,9 +24,6 @@ function Login() {
     padding: "20px",
     display: "flex",
     flexDirection: "column",
-    alignItems: 'center',
-    background:
-    "linear-gradient(30deg, #FFFFFF 30%, #B3A8A8 70%)",
     borderRadius: 25,
     opacity: ".8",
   };
@@ -27,9 +31,9 @@ function Login() {
   const formStyle = {
     width: "100%",
     marginTop: "10%",
-    // position: "center",
+    position: "center",
     // height:"100%",
-    
+    // width:"100%",
   };
 
   const submitButtonStyle = {
@@ -98,75 +102,76 @@ function Login() {
             alignItems: "center",
           }}
         >
-            <Box sx={{
-                width: '80%',
-                height: '80%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}>
-             <Container component="main" maxWidth="xs" >
-                    <Grid container style={img}>
-                        <Paper elevation={10} style={paperStyle} sx={{width:"100%"}}>
-                            <Button justifyContent={"inherit"}>
-                                <b>{"<"}</b>
-                            </Button>
-                            <Typography variant="h4" sx={{ color: blue }}>
-                                Log in
-                            </Typography>
-         
-                        <form style={formStyle} onSubmit={handleFormSubmit} >
-                               <TextField
-                               fullWidth
-                                   label="Username/Email"
-                                    name="username"
-                                     value={formData.username}
-                                    onChange={handleFormChange}
-                                     error={!!formErrors.username}
-                                     helperText={formErrors.username}
-                                 />
-                                 <TextField
-                               fullWidth
-                                     
-                                     label="Password"
-                                     name="password"
-                                     value={formData.password}
-                                    onChange={handleFormChange}
-                                     error={!!formErrors.password}
-                                    helperText={formErrors.password}
-                                 />
-                                 <Typography sx={{ color: "#013C6B", display: "flex", mt: "1rem" }}>
-                                    <LockIcon />
-                                   Forgot Password ?
-                                 </Typography>
-                                
-                                 <Box align="center">
-                                    <Button
-                                         type="submit"
-                                         fullWidth
-                                         variant="contained"
-                                         style={{ ...submitButtonStyle, backgroundColor: blue }}
-                                     >
-                                         Login
-                                     </Button>
-                                 </Box>
-                                 <Box align="center">
-                                    <Typography sx={{ color: blue }}>
-                                        Don't have an account? <span style={{ color: "#0061AE" }}>
-                                             Register here
-                                         </span>
-                                     </Typography>
-                              </Box>
-                        </form>
-                    </Paper>
-                </Grid>
-                </Container>
+          <Container maxWidth="xs">
+            <Grid container style={img}>
+              <Paper elevation={3} style={paperStyle} sx={{ width: "100%" }}>
+                <Box style={{ display: "flex"}}>
+                  <Button  sx={{color:"#013C6B", justifyContent:"flex-start"}}>
+                    {" "}
+                    <b>
+                      <ArrowBackIosIcon />
+                    </b>
+                  </Button>
+                  <Typography
+                    variant="h4"
+                    sx={{ color: "#013C6B", flex:0.8, textAlign: "center" }}
+                  >
+                    Log in
+                  </Typography>
                 </Box>
-           
-        </Box> 
+
+                <form style={formStyle} noValidate onSubmit={handleFormSubmit}>
+                  <TextField
+                    variant="outlined"
+                    placeholder="Username/Email"
+                    name="username"
+                    fullWidth
+                    value={formData.username}
+                    onChange={handleFormChange}
+                    error={!!formErrors.username}
+                    helperText={formErrors.username}
+                    InputProps={{ sx: { mb: 2 } }}
+                  />
+                  <TextField
+                    variant="outlined"
+                    placeholder="Password"
+                    fullWidth
+                    value={formData.password}
+                    onChange={handleFormChange}
+                    error={!!formErrors.password}
+                    helperText={formErrors.password}
+                    // InputProps={{ sx: { borderColor:"red" } }}
+                  />
+                  <Typography
+                    sx={{ color: "#013C6B", display: "flex", mt: "1rem" }}
+                  >
+                    <LockIcon />{"  "}
+                    Forgot Password ?
+                  </Typography>
+                  <Box align="center">
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      style={{ ...submitButtonStyle, backgroundColor: blue }}
+                    >
+                      Login
+                    </Button>
+                  </Box>
+                  <Box align="center">
+                    <Typography sx={{ color: blue }}>
+                      Don't have an account?{" "}
+                      <span style={{ color: "#0061AE" }}>Register here</span>
+                    </Typography>
+                  </Box>
+                </form>
+              </Paper>
+            </Grid>
+          </Container>
         </Box>
-      </>
-    );
+      </Box>
+    </>
+  );
 }
 
 export default Login;

@@ -8,6 +8,10 @@ import Searcher from './Searcher';
 import Question from '../../components/Question';
 import Review from "../../components/Review";
 
+
+
+
+
 const Guest2 = () => {
   return (
     <>
@@ -20,7 +24,10 @@ const Guest2 = () => {
       <Question/>
      
       <Footer />
-     
+
+      
+    
+      
     </>
   );
 };
