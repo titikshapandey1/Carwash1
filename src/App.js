@@ -45,17 +45,17 @@ function App() {
       {/* <Guest5/> */}
       {/* <HomePage/> */}
       {/* <Profile/> */}
-      <HomePage/>
-      {/* <ServiceLocation/> */}
+      {/* <HomePage/> */}
+      <ServiceLocation/>
       {/* <AboutGuest/> */}
       {/* <BackgroundImg/>   */}
-      <Guest1/>
+      {/* <Guest1/> */}
       {/* <Guest5/> */}
       {/* <Guest2 /> */}
       {/* <Guest6 /> */}
       {/* <Login /> */}
       {/* <Question/> */}
-      <RegisterPage/>
+      {/* <RegisterPage/> */}
       {/* <Mobile/> */}
       {/* <Otp/> */}
       {/* <Rectanglefield/> */}
@@ -68,7 +68,7 @@ function App() {
       {/* <Ourplans/> */}
       {/* <Subscribe/> */}
       {/* <Review/> */}
-      <History/>
+      {/* <History/> */}
     </>
   );
 }
