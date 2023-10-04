@@ -9,14 +9,14 @@ const BackgroundImg = () => {
         sx={{
           display: "flex",
           backgroundImage: `url(${car1})`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           // backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          maxHeight: "100%",
-          "@media (max-width: 960px)": {
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-          },
+          minHeight: "500px",
+          // "@media (max-width: 960px)": {
+          //   backgroundSize: "contain",
+          //   backgroundRepeat: "no-repeat",
+          // },
         }}
       >
         <Grid container spacing={3}>
