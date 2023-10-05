@@ -3,6 +3,7 @@ import React from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import OurServices from '../components/OurServices';
 import Colors from "../utils/colors";
+import { NavLink } from "react-router-dom";
 
 const Card1 = () => {
   return (
@@ -48,7 +49,18 @@ const Card1 = () => {
                     marginInline: "30%",
                   }}
                 >
-                  Book now   <ArrowForwardIosIcon sx={{ fontSize: "medium", marginTop: "-2px" }} />
+                  <NavLink
+                    to="/services"
+                    style={{
+                      textDecoration: "none",
+                      color: Colors.palette.primary.main,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    Book now   <ArrowForwardIosIcon sx={{ fontSize: "medium", marginTop: "-2px" }} />
+                  </NavLink>
+                  
                 </Button>
               </Typography>
 
@@ -94,7 +106,17 @@ const Card1 = () => {
                     marginInline: "30%",
                   }}
                 >
-                  Book now   <ArrowForwardIosIcon sx={{ fontSize: "medium", marginTop: "-2px" }} />
+                  <NavLink
+                    to="/services"
+                    style={{
+                      textDecoration: "none",
+                      color: Colors.palette.primary.main,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    Book now   <ArrowForwardIosIcon sx={{ fontSize: "medium", marginTop: "-2px" }} />
+                  </NavLink>
                 </Button>
               </Typography>
             </CardContent>
@@ -140,7 +162,17 @@ const Card1 = () => {
                     marginInline: "30%",
                   }}
                 >
-                  Book now   <ArrowForwardIosIcon sx={{ fontSize: "medium", marginTop: "-2px" }} />
+                  <NavLink
+                    to="/services"
+                    style={{
+                      textDecoration: "none",
+                      color: Colors.palette.primary.main,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    Book now   <ArrowForwardIosIcon sx={{ fontSize: "medium", marginTop: "-2px" }} />
+                  </NavLink>
                 </Button>
               </Typography>
             </CardContent>

@@ -19,6 +19,7 @@ import Ourplan from "../../components/Ourplan";
 import Question from "../../components/Question";
 import Colors from "../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { NavLink } from "react-router-dom";
 
 const cardStyles = {
   my: 1,
@@ -429,10 +430,20 @@ function ContactUs() {
                                 variant="contained"
                                 style={submitButtonStyle}
                               >
-                                Submit&nbsp;&nbsp;{" "}
-                                <ArrowForwardIosIcon
-                                  sx={{ fontSize: "16px" }}
-                                />
+                                <NavLink
+                                  to="/home"
+                                  style={{
+                                    textDecoration: "none",
+                                    color: Colors.palette.primary.main,
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  Submit &nbsp;
+                                  <ArrowForwardIosIcon
+                                    sx={{ fontSize: "20px" }}
+                                  />
+                                </NavLink>
                               </Button>
                             </Box>
                           </form>

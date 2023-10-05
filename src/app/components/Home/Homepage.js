@@ -10,6 +10,7 @@ import BackgroundImg from "../Background";
 import Question from "../Question";
 import Footer from "../../partials/Footer";
 import Colors from "../../utils/colors";
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -119,9 +120,20 @@ const HomePage = () => {
                   },
                   mt: 5,
                   ml: { xs: 0, sm: 2, md: 2, lg: 2, xl: 2 },
+                  "&:hover": {
+                    backgroundColor: Colors.palette.primary.main,
+                  },
                 }}
               >
-                Our Services
+                <NavLink
+                  to="/services"
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.secondary.main,
+                  }}
+                >
+                  Our Services
+                </NavLink>
               </Button>
             </Box>
           </Grid>

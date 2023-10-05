@@ -14,6 +14,7 @@ import LockIcon from "@mui/icons-material/Lock";
 // import car1 from "../assests/images/car1guest.png";
 import Colors from "../../utils/colors";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { NavLink } from "react-router-dom";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ function Login() {
     display: "flex",
     flexDirection: "column",
     borderRadius: 25,
-    opacity: ".8",
+    // opacity: ".8",
   };
 
   const formStyle = {
@@ -105,8 +106,9 @@ function Login() {
           }}
         >
           <Container maxWidth="xs">
-            <Grid container 
-            // style={img}
+            <Grid
+              container
+              // style={img}
             >
               <Paper elevation={3} style={paperStyle} sx={{ width: "100%" }}>
                 <Box style={{ display: "flex" }}>
@@ -116,7 +118,15 @@ function Login() {
                       justifyContent: "flex-start",
                     }}
                   >
-                    <ArrowBackIosIcon />
+                    <NavLink
+                      to="/"
+                      style={{
+                        textDecoration: "none",
+                        color: Colors.palette.secondary.main,
+                      }}
+                    >
+                      <ArrowBackIosIcon />
+                    </NavLink>
                   </Button>
                   <Typography
                     variant="h4"
@@ -170,7 +180,15 @@ function Login() {
                         color: Colors.palette.secondary.main,
                       }}
                     >
-                      Forgot Password ?
+                      <NavLink
+                        to="/mobile"
+                        style={{
+                          textDecoration: "none",
+                          color: Colors.palette.secondary.main,
+                        }}
+                      >
+                        Forgot Password ?
+                      </NavLink>
                     </Link>
                   </Typography>
                   <Box align="center">
@@ -180,21 +198,29 @@ function Login() {
                       variant="contained"
                       style={{ ...submitButtonStyle }}
                     >
-                      Login
+                      <NavLink
+                        to="/home"
+                        style={{
+                          textDecoration: "none",
+                          color: Colors.palette.primary.main,
+                        }}
+                      >
+                        Login
+                      </NavLink>
                     </Button>
                   </Box>
                   <Box align="center">
                     <Typography sx={{ color: Colors.palette.secondary.main }}>
-                      Don't have an account?{" "}
-                      <Link
-                        sx={{
+                      Don't have an account?&nbsp;&nbsp;
+                      <NavLink
+                        to="/registerpage"
+                        style={{
                           textDecoration: "none",
-                          ml: 1,
                           color: Colors.palette.secondary.main,
                         }}
                       >
                         Register here
-                      </Link>
+                      </NavLink>
                     </Typography>
                   </Box>
                 </form>
