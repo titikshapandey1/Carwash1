@@ -1,3 +1,41 @@
+// import React, { useState } from 'react';
+// import {
+//   FormControl,
+//   FormControlLabel,
+//   Radio,
+//   RadioGroup,
+//   Typography,
+// } from '@mui/material';
+
+// function PaymentOptions() {
+//   const [paymentMethod, setPaymentMethod] = useState('creditCard'); // Default payment method
+
+//   const handlePaymentChange = (event) => {
+//     setPaymentMethod(event.target.value);
+//   };
+
+//   return (
+//     <FormControl component="fieldset">
+//       <Typography variant="h6">Payment Method</Typography>
+//       <RadioGroup
+//         aria-label="payment-method"
+//         name="payment-method"
+//         value={paymentMethod}
+//         onChange={handlePaymentChange}
+//       >
+       
+//         <FormControlLabel
+//           value="cashOnDelivery"
+//           control={<Radio />}
+//           label="Cash on Delivery"
+         
+//         />
+//       </RadioGroup>
+//     </FormControl>
+//   );
+// }
+
+// export default PaymentOptions;
 import React, { useState } from 'react';
 import {
   FormControl,
@@ -6,7 +44,7 @@ import {
   RadioGroup,
   Typography,
 } from '@mui/material';
-
+import Colors from '../utils/colors';
 function PaymentOptions() {
   const [paymentMethod, setPaymentMethod] = useState('creditCard'); // Default payment method
 
@@ -16,18 +54,28 @@ function PaymentOptions() {
 
   return (
     <FormControl component="fieldset">
-      <Typography variant="h6">Payment Method</Typography>
+      <Typography variant="h6" sx={{color: Colors.palette.secondary.main}}>Payment Method</Typography>
       <RadioGroup
         aria-label="payment-method"
         name="payment-method"
         value={paymentMethod}
         onChange={handlePaymentChange}
       >
-       
+        <FormControlLabel
+          value="creditCard"
+          control={<Radio />}
+          label="Credit Card"
+        />
         <FormControlLabel
           value="cashOnDelivery"
           control={<Radio />}
-          label="Cash on Delivery"
+          label="CashOnDelivery"
+        />
+        <FormControlLabel
+          value="UPI"
+          control={<Radio />}
+          label="UPI"
+          
         />
       </RadioGroup>
     </FormControl>

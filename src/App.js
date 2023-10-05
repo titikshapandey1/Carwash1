@@ -44,9 +44,9 @@ function App() {
       {/* <Searcher/> */}
       {/* <Guest5/> */}
       {/* <HomePage/> */}
-      <Profile/>
+      {/* <Profile/> */}
       {/* <HomePage/> */}
-      {/* <ServiceLocation/> */}
+      <ServiceLocation/>
       {/* <AboutGuest/> */}
       {/* <BackgroundImg/>   */}
       {/* <Guest1/> */}

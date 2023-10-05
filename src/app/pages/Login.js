@@ -134,6 +134,7 @@ function Login() {
                     placeholder="Username/Email"
                     name="username"
                     fullWidth
+                    size="small"
                     value={formData.username}
                     onChange={handleFormChange}
                     error={!!formErrors.username}
@@ -144,6 +145,7 @@ function Login() {
                     variant="outlined"
                     placeholder="Password"
                     fullWidth
+                    size="small"
                     value={formData.password}
                     onChange={handleFormChange}
                     error={!!formErrors.password}
