@@ -29,12 +29,14 @@ import Contactus from "./app/pages/users/Contactus";
 import HomeCards from "./app/components/Home/HomeCards";
 import Profile from "./app/pages/users/Profile";
 import History from "./app/pages/users/History";
+import Commonpaper from "./app/components/Commonpaper";
+
 
 function App() {
   return (
     <>
       {/*======== COMPONENTS========== */}
-
+{/* <Commonpaper/> */}
       {/* <Dryclean/> */}
       {/* <Card1/> */}
       {/* <HomeCards/> */}
@@ -55,10 +57,10 @@ function App() {
       {/*======== PAGES========== */}
 
       {/* <Guest1/> */}
-      {/* <Guest5/> */}
+      <Guest5/>
       {/* <Guest2 /> */}
       {/* <Guest6 /> */}
-      <Login />
+      {/* <Login /> */}
       {/* <HomePage/> */}
       {/* <Profile/> */}
       {/* <ServiceLocation/> */}
