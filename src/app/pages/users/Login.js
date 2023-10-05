@@ -11,8 +11,8 @@ import {
   Navlink,
 } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
-import car1 from "../assests/images/car1guest.png";
-import Colors from "../utils/colors";
+// import car1 from "../assests/images/car1guest.png";
+import Colors from "../../utils/colors";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function Login() {
@@ -49,7 +49,7 @@ function Login() {
   };
 
   const img = {
-    backgroundImage: `url(${car1})`,
+    // backgroundImage: `url(${car1})`,
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
@@ -105,7 +105,9 @@ function Login() {
           }}
         >
           <Container maxWidth="xs">
-            <Grid container style={img}>
+            <Grid container 
+            // style={img}
+            >
               <Paper elevation={3} style={paperStyle} sx={{ width: "100%" }}>
                 <Box style={{ display: "flex" }}>
                   <Button

@@ -61,7 +61,7 @@ function RegisterPage() {
   };
   const img = {
     // backgroundImage: `url(${car1})`,
-    backgroundImage: `url(${Sedan})`,
+    // backgroundImage: `url(${Sedan})`,
 
     backgroundPosition: "center",
     backgroundSize: "contain",
@@ -112,6 +112,7 @@ function RegisterPage() {
     >
       <Box
         sx={{
+          // bac
           width: "170vh",
           height: "50%",
           display: "flex",
@@ -127,7 +128,7 @@ function RegisterPage() {
             container
             style={{
               // backgroundImage: `url(${car1})`,
-              backgroundImage: `url(${Sedan})`,
+              // backgroundImage: `url(${Sedan})`,
 
               backgroundPosition: "center",
               backgroundSize: "contain",

@@ -15,7 +15,7 @@ import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import Footer from "../../partials/Footer";
 import Nav from "../../partials/Nav";
 import Guest1 from "../../components/Background";
-import Ourplan from "./Ourplan";
+import Ourplan from "../../components/Ourplan";
 import Question from "../../components/Question";
 import Colors from "../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
