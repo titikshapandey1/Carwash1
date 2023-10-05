@@ -69,8 +69,10 @@ function Profile() {
             >
               Edit
             </Box>
+            <Box sx={{ marginBottom: "2rem" }}>
 
-            <CircleIcon sx={{ fontSize: "200px", color: "#D9D9D9" }} />
+              <CircleIcon sx={{ fontSize: "200px", color: Colors.palette.secondary.lightGrey }} />
+            </Box>
 
             <form style={formStyle} noValidate>
               <Grid container spacing={2}>

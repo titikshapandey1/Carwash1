@@ -34,6 +34,7 @@ import Subscriptions from "../pages/users/Subscription";
 import Booking from "../pages/users/Booking";
 import Contactus from "../pages/users/Contactus";
 import History from "../pages/users/History";
+import Profile2 from "../pages/users/Profile2";
 
 function AppRouter() {
 
@@ -67,6 +68,7 @@ function AppRouter() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/homepage" element={<HomePage />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/profile2" element={<Profile2 />}></Route>
         <Route path="/servicelocation" element={<ServiceLocation />}></Route>
         <Route path="/registerpage" element={<RegisterPage />}></Route>
         <Route path="/mobile" element={<Mobile />}></Route>
