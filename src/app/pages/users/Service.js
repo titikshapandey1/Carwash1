@@ -22,22 +22,19 @@ import {
 import Colors from "../../utils/colors";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { NavLink } from "react-router-dom";
 
 function ServiceLocation() {
-  const buttonBoxStyles = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
   const submitButtonStyle = {
-    margin: "20px 0",
-    width: "150px",
-    borderRadius: "10px",
-    display: "block",
+    marginTop: "20px",
+    marginBottom: "20px",
+    padding: "15px",
+    borderRadius: 5,
+    display: "flex",
     textAlign: "center",
-    marginTop: "5%",
-    marginLeft: { xs: "20%", sm: "30%" },
+    backgroundColor: Colors.palette.secondary.main,
   };
+
   const textFieldStyles = {
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
@@ -57,7 +54,7 @@ function ServiceLocation() {
     display: "flex",
     flexDirection: "column",
     borderRadius: 15,
-    opacity: ".6",
+    // opacity: ".6",
     // height:'25%'
   };
 
@@ -324,16 +321,23 @@ function ServiceLocation() {
                   />
                 </Grid>
               </Grid>
-
-              <Box style={buttonBoxStyles}>
+              <Box align="center">
                 <Button
                   type="submit"
                   variant="contained"
-                  style={submitButtonStyle}
-                  sx={{ color: Colors.palette.secondary.main }}
+                  sx={{ ...submitButtonStyle }}
                 >
-                  Submit&nbsp;&nbsp;{" "}
-                  <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+                  <NavLink
+                    to="/home"
+                    style={{
+                      textDecoration: "none",
+                      color: Colors.palette.primary.main,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                  </NavLink>
                 </Button>
               </Box>
             </form>

@@ -9,7 +9,8 @@ import {
   Typography,
 } from "@mui/material";
 import Colors from "../../utils/colors";
-
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { NavLink } from "react-router-dom";
 const Subscribe = () => {
   return (
     <>
@@ -78,20 +79,37 @@ const Subscribe = () => {
                     Expiring on: 04/10/2023
                   </Typography>
 
-                  <Typography sx={{ marginTop: "8%" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: "5%",
+                    }}
+                  >
                     <Button
                       variant="contained"
                       sx={{
                         borderRadius: "22px",
-                        background: Colors.palette.secondary.brown,
+                        background: Colors.palette.secondary.main,
                         height: "55px",
                         width: "150px",
-                        marginInline: "30%",
                       }}
                     >
-                      Cancel
+                      <NavLink
+                        to="/servicelocation"
+                        style={{
+                          textDecoration: "none",
+                          color: Colors.palette.primary.main,
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        Book now &nbsp;
+                        <ArrowForwardIosIcon sx={{ fontSize: "medium" }} />
+                      </NavLink>
                     </Button>
-                  </Typography>
+                  </Box>
                 </CardContent>
               </Card>
             </Grid>
@@ -151,20 +169,37 @@ const Subscribe = () => {
                     Expiring on: 04/10/2023
                   </Typography>
 
-                  <Typography sx={{ marginTop: "8%" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: "5%",
+                    }}
+                  >
                     <Button
                       variant="contained"
                       sx={{
                         borderRadius: "22px",
-                        background: Colors.palette.secondary.brown,
+                        background: Colors.palette.secondary.main,
                         height: "55px",
                         width: "150px",
-                        marginInline: "30%",
                       }}
                     >
-                      Cancel
+                      <NavLink
+                        to="/servicelocation"
+                        style={{
+                          textDecoration: "none",
+                          color: Colors.palette.primary.main,
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        Book now &nbsp;
+                        <ArrowForwardIosIcon sx={{ fontSize: "medium" }} />
+                      </NavLink>
                     </Button>
-                  </Typography>
+                  </Box>
                 </CardContent>
               </Card>
             </Grid>
@@ -224,20 +259,37 @@ const Subscribe = () => {
                     Expiring on: 04/10/2023
                   </Typography>
 
-                  <Typography sx={{ marginTop: "8%" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: "5%",
+                    }}
+                  >
                     <Button
                       variant="contained"
                       sx={{
                         borderRadius: "22px",
-                        background: Colors.palette.secondary.brown,
+                        background: Colors.palette.secondary.main,
                         height: "55px",
                         width: "150px",
-                        marginInline: "30%",
                       }}
                     >
-                      Cancel
+                      <NavLink
+                        to="/servicelocation"
+                        style={{
+                          textDecoration: "none",
+                          color: Colors.palette.primary.main,
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        Book now &nbsp;
+                        <ArrowForwardIosIcon sx={{ fontSize: "medium" }} />
+                      </NavLink>
                     </Button>
-                  </Typography>
+                  </Box>
                 </CardContent>
               </Card>
             </Grid>

@@ -9,6 +9,7 @@ import { Link } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../utils/colors";
+import { NavLink } from "react-router-dom";
 
 const submitButtonStyle = {
   marginTop: "20px",
@@ -62,10 +63,10 @@ const Mobile = () => {
             <Box
               sx={{
                 // minHeight: '50vh',
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
+                // backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
+                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))`,
                 borderRadius: "20px",
                 backgroundSize: "100%",
-
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 display: "flex",
@@ -81,14 +82,27 @@ const Mobile = () => {
                     justifyContent: "flex-start",
                   }}
                 >
-                  <ArrowBackIosIcon />
+                  <NavLink
+                    to="/login"
+                    style={{
+                      textDecoration: "none",
+                      color: Colors.palette.secondary.main,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <ArrowBackIosIcon sx={{ fontSize: "20px" }} />
+                  </NavLink>
                 </Button>
               </Box>
 
               <Typography
                 variant="h6"
-                color="darkblue"
-                sx={{ marginTop: "10%", textAlign: "center" }}
+                sx={{
+                  marginTop: "10%",
+                  textAlign: "center",
+                  color: Colors.palette.secondary.main,
+                }}
               >
                 Enter your mobile number here
               </Typography>
@@ -104,7 +118,7 @@ const Mobile = () => {
                     width: "100%",
                     maxWidth: "300px",
                   },
-                  marginBottom: "8%",
+                  marginBottom: "5%",
                 }}
                 noValidate
                 autoComplete="off"
@@ -131,9 +145,19 @@ const Mobile = () => {
                 <Button
                   type="submit"
                   variant="contained"
-                  sx={{ ...submitButtonStyle  }}
+                  sx={{ ...submitButtonStyle }}
                 >
-                  Submit <ArrowForwardIosIcon />
+                  <NavLink
+                    to="/otp"
+                    style={{
+                      textDecoration: "none",
+                      color: Colors.palette.primary.main,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                  </NavLink>
                 </Button>
               </Box>
 
@@ -144,9 +168,22 @@ const Mobile = () => {
                   marginTop: "16px",
                   justifyContent: "center",
                   alignItems: "center",
+                  color: Colors.palette.secondary.main,
                 }}
               >
-                <Link> Already have an account?Login </Link>
+                Already have an account?&nbsp;&nbsp;
+                <NavLink
+                  to="/login"
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.secondary.main,
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  {" "}
+                  Login
+                </NavLink>
               </Box>
             </Box>
           </Grid>
