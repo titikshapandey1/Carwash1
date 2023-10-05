@@ -6,6 +6,7 @@ import Footer from "../../partials/Footer";
 import Card1 from "../../components/Card";
 import AboutGuest from "../../components/About";
 import Review from "../../components/Review";
+
 const Guest5 = () => {
   return (
     <>

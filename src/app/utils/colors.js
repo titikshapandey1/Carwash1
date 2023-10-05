@@ -21,6 +21,7 @@ const Colors = createTheme({
       black:"#000000",
       cardBackground:"#F5F5F5",
       grey:"#808080",
+      lightGrey:"#D9D9D9",
     },
   },
 });

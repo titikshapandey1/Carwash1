@@ -11,6 +11,7 @@ import {
 import Colors from "../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { NavLink } from "react-router-dom";
+
 const Subscribe = () => {
   return (
     <>
