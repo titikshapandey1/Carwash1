@@ -61,9 +61,9 @@ function App() {
       {/* <Login /> */}
       {/* <HomePage/> */}
       {/* <Profile/> */}
-      <ServiceLocation/>
+      {/* <ServiceLocation/> */}
       {/* <RegisterPage/> */}
-      <Mobile/>
+      {/* <Mobile/> */}
       {/* <Otp/> */}
       {/* <Subscriptions/> */}
       {/* <Booking/> */}
