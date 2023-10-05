@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 import {
   Container,
   Grid,
@@ -8,103 +7,109 @@ import {
   Button,
   Typography,
   Box,
-} from '@mui/material';
-import car1 from "../../assests/images/car1guest.png"
-import PaymentOptions from"../../components/Paymentoption"
-import { useState } from 'react';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+} from "@mui/material";
+import car1 from "../../assests/images/car1guest.png";
+import PaymentOptions from "../../components/Paymentoption";
+import { useState } from "react";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import Colors from '../../utils/colors';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import {
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
+import Colors from "../../utils/colors";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
-function ServiceLocation() {  
-
-    const buttonBoxStyles = {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    };
-    const submitButtonStyle = {
-      margin: '20px 0',
-      width: '150px',
-      borderRadius: '10px',
-      display: 'block',
-      textAlign: 'center',
-      marginTop: '5%',
-      marginLeft: { xs: '20%', sm: '30%' },
-    };
-    const textFieldStyles = {
-      "& .MuiOutlinedInput-root": {
-        "& fieldset": {
-          borderColor: "black", 
-        },
-        "& input": {
-          color: "black",
-        },
-        "& input::placeholder": {
-          color: "darkblack", 
-        },
+function ServiceLocation() {
+  const buttonBoxStyles = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+  const submitButtonStyle = {
+    margin: "20px 0",
+    width: "150px",
+    borderRadius: "10px",
+    display: "block",
+    textAlign: "center",
+    marginTop: "5%",
+    marginLeft: { xs: "20%", sm: "30%" },
+  };
+  const textFieldStyles = {
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "black",
       },
-    };
-
-    const paperStyle = {
-      padding: "20px",
-      display: "flex",
-      flexDirection: "column",
-      borderRadius: 15,
-      opacity: ".6",
-      // height:'25%'
-      
-    };
-
-  const formStyle = {
-    width: '100%', // Full width
-    marginTop: '3%',
+      "& input": {
+        color: "black",
+      },
+      "& input::placeholder": {
+        color: "darkblack",
+      },
+    },
   };
 
+  const paperStyle = {
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: 15,
+    opacity: ".6",
+    // height:'25%'
+  };
 
+  const formStyle = {
+    width: "100%", // Full width
+    marginTop: "3%",
+  };
 
   return (
     <Box
       sx={{
         // backgroundImage: 'url("${car1}")',
         // backgroundColor: ' #F5F5F5',
-background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
+        background:
+          "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
 
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius:'25'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "25",
         // mt:2,
       }}
     >
-      <Container component="main" maxWidth="sm"sx={{mt:'1%', mb:'1%',ml:'20%',mr:'20%'}}>
-        <Grid container >
+      <Container
+        component="main"
+        maxWidth="sm"
+        sx={{ mt: "1%", mb: "1%", ml: "20%", mr: "20%" }}
+      >
+        <Grid container>
           <Paper elevation={10} style={paperStyle}>
-
-            <Typography variant="h6" sx={{color: Colors.palette.secondary.main}}>Enter your credentials here:</Typography>
+            <Typography
+              variant="h6"
+              sx={{ color: Colors.palette.secondary.main }}
+            >
+              Enter your credentials here:
+            </Typography>
             <form style={formStyle} noValidate>
-         
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                 
                   <TextField
-  variant="outlined"
-  required
-  fullWidth
-  id="firstName"
-  label="First Name"
-  name="firstName"
-  size="small" 
-  
-  sx={textFieldStyles}
-/>
-
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    name="firstName"
+                    size="small"
+                    sx={textFieldStyles}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -114,8 +119,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="lastName"
                     label="Last Name"
                     name="lastName"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -127,8 +131,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="contactNumber"
                     label="Contact Number"
                     name="contactNumber"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -139,8 +142,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="alternateNumber"
                     label="Alternate Number"
                     name="alternateNumber"
-                    size="small" 
-                 
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -152,17 +154,22 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="email"
                     label="Email Address"
                     name="email"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
-                <Grid item xs={12}sm={4}>
-                {/* <Typography variant='h6'>Payment mode:<br/></Typography> */}
-                <PaymentOptions/>
+                <Grid item xs={12} sm={4}>
+                  {/* <Typography variant='h6'>Payment mode:<br/></Typography> */}
+                  <PaymentOptions />
                 </Grid>
                 <Grid item xs={12}>
-                <Typography variant='h6' sx={{color: Colors.palette.secondary.main}}>Address<br/></Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: Colors.palette.secondary.main }}
+                  >
+                    Address
+                    <br />
+                  </Typography>
                 </Grid>
 
                 <Grid item xs={12}>
@@ -173,8 +180,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="Locality / Building / Street / Society"
                     label="Locality / Building / Street / Society"
                     name="address"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -186,8 +192,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="city/Town"
                     label="City / Town  District"
                     name="city"
-                    size='small'
-                   
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -199,8 +204,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id=" District"
                     label=" District"
                     name=" District"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -212,8 +216,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="State"
                     label="State"
                     name="State"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -225,23 +228,39 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="Pincode"
                     label=" Pincode"
                     name="Pincode"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
                 <Grid item xs={12} sm={12}>
-                <Typography variant='h6'>Do you want the service at:<br /></Typography>
-                <FormControl component="fieldset">
-                    <RadioGroup row aria-label="location" name="location" >
-                    <FormControlLabel value="My place" control={<Radio />} label="My place" />
-                    <FormControlLabel value="CarWash centre" control={<Radio />} label="CarWash centre" />
+                  <Typography variant="h6">
+                    Do you want the service at:
+                    <br />
+                  </Typography>
+                  <FormControl component="fieldset">
+                    <RadioGroup row aria-label="location" name="location">
+                      <FormControlLabel
+                        value="My place"
+                        control={<Radio />}
+                        label="My place"
+                      />
+                      <FormControlLabel
+                        value="CarWash centre"
+                        control={<Radio />}
+                        label="CarWash centre"
+                      />
                     </RadioGroup>
-                </FormControl>
+                  </FormControl>
                 </Grid>
 
                 <Grid item xs={12}>
-                <Typography variant='h6' sx={{color: Colors.palette.secondary.main}}>Pickup Location<br/></Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: Colors.palette.secondary.main }}
+                  >
+                    Pickup Location
+                    <br />
+                  </Typography>
                 </Grid>
 
                 <Grid item xs={12}>
@@ -252,8 +271,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="Pickup Location/Locality / Building / Street / Society"
                     label="Locality / Building / Street / Society"
                     name=" Pickup Location/Locality / Building / Street / Society"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -265,8 +283,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="Pickup Location/city/Town"
                     label="City / Town  District"
                     name="Pickup Location/city/Town"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -278,8 +295,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id=" Pickup Location/District"
                     label=" District"
                     name=" Pickup Location/District"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -291,8 +307,7 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="Pickup Location/State"
                     label="State"
                     name="Pickup Location/State"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
@@ -304,30 +319,23 @@ background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
                     id="Pickup Location/Pincode"
                     label=" Pincode"
                     name="Pickup Location/Pincode"
-                    size="small" 
-                  
+                    size="small"
                     sx={textFieldStyles}
                   />
                 </Grid>
-
-
-
               </Grid>
-             
+
               <Box style={buttonBoxStyles}>
-                              <Button
-                                type="submit"
-                                variant="contained"
-                                style={submitButtonStyle}
-                                sx={{color: Colors.palette.secondary.main}}
-                              >
-                                Submit&nbsp;&nbsp;{" "}
-                                <ArrowForwardIosIcon
-                                  sx={{ fontSize: "16px" }}
-                                />
-                              </Button>
-                            </Box>
-              
+                <Button
+                  type="submit"
+                  variant="contained"
+                  style={submitButtonStyle}
+                  sx={{ color: Colors.palette.secondary.main }}
+                >
+                  Submit&nbsp;&nbsp;{" "}
+                  <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+                </Button>
+              </Box>
             </form>
           </Paper>
         </Grid>
