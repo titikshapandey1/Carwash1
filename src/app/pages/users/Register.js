@@ -15,6 +15,7 @@ import * as Yup from "yup";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../utils/colors";
+import { NavLink, Link } from "react-router-dom";
 
 function RegisterPage() {
   const paperStyle = {
@@ -22,29 +23,21 @@ function RegisterPage() {
     display: "flex",
     flexDirection: "column",
     borderRadius: 15,
-    opacity: ".5",
-    // height:'25%'
+    // opacity: ".5",
   };
   const formStyle = {
-    // width: "100%",
-    // marginTop: "20%",
     position: "center",
     color: Colors.palette.secondary.main,
   };
 
-  const buttonBoxStyles = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
   const submitButtonStyle = {
-    margin: "20px 0",
-    width: "150px",
-    borderRadius: "10px",
-    display: "block",
+    marginTop: "20px",
+    marginBottom: "20px",
+    padding: "15px",
+    borderRadius: 5,
+    display: "flex",
     textAlign: "center",
-    marginTop: "5%",
-    marginLeft: { xs: "20%", sm: "30%" },
+    backgroundColor: Colors.palette.secondary.main,
   };
   const textFieldStyles = {
     "& .MuiOutlinedInput-root": {
@@ -138,16 +131,26 @@ function RegisterPage() {
             }}
           >
             <Paper elevation={10} style={paperStyle}>
-              <Box style={{ display: "flex" }}>
-                <Button
-                  sx={{
-                    color: Colors.palette.secondary.main,
-                    marginLeft: "1%",
-                    fontSize: "600",
-                  }}
-                >
-                  <ArrowBackIosIcon />
-                  Login
+              <Box
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "left",
+                }}
+              >
+                <Button>
+                  <NavLink
+                    to="/login"
+                    style={{
+                      textDecoration: "none",
+                      color: Colors.palette.secondary.main,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <ArrowBackIosIcon />
+                    Login
+                  </NavLink>
                 </Button>
               </Box>
               <Typography
@@ -373,14 +376,29 @@ function RegisterPage() {
                     />
                   </Grid>
                 </Grid>
-                <Box style={buttonBoxStyles}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <Button
                     type="submit"
                     variant="contained"
-                    style={submitButtonStyle}
+                    sx={{ ...submitButtonStyle }}
                   >
-                    Submit&nbsp;&nbsp;{" "}
-                    <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+                    <NavLink
+                      to="/login"
+                      style={{
+                        textDecoration: "none",
+                        color: Colors.palette.primary.main,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                    </NavLink>
                   </Button>
                 </Box>
               </form>

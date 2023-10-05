@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Grid,
@@ -16,10 +15,10 @@ import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../utils/colors";
-import Sedan from "../../assests/images/sedan.png"
-const Otp=()=> {
+import Sedan from "../../assests/images/sedan.png";
+import { NavLink, Link } from "react-router-dom";
 
-
+const Otp = () => {
   const paperStyle = {
     padding: "20px",
     display: "flex",
@@ -47,9 +46,7 @@ const Otp=()=> {
     backgroundColor: Colors.palette.secondary.main,
   };
 
-  const handleFormChange = (e) => {
-    
-  };
+  const handleFormChange = (e) => {};
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -101,7 +98,18 @@ const Otp=()=> {
                       justifyContent: "flex-start",
                     }}
                   >
-                    <ArrowBackIosIcon />
+                    <NavLink
+                      to="/mobile"
+                      style={{
+                        textDecoration: "none",
+                        color: Colors.palette.secondary.main,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <ArrowBackIosIcon />
+                      Login
+                    </NavLink>
                   </Button>
                 </Box>
 
@@ -161,7 +169,7 @@ const Otp=()=> {
                           marginRight: "1.5rem",
                         }}
                       >
-                        Resend
+                        &nbsp;&nbsp;Resend
                       </span>
                       <TimerOutlinedIcon /> 00:45
                     </Typography>
@@ -179,7 +187,17 @@ const Otp=()=> {
                       variant="contained"
                       sx={{ ...submitButtonStyle }}
                     >
-                      Submit <ArrowForwardIosIcon />
+                      <NavLink
+                        to="/home"
+                        style={{
+                          textDecoration: "none",
+                          color: Colors.palette.primary.main,
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                      </NavLink>
                     </Button>
                   </Box>
                 </form>
@@ -190,8 +208,6 @@ const Otp=()=> {
       </Box>
     </>
   );
-}
+};
 
 export default Otp;
-
-

@@ -6,6 +6,13 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Colors from "../utils/colors";
 import DrawerComp from "./Drawer";
+import { NavLink, Link } from "react-router-dom";
+
+// const linkStyle = {
+//   color:Colors.palette.primary.main ,
+//   textDecoration: "none",
+
+// };
 
 const Nav = () => {
   // const [value, setValue] = useState();
@@ -28,7 +35,15 @@ const Nav = () => {
                 fontWeight: "600",
               }}
             >
-              Logo
+              <NavLink
+                to="/"
+                style={{
+                  textDecoration: "none",
+                  color: Colors.palette.primary.main,
+                }}
+              >
+                Logo
+              </NavLink>
             </Typography>
             <Box
               sx={{
@@ -39,52 +54,78 @@ const Nav = () => {
             >
               <Button
                 sx={{
-                  color: Colors.palette.primary.main,
-                  cursor: "pointer",
                   "&:hover": {
                     backgroundColor: Colors.palette.primary.main,
-                    color: Colors.palette.secondary.main,
+                    color: "red",
                   },
                 }}
               >
-                Services
+                <NavLink
+                  to="/services"
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.primary.main,
+                  }}
+                >
+                  Services
+                </NavLink>
+              </Button>
+
+              <Button
+                sx={{
+                  cursor: "pointer",
+                  "&:hover": {
+                    backgroundColor: Colors.palette.primary.main,
+                  },
+                }}
+              >
+                <NavLink
+                  to="/homepage"
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.primary.main,
+                  }}
+                >
+                  About Us
+                </NavLink>
               </Button>
               <Button
                 sx={{
-                  color: Colors.palette.primary.main,
                   cursor: "pointer",
                   "&:hover": {
                     backgroundColor: Colors.palette.primary.main,
-                    color: Colors.palette.secondary.main,
                   },
                 }}
               >
-                About Us
-              </Button>
-              <Button
-                sx={{
-                  color: Colors.palette.primary.main,
-                  cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.main,
-                    color: Colors.palette.secondary.main,
-                  },
-                }}
-              >
-                Contact Us
+                <NavLink
+                  to="/contactus"
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.primary.main,
+                  }}
+                >
+                  Contact Us
+                </NavLink>
               </Button>
               <Button
                 sx={{
                   backgroundColor: Colors.palette.primary.red,
-                  color: Colors.palette.primary.main,
                   cursor: "pointer",
                   "&:hover": {
-                    backgroundColor: Colors.palette.primary.main,
+                    // backgroundColor: Colors.palette.primary.main,
                     color: Colors.palette.primary.red,
                   },
                 }}
               >
-                Login
+                <NavLink
+                  to="/login"
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.primary.main,
+                  }}
+                >
+                  Login
+                </NavLink>
               </Button>
             </Box>
           </Toolbar>
