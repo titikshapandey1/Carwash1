@@ -14,15 +14,26 @@ import car1 from "../../assests/images/car1guest.png"
 import PaymentOptions from "../../components/Paymentoption";
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import Colors from '../../utils/colors';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 
+const validationSchema = Yup.object({
+    firstName: Yup.string().required('First Name is required'),
+    surname: Yup.string().required('Surname is required'),
+    contactNumber: Yup.string().required('Contact Number is required'),
+    alternateNumber: Yup.string().required('Alternate Number is required'),
+    email: Yup.string().required('Email Number is required'),
+
+
+});
 const buttonBoxStyles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  };
-  
-  const submitButtonStyle = {
+};
+
+const submitButtonStyle = {
     width: "auto",
     textTransform: "capitalize",
     fontSize: "16px",
@@ -31,12 +42,26 @@ const buttonBoxStyles = {
     color: "white",
     borderRadius: "10px",
     backgroundColor: Colors.palette.secondary.main,
-  };
+};
 
 
 
 
 function Profile() {
+    const formik = useFormik({
+        initialValues: {
+            firstName: '',
+            surname: '',
+            contactNumber: '',
+            // Initialize other form fields here
+            // ...
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            // Handle form submission here
+            console.log(values);
+        },
+    });
 
 
 
@@ -99,7 +124,10 @@ function Profile() {
                                         id="firstName"
                                         placeholder="First Name"
                                         name="firstName"
-
+                                        onChange={formik.handleChange}
+                                        value={formik.values.firstName}
+                                        error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+                                        helperText={formik.touched.firstName && formik.errors.firstName}
 
                                     />
                                 </Grid>
@@ -108,9 +136,13 @@ function Profile() {
                                         variant="outlined"
                                         required
                                         fullWidth
-                                        id="Surname"
+                                        id="surname"
                                         placeholder="Surname"
                                         name="Surname"
+                                         onChange={formik.handleChange}
+                                        value={formik.values.surname}
+                                        error={formik.touched.surname && Boolean(formik.errors.surname)}
+                                        helperText={formik.touched.surname && formik.errors.surname}
 
                                     />
                                 </Grid>
@@ -119,9 +151,13 @@ function Profile() {
                                         variant="outlined"
                                         required
                                         fullWidth
-                                        id="contactNumber"
+                                        id="contactnumber"
                                         placeholder="Contact Number"
                                         name="contactNumber"
+                                         onChange={formik.handleChange}
+                                        value={formik.values.contactNumber}
+                                        error={formik.touched.contactNumber && Boolean(formik.errors.contactNumber)}
+                                        helperText={formik.touched.contactNumber && formik.errors.contactNumber}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -131,6 +167,10 @@ function Profile() {
                                         id="alternateNumber"
                                         placeholder="Alternate Number"
                                         name="alternateNumber"
+                                         onChange={formik.handleChange}
+                                        value={formik.values.alternateNumber}
+                                        error={formik.touched.alternateNumber && Boolean(formik.errors.alternateNumber)}
+                                        helperText={formik.touched.alternateNumber && formik.errors.alternateNumber}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -141,6 +181,10 @@ function Profile() {
                                         id="email"
                                         placeholder="Email ID"
                                         name="email"
+                                         onChange={formik.handleChange}
+                                        value={formik.values.email}
+                                        error={formik.touched.email && Boolean(formik.errors.email)}
+                                        helperText={formik.touched.email && formik.errors.email}
                                     />
                                 </Grid>
 
@@ -200,13 +244,23 @@ function Profile() {
                                 </Grid>
 
 
-                             
+
 
 
 
 
 
                             </Grid>
+
+                            <Grid item xs={12}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    style={submitButtonStyle}
+                  >
+                    Submit
+                  </Button>
+                </Grid>
 
                         </form>
                     </Paper>

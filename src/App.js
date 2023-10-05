@@ -44,11 +44,11 @@ function App() {
       {/* <Searcher/> */}
       {/* <Guest5/> */}
       {/* <HomePage/> */}
-      {/* <Profile/> */}
+      <Profile/>
       {/* <HomePage/> */}
       {/* <ServiceLocation/> */}
       {/* <AboutGuest/> */}
-      <BackgroundImg/>  
+      {/* <BackgroundImg/>   */}
       {/* <Guest1/> */}
       {/* <Guest5/> */}
       {/* <Guest2 /> */}
@@ -56,7 +56,7 @@ function App() {
       {/* <Login /> */}
       {/* <Question/> */}
       {/* <RegisterPage/> */}
-      {/* <Mobile/> */}
+      <Mobile/>
       {/* <Otp/> */}
       {/* <Rectanglefield/> */}
       {/* <Subscriptions/> */}
