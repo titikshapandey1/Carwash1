@@ -46,7 +46,10 @@ const Review = () => {
               <Card
                 sx={{
                   height: "100%",
-                  border: `1.5px solid ${Colors.palette.secondary.main}`,
+                  border: `2px dashed ${Colors.palette.secondary.main}`,
+                  // border: `2px dotted ${Colors.palette.secondary.main}`,
+                  // border: `2px dot-dot-dash ${Colors.palette.secondary.main}`,
+
                   position: "relative",
                 }}
               >
