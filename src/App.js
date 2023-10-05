@@ -44,7 +44,7 @@ function App() {
       {/* <Searcher/> */}
       {/* <Guest5/> */}
       {/* <HomePage/> */}
-      <Profile/>
+      {/* <Profile/> */}
       {/* <HomePage/> */}
       {/* <ServiceLocation/> */}
       {/* <AboutGuest/> */}
@@ -56,8 +56,8 @@ function App() {
       {/* <Guest6 /> */}
       {/* <Login /> */}
       {/* <Question/> */}
-      {/* <RegisterPage/> */}
-      <Mobile/>
+      <RegisterPage/>
+      {/* <Mobile/> */}
       {/* <Otp/> */}
       {/* <Rectanglefield/> */}
       {/* <Subscriptions/> */}
@@ -69,7 +69,6 @@ function App() {
       {/* <Ourplans/> */}
       {/* <Subscribe/> */}
       {/* <Review/> */}
-      {/* <History/> */}
       {/* <History/> */}
     </>
   );
