@@ -107,7 +107,7 @@ export default function History() {
             <TableContainer component={Paper}>
               <Table aria-label="customized table">
                 <TableHead>
-                  <TableRow>
+                  <TableRow >
                     <TableCell
                       style={{
                         cellStyle,
