@@ -1,4 +1,5 @@
 import Login from "../src/app/pages/Login";
+import Searcher from "../src/app/pages/users/Searcher";
 import BackgroundImg from "./app/components/Background";
 import HomePage from "./app/components/Home/Homepage";
 import PaymentOptions from "./app/components/Paymentoption";
@@ -29,11 +30,10 @@ import HomeCards from "./app/components/Home/HomeCards";
 import Profile from "./app/pages/users/Profile";
 import History from "./app/pages/users/History";
 
-
-
 function App() {
   return (
     <>
+      {/*======== COMPONENTS========== */}
 
       {/* <Dryclean/> */}
       {/* <Card1/> */}
@@ -42,32 +42,32 @@ function App() {
       {/* <Ourplan/> */}
       {/* <Nav/>  */}
       {/* <Searcher/> */}
-      {/* <Guest5/> */}
-      {/* <HomePage/> */}
-      {/* <Profile/> */}
-      {/* <HomePage/> */}
-      <ServiceLocation/>
       {/* <AboutGuest/> */}
       {/* <BackgroundImg/>   */}
+      {/* <Question/> */}
+      {/* <Rectanglefield/> */}
+      {/* <OurServices/> */}
+      {/* <Footer/> */}
+      {/* <Ourplans/> */}
+      {/* <Subscribe/> */}
+      {/* <Review/> */}
+
+      {/*======== PAGES========== */}
+
       {/* <Guest1/> */}
       {/* <Guest5/> */}
       {/* <Guest2 /> */}
       {/* <Guest6 /> */}
       {/* <Login /> */}
-      {/* <Question/> */}
+      {/* <HomePage/> */}
+      {/* <Profile/> */}
+      <ServiceLocation/>
       {/* <RegisterPage/> */}
       {/* <Mobile/> */}
       {/* <Otp/> */}
-      {/* <Rectanglefield/> */}
       {/* <Subscriptions/> */}
-      {/* <OurServices/> */}
       {/* <Booking/> */}
-      {/* <Footer/> */}
       {/* <Contactus/> */}
-      {/* <Guest2 /> */}
-      {/* <Ourplans/> */}
-      {/* <Subscribe/> */}
-      {/* <Review/> */}
       {/* <History/> */}
     </>
   );
