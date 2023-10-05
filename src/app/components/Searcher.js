@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 import React from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Colors from "../../utils/colors";
+import Colors from "../utils/colors";
 
 const Searcher = () => {
   return (

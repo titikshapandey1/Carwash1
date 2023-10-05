@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 // import Colors from '../../../utils/Colors';
-import car1 from "../../assests/images/AboutCar.png";
+// import car1 from "../../assests/images/AboutCar.png";
 const AboutGuest = () => {
   return (
     <Box>
@@ -24,7 +24,7 @@ const AboutGuest = () => {
 
         <Grid item xs={12} sm={6} md={4} sx={{ position: "relative" }}>
           <img
-            src={car1}
+            // src={car1}
             alt=""
             style={{
               maxWidth: "100%",

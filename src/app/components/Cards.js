@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Colors from "../../utils/colors";
+import Colors from "../utils/colors";
 
 const Cards = () => {
   return (

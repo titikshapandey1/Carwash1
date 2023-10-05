@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import Colors from "../../utils/colors";
+import Colors from "../utils/colors";
 const Ourplans = () => {
   return (
     <>
