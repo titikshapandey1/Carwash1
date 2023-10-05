@@ -28,6 +28,7 @@ import Subscribe from "./app/pages/users/Subscribe";
 import Contactus from "./app/pages/users/Contactus";
 import HomeCards from "./app/components/Home/HomeCards";
 import Profile from "./app/pages/users/Profile";
+
 import History from "./app/pages/users/History";
 
 function App() {
@@ -55,12 +56,13 @@ function App() {
       {/*======== PAGES========== */}
 
       {/* <Guest1/> */}
-      {/* <Guest5/> */}
+      <Guest5/>
       {/* <Guest2 /> */}
       {/* <Guest6 /> */}
-      <Login />
+      {/* <Login /> */}
       {/* <HomePage/> */}
       {/* <Profile/> */}
+     
       {/* <ServiceLocation/> */}
       {/* <RegisterPage/> */}
       {/* <Mobile/> */}
@@ -68,7 +70,7 @@ function App() {
       {/* <Subscriptions/> */}
       {/* <Booking/> */}
       {/* <Contactus/> */}
-      <History/>
+      {/* <History/> */}
     </>
   );
 }

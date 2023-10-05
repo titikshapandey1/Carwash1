@@ -94,11 +94,13 @@ const HomeCards = () => {
                   finibus.
                 </Typography>
                 <Typography mt={2} textAlign={"center"}>
-                  <Rating
+                  {/* <Rating
                     name="size-medium"
                     defaultValue={4}
                     sx={{ color: Colors.palette.secondary.main }}
-                  />
+                  /> */}
+
+<Rating name="half-rating" defaultValue={2.5} precision={4} />
                 </Typography>
               </Paper>
             </Grid>
