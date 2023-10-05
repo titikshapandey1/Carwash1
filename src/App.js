@@ -46,7 +46,7 @@ function App() {
       {/* <HomePage/> */}
       {/* <Profile/> */}
       {/* <HomePage/> */}
-      <ServiceLocation/>
+      {/* <ServiceLocation/> */}
       {/* <AboutGuest/> */}
       {/* <BackgroundImg/>   */}
       {/* <Guest1/> */}
@@ -55,7 +55,7 @@ function App() {
       {/* <Guest6 /> */}
       {/* <Login /> */}
       {/* <Question/> */}
-      {/* <RegisterPage/> */}
+      <RegisterPage/>
       {/* <Mobile/> */}
       {/* <Otp/> */}
       {/* <Rectanglefield/> */}
