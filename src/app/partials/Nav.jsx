@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -7,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Colors from "../utils/colors";
 import DrawerComp from "./Drawer";
-
 
 const Nav = () => {
   // const [value, setValue] = useState();
@@ -23,7 +21,12 @@ const Nav = () => {
             <Typography
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1, marginLeft: "2%", cursor: "pointer" }}
+              sx={{
+                flexGrow: 1,
+                marginLeft: "2%",
+                cursor: "pointer",
+                fontWeight: "600",
+              }}
             >
               Logo
             </Typography>
@@ -34,17 +37,50 @@ const Nav = () => {
                 display: { xs: "none", sm: "flex" },
               }}
             >
-              <Button color="inherit">Services</Button>
-              <Button color="inherit">About Us</Button>
-              <Button color="inherit">Contact Us</Button>
+              <Button
+                sx={{
+                  color: Colors.palette.primary.main,
+                  cursor: "pointer",
+                  "&:hover": {
+                    backgroundColor: Colors.palette.primary.main,
+                    color: Colors.palette.secondary.main,
+                  },
+                }}
+              >
+                Services
+              </Button>
+              <Button
+                sx={{
+                  color: Colors.palette.primary.main,
+                  cursor: "pointer",
+                  "&:hover": {
+                    backgroundColor: Colors.palette.primary.main,
+                    color: Colors.palette.secondary.main,
+                  },
+                }}
+              >
+                About Us
+              </Button>
+              <Button
+                sx={{
+                  color: Colors.palette.primary.main,
+                  cursor: "pointer",
+                  "&:hover": {
+                    backgroundColor: Colors.palette.primary.main,
+                    color: Colors.palette.secondary.main,
+                  },
+                }}
+              >
+                Contact Us
+              </Button>
               <Button
                 sx={{
                   backgroundColor: Colors.palette.primary.red,
                   color: Colors.palette.primary.main,
-                  cursor: "pointer", 
+                  cursor: "pointer",
                   "&:hover": {
-                    backgroundColor: Colors.palette.primary.main, 
-                    color: Colors.palette.primary.red, 
+                    backgroundColor: Colors.palette.primary.main,
+                    color: Colors.palette.primary.red,
                   },
                 }}
               >

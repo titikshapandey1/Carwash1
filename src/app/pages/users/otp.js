@@ -11,16 +11,14 @@ import {
   // Link ,
 } from "@mui/material";
 import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
-import car1 from "../../assests/images/car1guest.png";
-import { blue } from "@mui/material/colors";
+// import car1 from "../../assests/images/car1guest.png";
+// import { blue } from "@mui/material/colors";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../utils/colors";
+import Sedan from "../../assests/images/sedan.png"
+const Otp=()=> {
 
-function Login() {
-  const [formData, setFormData] = useState({
-    
-  });
 
   const paperStyle = {
     padding: "20px",
@@ -85,7 +83,9 @@ function Login() {
             <Grid
               container
               style={{
-                backgroundImage: `url(${car1})`,
+                // backgroundImage: `url(${car1})`,
+                backgroundImage: `url(${Sedan})`,
+
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
@@ -192,4 +192,6 @@ function Login() {
   );
 }
 
-export default Login;
+export default Otp;
+
+

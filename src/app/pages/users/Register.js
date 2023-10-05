@@ -1,265 +1,79 @@
 
-// import React from 'react';
-// import {
-//   Container,
-//   Grid,
-//   Paper,
-//   TextField,
-//   Button,
-//   Typography,
-//   Box,
-// } from '@mui/material';
-// import car1 from "../../assests/images/car1guest.png"
-
-
-// function RegisterPage() {
-//   const paperStyle = {
-//     padding: '20px',
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//     width: '100%',
-    
-//   };
-
-//   const formStyle = {
-//     width: '100%', // Full width
-//     marginTop: '10%',
-//   };
-
-//   const submitButtonStyle = {
-//      margin: '20px 0',
-//     width: '150px', // Adjust the width as needed
-//   borderRadius: '10px', // Adjust the border radius as needed
-//   //margin: '0 auto', // Center the button horizontally
-//   display: 'block', // Ensure the button takes up the full width of its container
-//   textAlign: 'center',
-//   marginTop:"5%" ,
-//   marginLeft:{xs:"20%",sm:"30%"}
-//   };
-//   const img={
-//     backgroundImage: `url(${car1})`,
-//     backgroundPosition: 'center', // Center the background image
-//   backgroundSize: 'cover',      // Make the background image cover the container
-
-
-
-//   };
-
-//   return (
-//     <Box
-//       sx={{
-//         backgroundImage: 'url("your-background-image-url.jpg")',
-//         backgroundColor: '#023159',
-//         backgroundSize: 'cover',
-//         backgroundPosition: 'center',
-//         height: '100%',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//       }}
-//     >
-//       <Container component="main" maxWidth="xs">
-//         <Grid container style={img}>
-//           <Paper elevation={3} style={paperStyle} >
-//             <Button sx={{ marginLeft: '-80%', fontSize: '800' }}>
-//               <b>{"<"}Log in</b>
-//             </Button>
-//             <Typography variant="h6">Enter your credentials here:</Typography>
-//             <form style={formStyle} noValidate>
-//               <Grid container spacing={2}>
-//                 <Grid item xs={12} sm={6}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id="firstName"
-//                     placeholder="First Name"
-//                     name="firstName"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={6}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id="lastName"
-//                     placeholder="Last Name"
-//                     name="lastName"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={6}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id="contactNumber"
-//                     placeholder="Contact Number"
-//                     name="contactNumber"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={6}>
-//                   <TextField
-//                     variant="outlined"
-//                     fullWidth
-//                     id="alternateNumber"
-//                     placeholder="Alternate Number"
-//                     name="alternateNumber"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id="email"
-//                     placeholder="Email Address"
-//                     name="email"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12}>
-//                 <Typography variant='h4'>Address<br/></Typography>
-//                 </Grid>
-
-//                 <Grid item xs={12}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id="Locality / Building / Street / Society"
-//                     placeholder="Locality / Building / Street / Society"
-//                     name="Locality / Building / Street / Society"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={6}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id="city/Town"
-//                     placeholder="City / Town  District"
-//                     name="city/Town"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={6}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id=" District"
-//                     placeholder=" District"
-//                     name=" District"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={8}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id="State"
-//                     placeholder="State"
-//                     name="State"
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={4}>
-//                   <TextField
-//                     variant="outlined"
-//                     required
-//                     fullWidth
-//                     id="Pincode"
-//                     placeholder=" Pincode"
-//                     name="Pincode"
-//                   />
-//                 </Grid>
-//               </Grid>
-//               <Button
-//                 type="submit"
-//                 fullWidth
-//                 variant="contained"
-//                 color="primary"
-//                 style={submitButtonStyle}
-//               >
-//               submit
-//               </Button>
-//             </form>
-//           </Paper>
-//         </Grid>
-//       </Container>
-//     </Box>
-//   );
-// }
-
-// export default RegisterPage;
-
-
-
 import React from 'react';
 import {
   Container,
   Grid,
-  Paper,
-  TextField,
+ TextField,
   Button,
   Typography,
   Box,
+  Paper,
 } from '@mui/material';
-import car1 from '../../assests/images/car1guest.png';
+// import car1 from '../../assests/images/car1guest.png';
+import Sedan from "../../assests/images/sedan.png"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Colors from '../../utils/colors';
 
 function RegisterPage() {
+  
   const paperStyle = {
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '100%',
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: 15,
+    opacity: ".5",
+    // height:'25%'
+    
   };
   const formStyle = {
-    width: "100%",
-    marginTop: "10%",
+   
+    // width: "100%",
+    // marginTop: "20%",
     position: "center",
-    // height:"100%",
-    // width:"100%",
-  };
-  // const formStyle = {
-  //   width: '100%', // Full width
-  //   marginTop: '10%',
-  // };
+    color: Colors.palette.secondary.main,
 
-  // const submitButtonStyle = {
-  //   margin: '20px 0',
-  //   width: '150px',
-  //   borderRadius: '10px',
-  //   display: 'block',
-  //   textAlign: 'center',
-  //   marginTop: '5%',
-  //   marginLeft: { xs: '20%', sm: '30%' },
-  // };
+  };
+  // const textFieldStyles = setTextFieldStyles("black", "gray");
+
+  const buttonBoxStyles = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
   const submitButtonStyle = {
-    margin: "20px 0",
-    // width: '450px',
-    borderRadius: 15,
-    display: "block",
-    textAlign: "center",
-    marginTop: "5%",
-    marginLeft: { xs: "20%", sm: "30%" },
+    margin: '20px 0',
+    width: '150px',
+    borderRadius: '10px',
+    display: 'block',
+    textAlign: 'center',
+    marginTop: '5%',
+    marginLeft: { xs: '20%', sm: '30%' },
   };
-  // const img = {
-  //   backgroundImage: `url(${car1})`,
-  //   backgroundPosition: 'center',
-  //   backgroundSize: 'cover',
-  // };
-
+  const textFieldStyles = {
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "black", 
+      },
+      "& input": {
+        color: "black",
+      },
+      "& input::placeholder": {
+        color: "darkblack", 
+      },
+    },
+  };
   const img = {
-    backgroundImage: `url(${car1})`,
+    // backgroundImage: `url(${car1})`,
+    backgroundImage: `url(${Sedan})`,
+
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     borderRadius: 50,
-    height: "100%",
+    // height: "100%",
   };
 
   const validationSchema = Yup.object().shape({
@@ -293,57 +107,67 @@ function RegisterPage() {
   });
 
   return (
-    <Box
+    <Box 
       sx={{
-    
-        // backgroundImage: 'url("your-background-image-url.jpg")',
-        backgroundColor: "#023159",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "100vh",
-          width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+       
+background:"radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        justifyContent: "center",
+          // alignItems: "center",
       }}
     >
-       <Box
+       <Box 
+      
           sx={{
-            width: "150vh",
+        
+            width: "170vh",
             height: "50%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-      <Container  maxWidth="xs">
-        <Grid container style={img}>
-          <Paper elevation={3} style={paperStyle} sx={{ width: "100%" }}>
+        
+      <Container  maxWidth="sm" sx={{mt:'8%', mb:'8%',ml:'20%',mr:'20%',}} >
+        <Grid container style={{
+                // backgroundImage: `url(${car1})`,
+    backgroundImage: `url(${Sedan})`,
 
-            {/* <Button sx={{ marginLeft: '-80%', fontSize: '800' }}>
-              <b>{'<'}Log in</b>
-            </Button> */}
+
+                backgroundPosition: "center",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                // borderRadius: 50,
+                height: "100%",
+              }} >
+          <Paper elevation={10} style={paperStyle}>
+
              <Box style={{ display: "flex" }}>
                   <Button
-                    sx={{ color: "#013C6B",   marginLeft: '-80%', fontSize: '800' }}
+                      sx={{  
+                      color: Colors.palette.secondary.main,
+                        marginLeft: '1%', fontSize: '600' }}
                   >
                     <ArrowBackIosIcon />Login
                   </Button>
                 </Box>
-            <Typography variant="h6">
+            <Typography variant="h6" sx={{mt:'35px',mb:'30px', justifyContent:'center', color: Colors.palette.secondary.main, }}>
               Enter your credentials here:
             </Typography>
             <form
               style={formStyle}
-              // noValidate
+              // noValidates
               onSubmit={formik.handleSubmit}
             >
               <Grid container spacing={2}>
-                <Grid item xs={5} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     variant="outlined"
                     required
                     fullWidth
+                    size="small"
                     id="firstName"
                     placeholder="First Name"
                     name="firstName"
@@ -356,6 +180,7 @@ function RegisterPage() {
                     helperText={
                       formik.touched.firstName && formik.errors.firstName
                     }
+                    sx={textFieldStyles}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -363,6 +188,7 @@ function RegisterPage() {
                     variant="outlined"
                     required
                     fullWidth
+                    size="small"
                     id="lastName"
                  placeholder="Last Name"
                     name="lastName"
@@ -375,6 +201,7 @@ function RegisterPage() {
                     helperText={
                       formik.touched.lastName && formik.errors.lastName
                     }
+                    sx={textFieldStyles}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -382,6 +209,7 @@ function RegisterPage() {
                     variant="outlined"
                     required
                     fullWidth
+                    size="small"
                     id="contactNumber"
                     placeholder="Contact Number"
                     name="contactNumber"
@@ -395,24 +223,29 @@ function RegisterPage() {
                       formik.touched.contactNumber &&
                       formik.errors.contactNumber
                     }
+                    sx={textFieldStyles}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     variant="outlined"
+                    required
                     fullWidth
+                    size="small"
                     id="alternateNumber"
                     placeholder="Alternate Number"
                     name="alternateNumber"
                     onChange={formik.handleChange}
                     value={formik.values.alternateNumber}
+                    sx={textFieldStyles}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} >
                   <TextField
                     variant="outlined"
                     required
                     fullWidth
+                    size="small"
                     id="email"
                     placeholder="Email Address"
                     name="email"
@@ -424,16 +257,18 @@ function RegisterPage() {
                     helperText={
                       formik.touched.email && formik.errors.email
                     }
+                    sx={textFieldStyles}
                   />
                 </Grid>
-                {/* Add other form fields here */}
+                
                 <Grid item xs={12}>
-                  <Typography variant="h4">Address</Typography>
+                  <Typography variant="h6" sx={{ color: Colors.palette.secondary.main}}>Address</Typography>
                 </Grid>
-                {/* Add address fields */}
+                
                 <Grid item xs={12}>
                   <TextField
                     variant="outlined"
+                    size="small"
                     required
                     fullWidth
                     id="Locality / Building / Street / Society"
@@ -447,23 +282,106 @@ function RegisterPage() {
                     helperText={
                       formik.touched.address && formik.errors.address
                     }
+                    sx={textFieldStyles}
                   />
                 </Grid>
-                {/* Add more address fields */}
+                <Grid item xs={12} sm={6}>
+                                <TextField
+                                  variant="outlined"
+                                  required
+                                  fullWidth
+                                  size="small"
+                                  id="city/Town"
+                                  placeholder="City / Town  District"
+                                  name="city/Town"
+                                  onChange={formik.handleChange}
+                                  error={
+                                    formik.touched.address && Boolean(formik.errors.address)
+                                  }
+                                  helperText={
+                                    formik.touched.address && formik.errors.address
+                                  }
+                                  sx={textFieldStyles}
+                                />
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <TextField
+                                  variant="outlined"
+                                  required
+                                  fullWidth
+                                  size="small"
+                                  id=" District"
+                                  placeholder=" District"
+                                  name=" District"
+                                  onChange={formik.handleChange}
+                                  error={
+                                    formik.touched.District && Boolean(formik.errors.District)
+                                  }
+                                  helperText={
+                                    formik.touched.District && formik.errors.District
+                                  }
+                                  sx={textFieldStyles}
+                                />
+                              </Grid>
+                              <Grid item xs={12} sm={8}>
+                                <TextField
+                                  variant="outlined"
+                                  required
+                                  fullWidth
+                                  size="small"
+                                  id="State"
+                                  placeholder="State"
+                                  name="State"
+                                  onChange={formik.handleChange}
+                                  error={
+                                    formik.touched.District && Boolean(formik.errors.District)
+                                  }
+                                  helperText={
+                                    formik.touched.District && formik.errors.District
+                                  }
+                                  sx={textFieldStyles}
+                                />
+                              </Grid>
+
+                <Grid item xs={12} sm={4}>
+            <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    size="small"
+                    id="Pincode"
+                    placeholder=" Pincode"
+                    name="Pincode"
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.Pincode && Boolean(formik.errors.Pincode)
+                    }
+                    helperText={
+                      formik.touched.Pincode && formik.errors.Pincode
+                    }
+                    sx={textFieldStyles}
+                  />
+                </Grid>
+               
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                style={submitButtonStyle}
-              >
-                Submit
-              </Button>
+              <Box style={buttonBoxStyles}>
+                              <Button
+                                type="submit"
+                                variant="contained"
+                                style={submitButtonStyle}
+                              >
+                                Submit&nbsp;&nbsp;{" "}
+                                <ArrowForwardIosIcon
+                                  sx={{ fontSize: "16px" }}
+                                />
+                              </Button>
+                            </Box>
             </form>
+          {/* </card> */}
           </Paper>
         </Grid>
       </Container>
+      
       </Box>
     </Box>
   );

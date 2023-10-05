@@ -50,6 +50,7 @@ function App() {
       {/* <AboutGuest/> */}
       {/* <BackgroundImg/>   */}
       {/* <Guest1/> */}
+      {/* <Guest1/> */}
       {/* <Guest5/> */}
       {/* <Guest2 /> */}
       {/* <Guest6 /> */}
@@ -68,6 +69,7 @@ function App() {
       {/* <Ourplans/> */}
       {/* <Subscribe/> */}
       {/* <Review/> */}
+      {/* <History/> */}
       {/* <History/> */}
     </>
   );
