@@ -63,7 +63,7 @@ function App() {
       {/* <Profile/> */}
       <ServiceLocation/>
       {/* <RegisterPage/> */}
-      {/* <Mobile/> */}
+      <Mobile/>
       {/* <Otp/> */}
       {/* <Subscriptions/> */}
       {/* <Booking/> */}
