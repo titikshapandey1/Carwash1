@@ -1,10 +1,10 @@
 import React from "react";
 import Nav from "../../partials/Nav";
-import Ourplans from "./Ourplans";
+import Ourplans from "../../components/Ourplans";
 import Footer from "../../partials/Footer";
-import Cards from "./Cards";
+import Cards from "../../components/Cards";
 import Subscribe from "./Subscribe";
-import Searcher from "./Searcher";
+import Searcher from "../../components/Searcher";
 import Question from "../../components/Question";
 import Review from "../../components/Review";
 
