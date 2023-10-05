@@ -25,7 +25,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
+
   "&:last-child td, &:last-child th": {
     border: 0,
   },
@@ -82,80 +82,97 @@ export default function History() {
     borderRadius: "30%",
   };
   return (
-<>
-<Nav/>
-<Container>
-    <Box sx={{textAlign: "center", marginBlock: "4rem", fontSize: "40px", fontWeight: "600", color: Colors.palette.primary.darkBlue}}>History</Box>
-    <Container maxWidth="sm" sx={{marginBlock: "10%"}}>
-    
-      <TableContainer component={Paper}>
-    
-        <Table aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              {/* <TableCell >Time</TableCell> */}
-              <TableCell
-                style={{
-                  cellStyle,
-                  backgroundColor: "#013C6B",
-                  color: "white",
-                }}
-              >
-                Data
-              </TableCell>
-              <TableCell
-                style={{
-                  cellStyle,
-                  backgroundColor: "#013C6B",
-                  color: "white",
-                }}
-              >
-                Booking ID
-              </TableCell>
-              <TableCell
-                style={{
-                  cellStyle,
-                  backgroundColor: "#013C6B",
-                  color: "white",
-                }}
-              >
-                Service Type
-              </TableCell>
-              <TableCell
-                style={{
-                  cellStyle,
-                  backgroundColor: "#013C6B",
-                  color: "white",
-                }}
-              >
-                Amount
-              </TableCell>
-              <TableCell
-                style={{
-                  cellStyle,
-                  backgroundColor: Colors.palette.secondary.main,
-                  color: "white",
-                }}
-              >
-                view details
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.Date}>
-                <StyledTableCell component="th" scope="row">{row.Date}</StyledTableCell>
-                <StyledTableCell>{row.BookingID}</StyledTableCell>
-                <StyledTableCell>{row.ServiceTYpe}</StyledTableCell>
-                <StyledTableCell>{row.Amount}</StyledTableCell>
-                <StyledTableCell>{row.viewdetails}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Container>
-    </Container>
+    <>
+      <Nav />
+      <Container>
+        <Box
+          sx={{
+            textAlign: "center",
+            marginBlock: "3rem",
+            fontSize: "40px",
+            fontWeight: "600",
+            color: Colors.palette.primary.darkBlue,
+          }}
+        >
+          History
+        </Box>
+
+        <Container maxWidth="md">
+          <Box
+            sx={{
+              backgroundColor: Colors.palette.secondary.cardBackground,
+              padding: "20px",
+            }}
+          >
+            <TableContainer component={Paper}>
+              <Table aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell
+                      style={{
+                        cellStyle,
+                        backgroundColor: "#013C6B",
+                        color: "white",
+                      }}
+                    >
+                      Data
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        cellStyle,
+                        backgroundColor: "#013C6B",
+                        color: "white",
+                      }}
+                    >
+                      Booking ID
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        cellStyle,
+                        backgroundColor: "#013C6B",
+                        color: "white",
+                      }}
+                    >
+                      Service Type
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        cellStyle,
+                        backgroundColor: "#013C6B",
+                        color: "white",
+                      }}
+                    >
+                      Amount
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        cellStyle,
+                        backgroundColor: Colors.palette.secondary.main,
+                        color: "white",
+                      }}
+                    >
+                      view details
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map((row) => (
+                    <StyledTableRow key={row.Date}>
+                      <StyledTableCell component="th" scope="row">
+                        {row.Date}
+                      </StyledTableCell>
+                      <StyledTableCell>{row.BookingID}</StyledTableCell>
+                      <StyledTableCell>{row.ServiceTYpe}</StyledTableCell>
+                      <StyledTableCell>{row.Amount}</StyledTableCell>
+                      <StyledTableCell>{row.viewdetails}</StyledTableCell>
+                    </StyledTableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Box>
+        </Container>
+      </Container>
     </>
   );
 }
