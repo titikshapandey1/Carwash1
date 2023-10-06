@@ -3,9 +3,8 @@ import React from 'react';
 import { Card, CardContent,Grid} from '@mui/material';
 
 function Subscribecard() {
-  const cardStyle = {
+  const cardstyle1 = {
     width: '380px',
- 
     borderRadius: "20px",
     backgroundColor: '#FFFFFF',
     gap:'20px',
@@ -25,7 +24,7 @@ function Subscribecard() {
 
   return (
     <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center',mt:'5%' ,mb:'5%'}}>
-      <Card style={cardStyle}>
+      <Card style={cardstyle1}>
         <CardContent style={contentStyle}>
          
         </CardContent>
