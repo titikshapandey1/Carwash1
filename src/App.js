@@ -1,4 +1,3 @@
-
 import Index from "./app/routes/index";
 
 function App() {
@@ -6,7 +5,6 @@ function App() {
     <>
       <Index />
 
-  
     </>
   );
 }

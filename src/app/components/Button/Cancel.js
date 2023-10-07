@@ -14,7 +14,7 @@ const buttonStyle = {
 function Cancel() {
   return (
     <Button variant="contained" style={buttonStyle}>
-      Custom Button
+          cancel
     </Button>
   );
 }
