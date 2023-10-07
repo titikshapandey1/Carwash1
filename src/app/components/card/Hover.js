@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent,Grid} from '@mui/material';
 
-function Subscribecard({children}) {
+function Hover({children, shadowColor}) {
   const cardstyle1 = {
     width: '380px',
     borderRadius: "20px",
@@ -11,6 +11,7 @@ function Subscribecard({children}) {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    color:shadowColor,
     // height: '535px', 
     // mt:'428px',
     // mb:'428px'
@@ -34,4 +35,4 @@ function Subscribecard({children}) {
   );
 }
 
-export default Subscribecard;
+export default Hover;

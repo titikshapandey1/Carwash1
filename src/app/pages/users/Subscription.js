@@ -8,7 +8,9 @@ import {
   Typography,
 } from "@mui/material";
 import Nav from "../../partials/Nav";
-
+import Subscribecard from "../../components/card/Subscribecard"
+import Hover from "../../components/card/Hover";
+import Cancel from "../../components/Button/Cancel";
 const Subscriptions = () => {
   return (
     <>
@@ -34,9 +36,9 @@ const Subscriptions = () => {
           spacing={2}
           sx={{ justifyContent: "center", marginTop: "5%" ,padding:"20px"}}
         >
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ borderRadius: "20px", bgcolor: " #FFFFFF" , }}>
-              <CardContent>
+          {/* <Grid item xs={12} sm={6} md={4}> */}
+            <Subscribecard>
+              <CardContent >
                 <Typography
                   variant="h4"
                   sx={{ textAlign: "center", color: " #DC77FF" }}
@@ -81,7 +83,9 @@ const Subscriptions = () => {
                   </ul>
                 </Typography>
 
-                <Typography sx={{ textAlign: "left", marginLeft: "10%" }}>
+                <Typography 
+                sx={{ textAlign: "left", marginLeft: "10%" }}
+                >
                   <b>Expiring on: 04/10/2023</b>
                 </Typography>
 
@@ -98,10 +102,22 @@ const Subscriptions = () => {
                   >
                     Cancel
                   </Button>
+                  {/* <Cancel color={'yellow'}>
+
+                  </Cancel> */}
+                  {/* <Hover shadowColor={'yellow'}>
+                    this is hover box
+                  </Hover>
+                  <Hover shadowColor={'red'}>
+                    this is hover box
+                  </Hover>
+                  <Hover shadowColor={'green'}>
+                    this is hover box
+                  </Hover> */}
                 </Typography>
               </CardContent>
-            </Card>
-          </Grid>
+            </Subscribecard>
+          {/* </Grid> */}
         </Grid>
       </Box>
     </>
