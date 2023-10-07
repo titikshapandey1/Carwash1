@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 // import car1 from "../assests/images/car1guest.png";
-import Colors from "../../utils/colors";
+import Colors from "../../../utils/colors";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink } from "react-router-dom";
 

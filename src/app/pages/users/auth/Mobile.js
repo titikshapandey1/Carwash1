@@ -1,14 +1,14 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import car1 from "../../assests/images/car1guest.png";
+import car1 from "../../../assests/images/car1guest.png";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { Link } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Colors from "../../utils/colors";
+import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 
 const submitButtonStyle = {

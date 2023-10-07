@@ -1,20 +1,16 @@
-import ResponsiveBoxes from "./app/components/Review";
-import Subscribecard from "./app/components/card/Subscribecard";
-import History from "./app/pages/users/History";
-import Login from "./app/pages/users/Login";
-import Mobile from "./app/pages/users/Mobile";
-import Subscriptions from "./app/pages/users/Subscription";
+
+// import Subscriptions from "./app/pages/users/Subscription";
+import OurServices from "./app/components/OurServices";
 import Index from "./app/routes/index";           
 
 function App() {
   return (
     <>
-    <Mobile/>
-    {/* <Login/> */}
-   {/* <ResponsiveBoxes/> */}
+  
+   {/* <OurServices/> */}
     {/* <Subscriptions/> */}
     {/* <Subscribecard/> */}
-      {/* <Index /> */}
+      <Index />
 {/* <History/> */}
     </>
   );

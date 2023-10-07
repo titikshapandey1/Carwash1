@@ -553,8 +553,8 @@ import {
 import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Colors from "../../utils/colors";
-import Sedan from "../../assests/images/car1guest.png";
+import Colors from "../../../utils/colors";
+// import Sedan from "../../assests/images/car1guest.png";
 import { NavLink } from "react-router-dom";
 
 const Otp = () => {
@@ -676,7 +676,7 @@ const Otp = () => {
             <Grid
               container
               style={{
-                backgroundImage: `url(${Sedan})`,
+                // backgroundImage: `url(${Sedan})`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
