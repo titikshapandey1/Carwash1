@@ -41,7 +41,7 @@ const SupervisorsDashboard = () => {
       <Box
         display="block"
         flexDirection="row"
-        alignItems="center"
+        alignItems="center" 
         justifyContent="center"
         className="wrapper"
         sx={{
