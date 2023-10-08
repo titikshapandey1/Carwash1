@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-const AdPaySucc = () => {
+const AdPaySucc = () => { 
   return (
     <>
       <Box

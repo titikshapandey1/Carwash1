@@ -36,7 +36,7 @@ const AdEditSup = () => {
         <Box
           display="flex"
           flexDirection="column"
-          alignItems="center"
+          alignItems="center" 
           justifyContent="center"
           sx={{
             marginLeft: { xs: "1%", sm: "35%", md: "30%", lg: "15%" },

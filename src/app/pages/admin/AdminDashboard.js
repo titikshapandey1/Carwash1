@@ -37,7 +37,7 @@ const iconsStyles = {
   border: `2px solid ${Colors.palette.secondary.main}`,
 };
 
-const AdminDashboard = () => {
+const AdminDashboard = () => { 
   return (
     <>
       <Box

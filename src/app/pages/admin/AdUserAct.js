@@ -11,7 +11,7 @@ import {
 const AdUserAct = () => {
   return (
     <>
-      <Box
+      <Box 
         display="block"
         flexDirection="row"
         alignItems="center"

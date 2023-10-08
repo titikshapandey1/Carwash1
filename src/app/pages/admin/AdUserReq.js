@@ -12,7 +12,7 @@ const AdUserReq = () => {
         flexDirection="row"
         alignItems="center"
         justifyContent="center"
-        className="wrapper"
+        className="wrapper" 
       >
         <AdminDash />
         <Typography

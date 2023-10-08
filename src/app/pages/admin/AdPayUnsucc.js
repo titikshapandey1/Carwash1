@@ -15,7 +15,7 @@ const AdPayUnsucc = () => {
         display="block"
         flexDirection="row"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="center" 
         className="wrapper"
       >
         <AdminDash />
