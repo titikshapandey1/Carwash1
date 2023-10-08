@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 // import car1 from "../assests/images/car1guest.png";
-import Colors from "../../utils/colors";
+import Colors from "../../../utils/colors";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink } from "react-router-dom";
 
@@ -62,6 +62,7 @@ function Login() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  const [formSubmission, setFormSubmission] = useState(null); 
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -69,18 +70,30 @@ function Login() {
 
     if (!formData.username) {
       errors.username = "Username/Email is required";
+    }else if (
+      !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(formData.username)
+    ) {
+      errors.username = "Invalid email address";
     }
 
     if (!formData.password) {
       errors.password = "Password is required";
+    } else if (formData.password.length < 6) {
+      errors.password = "Password must be at least 6 characters long";
     }
 
     if (Object.keys(errors).length === 0) {
-      // Add auth logic
+     
+      setFormSubmission("Success! Redirecting...");
+      setTimeout(() => {
+        window.location.reload(); 
+      }, 1000); 
     } else {
       setFormErrors(errors);
+      setFormSubmission(null);
     }
   };
+
 
   return (
     <>
@@ -147,6 +160,7 @@ function Login() {
                     name="username"
                     fullWidth
                     size="small"
+                    type="email" 
                     value={formData.username}
                     onChange={handleFormChange}
                     error={!!formErrors.username}
@@ -156,8 +170,10 @@ function Login() {
                   <TextField
                     variant="outlined"
                     placeholder="Password"
+                    name="password"
                     fullWidth
                     size="small"
+                    type="password"
                     value={formData.password}
                     onChange={handleFormChange}
                     error={!!formErrors.password}
@@ -234,3 +250,7 @@ function Login() {
 }
 
 export default Login;
+
+
+
+

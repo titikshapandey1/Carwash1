@@ -9,12 +9,12 @@ import {
   Paper,
 } from "@mui/material";
 // import car1 from '../../assests/images/car1guest.png';
-import Sedan from "../../assests/images/sedan.png";
+import Sedan from "../../../assests/images/car1guest.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Colors from "../../utils/colors";
+import Colors from "../../../utils/colors";
 import { NavLink, Link } from "react-router-dom";
 
 function RegisterPage() {
@@ -54,7 +54,7 @@ function RegisterPage() {
   };
   const img = {
     // backgroundImage: `url(${car1})`,
-    // backgroundImage: `url(${Sedan})`,
+    backgroundImage: `url(${Sedan})`,
 
     backgroundPosition: "center",
     backgroundSize: "contain",

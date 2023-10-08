@@ -1,7 +1,8 @@
-import React from "react";
-import { Card, CardContent, Grid } from "@mui/material";
 
-function Subscribecard({children}) {
+import React from 'react';
+import { Card, CardContent,Grid} from '@mui/material';
+
+function Hover({children, shadowColor}) {
   const cardstyle1 = {
     width: '380px',
     borderRadius: "20px",
@@ -10,15 +11,17 @@ function Subscribecard({children}) {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    color:shadowColor,
     // height: '535px', 
     // mt:'428px',
     // mb:'428px'
     // opacity: ".8",
+
   };
 
-  // const contentStyle = {
-  //   padding: "20px",
-  // };
+  const contentStyle = {
+    padding: '20px',
+  };
 
   return (
     <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center',mt:'5%' ,mb:'5%'}}>
@@ -32,4 +35,4 @@ function Subscribecard({children}) {
   );
 }
 
-export default Subscribecard;
+export default Hover;
