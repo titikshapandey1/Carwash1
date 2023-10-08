@@ -23,8 +23,8 @@ const SupUserReq = () => {
           sx={{
             marginTop: { xs: "25%", sm: "20%", md: "10%", lg: "10%" },
             marginLeft: { xs: "3%", sm: "35%", md: "30%", lg: "15%" },
-            color:Colors.palette.secondary.main,
-            fontWeight:"600"
+            color: Colors.palette.secondary.main,
+            fontWeight: "600",
           }}
         >
           Users Request

@@ -41,7 +41,7 @@ const SupervisorsDashboard = () => {
       <Box
         display="block"
         flexDirection="row"
-        alignItems="center" 
+        alignItems="center"
         justifyContent="center"
         className="wrapper"
         sx={{
@@ -111,7 +111,6 @@ const SupervisorsDashboard = () => {
             marginTop: { xs: "2%", sm: "2%" },
           }}
         >
-          {/* Second grid container */}
           <Grid container spacing={3}>
             <Grid item xs={4} md={4}>
               <Card sx={{ maxWidth: 250, ...cardStyle }}>
@@ -166,56 +165,6 @@ const SupervisorsDashboard = () => {
             </Grid>
           </Grid>
         </Box>
-
-        {/* <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          sx={{
-            marginLeft: { xs: "2%", sm: "3%" },
-            marginTop: { xs: "2%", sm: "2%" },
-          }}
-        >
-          <Grid container spacing={3}>
-            <Grid item xs={8} md={10}>
-              <Card
-                sx={{
-                  maxWidth: 800,
-                  maxHeight: 100,
-                  ...cardStyle,
-                }}
-              >
-                <CardActionArea>
-                  <CardContent>
-                    <Typography variant="h4" component="div" sx={headingStyles}>
-                      12 <span style={{ fontSize: "0.4em" }}>Supervisors</span>
-                      <AccountCircleOutlinedIcon
-                        sx={{ ...iconsStyles, marginLeft: "77%" }}
-                      />
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={4} md={2}>
-              <Card
-                sx={{
-                  width: 70,
-                  height: 70,
-                  borderRadius: "50%",
-                  boxShadow: "2px 2px 2px grey",
-                  textAlign: "center",
-                }}
-              >
-                <CardActionArea>
-                  <CardContent>
-                    <span style={{ fontSize: "16px" }}>Add +</span>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          </Grid>
-        </Box> */}
       </Box>
     </>
   );

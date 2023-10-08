@@ -2,7 +2,6 @@ import React from "react";
 import SupDash from "../../components/SupDash";
 import Table from "../../components/Table";
 import Colors from "../../utils/colors";
-
 import { Box, Typography } from "@mui/material";
 
 const SupUserDec = () => {
