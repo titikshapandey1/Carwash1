@@ -36,8 +36,34 @@ import Contactus from "../pages/users/Contactus";
 import History from "../pages/users/History";
 import Profile2 from "../pages/users/Profile2";
 
-function AppRouter() {
 
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import AdPaySucc from "../pages/admin/AdPaySucc";
+import AdPayUnsucc from "../pages/admin/AdPayUnsucc";
+import AdUserReq from "../pages/admin/AdUserReq";
+import AdUserAct from "../pages/admin/AdUserAct";
+import AdUserDec from "../pages/admin/AdUserDec";
+import AdEditSup from "../pages/admin/AdEditSup";
+import AdCreateSup from "../pages/admin/AdCreateSup";
+
+
+import SupervisorDashboard from "../pages/supervisor/SupervisorDashboard";
+import SupPaySucc from "../pages/supervisor/SupPaySucc";
+import SupPayUnsucc from "../pages/supervisor/SupPayUnsucc";
+import SupUserReq from "../pages/supervisor/SupUserReq";
+import SupUserAct from "../pages/supervisor/SupUserAct";
+import SupUserDec from "../pages/supervisor/SupUserDec";
+
+
+
+import AdDash from "../components/AdDash";
+import SupDash from "../components/SupDash";
+import Table from "../components/Table";
+
+
+
+
+function AppRouter() {
   return (
     <>
       {/*======== COMPONENTS========== */}
@@ -61,6 +87,7 @@ function AppRouter() {
 
       {/*======== PAGES ========== */}
       <Routes>
+        {/*======== USERS ========== */}
         <Route path="/" element={<Guest1 />}></Route>
         <Route path="/guest2" element={<Guest2 />}></Route>
         <Route path="/home" element={<Home />}></Route>
@@ -77,6 +104,31 @@ function AppRouter() {
         <Route path="/booking" element={<Booking />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/history" element={<History />}></Route>
+
+        {/*======== ADMIN ========== */}
+
+        <Route path="/admindashboard" element={<AdminDashboard />}></Route>
+        <Route path="/adminpaysuccessful" element={<AdPaySucc />}></Route>
+        <Route path="/adminpayunsucessful" element={<AdPayUnsucc />}></Route>
+        <Route path="/adminuserrequest" element={<AdUserReq />}></Route>
+        <Route path="/adminuseractive" element={<AdUserAct />}></Route>
+        <Route path="/adminuserdeclined" element={<AdUserDec />}></Route>
+        <Route path="/admineditsupervisor" element={<AdEditSup />}></Route>
+        <Route path="/admincreatesupervisor" element={<AdCreateSup />}></Route>
+        
+
+        {/*======== SUPERVISOR ========== */}
+        <Route path="/supervisordashboard" element={<SupervisorDashboard/>}></Route>
+        <Route path="/supervisorpaysuccessful" element={<SupPaySucc />}></Route>
+        <Route path="/supervisorpayunsuccessful" element={<SupPayUnsucc />}></Route>
+        <Route path="/supervisoruserrequest" element={<SupUserReq />}></Route>
+        <Route path="/supervisoruseractive" element={<SupUserAct />}></Route>
+        <Route path="/supervisoruserdeclined" element={<SupUserDec />}></Route>
+
+    
+        <Route path="/addash" element={<AdDash />}></Route>
+        <Route path="/supdash" element={<SupDash/>}></Route>
+        <Route path="/table" element={<Table />}></Route>
       </Routes>
     </>
   );

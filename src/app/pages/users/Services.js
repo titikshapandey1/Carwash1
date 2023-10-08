@@ -8,7 +8,7 @@ import Searcher from "../../components/Searcher";
 import Question from "../../components/Question";
 import Review from "../../components/Review";
 
-const Guest2 = () => {
+const Services = () => {
   return (
     <>
       <Nav />
@@ -23,4 +23,4 @@ const Guest2 = () => {
   );
 };
 
-export default Guest2;
+export default Services;
