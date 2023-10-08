@@ -68,7 +68,7 @@ function AppRouter() {
     <>
       {/*======== COMPONENTS========== */}
 
-      {/* <Dryclean/> */}
+      {/* <Dryclean/>  */}
       {/* <Card1/> */}
       {/* <HomeCards/> */}
       {/* <PaymentOptions/> */}
