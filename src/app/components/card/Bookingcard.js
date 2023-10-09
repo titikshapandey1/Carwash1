@@ -21,6 +21,7 @@ function BookingCard({ children }) {
   };
 
   return (
+    <>
     <Grid
       sx={{
         display: "flex",

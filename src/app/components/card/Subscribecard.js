@@ -10,6 +10,7 @@ function Subscribecard({children}) {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    // padding: "20px"
     // height: '535px', 
     // mt:'428px',
     // mb:'428px'
@@ -21,7 +22,7 @@ function Subscribecard({children}) {
   // };
 
   return (
-    <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center',mt:'5%' ,mb:'5%'}}>
+    <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center',mt:'5%' ,mb:'5%',padding: "20px"}}>
       <Card style={cardstyle1} >
         {children}
         {/* <CardContent style={contentStyle}>

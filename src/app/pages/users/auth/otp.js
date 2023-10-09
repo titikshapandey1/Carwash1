@@ -556,7 +556,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 // import Sedan from "../../assests/images/car1guest.png";
 import { NavLink } from "react-router-dom";
-
 const Otp = () => {
   const [number, setNumber] = useState({
     0: "",
@@ -608,7 +607,7 @@ const Otp = () => {
  // const onChange = (e, index) => {
 //   //   const value = e.target.value.replace(/[^0-9]/g, "");
   const onChange = (e,index) => {
-    var onlyNums = e.target.value.replace(/[^0-9]/g, '');
+    var onlyNums = e.target.value.replace(/[^0-9]+$/, '');
     if(onlyNums){
       onlyNums = parseInt(onlyNums[0]);
     }
