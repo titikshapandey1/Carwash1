@@ -13,6 +13,7 @@ import Colors from "../../utils/colors";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+// import Bookingcard from '../../components/Card/Bookingcard';
 
 const Booking = () => {
   return (
@@ -51,6 +52,8 @@ const Booking = () => {
                     <br />₹ 499
                   </b>
                 </Typography>
+
+                {/* <Bookingcard/> */}
                 <Typography>
                   <ul>
                     <li>Exterior Wash, removing dust and grime.</li> <br />

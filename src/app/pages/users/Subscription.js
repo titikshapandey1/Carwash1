@@ -34,7 +34,7 @@ const Subscriptions = () => {
           container
           item
           spacing={2}
-          sx={{ justifyContent: "center", marginTop: "5%" ,padding:"20px"}}
+          sx={{ justifyContent: "center", marginTop: "5%", padding: "20px" }}
         >
           {/* <Grid item xs={12} sm={6} md={4}> */}
             <Subscribecard>
@@ -63,7 +63,8 @@ const Subscriptions = () => {
                     <li>Cleaning and Shining tires and rims.</li> <br />
                     <li>
                       Wiping down interior surface, including dashboard and door
-                      panels. <br /><br />
+                      panels. <br />
+                      <br />
                     </li>
                     <li>Exterior Wash, removing dust and grime.</li> <br />
                     <li>
@@ -78,7 +79,9 @@ const Subscriptions = () => {
                     <li>Cleaning and Shining tires and rims.</li> <br />
                     <li>
                       Wiping down interior surface, including dashboard and door
-                      panels.<br /><br />
+                      panels.
+                      <br />
+                      <br />
                     </li>
                   </ul> 
                   

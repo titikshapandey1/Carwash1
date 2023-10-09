@@ -9,8 +9,10 @@ import Index from "./app/routes/index";
 function App() {
   return (
     <>
-    {/* <BookingCard/> */}
-  {/* <RegisterPage/> */}
+      <Index />
+      {/* <Button/> */}
+      {/* <Subscribecard/> */}
+  
    {/* <OurServices/> */}
     {/* <Subscriptions/> */}
     {/* <Subscribecard/> */}

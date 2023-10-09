@@ -40,7 +40,7 @@ const HomeCards = () => {
                 fontSize={50}
                 color={Colors.palette.secondary.main}
                 textAlign={"center"}
-                sx={{ml:3}}
+                sx={{ ml: 3 }}
               >
                 <b>Our Washing Services</b>
               </Typography>
@@ -52,7 +52,7 @@ const HomeCards = () => {
                 color={Colors.palette.secondary.main}
                 textAlign={"center"}
                 mt={3}
-                sx={{ marginTop: "16%" ,ml:6}}
+                sx={{ marginTop: "16%", ml: 6 }}
               >
                 WITH
                 <b> MODERN EQUIPMENT</b>
@@ -94,13 +94,14 @@ const HomeCards = () => {
                   finibus.
                 </Typography>
                 <Typography mt={2} textAlign={"center"}>
-                  {/* <Rating
+                  <Rating
                     name="size-medium"
                     defaultValue={4}
                     sx={{ color: Colors.palette.secondary.main }}
-                  /> */}
+                  />
 
-<Rating name="half-rating" defaultValue={2.5} precision={4} />
+{/* <Rating name="half-rating" defaultValue={2.5} precision={4} /> */}
+                  <Rating name="half-rating" defaultValue={2.5} precision={4} />
                 </Typography>
               </Paper>
             </Grid>
@@ -140,7 +141,7 @@ const HomeCards = () => {
                 <Typography mt={2} textAlign={"center"}>
                   <Rating
                     name="size-medium"
-                    defaultValue={2}
+                    defaultValue={4}
                     sx={{ color: Colors.palette.secondary.main }}
                   />
                 </Typography>
@@ -182,7 +183,7 @@ const HomeCards = () => {
                 <Typography mt={2} textAlign={"center"}>
                   <Rating
                     name="size-medium"
-                    defaultValue={2}
+                    defaultValue={4}
                     sx={{ color: Colors.palette.secondary.main }}
                   />
                 </Typography>
@@ -224,7 +225,7 @@ const HomeCards = () => {
                 <Typography mt={2} textAlign={"center"}>
                   <Rating
                     name="size-medium"
-                    defaultValue={2}
+                    defaultValue={4}
                     sx={{ color: Colors.palette.secondary.main }}
                   />
                 </Typography>

@@ -23,6 +23,14 @@ const Colors = createTheme({
       grey:"#808080",
       lightGrey:"#D9D9D9",
     },
+
+    background:{
+      main:"#E2F2FF",
+      lightBlue:"#2877B6",
+      lightGreen:"#afe0dd",
+      lightRed:"#edd5d6",
+      lightskyBlue:"#b3d2f2",
+    }
   },
 });
 
