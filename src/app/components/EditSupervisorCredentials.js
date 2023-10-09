@@ -57,10 +57,10 @@
 //     borderRadius: 15,
 //   };
 
-//   const formStyle = {
-//     width: "100%", 
-//     marginTop: "3%",
-//   };
+  const formStyle = {
+    width: "100%",
+    marginTop: "3%",
+  };
 
 //   return (
 //     <Box
@@ -301,31 +301,21 @@
 //                 </Grid>
 //               </Grid>
 
-//               <Box align="center">
-//                 <Button
-//                   type="submit"
-//                   variant="contained"
-//                   sx={{ ...submitButtonStyle }}
-//                 >
-//                   <NavLink
-//                     to="/home"
-//                     style={{
-//                       textDecoration: "none",
-//                       color: Colors.palette.primary.main,
-//                       display: "flex",
-//                       alignItems: "center",
-//                     }}
-//                   >
-//                     Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-//                   </NavLink>
-//                 </Button>
-//               </Box>
-//             </form>
-//           </Paper>
-//         </Grid>
-//       </Container>
-//     </Box>
-//   );
-// }
+              <Box align="center">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{ ...submitButtonStyle }}
+                >
+                  Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                </Button>
+              </Box>
+            </form>
+          </Paper>
+        </Grid>
+      </Container>
+    </Box>
+  );
+}
 
 // export default ServiceLocation;

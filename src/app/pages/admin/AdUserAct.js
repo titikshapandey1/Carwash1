@@ -3,15 +3,12 @@ import AdminDash from "../../components/AdDash";
 import Table from "../../components/Table";
 import Colors from "../../utils/colors";
 
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const AdUserAct = () => {
   return (
     <>
-      <Box 
+      <Box
         display="block"
         flexDirection="row"
         alignItems="center"
@@ -25,10 +22,11 @@ const AdUserAct = () => {
           justifyContent="center"
           alignItems="center"
           sx={{
-            marginTop: { xs: "25%", sm: "20%", md: "10%", lg: "10%" },
-            marginLeft: { xs: "3%", sm: "35%", md: "30%", lg: "15%" },
-            color:Colors.palette.secondary.main,
-            fontWeight:"600"
+            marginTop: { xs: "22%", sm: "12%", md: "8%", lg: "10%" },
+            marginLeft: { xs: "5%", sm: "1%", md: "30%", lg: "15%" },
+            color: Colors.palette.secondary.main,
+            fontSize: { xs: "1.2rem", sm: "1.6rem", md: "inherit" },
+            fontWeight: "600",
           }}
         >
           Active Users
@@ -39,8 +37,8 @@ const AdUserAct = () => {
           alignItems="center"
           justifyContent="center"
           sx={{
-            marginLeft: { xs: "1%", sm: "35%", md: "30%", lg: "15%" },
-            marginTop: { xs: "15%", sm: "8%", md: "2%", lg: "2%" },
+            marginTop: { xs: "5%", sm: "2%" },
+            marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
           <Table />

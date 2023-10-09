@@ -37,12 +37,13 @@ const iconsStyles = {
   border: `2px solid ${Colors.palette.secondary.main}`,
 };
 
-const AdminDashboard = () => { 
+const AdminDashboard = () => {
   return (
     <>
       <Box
-        display="block"
-        alignItems="center"
+        display="flex"
+        flexDirection="column"
+        // alignItems="center"
         justifyContent="center"
         sx={{
           maxWidth: 950,
@@ -50,7 +51,7 @@ const AdminDashboard = () => {
           background: Colors.palette.secondary.cardBackground,
           padding: "20px",
           marginLeft: { xs: "1%", sm: "5%", md: "30%", lg: "20%" },
-          marginTop: { xs: "25%", sm: "17%", md: "13%", lg: "8%" },
+          marginTop: { xs: "23%", sm: "13%", md: "10%", lg: "8%" },
           marginRight: { xs: "1%", sm: "3%" },
         }}
       >
@@ -64,8 +65,8 @@ const AdminDashboard = () => {
           }}
         >
           <Grid container spacing={2}>
-            <Grid item xs={6} md={6}>
-              <Card sx={{ maxWidth: 300, ...cardStyle }}>
+            <Grid item xs={12} sm={6} md={6}>
+              <Card sx={{ maxWidth: { xs: 700, md: 300 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -82,8 +83,8 @@ const AdminDashboard = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6} md={6}>
-              <Card sx={{ maxWidth: 300, ...cardStyle }}>
+            <Grid item xs={12} sm={6} md={6}>
+              <Card sx={{ maxWidth: { xs: 700, md: 300 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -108,13 +109,12 @@ const AdminDashboard = () => {
           justifyContent="center"
           sx={{
             marginLeft: { xs: "2%", sm: "3%" },
-            marginTop: { xs: "2%", sm: "2%" },
+            marginTop: { xs: "7%", sm: "2%" },
           }}
         >
-          {/* Second grid container */}
           <Grid container spacing={3}>
-            <Grid item xs={4} md={4}>
-              <Card sx={{ maxWidth: 250, ...cardStyle }}>
+            <Grid item xs={12} sm={4} md={4}>
+              <Card sx={{ maxWidth: { xs: 700, md: 250 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -130,8 +130,8 @@ const AdminDashboard = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={4} md={4}>
-              <Card sx={{ maxWidth: 250, ...cardStyle }}>
+            <Grid item xs={12} sm={4} md={4}>
+              <Card sx={{ maxWidth: { xs: 700, md: 250 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -147,8 +147,8 @@ const AdminDashboard = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={4} md={4}>
-              <Card sx={{ maxWidth: 250, ...cardStyle }}>
+            <Grid item xs={12} sm={4} md={4}>
+              <Card sx={{ maxWidth: { xs: 700, md: 250 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -173,31 +173,34 @@ const AdminDashboard = () => {
           justifyContent="center"
           sx={{
             marginLeft: { xs: "2%", sm: "3%" },
-            marginTop: { xs: "2%", sm: "2%" },
+            marginTop: { xs: "7%", sm: "2%" },
           }}
         >
           <Grid container spacing={3}>
-            <Grid item xs={8} md={10}>
+            <Grid item xs={8} sm={8} md={10}>
               <Card
                 sx={{
-                  maxWidth: 800,
-                  maxHeight: 100,
+                  maxWidth: 700,
+                  // marginTop: { xs: "7%", sm: "2%" },
                   ...cardStyle,
                 }}
               >
                 <CardActionArea>
                   <CardContent>
+                    <AccountCircleOutlinedIcon
+                      sx={{
+                        ...iconsStyles,
+                        marginLeft: {xs:"85%",sm:"95%"},
+                      }}
+                    />
                     <Typography variant="h4" component="div" sx={headingStyles}>
                       12 <span style={{ fontSize: "0.4em" }}>Supervisors</span>
-                      <AccountCircleOutlinedIcon
-                        sx={{ ...iconsStyles, marginLeft: "77%" }}
-                      />
                     </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={4} md={2}>
+            <Grid item xs={4} sm={4} md={2}>
               <Card
                 sx={{
                   width: 70,
