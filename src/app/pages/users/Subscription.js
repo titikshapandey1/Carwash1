@@ -49,8 +49,8 @@ const Subscriptions = () => {
                   </b>
                 </Typography>
                 <Typography sx={{ marginTop: "8%" }}>
-                  <ul>
-                    <li>Exterior Wash, removing dust and grime.</li> <br />
+                   <ul style={{ listStyleType: ' none', padding: 0 }} >
+                    <li >Exterior Wash, removing dust and grime.</li> <br />
                     <li>
                       Interior Vaccuming, dusting seats and carpets and floor
                       mats.
@@ -80,7 +80,9 @@ const Subscriptions = () => {
                       Wiping down interior surface, including dashboard and door
                       panels.<br /><br />
                     </li>
-                  </ul>
+                  </ul> 
+                  
+
                 </Typography>
 
                 <Typography 

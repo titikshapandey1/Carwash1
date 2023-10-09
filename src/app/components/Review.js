@@ -43,7 +43,6 @@ const Review = () => {
 
         <Grid container spacing={2}>
           {cards.map((card, index) => (
-            
             <Grid item xs={12} sm={6} md={3} key={index}>
               <Card
                 sx={{
@@ -68,7 +67,7 @@ const Review = () => {
                   }}
                 />
 
-                {/* <img
+                <img
                   src={image2}
                   alt="BottomImage"
                   style={{
@@ -79,7 +78,7 @@ const Review = () => {
                     height: "30px",
                     zIndex: 1,
                   }}
-                /> */}
+                />
 
                 <CardContent
                   sx={{
