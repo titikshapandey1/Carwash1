@@ -136,7 +136,6 @@ const Mobile = () => {
                   placeholder="Mobile Number"
                   variant="outlined"
                   fullWidth
-                  // type=""
                   value={mobileNumber}
                   onChange={handleMobileNumberChange}
                   error={!!errors.mobileNumber}

@@ -83,17 +83,16 @@ export default function History() {
   };
   return (
     <>
-      {/* <Nav /> */}
       <Container>
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           <Box
             sx={{
               backgroundColor: Colors.palette.secondary.cardBackground,
               padding: "20px",
             }}
           >
-            <TableContainer component={Paper} >
-              <Table aria-label="customized table" >
+            <TableContainer component={Paper}>
+              <Table aria-label="customized table">
                 <TableHead>
                   <TableRow>
                     <TableCell

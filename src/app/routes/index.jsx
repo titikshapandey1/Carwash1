@@ -64,6 +64,7 @@ import Table from "../components/Table";
 
 
 
+
 function AppRouter() {
   return (
     <>
@@ -108,7 +109,6 @@ function AppRouter() {
         <Route path="/history" element={<History />}></Route>
 
         {/*======== ADMIN ========== */}
-
         <Route path="/admindashboard" element={<AdminDashboard />}></Route>
         <Route path="/adminpaysuccessful" element={<AdPaySucc />}></Route>
         <Route path="/adminpayunsucessful" element={<AdPayUnsucc />}></Route>
@@ -131,6 +131,9 @@ function AppRouter() {
         <Route path="/addash" element={<AdDash />}></Route>
         <Route path="/supdash" element={<SupDash/>}></Route>
         <Route path="/table" element={<Table />}></Route>
+
+
+
       </Routes>
     </>
   );

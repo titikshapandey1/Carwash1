@@ -38,6 +38,7 @@ function BookingCard({ children }) {
   };
 
   return (
+    <>
     <Grid
       sx={{
         display: "flex",
@@ -56,7 +57,10 @@ function BookingCard({ children }) {
        
       </Card>
     </Grid>
+    </>
   );
 }
 
 export default BookingCard;
+
+
