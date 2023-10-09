@@ -6,9 +6,13 @@ import {
   Container,
   Grid,
   Typography,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
 import OurServices from "../components/OurServices";
 import Colors from "../utils/colors";
 import { NavLink } from "react-router-dom";
@@ -43,24 +47,37 @@ const Card1 = () => {
                   </b>
                 </Typography>
                 <Typography>
-                  <ul>
-                    <li>Exterior Wash, removing dirt, dust, and grime.</li>{" "}
-                    <br />
-                    <li>
-                      Interior Vacuuming, dusting seats and carpets and floor
-                      mats.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Cleaning and Polishing all windows and mirrors.
-                    </li>{" "}
-                    <br />
-                    <li>Cleaning and Shining tires and rims.</li> <br />
-                    <li>
-                      Wiping down interior surface, including dashboard and door
-                      panels.
-                    </li>
-                  </ul>
+               
+                    <List >
+                  <ListItem >
+                      <DoneAllOutlinedIcon />
+                    <ListItemText style={{marginLeft:'15px'}}primary="Exterior Wash, removing dust and grime." />
+                  </ListItem>
+                  <ListItem>
+                    
+                      <DoneAllOutlinedIcon />
+                  
+                    <ListItemText style={{marginLeft:'15px'}} primary="Interior Vacuuming, dusting seats and carpets and floor mats." />
+                  </ListItem>
+                  <ListItem>
+           
+                      <DoneAllOutlinedIcon />
+                   
+                    <ListItemText style={{marginLeft:'15px'}} primary="Cleaning and Polishing all windows and mirrors." />
+                  </ListItem>
+                  <ListItem>
+                   
+                      <DoneAllOutlinedIcon />
+                  
+                    <ListItemText style={{marginLeft:'15px'}} primary="Cleaning and Shining tires and rims." />
+                  </ListItem>
+                  <ListItem>
+                
+                      <DoneAllOutlinedIcon />
+                
+                    <ListItemText style={{marginLeft:'15px'}} primary="Wiping down interior surfaces, including dashboard and door panels." />
+                  </ListItem>
+                </List>
                 </Typography>
 
                 <Box
@@ -121,30 +138,41 @@ const Card1 = () => {
                   </b>
                 </Typography>
                 <Typography>
-                  <ul>
-                    <li>
-                      Cleaning of the exterior removing dirt, dust, and grime.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Vacuuming, wiping, and sanitizing interior, including
-                      seats, dashboard, and windows.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Specialized cleaning of seats, carpets, and fabric
-                      surfaces to remove stains and odors.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Application of protective coatings or sealants to maintain
-                      the car's paint finish.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Fine detailing work, polishing, waxing, and tire cleaning.
-                    </li>
-                  </ul>
+                
+             <List >
+                  <ListItem >
+                      <DoneAllOutlinedIcon />
+                    <ListItemText style={{marginLeft:'15px'}}primary=" Cleaning of the exterior removing dirt, dust, and grime." />
+                  </ListItem>
+                  <ListItem>
+                    
+                      <DoneAllOutlinedIcon />
+                  
+                    <ListItemText style={{marginLeft:'15px'}} primary=" Vacuuming, wiping, and sanitizing interior, including
+                      seats, dashboard, and windows." />
+                  </ListItem>
+                  <ListItem>
+           
+                      <DoneAllOutlinedIcon />
+                   
+                    <ListItemText style={{marginLeft:'15px'}} primary=" Specialized cleaning of seats, carpets, and fabric
+                      surfaces to remove stains and odors." />
+                  </ListItem>
+                  <ListItem>
+                   
+                      <DoneAllOutlinedIcon />
+                  
+                    <ListItemText style={{marginLeft:'15px'}} primary=" Application of protective coatings or sealants to maintain
+                      the car's paint finish." />
+                  </ListItem>
+                  <ListItem>
+                
+                      <DoneAllOutlinedIcon />
+                
+                    <ListItemText style={{marginLeft:'15px'}} primary=" Fine detailing work, polishing, waxing, and tire cleaning." />
+                  </ListItem>
+                </List>
+
                 </Typography>
                 <Box
                   sx={{
@@ -204,23 +232,38 @@ const Card1 = () => {
                   </b>
                 </Typography>
                 <Typography>
-                  <ul>
-                    <li>Thorough cleaning of seats, carpets, and upholstery</li>{" "}
-                    <br />
-                    <li>
-                      Cleaning, waxing, and polishing the car's exterior.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Removing dirt and grime from the engine compartment.
-                    </li>{" "}
-                    <br />
-                    <li>Detailed cleaning and tire dressing</li> <br />
-                    <li>
-                      Ensuring windows and mirrors are streak-free for
-                      visibility and safety.
-                    </li>
-                  </ul>
+               
+                   <List >
+                  <ListItem >
+                      <DoneAllOutlinedIcon />
+                    <ListItemText style={{marginLeft:'15px'}}primary="Thorough cleaning of seats, carpets, and upholstery" />
+                  </ListItem>
+                  <ListItem>
+                    
+                      <DoneAllOutlinedIcon />
+                  
+                    <ListItemText style={{marginLeft:'15px'}} primary="Cleaning, waxing, and polishing the car's exterior." />
+                  </ListItem>
+                  <ListItem>
+           
+                      <DoneAllOutlinedIcon />
+                   
+                    <ListItemText style={{marginLeft:'15px'}} primary="Removing dirt and grime from the engine compartment." />
+                  </ListItem>
+                  <ListItem>
+                   
+                      <DoneAllOutlinedIcon />
+                  
+                    <ListItemText style={{marginLeft:'15px'}} primary="Detailed cleaning and tire dressing" />
+                  </ListItem>
+                  <ListItem>
+                
+                      <DoneAllOutlinedIcon />
+                
+                    <ListItemText style={{marginLeft:'15px'}} primary="  Ensuring windows and mirrors are streak-free for
+                      visibility and safety." />
+                  </ListItem>
+                </List>
                 </Typography>
 
                 <Box
