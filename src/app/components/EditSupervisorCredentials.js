@@ -58,7 +58,7 @@ function ServiceLocation() {
   };
 
   const formStyle = {
-    width: "100%", 
+    width: "100%",
     marginTop: "3%",
   };
 
@@ -307,17 +307,7 @@ function ServiceLocation() {
                   variant="contained"
                   sx={{ ...submitButtonStyle }}
                 >
-                  <NavLink
-                    to="/home"
-                    style={{
-                      textDecoration: "none",
-                      color: Colors.palette.primary.main,
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                  </NavLink>
+                  Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
                 </Button>
               </Box>
             </form>
