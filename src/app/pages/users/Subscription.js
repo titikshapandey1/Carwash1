@@ -142,13 +142,11 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListItemIcon,
 } from "@mui/material";
-import {
-  CheckCircleOutline as CheckCircleIcon,
-} from "@mui/icons-material";
+import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
 import Nav from "../../partials/Nav";
 import Subscribecard from "../../components/card/Subscribecard";
+import Cancel from "../../components/Button/Cancel";
 // import Hover from "../components/card/Hover";
 // import Cancel from "../components/Button/Cancel";
 const Subscriptions = () => {
@@ -182,46 +180,44 @@ const Subscriptions = () => {
                 </b>
               </Typography>
               <Typography sx={{ marginTop: "8%" }}>
-                <List>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CheckCircleIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Exterior Wash, removing dust and grime." />
+                <List >
+                  <ListItem >
+                      <DoneAllOutlinedIcon />
+                    <ListItemText style={{marginLeft:'15px'}}primary="Exterior Wash, removing dust and grime." />
                   </ListItem>
                   <ListItem>
-                    <ListItemIcon>
-                      <CheckCircleIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Interior Vacuuming, dusting seats and carpets and floor mats." />
+                    
+                      <DoneAllOutlinedIcon />
+                  
+                    <ListItemText style={{marginLeft:'15px'}} primary="Interior Vacuuming, dusting seats and carpets and floor mats." />
                   </ListItem>
                   <ListItem>
-                    <ListItemIcon>
-                      <CheckCircleIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Cleaning and Polishing all windows and mirrors." />
+           
+                      <DoneAllOutlinedIcon />
+                   
+                    <ListItemText style={{marginLeft:'15px'}} primary="Cleaning and Polishing all windows and mirrors." />
                   </ListItem>
                   <ListItem>
-                    <ListItemIcon>
-                      <CheckCircleIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Cleaning and Shining tires and rims." />
+                   
+                      <DoneAllOutlinedIcon />
+                  
+                    <ListItemText style={{marginLeft:'15px'}} primary="Cleaning and Shining tires and rims." />
                   </ListItem>
                   <ListItem>
-                    <ListItemIcon>
-                      <CheckCircleIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Wiping down interior surfaces, including dashboard and door panels." />
+                
+                      <DoneAllOutlinedIcon />
+                
+                    <ListItemText style={{marginLeft:'15px'}} primary="Wiping down interior surfaces, including dashboard and door panels." />
                   </ListItem>
                 </List>
               </Typography>
 
-              <Typography sx={{ textAlign: "left", marginLeft: "10%" }}>
+              <Typography sx={{ textAlign: "center", marginLeft: "10%" }}>
                 <b>Expiring on: 04/10/2023</b>
               </Typography>
 
               <Typography sx={{ marginTop: "8%" }}>
-                <Button
+                {/* <Button
                 
                   variant="contained"
                   sx={{
@@ -233,7 +229,8 @@ const Subscriptions = () => {
                   }}
                 >
                   Cancel
-                </Button>
+                </Button> */}
+                <Cancel/>
               </Typography>
             </CardContent>
           </Subscribecard>

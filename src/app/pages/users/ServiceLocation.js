@@ -179,12 +179,6 @@ function ServiceLocation() {
       PickupDistrict: "",
       PickupState: "",
       PickupPincode: "",
-
-
-
-
-
-
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -271,6 +265,7 @@ function ServiceLocation() {
                     fullWidth
                     id="contactNumber"
                     label="Contact Number"
+                    type="number"
                     name="contactNumber"
                     size="small"
                     onChange={formik.handleChange}
@@ -296,6 +291,7 @@ function ServiceLocation() {
                     id="email"
                     label="Email Address"
                     name="email"
+                    type="email"
                     size="small"
                     sx={textFieldStyles}
                     onChange={formik.handleChange}

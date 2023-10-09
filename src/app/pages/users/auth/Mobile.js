@@ -47,7 +47,7 @@ const Mobile = () => {
     setErrors(newErrors);
 
 
-    setErrors(newErrors);
+    // setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
       // history.push("/otp");

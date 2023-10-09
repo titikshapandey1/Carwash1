@@ -1,30 +1,31 @@
+
 import React from 'react';
 import Button from '@mui/material/Button';
-import { Card } from '@mui/material';
+import Colors from '../../utils/colors';
 
-
-
-function Cancel({color}) {
+function Cancel({ color }) {
   const buttonStyle = {
-    width: '124px',
-    height: '44px',
+    width: '154px',
+    height: '54px',
     padding: '20px 40px',
     borderRadius: '20px',
     gap: '10px',
-    backgroundColor: 'blue', 
-    color: color,
-    boxShadow:`1px,3px ${color}`
+    backgroundColor: '#353535',
+    boxShadow: ` ${Colors.palette.secondary.main}`,
+    transition: 'box-shadow 3s', 
+  };
+
+  const hoverStyle = {
+    ':hover': {
+      boxShadow: `5px 15px ${Colors.palette.primary.main}`, 
+    },
   };
 
   return (
-    // <Button variant="contained" style={buttonStyle}>
-    //       cancel
-    // </Button>
-    <div variant="contained" style={buttonStyle}>
-          cancel
-    </div>
+    <Button variant="contained" sx={{ ...buttonStyle, ...hoverStyle }}>
+      cancel
+    </Button>
   );
 }
 
 export default Cancel;
-// const styles=StyleSheet

@@ -6,6 +6,9 @@ import {
   Container,
   Grid,
   Typography,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import React from "react";
 import Nav from "../../partials/Nav";
@@ -14,6 +17,9 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 // import Bookingcard from '../../components/Card/Bookingcard';
+import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
+import Cancel from "../../components/Button/Cancel";
+
 
 const Booking = () => {
   return (
@@ -55,23 +61,29 @@ const Booking = () => {
 
                 {/* <Bookingcard/> */}
                 <Typography>
-                  <ul>
-                    <li>Exterior Wash, removing dust and grime.</li> <br />
-                    <li>
-                      Interior Vaccuming, dusting seats and carpets and floor
-                      mats.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Cleaning and Polishing all windows and mirrors.
-                    </li>{" "}
-                    <br />
-                    <li>Cleaning and Shining tires and rims.</li> <br />
-                    <li>
-                      Wiping down interior surface, including dashboard and door
-                      panels.
-                    </li>
-                  </ul>
+                
+                   <List>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Exterior Wash, removing dust and grime." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}}primary="Interior Vacuuming, dusting seats and carpets and floor mats." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Cleaning and Polishing all windows and mirrors." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Cleaning and Shining tires and rims." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Wiping down interior surface, including dashboard and door panels." />
+                  </ListItem>
+                </List>
                 </Typography>{" "}
                 <br /> <br />
                 <Box sx={{ display: "flex", justifyContent: "space-around" }}>
@@ -92,10 +104,10 @@ const Booking = () => {
                   maiores
                 </Typography>
                 <Typography align="center">
-                  <Button
-                    //   variant="outlined" size="large" sx={{backgroundColor: Colors.palette.primary.main, color: Colors.palette.primary.color, marginBlock: "3rem"}}>
+                  {/* <Button
+                      variant="outlined" size="large" sx={{backgroundColor: Colors.palette.primary.main, color: Colors.palette.primary.color, marginBlock: "3rem"}}>
                     sx={{
-                      // color:"white",
+                      color:"white",
                       borderRadius: "22px",
                       bgcolor: "#353535",
                       height: "55px",
@@ -104,7 +116,8 @@ const Booking = () => {
                     }}
                   >
                     cancel
-                  </Button>
+                  </Button> */}
+                  <Cancel/>
                 </Typography>
               </CardContent>
             </Card>
@@ -128,23 +141,29 @@ const Booking = () => {
                   </b>
                 </Typography>
                 <Typography>
-                  <ul>
-                    <li>Exterior Wash, removing dust and grime.</li> <br />
-                    <li>
-                      Interior Vaccuming, dusting seats and carpets and floor
-                      mats.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Cleaning and Polishing all windows and mirrors.
-                    </li>{" "}
-                    <br />
-                    <li>Cleaning and Shining tires and rims.</li> <br />
-                    <li>
-                      Wiping down interior surface, including dashboard and door
-                      panels.
-                    </li>
-                  </ul>
+                
+                   <List>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Exterior Wash, removing dust and grime." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Interior Vacuuming, dusting seats and carpets and floor mats." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Cleaning and Polishing all windows and mirrors." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Cleaning and Shining tires and rims." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Wiping down interior surface, including dashboard and door panels." />
+                  </ListItem>
+                </List>
                 </Typography>
                 <br /> <br />
                 <Box sx={{ display: "flex", justifyContent: "space-around" }}>
@@ -165,7 +184,7 @@ const Booking = () => {
                   maiores
                 </Typography>
                 <Typography align="center">
-                  <Button
+                  {/* <Button
                     variant="outlined"
                     size="large"
                     sx={{
@@ -176,9 +195,10 @@ const Booking = () => {
                       marginInline: "30%",
                     }}
                   >
-                    {/* sx={{backgroundColor: Colors.palette.primary.main, color: Colors.palette.primary.color, marginBlock: "3rem"}}> */}
+                    sx={{backgroundColor: Colors.palette.primary.main, color: Colors.palette.primary.color, marginBlock: "3rem"}}>
                     cancel
-                  </Button>
+                  </Button> */}
+                  <Cancel/>
                 </Typography>
               </CardContent>
             </Card>
@@ -202,23 +222,29 @@ const Booking = () => {
                   </b>
                 </Typography>
                 <Typography>
-                  <ul>
-                    <li>Exterior Wash, removing dust and grime.</li> <br />
-                    <li>
-                      Interior Vaccuming, dusting seats and carpets and floor
-                      mats.
-                    </li>{" "}
-                    <br />
-                    <li>
-                      Cleaning and Polishing all windows and mirrors.
-                    </li>{" "}
-                    <br />
-                    <li>Cleaning and Shining tires and rims.</li> <br />
-                    <li>
-                      Wiping down interior surface, including dashboard and door
-                      panels.
-                    </li>
-                  </ul>
+                
+                   <List>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Exterior Wash, removing dust and grime." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Interior Vacuuming, dusting seats and carpets and floor mats." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Cleaning and Polishing all windows and mirrors." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Cleaning and Shining tires and rims." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px'}} primary="Wiping down interior surface, including dashboard and door panels." />
+                  </ListItem>
+                </List>
                 </Typography>{" "}
                 <br /> <br />
                 <Box sx={{ display: "flex", justifyContent: "space-around" }}>
@@ -239,7 +265,7 @@ const Booking = () => {
                   Lorem ipsum dolor sit amet At laboriosam maiores
                 </Typography>
                 <Typography align="center">
-                  <Button
+                  {/* <Button
                     variant="outlined"
                     size="large"
                     sx={{
@@ -250,9 +276,10 @@ const Booking = () => {
                       marginInline: "30%",
                     }}
                   >
-                    {/* sx={{backgroundColor: Colors.palette.primary.main, color: Colors.palette.primary.color, marginBlock: "3rem"}} */}
+                    sx={{backgroundColor: Colors.palette.primary.main, color: Colors.palette.primary.color, marginBlock: "3rem"}}
                     cancel
-                  </Button>
+                  </Button> */}
+                  <Cancel/>
                 </Typography>
               </CardContent>
             </Card>
