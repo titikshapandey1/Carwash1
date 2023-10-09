@@ -111,8 +111,8 @@ export default function History() {
                     <TableCell
                       style={{
                         cellStyle,
-                        backgroundColor: "#013C6B",
-                        color: "white",
+                        backgroundColor: Colors.palette.secondary.main,
+                        color: Colors.palette.primary.main
                       }}
                     >
                       Data
@@ -120,8 +120,8 @@ export default function History() {
                     <TableCell
                       style={{
                         cellStyle,
-                        backgroundColor: "#013C6B",
-                        color: "white",
+                        backgroundColor: Colors.palette.secondary.main,
+                        color: Colors.palette.primary.main
                       }}
                     >
                       Booking ID
@@ -129,8 +129,8 @@ export default function History() {
                     <TableCell
                       style={{
                         cellStyle,
-                        backgroundColor: "#013C6B",
-                        color: "white",
+                        backgroundColor: Colors.palette.secondary.main,
+                        color: Colors.palette.primary.main
                       }}
                     >
                       Service Type
@@ -138,8 +138,8 @@ export default function History() {
                     <TableCell
                       style={{
                         cellStyle,
-                        backgroundColor: "#013C6B",
-                        color: "white",
+                        backgroundColor: Colors.palette.secondary.main,
+                        color: Colors.palette.primary.main
                       }}
                     >
                       Amount
@@ -148,7 +148,7 @@ export default function History() {
                       style={{
                         cellStyle,
                         backgroundColor: Colors.palette.secondary.main,
-                        color: "white",
+                        color: Colors.palette.primary.main
                       }}
                     >
                       view details
