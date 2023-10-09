@@ -33,19 +33,11 @@ const Mobile = () => {
   const handleFormSubmit = () => {
     const newErrors = {};
 
-    // if (!mobileNumber) {
-    //   newErrors.mobileNumber = "Mobile Number is required";
-    // } else if (!/^\d{10}$/.test(mobileNumber)) {
-    //   newErrors.mobileNumber = "Invalid Mobile Number";
-    // }
     if (!mobileNumber) {
       newErrors.mobileNumber = "Mobile Number is required";
     } else if (!/^\d{10}$/.test(mobileNumber)) {
       newErrors.mobileNumber = "Invalid Mobile Number (10 digits required)";
     }
-
-    setErrors(newErrors);
-
 
     setErrors(newErrors);
 

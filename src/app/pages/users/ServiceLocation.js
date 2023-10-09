@@ -26,10 +26,9 @@ const initialValues = {
   lastName: "",
   contactNumber: "",
   email: "",
-  password: "",
   locality: "",
-  District: "",
   city: "",
+  District: "",
   State: "",
   Pincode: "",
   PickupLocality: "",
@@ -37,86 +36,37 @@ const initialValues = {
   PickupDistrict: "",
   PickupState: "",
   PickupPincode: "",
-
 };
-
-Yup.addMethod(Yup.string, "locality", function (message) {
-  return this.test("locality", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "city", function (message) {
-  return this.test("city", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "District", function (message) {
-  return this.test("District", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "State", function (message) {
-  return this.test("State", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "Pincode", function (message) {
-  return this.test("Pincode", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "PickupLocality", function (message) {
-  return this.test("PickupLocality", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "PickupCity", function (message) {
-  return this.test("PickupCity", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "PickupDistrict", function (message) {
-  return this.test("PickupDistrict", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "PickupState", function (message) {
-  return this.test("PickupState", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "PickupPincode", function (message) {
-  return this.test("PickupPincode", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),
-  contactNumber: Yup.string().required("Contact Number is required"),
-  email: Yup.string().email("Invalid email ").required("Email is required"),
-  locality: Yup.string().locality("Invalid address").required("Locality is required"),
-  city: Yup.string().city("Invalid").required("city is required"),
-  District: Yup.string().District("Invalid  ").required("District is required"),
-  State: Yup.string().State("Invalid ").required("State is required"),
-  Pincode: Yup.string().Pincode("Invalid  ").required("Pincode is required"),
-  PickupLocality: Yup.string().PickupLocality("Invalid  ").required("PickupLocality is required"),
-  PickupCity: Yup.string().PickupCity("Invalid  ").required("PickupCity is required"),
-  PickupDistrict: Yup.string().PickupDistrict("Invalid  ").required("PickupDistrict is required"),
-  PickupState: Yup.string().PickupState("Invalid  ").required("PickupState is required"),
-  PickupPincode: Yup.string().PickupPincode("Invalid  ").required("PickupPincode is required"),
+  contactNumber: Yup.string()
+    .required("Contact Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  locality: Yup.string().required("Locality is required"),
+  city: Yup.string().required("City is required"),
+  District: Yup.string().required("District is required"),
+  State: Yup.string().required("State is required"),
+  Pincode: Yup.string()
+    .required("Pincode is required")
+    .test(
+      "valid-pincode",
+      "Invalid Pincode",
+      (value) => value && /^[1-9][0-9]{5}$/.test(value)
+    ),
+  PickupLocality: Yup.string().required("Locality is required"),
+  PickupCity: Yup.string().required("City is required"),
+  PickupDistrict: Yup.string().required("District is required"),
+  PickupState: Yup.string().required("State is required"),
+  PickupPincode: Yup.string()
+    .required("Pincode is required")
+    .test(
+      "valid-pickup-pincode",
+      "Invalid Pincode",
+      (value) => value && /^[1-9][0-9]{5}$/.test(value)
+    ),
 });
 
 function ServiceLocation() {
@@ -164,28 +114,7 @@ function ServiceLocation() {
   });
 
   const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      contactNumber: "",
-      email: "",
-      locality: "",
-      city: "",
-      District: "",
-      State: "",
-      Pincode: "",
-      PickupLocality: "",
-      PickupCity: "",
-      PickupDistrict: "",
-      PickupState: "",
-      PickupPincode: "",
-
-
-
-
-
-
-    },
+    initialValues: initialValues,
     validationSchema: validationSchema,
     onSubmit: (values) => {
       console.log(values);
@@ -327,7 +256,7 @@ function ServiceLocation() {
                     fullWidth
                     id="locality"
                     label="Locality / Building / Street / Society"
-                    name="address"
+                    name="locality"
                     size="small"
                     sx={textFieldStyles}
                     onChange={formik.handleChange}
@@ -352,7 +281,6 @@ function ServiceLocation() {
                     name="city"
                     size="small"
                     sx={textFieldStyles}
-
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.city}
@@ -371,12 +299,15 @@ function ServiceLocation() {
                     name="District"
                     size="small"
                     sx={textFieldStyles}
-
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.District}
-                    error={formik.touched.District && Boolean(formik.errors.District)}
-                    helperText={formik.touched.District && formik.errors.District}
+                    error={
+                      formik.touched.District && Boolean(formik.errors.District)
+                    }
+                    helperText={
+                      formik.touched.District && formik.errors.District
+                    }
                   />
                 </Grid>
 
@@ -390,7 +321,6 @@ function ServiceLocation() {
                     name="State"
                     size="small"
                     sx={textFieldStyles}
-
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.State}
@@ -409,11 +339,12 @@ function ServiceLocation() {
                     name="Pincode"
                     size="small"
                     sx={textFieldStyles}
-
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.Pincode}
-                    error={formik.touched.Pincode && Boolean(formik.errors.Pincode)}
+                    error={
+                      formik.touched.Pincode && Boolean(formik.errors.Pincode)
+                    }
                     helperText={formik.touched.Pincode && formik.errors.Pincode}
                   />
                 </Grid>
@@ -456,14 +387,20 @@ function ServiceLocation() {
                     fullWidth
                     id="PickupLocality"
                     label="Locality / Building / Street / Society"
-                    name=" Pickup Location/Locality / Building / Street / Society"
+                    name="PickupLocality"
                     size="small"
                     sx={textFieldStyles}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.PickupLocality}
-                    error={formik.touched.PickupLocality && Boolean(formik.errors.PickupLocality)}
-                    helperText={formik.touched.PickupLocality && formik.errors.PickupLocality}
+                    error={
+                      formik.touched.PickupLocality &&
+                      Boolean(formik.errors.PickupLocality)
+                    }
+                    helperText={
+                      formik.touched.PickupLocality &&
+                      formik.errors.PickupLocality
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -473,14 +410,19 @@ function ServiceLocation() {
                     fullWidth
                     id="PickupCity"
                     label="City / Town  District"
-                    name="Pickup Location/city/Town"
+                    name="PickupCity"
                     size="small"
                     sx={textFieldStyles}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.PickupCity}
-                    error={formik.touched.PickupCity && Boolean(formik.errors.PickupCity)}
-                    helperText={formik.touched.PickupCity && formik.errors.PickupCity}
+                    error={
+                      formik.touched.PickupCity &&
+                      Boolean(formik.errors.PickupCity)
+                    }
+                    helperText={
+                      formik.touched.PickupCity && formik.errors.PickupCity
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -488,16 +430,22 @@ function ServiceLocation() {
                     variant="outlined"
                     required
                     fullWidth
-                    id=" PickupDistrict"
+                    id="PickupDistrict"
                     label=" District"
-                    name=" Pickup Location/District"
+                    name="PickupDistrict"
                     size="small"
                     sx={textFieldStyles}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.PickupDistrict}
-                    error={formik.touched.PickupDistrict && Boolean(formik.errors.PickupDistrict)}
-                    helperText={formik.touched.PickupDistrict && formik.errors.PickupDistrict}
+                    error={
+                      formik.touched.PickupDistrict &&
+                      Boolean(formik.errors.PickupDistrict)
+                    }
+                    helperText={
+                      formik.touched.PickupDistrict &&
+                      formik.errors.PickupDistrict
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={8}>
@@ -507,14 +455,19 @@ function ServiceLocation() {
                     fullWidth
                     id="PickupState"
                     label="State"
-                    name="Pickup Location/State"
+                    name="PickupState"
                     size="small"
                     sx={textFieldStyles}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.PickupState}
-                    error={formik.touched.PickupState && Boolean(formik.errors.PickupState)}
-                    helperText={formik.touched.PickupState && formik.errors.PickupState}
+                    error={
+                      formik.touched.PickupState &&
+                      Boolean(formik.errors.PickupState)
+                    }
+                    helperText={
+                      formik.touched.PickupState && formik.errors.PickupState
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={4}>
@@ -524,14 +477,20 @@ function ServiceLocation() {
                     fullWidth
                     id="PickupPincode"
                     label=" Pincode"
-                    name="Pickup Location/Pincode"
+                    name="PickupPincode"
                     size="small"
                     sx={textFieldStyles}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.PickupPincode}
-                    error={formik.touched.PickupPincode && Boolean(formik.errors.PickupPincode)}
-                    helperText={formik.touched.PickupPincode && formik.errors.PickupPincode}
+                    error={
+                      formik.touched.PickupPincode &&
+                      Boolean(formik.errors.PickupPincode)
+                    }
+                    helperText={
+                      formik.touched.PickupPincode &&
+                      formik.errors.PickupPincode
+                    }
                   />
                 </Grid>
               </Grid>

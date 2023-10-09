@@ -24,6 +24,7 @@ import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
 
+
 const drawerWidth = 240;
 
 function AdDash(props) {
@@ -517,13 +518,5 @@ function AdDash(props) {
     </Box>
   );
 }
-
-AdDash.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default AdDash;

@@ -26,7 +26,7 @@ import Services from "../pages/users/Services";
 import Login from "../pages/users/auth/Login";
 import HomePage from "../components/Home/Homepage";
 import Profile from "../pages/users/Profile";
-import ServiceLocation from "../pages/users/Service";
+import ServiceLocation from "../pages/users/ServiceLocation";
 import ServiceLocation2 from "../pages/users/ServiceLocation2";
 import RegisterPage from "../pages/users/auth/Register";
 import Mobile from "../pages/users/auth/Mobile";
