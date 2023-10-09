@@ -118,6 +118,7 @@ function Profile2() {
                     placeholder="First Name"
                     name="firstName"
                     sx={{ border: "1px solid black" }}
+                    
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>

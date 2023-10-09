@@ -27,14 +27,15 @@ import Login from "../pages/users/auth/Login";
 import HomePage from "../components/Home/Homepage";
 import Profile from "../pages/users/Profile";
 import ServiceLocation from "../pages/users/Service";
+import ServiceLocation2 from "../pages/users/ServiceLocation2";
 import RegisterPage from "../pages/users/auth/Register";
 import Mobile from "../pages/users/auth/Mobile";
 import Otp from "../pages/users/auth/otp";
 import Subscriptions from "../pages/users/Subscription";
 import Booking from "../pages/users/Booking";
 import Contactus from "../pages/users/Contactus";
-import History from "../pages/users/History";
-import Profile2 from "../pages/users/Profile2";
+import History from "../components/Table";
+import Profile2 from '../pages/users/Profile2';
 
 
 import AdminDashboard from "../pages/admin/AdminDashboard";
@@ -97,6 +98,7 @@ function AppRouter() {
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/profile2" element={<Profile2 />}></Route>
         <Route path="/servicelocation" element={<ServiceLocation />}></Route>
+        <Route path="/servicelocation2" element={<ServiceLocation2 />}></Route>
         <Route path="/registerpage" element={<RegisterPage />}></Route>
         <Route path="/mobile" element={<Mobile />}></Route>
         <Route path="/otp" element={<Otp />}></Route>

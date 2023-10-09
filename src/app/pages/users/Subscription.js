@@ -8,9 +8,9 @@ import {
   Typography,
 } from "@mui/material";
 import Nav from "../../partials/Nav";
-import Subscribecard from "../../components/card/Subscribecard"
-import Hover from "../../components/card/Hover";
-import Cancel from "../../components/Button/Cancel";
+import Subscribecard from "../../components/card/Subscribecard";
+// import Hover from "../components/card/Hover";
+// import Cancel from "../components/Button/Cancel";
 const Subscriptions = () => {
   return (
     <>
