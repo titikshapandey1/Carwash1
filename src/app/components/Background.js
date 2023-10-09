@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import car1 from "../assests/images/car1guest.png";
+import car1 from "../assests/images/Finaltry.jpg";
 import Colors from "../utils/colors";
 const BackgroundImg = () => {
   return (
@@ -10,13 +10,12 @@ const BackgroundImg = () => {
           display: "flex",
           backgroundImage: `url(${car1})`,
           backgroundSize: "cover",
+          opacity:'1',
           // backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           minHeight: "500px",
-          // "@media (max-width: 960px)": {
-          //   backgroundSize: "contain",
-          //   backgroundRepeat: "no-repeat",
-          // },
+          backgroundColor:'grey',
+        
         }}
       >
         <Grid container spacing={3}>

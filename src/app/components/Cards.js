@@ -11,6 +11,8 @@ import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../utils/colors";
 import { NavLink } from "react-router-dom";
+import BookingCard from "./card/Bookingcard";
+
 const Cards = () => {
   return (
     <>
@@ -18,7 +20,7 @@ const Cards = () => {
         <Container>
           <Grid container item spacing={2} sx={{ justifyContent: "center" }}>
             <Grid item xs={12} sm={6} md={4}>
-              <Card
+              <BookingCard
                 sx={{
                   borderRadius: "20px",
                   bgcolor: Colors.palette.primary.main,
@@ -84,11 +86,11 @@ const Cards = () => {
                     </Button>
                   </Box>
                 </CardContent>
-              </Card>
+              </BookingCard>
             </Grid>
 
             <Grid item xs={12} sm={6} md={4}>
-              <Card
+              <BookingCard
                 sx={{
                   borderRadius: "20px",
                   bgcolor: Colors.palette.primary.main,
@@ -155,11 +157,11 @@ const Cards = () => {
                     </Button>
                   </Box>
                 </CardContent>
-              </Card>
+              </BookingCard>
             </Grid>
 
             <Grid item xs={12} sm={6} md={4}>
-              <Card
+              <BookingCard
                 sx={{
                   borderRadius: "20px",
                   bgcolor: Colors.palette.primary.main,
@@ -225,7 +227,7 @@ const Cards = () => {
                     </Button>
                   </Box>
                 </CardContent>
-              </Card>
+              </BookingCard>
             </Grid>
           </Grid>
         </Container>

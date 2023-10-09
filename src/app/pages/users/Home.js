@@ -6,7 +6,7 @@ import Footer from "../../partials/Footer";
 import Card1 from "../../components/Card";
 import AboutGuest from "../../components/About";
 import Review from "../../components/Review";
-const Guest5 = () => {
+const Home = () => {
   return (
     <>
       <Nav />
@@ -20,4 +20,4 @@ const Guest5 = () => {
   );
 };
 
-export default Guest5;
+export default Home;

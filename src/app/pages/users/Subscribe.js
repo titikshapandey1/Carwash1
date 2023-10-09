@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   Button,
-  Card,
   CardContent,
   Container,
   Grid,
@@ -11,6 +10,7 @@ import {
 import Colors from "../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { NavLink } from "react-router-dom";
+import SubCard from "../../components/card/Subscribecard";
 
 const Subscribe = () => {
   return (
@@ -24,7 +24,7 @@ const Subscribe = () => {
             alignItems="center"
           >
             <Grid item xs={12} sm={6} md={4}>
-              <Card
+              <SubCard
                 sx={{
                   borderRadius: "20px",
                   background: Colors.palette.primary.main,
@@ -112,10 +112,10 @@ const Subscribe = () => {
                     </Button>
                   </Box>
                 </CardContent>
-              </Card>
+              </SubCard>
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <Card
+              <SubCard
                 sx={{
                   borderRadius: "20px",
                   background: Colors.palette.primary.main,
@@ -202,10 +202,10 @@ const Subscribe = () => {
                     </Button>
                   </Box>
                 </CardContent>
-              </Card>
+              </SubCard>
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <Card
+              <SubCard
                 sx={{
                   borderRadius: "20px",
                   background: Colors.palette.primary.main,
@@ -292,7 +292,7 @@ const Subscribe = () => {
                     </Button>
                   </Box>
                 </CardContent>
-              </Card>
+              </SubCard>
             </Grid>
           </Grid>
         </Box>
