@@ -28,7 +28,7 @@
 // //     4:'',
 // //     5:'',
 // //   });
-  
+
 // //   const [validationErrors, setValidationErrors] = useState({
 // //     0: "",
 // //     1: "",
@@ -93,7 +93,6 @@
 // //       [index]: "",
 // //     });
 // //   }
-
 
 // //   // const handleFormSubmit = (e) => {
 // //   //   e.preventDefault();
@@ -275,7 +274,6 @@
 // // };
 
 // // export default Otp;
-
 
 // import React, { useState } from "react";
 // import {
@@ -604,11 +602,11 @@ const Otp = () => {
 
   // const onChange = (e, index) => {
   //   const value = e.target.value.replace(/[^0-9]/g, "");
- // const onChange = (e, index) => {
-//   //   const value = e.target.value.replace(/[^0-9]/g, "");
-  const onChange = (e,index) => {
-    var onlyNums = e.target.value.replace(/[^0-9]+$/, '');
-    if(onlyNums){
+  // const onChange = (e, index) => {
+  //   //   const value = e.target.value.replace(/[^0-9]/g, "");
+  const onChange = (e, index) => {
+    var onlyNums = e.target.value.replace(/[^0-9]+$/, "");
+    if (onlyNums) {
       onlyNums = parseInt(onlyNums[0]);
     }
     setNumber({
@@ -632,11 +630,13 @@ const Otp = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const isFormValid = Object.values(validationErrors).every((error) => !error);
+    const isFormValid = Object.values(validationErrors).every(
+      (error) => !error
+    );
 
     if (isFormValid) {
       console.log("Form submitted successfully");
-      
+
       setTimeout(() => {
         window.location.reload();
       }, 1000);
@@ -645,7 +645,9 @@ const Otp = () => {
     }
   };
 
-  const isSubmitDisabled = Object.values(validationErrors).some((error) => !!error);
+  const isSubmitDisabled = Object.values(validationErrors).some(
+    (error) => !!error
+  );
 
   return (
     <>
@@ -719,7 +721,7 @@ const Otp = () => {
                       justifyContent: "center",
                     }}
                   >
-                    {Array.from({ length:6 }).map((_, index) => (
+                    {Array.from({ length: 6 }).map((_, index) => (
                       <TextField
                         key={index}
                         name="number"
@@ -804,8 +806,7 @@ const Otp = () => {
                           alignItems: "center",
                         }}
                       >
-                        Submit{" "}
-                        <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                        Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
                       </NavLink>
                     </Button>
                   </Box>

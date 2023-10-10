@@ -39,8 +39,8 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object({
-  firstName: Yup.string().required("First Name is required"),
-  surname: Yup.string().required("Surname Name is required"),
+  firstName: Yup.string().required("First Name is required").matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
+  surname: Yup.string().required("Surname Name is required").matches(/^[A-Za-z]+$/, "Only letters are allowed in SurName"),
   contactNumber: Yup.string()
     .required("Contact Number is required")
     .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
@@ -49,15 +49,16 @@ const validationSchema = Yup.object({
     .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
   email: Yup.string().email("Invalid email ").required("Email is required"),
   Locality: Yup.string().required("Locality is required"),
-  City: Yup.string().required("City is required"),
-  District: Yup.string().required("District is required"),
-  State: Yup.string().required("State is required"),
+  City: Yup.string().required("City is required").matches(/^[A-Za-z]+$/, "Only letters are allowed in City"),
+  District: Yup.string().required("District is required").matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
+  State: Yup.string().required("State is required").matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
   Pincode: Yup.string()
     .required("Pincode is required")
     .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
 });
 
 function Profile() {
+  
   const paperStyle = {
     padding: "20px",
     display: "flex",

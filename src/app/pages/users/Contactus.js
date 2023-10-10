@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Grid,
@@ -19,6 +19,8 @@ import Ourplan from "../../components/Ourplan";
 import Question from "../../components/Question";
 import Colors from "../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
 
 const cardStyles = {
@@ -75,83 +77,60 @@ const img = {
 
 function ContactUs() {
   const isSmallScreen = useMediaQuery("(max-width: 960px)");
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    contactNumber: "",
-    alternateNumber: "",
-    email: "",
-    message: "",
-    Address: "",
-    District: "",
-    city: "",
-    State: "",
+
+  const validationSchema = Yup.object({
+    firstName: Yup.string()
+      .required("First Name is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
+    lastName: Yup.string()
+      .required("Last Name is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
+    contactNumber: Yup.string()
+      .required("Contact Number is required")
+      .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+    alternateNumber: Yup.string()
+      .required("Alternate Number is required")
+      .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    locality: Yup.string().required("Locality is required"),
+    city: Yup.string()
+      .required("City is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in City"),
+    District: Yup.string()
+      .required("District is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
+    State: Yup.string()
+      .required("State is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+    Pincode: Yup.string()
+      .required("Pincode is required")
+      .test(
+        "valid-pincode",
+        "Invalid Pincode",
+        (value) => value && /^[1-9][0-9]{5}$/.test(value)
+      ),
+    message: Yup.string().required("Message is required"),
   });
 
-  const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newErrors = {};
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "First Name is required";
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last Name is required";
-    }
-
-    if (!formData.contactNumber.trim()) {
-      newErrors.contactNumber = "Contact Number is required";
-    } else if (!/^\d{10}$/.test(formData.contactNumber)) {
-      newErrors.contactNumber = "Invalid Contact Number";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (
-      !/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(formData.email)
-    ) {
-      newErrors.email = "Invalid Email";
-    }
-    if (!formData.Address.trim()) {
-      newErrors.Address = "Field is required";
-    }
-    if (!formData.city.trim()) {
-      newErrors.city = "Field is required";
-    }
-    if (!formData.State.trim()) {
-      newErrors.State = "Field is required";
-    }
-    if (!formData.District.trim()) {
-      newErrors.District = "Field is required";
-    }
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      // No errors, submit the form
-      console.log(formData);
-      // Reset form data
-      setFormData({
-        firstName: "",
-        lastName: "",
-        contactNumber: "",
-        alternateNumber: "",
-        email: "",
-        message: "",
-        District: "",
-        city: "",
-        State: "",
-      });
-    }
-  };
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      contactNumber: "",
+      alternateNumber: "",
+      email: "",
+      message: "",
+      Address: "",
+      District: "",
+      city: "",
+      State: "",
+      Pincode: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <>
@@ -168,7 +147,6 @@ function ContactUs() {
           alignItems: "center",
         }}
       >
-        {/* ...other components ... */}
         <Box>
           <Ourplan />
           <Box sx={{ mt: 2 }}>
@@ -256,8 +234,7 @@ function ContactUs() {
                         >
                           <form
                             style={formStyle}
-                            //   noValidate
-                            onSubmit={handleSubmit}
+                            onSubmit={formik.handleSubmit}
                           >
                             <Grid container spacing={2}>
                               <Grid item xs={12} sm={6}>
@@ -268,10 +245,17 @@ function ContactUs() {
                                   id="firstName"
                                   placeholder="First Name"
                                   name="firstName"
-                                  onChange={handleChange}
-                                  value={formData.firstName}
-                                  error={errors.firstName ? true : false}
-                                  helperText={errors.firstName}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.firstName}
+                                  error={
+                                    formik.touched.firstName &&
+                                    Boolean(formik.errors.firstName)
+                                  }
+                                  helperText={
+                                    formik.touched.firstName &&
+                                    formik.errors.firstName
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12} sm={6}>
@@ -282,10 +266,17 @@ function ContactUs() {
                                   id="lastName"
                                   placeholder="Last Name"
                                   name="lastName"
-                                  onChange={handleChange}
-                                  value={formData.lastName}
-                                  error={errors.lastName ? true : false}
-                                  helperText={errors.lastName}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.lastName}
+                                  error={
+                                    formik.touched.lastName &&
+                                    Boolean(formik.errors.lastName)
+                                  }
+                                  helperText={
+                                    formik.touched.lastName &&
+                                    formik.errors.lastName
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12} sm={6}>
@@ -296,10 +287,17 @@ function ContactUs() {
                                   id="contactNumber"
                                   placeholder="Contact Number"
                                   name="contactNumber"
-                                  onChange={handleChange}
-                                  value={formData.contactNumber}
-                                  error={errors.contactNumber ? true : false}
-                                  helperText={errors.contactNumber}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.contactNumber}
+                                  error={
+                                    formik.touched.contactNumber &&
+                                    Boolean(formik.errors.contactNumber)
+                                  }
+                                  helperText={
+                                    formik.touched.contactNumber &&
+                                    formik.errors.contactNumber
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12} sm={6}>
@@ -309,8 +307,17 @@ function ContactUs() {
                                   id="alternateNumber"
                                   placeholder="Alternate Number"
                                   name="alternateNumber"
-                                  onChange={handleChange}
-                                  value={formData.alternateNumber}
+                                  value={formik.values.alternateNumber}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  error={
+                                    formik.touched.alternateNumber &&
+                                    Boolean(formik.errors.alternateNumber)
+                                  }
+                                  helperText={
+                                    formik.touched.alternateNumber &&
+                                    formik.errors.alternateNumber
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12}>
@@ -321,10 +328,16 @@ function ContactUs() {
                                   id="email"
                                   placeholder="Email Address"
                                   name="email"
-                                  onChange={handleChange}
-                                  value={formData.email}
-                                  error={errors.email ? true : false}
-                                  helperText={errors.email}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.email}
+                                  error={
+                                    formik.touched.email &&
+                                    Boolean(formik.errors.email)
+                                  }
+                                  helperText={
+                                    formik.touched.email && formik.errors.email
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12}>
@@ -333,19 +346,25 @@ function ContactUs() {
                                   <br />
                                 </Typography>
                               </Grid>
-
                               <Grid item xs={12}>
                                 <TextField
                                   variant="outlined"
                                   required
                                   fullWidth
-                                  id="Locality / Building / Street / Society"
+                                  id="Address"
                                   placeholder="Locality / Building / Street / Society"
-                                  name="Locality / Building / Street / Society"
-                                  onChange={handleChange}
-                                  value={formData.Address}
-                                  error={errors.email ? true : false}
-                                  helperText={errors.Address}
+                                  name="Address"
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.locality}
+                                  error={
+                                    formik.touched.locality &&
+                                    Boolean(formik.errors.locality)
+                                  }
+                                  helperText={
+                                    formik.touched.locality &&
+                                    formik.errors.locality
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12} sm={6}>
@@ -353,12 +372,19 @@ function ContactUs() {
                                   variant="outlined"
                                   required
                                   fullWidth
-                                  id="city/Town"
+                                  id="city"
                                   placeholder="City / Town  District"
-                                  name="city/Town"
-                                  onChange={handleChange}
-                                  // value={formData.city}
-                                  error={errors.email ? true : false}
+                                  name="city"
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.city}
+                                  error={
+                                    formik.touched.city &&
+                                    Boolean(formik.errors.city)
+                                  }
+                                  helperText={
+                                    formik.touched.city && formik.errors.city
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12} sm={6}>
@@ -366,13 +392,20 @@ function ContactUs() {
                                   variant="outlined"
                                   required
                                   fullWidth
-                                  id=" District"
+                                  id="District"
                                   placeholder=" District"
-                                  name=" District"
-                                  onChange={handleChange}
-                                  value={formData.District}
-                                  error={errors.email ? true : false}
-                                  helperText={errors.District}
+                                  name="District"
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.District}
+                                  error={
+                                    formik.touched.District &&
+                                    Boolean(formik.errors.District)
+                                  }
+                                  helperText={
+                                    formik.touched.District &&
+                                    formik.errors.District
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12} sm={8}>
@@ -383,10 +416,16 @@ function ContactUs() {
                                   id="State"
                                   placeholder="State"
                                   name="State"
-                                  onChange={handleChange}
-                                  value={formData.State}
-                                  error={errors.email ? true : false}
-                                  helperText={errors.State}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.State}
+                                  error={
+                                    formik.touched.State &&
+                                    Boolean(formik.errors.State)
+                                  }
+                                  helperText={
+                                    formik.touched.State && formik.errors.State
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12} sm={4}>
@@ -397,10 +436,17 @@ function ContactUs() {
                                   id="Pincode"
                                   placeholder=" Pincode"
                                   name="Pincode"
-                                  onChange={handleChange}
-                                  value={formData.pincode}
-                                  error={errors.email ? true : false}
-                                  helperText={errors.pincode}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  value={formik.values.Pincode}
+                                  error={
+                                    formik.touched.Pincode &&
+                                    Boolean(formik.errors.Pincode)
+                                  }
+                                  helperText={
+                                    formik.touched.Pincode &&
+                                    formik.errors.Pincode
+                                  }
                                 />
                               </Grid>
                               <Grid item xs={12}>
@@ -419,10 +465,10 @@ function ContactUs() {
                                   placeholder="Send us your queries and suggestions.."
                                   id="message"
                                   name="message"
-                                  onChange={handleChange}
+                                  onChange={formik.handleChange}
+                                  value={formik.values.message}
                                 />
                               </Grid>
-                              {/* ... Other form fields ... */}
                             </Grid>
                             <Box style={buttonBoxStyles}>
                               <Button
@@ -430,20 +476,10 @@ function ContactUs() {
                                 variant="contained"
                                 style={submitButtonStyle}
                               >
-                                <NavLink
-                                  to="/home"
-                                  style={{
-                                    textDecoration: "none",
-                                    color: Colors.palette.primary.main,
-                                    display: "flex",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  Submit &nbsp;
-                                  <ArrowForwardIosIcon
-                                    sx={{ fontSize: "20px" }}
-                                  />
-                                </NavLink>
+                                Submit &nbsp;
+                                <ArrowForwardIosIcon
+                                  sx={{ fontSize: "20px" }}
+                                />
                               </Button>
                             </Box>
                           </form>
