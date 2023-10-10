@@ -29,14 +29,13 @@ import Profile from "../pages/users/Profile";
 import ServiceLocation from "../pages/users/ServiceLocation";
 import ServiceLocation2 from "../pages/users/ServiceLocation2";
 import RegisterPage from "../pages/users/auth/Register";
-import Mobile from "../pages/users/auth/Mobile"; 
+import Mobile from "../pages/users/auth/Mobile";
 import Otp from "../pages/users/auth/otp";
 import Subscriptions from "../pages/users/Subscription";
 import Booking from "../pages/users/Booking";
 import Contactus from "../pages/users/Contactus";
 import History from "../components/Table";
-import Profile2 from '../pages/users/Profile2';
-
+import Profile2 from "../pages/users/Profile2";
 
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import AdPaySucc from "../pages/admin/AdPaySucc";
@@ -47,7 +46,6 @@ import AdUserDec from "../pages/admin/AdUserDec";
 import AdEditSup from "../pages/admin/AdEditSup";
 import AdCreateSup from "../pages/admin/AdCreateSup";
 
-
 import SupervisorDashboard from "../pages/supervisor/SupervisorDashboard";
 import SupPaySucc from "../pages/supervisor/SupPaySucc";
 import SupPayUnsucc from "../pages/supervisor/SupPayUnsucc";
@@ -55,15 +53,9 @@ import SupUserReq from "../pages/supervisor/SupUserReq";
 import SupUserAct from "../pages/supervisor/SupUserAct";
 import SupUserDec from "../pages/supervisor/SupUserDec";
 
-
-
 import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
 import Table from "../components/Table";
-
-
-
-
 
 function AppRouter() {
   return (
@@ -106,7 +98,7 @@ function AppRouter() {
         <Route path="/subscriptions" element={<Subscriptions />}></Route>
         <Route path="/booking" element={<Booking />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
-        <Route path="/history" element={<History />}></Route> 
+        <Route path="/history" element={<History />}></Route>
 
         {/*======== ADMIN ========== */}
         <Route path="/admindashboard" element={<AdminDashboard />}></Route>
@@ -117,23 +109,21 @@ function AppRouter() {
         <Route path="/adminuserdeclined" element={<AdUserDec />}></Route>
         <Route path="/admineditsupervisor" element={<AdEditSup />}></Route>
         <Route path="/admincreatesupervisor" element={<AdCreateSup />}></Route>
-        
 
         {/*======== SUPERVISOR ========== */}
-        <Route path="/supervisordashboard" element={<SupervisorDashboard/>}></Route>
+        <Route path="/supervisordashboard" element={<SupervisorDashboard />}></Route>
         <Route path="/supervisorpaysuccessful" element={<SupPaySucc />}></Route>
         <Route path="/supervisorpayunsuccessful" element={<SupPayUnsucc />}></Route>
         <Route path="/supervisoruserrequest" element={<SupUserReq />}></Route>
         <Route path="/supervisoruseractive" element={<SupUserAct />}></Route>
         <Route path="/supervisoruserdeclined" element={<SupUserDec />}></Route>
 
-    
+
+
+        {/*======== EXTRA ========== */}
         <Route path="/addash" element={<AdDash />}></Route>
-        <Route path="/supdash" element={<SupDash/>}></Route>
+        <Route path="/supdash" element={<SupDash />}></Route>
         <Route path="/table" element={<Table />}></Route>
-
-
-
       </Routes>
     </>
   );

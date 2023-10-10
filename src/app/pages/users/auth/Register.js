@@ -301,12 +301,13 @@ function RegisterPage() {
                       name="locality"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.address}
+                      value={formik.values.locality}
                       error={
-                        formik.touched.address && Boolean(formik.errors.address)
+                        formik.touched.locality &&
+                        Boolean(formik.errors.locality)
                       }
                       helperText={
-                        formik.touched.address && formik.errors.address
+                        formik.touched.locality && formik.errors.locality
                       }
                       sx={textFieldStyles}
                     />

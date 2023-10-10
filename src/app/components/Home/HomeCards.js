@@ -99,9 +99,6 @@ const HomeCards = () => {
                     defaultValue={4}
                     sx={{ color: Colors.palette.secondary.main }}
                   />
-
-{/* <Rating name="half-rating" defaultValue={2.5} precision={4} /> */}
-                  <Rating name="half-rating" defaultValue={2.5} precision={4} />
                 </Typography>
               </Paper>
             </Grid>

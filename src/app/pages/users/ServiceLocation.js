@@ -231,7 +231,7 @@ function ServiceLocation() {
                     fullWidth
                     id="contactNumber"
                     label="Contact Number"
-                    // type="number"
+                    type="tel"
                     name="contactNumber"
                     size="small"
                     onChange={formik.handleChange}

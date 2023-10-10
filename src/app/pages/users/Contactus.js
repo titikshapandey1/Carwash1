@@ -23,7 +23,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
 
-
 const cardStyles = {
   my: 1,
   mx: 1,
@@ -76,26 +75,6 @@ const img = {
   backgroundSize: "cover",
 };
 
-const validationSchema = Yup.object({
-  firstName: Yup.string().required("First Name is required"),
-  lastName: Yup.string().required("Last Name is required"),
-  contactNumber: Yup.string()
-    .required("Contact Number is required")
-    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  locality: Yup.string().required("Locality is required"),
-  city: Yup.string().required("City is required"),
-  District: Yup.string().required("District is required"),
-  State: Yup.string().required("State is required"),
-  Pincode: Yup.string()
-    .required("Pincode is required")
-    .test(
-      "valid-pincode",
-      "Invalid Pincode",
-      (value) => value && /^[1-9][0-9]{5}$/.test(value)
-    ),
-});
-
 function ContactUs() {
   const isSmallScreen = useMediaQuery("(max-width: 960px)");
 
@@ -140,8 +119,7 @@ function ContactUs() {
       contactNumber: "",
       alternateNumber: "",
       email: "",
-      message: "",
-      Address: "",
+      locality: "",
       District: "",
       city: "",
       State: "",
@@ -258,7 +236,6 @@ function ContactUs() {
                             onSubmit={formik.handleSubmit}
                           >
                             <Grid container spacing={2}>
-                            
                               <Grid item xs={12} sm={6}>
                                 <TextField
                                   variant="outlined"
@@ -375,9 +352,9 @@ function ContactUs() {
                                   variant="outlined"
                                   required
                                   fullWidth
-                                  id="Address"
+                                  id="locality"
                                   placeholder="Locality / Building / Street / Society"
-                                  name="Address"
+                                  name="locality"
                                   onChange={formik.handleChange}
                                   onBlur={formik.handleBlur}
                                   value={formik.values.locality}
