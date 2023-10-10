@@ -39,6 +39,10 @@ function AdDash(props) {
   const [openPayment, setopenPayment] = React.useState(false);
   const [openUsers, setopenUsers] = React.useState(false);
   const [openEditSupervisor, setopenEditSupervisor] = React.useState(false);
+  const [selectedPaymentOption, setSelectedPaymentOption] = React.useState(null);
+  const [selectedUserOption, setSelectedUserOption] = React.useState(null);
+  const [editSupervisorOption, setEditSupervisorOption] = React.useState(null);
+
 
   const handleDashboardClick = () => {
     setopenDashboard(!openDashboard);
@@ -52,20 +56,13 @@ function AdDash(props) {
     setopenUsers(!openUsers);
   };
 
-  const [selectedPaymentOption, setSelectedPaymentOption] =
-    React.useState(null);
-
   const handlePaymentOptionClick = (option) => {
     setSelectedPaymentOption(option);
   };
 
-  const [selectedUserOption, setSelectedUserOption] = React.useState(null);
-
   const handleUserOptionClick = (option) => {
     setSelectedUserOption(option);
   };
-
-  const [editSupervisorOption, setEditSupervisorOption] = React.useState(null);
 
   const handleEditSupervisorClick = () => {
     setopenEditSupervisor(!openEditSupervisor);
