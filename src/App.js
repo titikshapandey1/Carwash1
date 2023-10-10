@@ -12,12 +12,12 @@ function App() {
   return (
     <>
     {/* <Button/> */}
-    <Card1/>
+    {/* <Card1/> */}
     {/* <Booking/> */}
     {/* <ServiceLocation/> */}
     {/* <Cancel/> */}
     {/* <Subscriptions/> */}
-      {/* <Index /> */}
+      <Index />
     </>
   );
 }

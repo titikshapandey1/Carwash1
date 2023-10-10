@@ -71,6 +71,7 @@ Yup.addMethod(Yup.string, "Pincode", function (message) {
   });
 });
 
+// hlo
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
   surname: Yup.string().required("surname Name is required"),

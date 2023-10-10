@@ -31,9 +31,8 @@ const initialValues = {
   contactNumber: "",
   alternateNumber: "",
   email: "",
-  password: "",
-  Locality: "",
-  City: "",
+  locality: "",
+  city: "",
   District: "",
   State: "",
   Pincode: "",
@@ -41,50 +40,62 @@ const initialValues = {
 
 };
 
-Yup.addMethod(Yup.string, "Locality", function (message) {
-  return this.test("Locality", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "City", function (message) {
-  return this.test("City", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "District", function (message) {
-  return this.test("District", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "State", function (message) {
-  return this.test("State", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "Pincode", function (message) {
-  return this.test("Pincode", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
+// Yup.addMethod(Yup.string, "Locality", function (message) {
+//   return this.test("Locality", message, function (value) {
+//     if (!value) return true;
+//     return false;
+//   });
+// });
+// Yup.addMethod(Yup.string, "City", function (message) {
+//   return this.test("City", message, function (value) {
+//     if (!value) return true;
+//     return false;
+//   });
+// });
+// Yup.addMethod(Yup.string, "District", function (message) {
+//   return this.test("District", message, function (value) {
+//     if (!value) return true;
+//     return false;
+//   });
+// });
+// Yup.addMethod(Yup.string, "State", function (message) {
+//   return this.test("State", message, function (value) {
+//     if (!value) return true;
+//     return false;
+//   });
+// });
+// Yup.addMethod(Yup.string, "Pincode", function (message) {
+//   return this.test("Pincode", message, function (value) {
+//     if (!value) return true;
+//     return false;
+//   });
+// });
 
 // hlo
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
   surname: Yup.string().required("surname Name is required"),
-  contactNumber: Yup.string().required("Contact Number is required"),
-  alternateNumber: Yup.string().required("alternate Number is required"),
+  contactNumber: Yup.string()
+    .required("Contact Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+    alternateNumber: Yup.string()
+    .required("alternate Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
   email: Yup.string().email("Invalid email ").required("Email is required"),
-  Locality: Yup.string().Locality("Invalid address").required("Locality is required"),
-  City: Yup.string().City("Invalid").required("City is required"),
-  District: Yup.string().District("Invalid  ").required("District is required"),
-  State: Yup.string().State("Invalid ").required("State is required"),
-  Pincode: Yup.string().Pincode("Invalid  ").required("Pincode is required"),
+  locality: Yup.string().required("Locality is required"),
+  city: Yup.string().required("City is required"),
+  District: Yup.string().required("District is required"),
+  State: Yup.string().required("State is required"),
+  Pincode: Yup.string()
+  .required("Pincode is required")
+  .test(
+    "valid-pincode",
+    "Invalid Pincode",
+    (value) => value && /^[1-9][0-9]{5}$/.test(value)
+  ),
+
+
 });
 
 function Profile2() {
@@ -116,8 +127,8 @@ function Profile2() {
       contactNumber: "",
       alternateNumber: "",
       email: "",
-      Locality: "",
-      City: "",
+      locality: "",
+      city: "",
       District: "",
       State: "",
       Pincode: "",
@@ -199,7 +210,7 @@ function Profile2() {
                 }}
               />
             </Box>
-            <form style={formStyle} noValidate>
+            <form style={formStyle} onSubmit={handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -242,6 +253,7 @@ function Profile2() {
                       formik.touched.surname && formik.errors.surname
                     }
                   />
+                  {/* .... */}
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -322,18 +334,18 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="Locality"
+                    id="locality"
                     placeholder="Locality / Building / Street / Society"
-                    name="Locality"
+                    name="locality"
                     // sx={{ border: "1px solid black" }}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.Locality}
+                    value={formik.values.locality}
                     error={
-                      formik.touched.Locality && Boolean(formik.errors.Locality)
+                      formik.touched.locality && Boolean(formik.errors.locality)
                     }
                     helperText={
-                      formik.touched.Locality && formik.errors.Locality
+                      formik.touched.locality && formik.errors.locality
                     }
                   />
                 </Grid>
@@ -342,15 +354,15 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="City"
+                    id="city"
                     placeholder="City / Town  District"
-                    name="City"
+                    name="city"
                     // sx={{ border: "1px solid black" }}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.City}
-                    error={formik.touched.City && Boolean(formik.errors.City)}
-                    helperText={formik.touched.City && formik.errors.City}
+                    value={formik.values.city}
+                    error={formik.touched.city && Boolean(formik.errors.city)}
+                    helperText={formik.touched.city && formik.errors.city}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
