@@ -5,12 +5,17 @@ import {
   CardContent,
   Container,
   Grid,
+  List,
+  ListItemText,
   Typography,
+  ListItem
+ 
 } from "@mui/material";
 import Colors from "../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { NavLink } from "react-router-dom";
 import SubCard from "../../components/card/Subscribecard";
+import DoneAllOutlinedIcon from "@mui/icons-material/DoneAllOutlined";
 
 const Subscribe = () => {
   return (
@@ -24,14 +29,15 @@ const Subscribe = () => {
             alignItems="center"
           >
             <Grid item xs={12} sm={6} md={4}>
-              <SubCard
-                sx={{
-                  borderRadius: "20px",
-                  background: Colors.palette.primary.main,
-                }}
+              <SubCard shadowColor={Colors.palette.background.lightGreen}
+                // sx={{
+                //   borderRadius: "20px",
+                //   background: Colors.palette.primary.main,
+                //   boxShadow:'green'
+                // }}
               >
                 <CardContent>
-                  <Typography
+                 <Typography
                     variant="h4"
                     sx={{
                       textAlign: "center",
@@ -42,41 +48,48 @@ const Subscribe = () => {
                     <br />₹ 1199 / month
                   </Typography>
                   <Typography sx={{ marginTop: "8%" }}>
-                    <ul>
-                      <li>Exterior Wash, removing dust and grime.</li> <br />
-                      <li>
-                        Interior Vaccuming, dusting seats and carpets and floor
-                        mats.
-                      </li>{" "}
-                      <br />
-                      <li>
-                        Cleaning and Polishing all windows and mirrors.
-                      </li>{" "}
-                      <br />
-                      <li>Cleaning and Shining tires and rims.</li> <br />
-                      <li>
-                        Wiping down interior surface, including dashboard and
-                        door panels.
-                      </li>
-                      <li>Exterior Wash, removing dust and grime.</li> <br />
-                      <li>
-                        Interior Vaccuming, dusting seats and carpets and floor
-                        mats.
-                      </li>{" "}
-                      <br />
-                      <li>
-                        Cleaning and Polishing all windows and mirrors.
-                      </li>{" "}
-                      <br />
-                      <li>Cleaning and Shining tires and rims.</li> <br />
-                      <li>
-                        Wiping down interior surface, including dashboard and
-                        door panels.
-                      </li>
-                    </ul>
+                   
+                  <List >
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText style={{marginLeft:'15px',color:'Black'}}>Exterior Wash, removing dust and grime.</ListItemText> <br />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}}primary=" Cleaning and Polishing all windows and mirrors." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary="Cleaning and Shining tires and rims.." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary="Cleaning and Shining tires and rims." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                </List>
                   </Typography>
 
-                  <Typography sx={{ textAlign: "left", marginLeft: "4%" }}>
+                  <Typography sx={{ textAlign: "left", marginLeft: "4%" ,color:'Black'}}>
                     Expiring on: 04/10/2023
                   </Typography>
 
@@ -115,11 +128,12 @@ const Subscribe = () => {
               </SubCard>
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <SubCard
-                sx={{
-                  borderRadius: "20px",
-                  background: Colors.palette.primary.main,
-                }}
+              <SubCard  shadowColor={Colors.palette.secondary.yellow}
+                // sx={{
+                //   borderRadius: "20px",
+                //   // background: Colors.palette.primary.main,
+                  
+                // }}
               >
                 <CardContent>
                   <Typography
@@ -132,41 +146,47 @@ const Subscribe = () => {
                     <b>{/* hlo */} Gold </b> <br />₹ 1499 / month
                   </Typography>
                   <Typography sx={{ marginTop: "8%" }}>
-                    <ul>
-                      <li>Exterior Wash, removing dust and grime.</li> <br />
-                      <li>
-                        Interior Vaccuming, dusting seats and carpets and floor
-                        mats.
-                      </li>{" "}
-                      <br />
-                      <li>
-                        Cleaning and Polishing all windows and mirrors.
-                      </li>{" "}
-                      <br />
-                      <li>Cleaning and Shining tires and rims.</li> <br />
-                      <li>
-                        Wiping down interior surface, including dashboard and
-                        door panels.
-                      </li>
-                      <li>Exterior Wash, removing dust and grime.</li> <br />
-                      <li>
-                        Interior Vaccuming, dusting seats and carpets and floor
-                        mats.
-                      </li>{" "}
-                      <br />
-                      <li>
-                        Cleaning and Polishing all windows and mirrors.
-                      </li>{" "}
-                      <br />
-                      <li>Cleaning and Shining tires and rims.</li> <br />
-                      <li>
-                        Wiping down interior surface, including dashboard and
-                        door panels.
-                      </li>
-                    </ul>
+                  <List>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText style={{marginLeft:'15px',color:'Black'}}>Exterior Wash, removing dust and grime.</ListItemText> <br />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}}primary=" Cleaning and Polishing all windows and mirrors." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary="Cleaning and Shining tires and rims.." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary="Cleaning and Shining tires and rims." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                </List>
                   </Typography>
 
-                  <Typography sx={{ textAlign: "left", marginLeft: "4%" }}>
+                  <Typography sx={{ textAlign: "left", marginLeft: "4%" ,color:'Black'}}>
                     Expiring on: 04/10/2023
                   </Typography>
 
@@ -205,11 +225,11 @@ const Subscribe = () => {
               </SubCard>
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <SubCard
-                sx={{
-                  borderRadius: "20px",
-                  background: Colors.palette.primary.main,
-                }}
+              <SubCard shadowColor={Colors.palette.secondary.darkPurple}
+                // sx={{
+                //   borderRadius: "20px",
+                //   background: Colors.palette.primary.main,
+                // }}
               >
                 <CardContent>
                   <Typography
@@ -222,41 +242,47 @@ const Subscribe = () => {
                     <b> Platinum </b> <br />₹ 2199 / month
                   </Typography>
                   <Typography sx={{ marginTop: "8%" }}>
-                    <ul>
-                      <li>Exterior Wash, removing dust and grime.</li> <br />
-                      <li>
-                        Interior Vaccuming, dusting seats and carpets and floor
-                        mats.
-                      </li>{" "}
-                      <br />
-                      <li>
-                        Cleaning and Polishing all windows and mirrors.
-                      </li>{" "}
-                      <br />
-                      <li>Cleaning and Shining tires and rims.</li> <br />
-                      <li>
-                        Wiping down interior surface, including dashboard and
-                        door panels.
-                      </li>
-                      <li>Exterior Wash, removing dust and grime.</li> <br />
-                      <li>
-                        Interior Vaccuming, dusting seats and carpets and floor
-                        mats.
-                      </li>{" "}
-                      <br />
-                      <li>
-                        Cleaning and Polishing all windows and mirrors.
-                      </li>{" "}
-                      <br />
-                      <li>Cleaning and Shining tires and rims.</li> <br />
-                      <li>
-                        Wiping down interior surface, including dashboard and
-                        door panels.
-                      </li>
-                    </ul>
+                  <List>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText style={{marginLeft:'15px',color:'Black'}}>Exterior Wash, removing dust and grime.</ListItemText> <br />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}}primary=" Cleaning and Polishing all windows and mirrors." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary="Cleaning and Shining tires and rims.." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary="Cleaning and Shining tires and rims." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                    <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                  <ListItem>
+                    <DoneAllOutlinedIcon />{" "}
+                  <ListItemText  style={{marginLeft:'15px',color:'Black'}} primary=" Wiping down interior surface, including dashboard and
+                        door panels." />
+                  </ListItem>
+                </List>
                   </Typography>
 
-                  <Typography sx={{ textAlign: "left", marginLeft: "4%" }}>
+                  <Typography sx={{ textAlign: "left", marginLeft: "4%" ,color:'Black'}}>
                     Expiring on: 04/10/2023
                   </Typography>
 

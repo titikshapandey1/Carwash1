@@ -149,6 +149,7 @@ import Subscribecard from "../../components/card/Subscribecard";
 import Cancel from "../../components/Button/Cancel";
 // import Hover from "../components/card/Hover";
 // import Cancel from "../components/Button/Cancel";
+import Colors from "../../utils/colors";
 const Subscriptions = () => {
   return (
     <>
@@ -168,7 +169,8 @@ const Subscriptions = () => {
           </Typography>
         </Grid>
 
-          <Subscribecard>
+          <Subscribecard shadowColor={Colors.palette.secondary.darkPurple}>
+            
             <CardContent>
               <Typography
                 variant="h4"
