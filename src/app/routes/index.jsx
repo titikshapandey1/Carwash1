@@ -106,7 +106,7 @@ function AppRouter() {
         <Route path="/subscriptions" element={<Subscriptions />}></Route>
         <Route path="/booking" element={<Booking />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
-        <Route path="/history" element={<History />}></Route>
+        <Route path="/history" element={<History />}></Route> 
 
         {/*======== ADMIN ========== */}
         <Route path="/admindashboard" element={<AdminDashboard />}></Route>
