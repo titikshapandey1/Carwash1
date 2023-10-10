@@ -37,54 +37,25 @@ const initialValues = {
   District: "",
   State: "",
   Pincode: "",
-  
-
 };
-
-Yup.addMethod(Yup.string, "Locality", function (message) {
-  return this.test("Locality", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "City", function (message) {
-  return this.test("City", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "District", function (message) {
-  return this.test("District", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "State", function (message) {
-  return this.test("State", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-Yup.addMethod(Yup.string, "Pincode", function (message) {
-  return this.test("Pincode", message, function (value) {
-    if (!value) return true;
-    return false;
-  });
-});
-
-// hlo
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
-  surname: Yup.string().required("surname Name is required"),
-  contactNumber: Yup.string().required("Contact Number is required"),
-  alternateNumber: Yup.string().required("alternate Number is required"),
-  email: Yup.string().email("Invalid email ").required("Email is required"),
-  Locality: Yup.string().Locality("Invalid address").required("Locality is required"),
-  City: Yup.string().City("Invalid").required("City is required"),
-  District: Yup.string().District("Invalid  ").required("District is required"),
-  State: Yup.string().State("Invalid ").required("State is required"),
-  Pincode: Yup.string().Pincode("Invalid  ").required("Pincode is required"),
+  surname: Yup.string().required("Surname Name is required"),
+  contactNumber: Yup.string()
+    .required("Contact Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+  alternateNumber: Yup.string()
+    .required("Alternate Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  Locality: Yup.string().required("Locality is required"),
+  City: Yup.string().required("City is required"),
+  District: Yup.string().required("District is required"),
+  State: Yup.string().required("State is required"),
+  Pincode: Yup.string()
+    .required("Pincode is required")
+    .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
 });
 
 function Profile2() {
@@ -121,16 +92,12 @@ function Profile2() {
       District: "",
       State: "",
       Pincode: "",
-      
-
-
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
       console.log(values);
     },
   });
-
 
   return (
     <Box
@@ -209,7 +176,6 @@ function Profile2() {
                     id="firstName"
                     placeholder="First Name"
                     name="firstName"
-                  
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.firstName}
@@ -220,7 +186,6 @@ function Profile2() {
                     helperText={
                       formik.touched.firstName && formik.errors.firstName
                     }
-                    
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -238,9 +203,7 @@ function Profile2() {
                     error={
                       formik.touched.surname && Boolean(formik.errors.surname)
                     }
-                    helperText={
-                      formik.touched.surname && formik.errors.surname
-                    }
+                    helperText={formik.touched.surname && formik.errors.surname}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -300,7 +263,6 @@ function Profile2() {
                     value={formik.values.email}
                     error={formik.touched.email && Boolean(formik.errors.email)}
                     helperText={formik.touched.email && formik.errors.email}
-                  
                   />
                 </Grid>
 
@@ -358,15 +320,19 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id= "District"
-                    placeholder = "District"
-                    name= "District"
+                    id="District"
+                    placeholder="District"
+                    name="District"
                     // sx={{ border: "1px solid black" }}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.District}
-                    error={formik.touched.District && Boolean(formik.errors.District)}
-                    helperText={formik.touched.District && formik.errors.District}
+                    error={
+                      formik.touched.District && Boolean(formik.errors.District)
+                    }
+                    helperText={
+                      formik.touched.District && formik.errors.District
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={8}>
@@ -397,7 +363,9 @@ function Profile2() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.Pincode}
-                    error={formik.touched.Pincode && Boolean(formik.errors.Pincode)}
+                    error={
+                      formik.touched.Pincode && Boolean(formik.errors.Pincode)
+                    }
                     helperText={formik.touched.Pincode && formik.errors.Pincode}
                   />
                 </Grid>
