@@ -58,6 +58,7 @@ const validationSchema = Yup.object({
 });
 
 function Profile() {
+  
   const paperStyle = {
     padding: "20px",
     display: "flex",

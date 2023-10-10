@@ -18,7 +18,7 @@ function App() {
     {/* <Cancel/> */}
     {/* <Subscriptions/> */}
       <Index />
-      <Index />
+     
     </>
   );
 }

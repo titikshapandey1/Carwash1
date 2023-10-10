@@ -31,8 +31,9 @@ const initialValues = {
   contactNumber: "",
   alternateNumber: "",
   email: "",
-  locality: "",
-  city: "",
+  password: "",
+  Locality: "",
+  City: "",
   District: "",
   State: "",
   Pincode: "",
@@ -47,7 +48,7 @@ const validationSchema = Yup.object({
   alternateNumber: Yup.string()
     .required("Alternate Number is required")
     .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
+  email: Yup.string().email("Invalid email ").required("Email is required"),
   Locality: Yup.string().required("Locality is required"),
   City: Yup.string().required("City is required"),
   District: Yup.string().required("District is required"),
@@ -86,8 +87,8 @@ function Profile2() {
       contactNumber: "",
       alternateNumber: "",
       email: "",
-      locality: "",
-      city: "",
+      Locality: "",
+      City: "",
       District: "",
       State: "",
       Pincode: "",
@@ -284,18 +285,18 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="locality"
+                    id="Locality"
                     placeholder="Locality / Building / Street / Society"
-                    name="locality"
+                    name="Locality"
                     // sx={{ border: "1px solid black" }}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.locality}
+                    value={formik.values.Locality}
                     error={
-                      formik.touched.locality && Boolean(formik.errors.locality)
+                      formik.touched.Locality && Boolean(formik.errors.Locality)
                     }
                     helperText={
-                      formik.touched.locality && formik.errors.locality
+                      formik.touched.Locality && formik.errors.Locality
                     }
                   />
                 </Grid>
@@ -304,15 +305,15 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="city"
+                    id="City"
                     placeholder="City / Town  District"
-                    name="city"
+                    name="City"
                     // sx={{ border: "1px solid black" }}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.city}
-                    error={formik.touched.city && Boolean(formik.errors.city)}
-                    helperText={formik.touched.city && formik.errors.city}
+                    value={formik.values.City}
+                    error={formik.touched.City && Boolean(formik.errors.City)}
+                    helperText={formik.touched.City && formik.errors.City}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
