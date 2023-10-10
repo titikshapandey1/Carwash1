@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import image1 from "../assests/images/Quote-Above.png";
 import image2 from "../assests/images/Quote-Below.png";
-
 import Colors from "../utils/colors";
 const cards = [
   {
@@ -104,6 +103,4 @@ const Review = () => {
 };
 
 export default Review;
-
-
 

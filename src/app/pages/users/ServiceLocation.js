@@ -38,37 +38,6 @@ const initialValues = {
   PickupPincode: "",
 };
 
-const validationSchema = Yup.object({
-  firstName: Yup.string().required("First Name is required"),
-  lastName: Yup.string().required("Last Name is required"),
-  contactNumber: Yup.string()
-    .required("Contact Number is required")
-    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  locality: Yup.string().required("Locality is required"),
-  city: Yup.string().required("City is required"),
-  District: Yup.string().required("District is required"),
-  State: Yup.string().required("State is required"),
-  Pincode: Yup.string()
-    .required("Pincode is required")
-    .test(
-      "valid-pincode",
-      "Invalid Pincode",
-      (value) => value && /^[1-9][0-9]{5}$/.test(value)
-    ),
-  PickupLocality: Yup.string().required("Locality is required"),
-  PickupCity: Yup.string().required("City is required"),
-  PickupDistrict: Yup.string().required("District is required"),
-  PickupState: Yup.string().required("State is required"),
-  PickupPincode: Yup.string()
-    .required("Pincode is required")
-    .test(
-      "valid-pickup-pincode",
-      "Invalid Pincode",
-      (value) => value && /^[1-9][0-9]{5}$/.test(value)
-    ),
-});
-
 function ServiceLocation() {
   const submitButtonStyle = {
     marginTop: "20px",
@@ -111,6 +80,53 @@ function ServiceLocation() {
     onSubmit: (values) => {
       console.log(values);
     },
+  });
+
+  const validationSchema = Yup.object({
+    firstName: Yup.string()
+      .required("First Name is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
+    lastName: Yup.string()
+      .required("Last Name is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in Last Name"),
+    contactNumber: Yup.string()
+      .required("Contact Number is required")
+      .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    locality: Yup.string().required("Locality is required"),
+    city: Yup.string()
+      .required("City is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in City"),
+    District: Yup.string()
+      .required("District is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
+    State: Yup.string()
+      .required("State is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+    Pincode: Yup.string()
+      .required("Pincode is required")
+      .test(
+        "valid-pincode",
+        "Invalid Pincode",
+        (value) => value && /^[1-9][0-9]{5}$/.test(value)
+      ),
+    PickupLocality: Yup.string().required("Locality is required"),
+    PickupCity: Yup.string()
+      .required("City is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in City"),
+    PickupDistrict: Yup.string()
+      .required("District is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
+    PickupState: Yup.string()
+      .required("State is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+    PickupPincode: Yup.string()
+      .required("Pincode is required")
+      .test(
+        "valid-pickup-pincode",
+        "Invalid Pincode",
+        (value) => value && /^[1-9][0-9]{5}$/.test(value)
+      ),
   });
 
   const formik = useFormik({
@@ -215,7 +231,7 @@ function ServiceLocation() {
                     fullWidth
                     id="contactNumber"
                     label="Contact Number"
-                    type="number"
+                    // type="number"
                     name="contactNumber"
                     size="small"
                     onChange={formik.handleChange}

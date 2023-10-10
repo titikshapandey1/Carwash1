@@ -20,8 +20,12 @@ import { NavLink } from "react-router-dom";
 
 function EditSupervisorCredentials() {
   const validationSchema = Yup.object({
-    firstName: Yup.string().required("First Name is required"),
-    lastName: Yup.string().required("Last Name is required"),
+    firstName: Yup.string()
+      .required("First Name is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
+    lastName: Yup.string()
+      .required("Last Name is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in Last Name"),
     contactNumber: Yup.string()
       .required("Contact Number is required")
       .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
@@ -30,9 +34,15 @@ function EditSupervisorCredentials() {
       .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     address: Yup.string().required("Address is required"),
-    city: Yup.string().required("City/Town is required"),
-    district: Yup.string().required("District is required"),
-    state: Yup.string().required("State is required"),
+    city: Yup.string()
+      .required("City/Town is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in City"),
+    district: Yup.string()
+      .required("District is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
+    state: Yup.string()
+      .required("State is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
     pincode: Yup.string()
       .required("Pincode is required")
       .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),

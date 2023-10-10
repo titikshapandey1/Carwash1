@@ -216,7 +216,7 @@ const Card1 = () => {
                 bgcolor: Colors.palette.primary.main,
               }}
             >
-              <CardContent>
+              <CardContent sx={{outline:'bold'}}>
                 <Typography
                   variant="h5"
                   sx={{
