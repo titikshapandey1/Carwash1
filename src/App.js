@@ -13,7 +13,14 @@ import Index from "./app/routes/index";
 function App() {
   return (
     <>
+    {/* <Button/> */}
+    {/* <Card1/> */}
+    {/* <Booking/> */}
+    {/* <ServiceLocation/> */}
+    {/* <Cancel/> */}
+    {/* <Subscriptions/> */}
       <Index />
+     
     </>
   );
 }

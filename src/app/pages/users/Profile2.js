@@ -52,7 +52,7 @@ const validationSchema = Yup.object({
   alternateNumber: Yup.string()
     .required("Alternate Number is required")
     .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
+  email: Yup.string().email("Invalid email ").required("Email is required"),
   Locality: Yup.string().required("Locality is required"),
   City: Yup.string()
     .required("City is required")
@@ -176,7 +176,7 @@ function Profile2() {
                 }}
               />
             </Box>
-            <form style={formStyle} noValidate>
+            <form style={formStyle} onSubmit={handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -215,6 +215,7 @@ function Profile2() {
                     }
                     helperText={formik.touched.surname && formik.errors.surname}
                   />
+                  {/* .... */}
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
