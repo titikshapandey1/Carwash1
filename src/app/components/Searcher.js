@@ -14,6 +14,11 @@ const Searcher = () => {
             color: Colors.palette.secondary.black,
             borderRadius: "10px",
             margin: "2%",
+            "&:hover": {
+              backgroundColor: Colors.palette.primary.lightBlue,
+              color: Colors.palette.primary.main,
+              border: `1px solid ${Colors.palette.primary.main}`,
+            },
           }}
         >
           Select Service Type <ArrowDropDownIcon />
@@ -23,9 +28,14 @@ const Searcher = () => {
           variant="Text"
           sx={{
             backgroundColor: Colors.palette.primary.main,
-            color:Colors.palette.secondary.black,
+            color: Colors.palette.secondary.black,
             borderRadius: "10px",
             margin: { xs: "2%", sm: "0.4%", md: "1%" },
+            "&:hover": {
+              backgroundColor: Colors.palette.primary.lightBlue,
+              color: Colors.palette.primary.main,
+              border: `1px solid ${Colors.palette.primary.main}`,
+            },
           }}
         >
           Select Service Type <ArrowDropDownIcon />
@@ -35,9 +45,14 @@ const Searcher = () => {
           variant="Text"
           sx={{
             backgroundColor: Colors.palette.primary.main,
-            color:Colors.palette.secondary.black,
+            color: Colors.palette.secondary.black,
             borderRadius: "10px",
             margin: { xs: "2%", sm: "0.4%", md: "1%" },
+            "&:hover": {
+              backgroundColor: Colors.palette.primary.lightBlue,
+              color: Colors.palette.primary.main,
+              border: `1px solid ${Colors.palette.primary.main}`,
+            },
           }}
         >
           Go

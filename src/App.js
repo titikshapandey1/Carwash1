@@ -15,10 +15,14 @@ import Index from "./app/routes/index";
 function App() {
   return (
     <>
-    <Subscribe/>
-    {/* <Subscribecard/> */}
-    
-      {/* <Index /> */}
+    {/* <Button/> */}
+    {/* <Card1/> */}
+    {/* <Booking/> */}
+    {/* <ServiceLocation/> */}
+    {/* <Cancel/> */}
+    {/* <Subscriptions/> */}
+      <Index />
+     
     </>
   );
 }

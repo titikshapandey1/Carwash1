@@ -62,7 +62,7 @@ function Login() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const [formSubmission, setFormSubmission] = useState(null); 
+  const [formSubmission, setFormSubmission] = useState(null);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -70,7 +70,7 @@ function Login() {
 
     if (!formData.username) {
       errors.username = "Username/Email is required";
-    }else if (
+    } else if (
       !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(formData.username)
     ) {
       errors.username = "Invalid email address";
@@ -83,17 +83,15 @@ function Login() {
     }
 
     if (Object.keys(errors).length === 0) {
-     
       setFormSubmission("Success! Redirecting...");
       setTimeout(() => {
-        window.location.reload(); 
-      }, 1000); 
+        window.location.reload();
+      }, 1000);
     } else {
       setFormErrors(errors);
       setFormSubmission(null);
     }
   };
-
 
   return (
     <>
@@ -160,7 +158,7 @@ function Login() {
                     name="username"
                     fullWidth
                     size="small"
-                    type="email" 
+                    type="email"
                     value={formData.username}
                     onChange={handleFormChange}
                     error={!!formErrors.username}
@@ -250,7 +248,3 @@ function Login() {
 }
 
 export default Login;
-
-
-
-

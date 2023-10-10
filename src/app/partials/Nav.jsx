@@ -55,7 +55,7 @@ const Nav = () => {
               <Button
                 sx={{
                   "&:hover": {
-                    backgroundColor: Colors.palette.primary.main,
+                    backgroundColor: Colors.palette.primary.lightBlue,
                     color: "red",
                   },
                 }}
@@ -75,7 +75,7 @@ const Nav = () => {
                 sx={{
                   cursor: "pointer",
                   "&:hover": {
-                    backgroundColor: Colors.palette.primary.main,
+                    backgroundColor: Colors.palette.primary.lightBlue,
                   },
                 }}
               >
@@ -93,7 +93,7 @@ const Nav = () => {
                 sx={{
                   cursor: "pointer",
                   "&:hover": {
-                    backgroundColor: Colors.palette.primary.main,
+                    backgroundColor: Colors.palette.primary.lightBlue,
                   },
                 }}
               >
@@ -112,8 +112,8 @@ const Nav = () => {
                   backgroundColor: Colors.palette.primary.red,
                   cursor: "pointer",
                   "&:hover": {
-                    // backgroundColor: Colors.palette.primary.main,
-                    color: Colors.palette.primary.red,
+                    backgroundColor: Colors.palette.primary.lightBlue,
+                    // color: Colors.palette.primary.red,
                   },
                 }}
               >
