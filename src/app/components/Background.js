@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import car1 from "../assests/images/Finaltry.jpg";
+import car1 from "../assests/images/car-wash.jpg";
 import Colors from "../utils/colors";
 const BackgroundImg = () => {
   return (

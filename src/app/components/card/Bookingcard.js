@@ -7,9 +7,9 @@ function BookingCard({ children }) {
   const cardstyle1 = {
     width: "380px",
     borderRadius: "20px",
-
+    border:"1px solid #e0e0e0",
     backgroundColor : "#FFFFFF",
-
+    
 
     // gap: "20px",
     display: "flex",
