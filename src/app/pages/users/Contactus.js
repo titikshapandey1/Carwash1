@@ -22,6 +22,8 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const cardStyles = {
   my: 1,
@@ -74,6 +76,26 @@ const img = {
   backgroundPosition: "center",
   backgroundSize: "cover",
 };
+
+const validationSchema = Yup.object({
+  firstName: Yup.string().required("First Name is required"),
+  lastName: Yup.string().required("Last Name is required"),
+  contactNumber: Yup.string()
+    .required("Contact Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  locality: Yup.string().required("Locality is required"),
+  city: Yup.string().required("City is required"),
+  District: Yup.string().required("District is required"),
+  State: Yup.string().required("State is required"),
+  Pincode: Yup.string()
+    .required("Pincode is required")
+    .test(
+      "valid-pincode",
+      "Invalid Pincode",
+      (value) => value && /^[1-9][0-9]{5}$/.test(value)
+    ),
+});
 
 function ContactUs() {
   const isSmallScreen = useMediaQuery("(max-width: 960px)");
@@ -237,6 +259,7 @@ function ContactUs() {
                             onSubmit={formik.handleSubmit}
                           >
                             <Grid container spacing={2}>
+                            
                               <Grid item xs={12} sm={6}>
                                 <TextField
                                   variant="outlined"
@@ -286,6 +309,7 @@ function ContactUs() {
                                   fullWidth
                                   id="contactNumber"
                                   placeholder="Contact Number"
+                                  type="tel"
                                   name="contactNumber"
                                   onChange={formik.handleChange}
                                   onBlur={formik.handleBlur}
@@ -327,6 +351,7 @@ function ContactUs() {
                                   fullWidth
                                   id="email"
                                   placeholder="Email Address"
+                                  type="email"
                                   name="email"
                                   onChange={formik.handleChange}
                                   onBlur={formik.handleBlur}
@@ -434,7 +459,7 @@ function ContactUs() {
                                   required
                                   fullWidth
                                   id="Pincode"
-                                  placeholder=" Pincode"
+                                  placeholder="Pincode"
                                   name="Pincode"
                                   onChange={formik.handleChange}
                                   onBlur={formik.handleBlur}
