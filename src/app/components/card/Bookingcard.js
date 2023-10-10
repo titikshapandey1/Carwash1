@@ -26,7 +26,7 @@ function BookingCard({ children }) {
     boxShadow: isHovered ? `10px 5px 5px ${Colors.palette.secondary.lightBlue}` : "none",
     transition: "box-shadow 0.3s",
     // "&:hover":{
-    //   backgroundColor: Colors.palette.secondary.lightBlue,
+      backgroundColor: Colors.palette.secondary.lightGrey
     // },
     // mt:'428px',
     // mb:'428px'
