@@ -29,7 +29,7 @@ import Profile from "../pages/users/Profile";
 import ServiceLocation from "../pages/users/ServiceLocation";
 import ServiceLocation2 from "../pages/users/ServiceLocation2";
 import RegisterPage from "../pages/users/auth/Register";
-import Mobile from "../pages/users/auth/Mobile";
+import Mobile from "../pages/users/auth/Mobile"; 
 import Otp from "../pages/users/auth/otp";
 import Subscriptions from "../pages/users/Subscription";
 import Booking from "../pages/users/Booking";

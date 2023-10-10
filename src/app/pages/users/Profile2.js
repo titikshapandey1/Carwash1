@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Colors from "../../utils/colors";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useFormik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 
@@ -24,6 +24,39 @@ const submitButtonStyle = {
   borderRadius: "10px",
   backgroundColor: Colors.palette.secondary.main,
 };
+
+const initialValues = {
+  firstName: "",
+  lastName: "",
+  contactNumber: "",
+  alternateNumber: "",
+  email: "",
+  password: "",
+  Locality: "",
+  City: "",
+  District: "",
+  State: "",
+  Pincode: "",
+};
+
+const validationSchema = Yup.object({
+  firstName: Yup.string().required("First Name is required"),
+  surname: Yup.string().required("Surname Name is required"),
+  contactNumber: Yup.string()
+    .required("Contact Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+  alternateNumber: Yup.string()
+    .required("Alternate Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  Locality: Yup.string().required("Locality is required"),
+  City: Yup.string().required("City is required"),
+  District: Yup.string().required("District is required"),
+  State: Yup.string().required("State is required"),
+  Pincode: Yup.string()
+    .required("Pincode is required")
+    .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
+});
 
 function Profile2() {
   const paperStyle = {
@@ -39,6 +72,32 @@ function Profile2() {
     width: "100%",
     marginTop: "3%",
   };
+
+  const { values, handleBlur, handleChange, handleSubmit } = useFormik({
+    initialValues: initialValues,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      surname: "",
+      contactNumber: "",
+      alternateNumber: "",
+      email: "",
+      Locality: "",
+      City: "",
+      District: "",
+      State: "",
+      Pincode: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <Box
@@ -117,8 +176,16 @@ function Profile2() {
                     id="firstName"
                     placeholder="First Name"
                     name="firstName"
-                    sx={{ border: "1px solid black" }}
-                    
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.firstName}
+                    error={
+                      formik.touched.firstName &&
+                      Boolean(formik.errors.firstName)
+                    }
+                    helperText={
+                      formik.touched.firstName && formik.errors.firstName
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -126,10 +193,17 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="Surname"
+                    id="surname"
                     placeholder="Surname"
-                    name="Surname"
-                    sx={{ border: "1px solid black" }}
+                    name="surname"
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.surname}
+                    error={
+                      formik.touched.surname && Boolean(formik.errors.surname)
+                    }
+                    helperText={formik.touched.surname && formik.errors.surname}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -140,7 +214,18 @@ function Profile2() {
                     id="contactNumber"
                     placeholder="Contact Number"
                     name="contactNumber"
-                    sx={{ border: "1px solid black" }}
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.contactNumber}
+                    error={
+                      formik.touched.contactNumber &&
+                      Boolean(formik.errors.contactNumber)
+                    }
+                    helperText={
+                      formik.touched.contactNumber &&
+                      formik.errors.contactNumber
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -150,7 +235,18 @@ function Profile2() {
                     id="alternateNumber"
                     placeholder="Alternate Number"
                     name="alternateNumber"
-                    sx={{ border: "1px solid black" }}
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.alternateNumber}
+                    error={
+                      formik.touched.alternateNumber &&
+                      Boolean(formik.errors.alternateNumber)
+                    }
+                    helperText={
+                      formik.touched.alternateNumber &&
+                      formik.errors.alternateNumber
+                    }
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -161,7 +257,12 @@ function Profile2() {
                     id="email"
                     placeholder="Email ID"
                     name="email"
-                    sx={{ border: "1px solid black" }}
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.email}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
                   />
                 </Grid>
 
@@ -183,10 +284,19 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="Locality / Building / Street / Society"
+                    id="Locality"
                     placeholder="Locality / Building / Street / Society"
-                    name="Locality / Building / Street / Society"
-                    sx={{ border: "1px solid black" }}
+                    name="Locality"
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.Locality}
+                    error={
+                      formik.touched.Locality && Boolean(formik.errors.Locality)
+                    }
+                    helperText={
+                      formik.touched.Locality && formik.errors.Locality
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -194,10 +304,15 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="city/Town"
+                    id="City"
                     placeholder="City / Town  District"
-                    name="city/Town"
-                    sx={{ border: "1px solid black" }}
+                    name="City"
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.City}
+                    error={formik.touched.City && Boolean(formik.errors.City)}
+                    helperText={formik.touched.City && formik.errors.City}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -205,10 +320,19 @@ function Profile2() {
                     variant="outlined"
                     required
                     fullWidth
-                    id=" District"
-                    placeholder=" District"
-                    name=" District"
-                    sx={{ border: "1px solid black" }}
+                    id="District"
+                    placeholder="District"
+                    name="District"
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.District}
+                    error={
+                      formik.touched.District && Boolean(formik.errors.District)
+                    }
+                    helperText={
+                      formik.touched.District && formik.errors.District
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={8}>
@@ -219,7 +343,12 @@ function Profile2() {
                     id="State"
                     placeholder="State"
                     name="State"
-                    sx={{ border: "1px solid black" }}
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.State}
+                    error={formik.touched.State && Boolean(formik.errors.State)}
+                    helperText={formik.touched.State && formik.errors.State}
                   />
                 </Grid>
                 <Grid item xs={12} sm={4}>
@@ -230,7 +359,14 @@ function Profile2() {
                     id="Pincode"
                     placeholder=" Pincode"
                     name="Pincode"
-                    sx={{ border: "1px solid black" }}
+                    // sx={{ border: "1px solid black" }}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.Pincode}
+                    error={
+                      formik.touched.Pincode && Boolean(formik.errors.Pincode)
+                    }
+                    helperText={formik.touched.Pincode && formik.errors.Pincode}
                   />
                 </Grid>
               </Grid>
@@ -240,6 +376,7 @@ function Profile2() {
                   fullWidth
                   variant="contained"
                   style={{ ...submitButtonStyle }}
+                  onClick={formik.handleSubmit}
                 >
                   Login
                 </Button>
