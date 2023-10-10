@@ -8,14 +8,7 @@ function BookingCard({ children }) {
     width: "380px",
     borderRadius: "20px",
 
-    // transition: "box-shadow 0.3s",
-    //       "&:hover": {
-    //         boxShadow: `10px 5px 5px ${Colors.palette.secondary.main}`,
-    //       },
-
-
-    // boxShadow:"10px 5px 5px blue ",
-    // borderColor: isHovered ? Colors.palette.secondary.lightBlue : "#FFFFFF",
+    backgroundColor : "#FFFFFF",
 
 
     // gap: "20px",
@@ -25,8 +18,7 @@ function BookingCard({ children }) {
     height: "auto",
     boxShadow: isHovered ? `10px 5px 5px ${Colors.palette.secondary.lightBlue}` : "none",
     transition: "box-shadow 0.3s",
-    // "&:hover":{
-    //   backgroundColor: Colors.palette.secondary.lightBlue,
+   
     // },
     // mt:'428px',
     // mb:'428px'

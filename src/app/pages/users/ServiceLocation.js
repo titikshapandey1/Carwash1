@@ -327,7 +327,7 @@ function ServiceLocation() {
                     fullWidth
                     id="locality"
                     label="Locality / Building / Street / Society"
-                    name="address"
+                    name="locality"
                     size="small"
                     sx={textFieldStyles}
                     onChange={formik.handleChange}
