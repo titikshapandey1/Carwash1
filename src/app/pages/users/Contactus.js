@@ -11,10 +11,10 @@ import {
 } from "@mui/material";
 import ExploreIcon from "@mui/icons-material/Explore";
 import CallIcon from "@mui/icons-material/Call";
-import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
+import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 import Footer from "../../partials/Footer";
 import Nav from "../../partials/Nav";
-import Guest1 from "../../components/Background";
+import BackgroundImg from "../../components/Background";
 import Ourplan from "../../components/Ourplan";
 import Question from "../../components/Question";
 import Colors from "../../utils/colors";
@@ -24,17 +24,13 @@ import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
 
 const cardStyles = {
-  my: 1,
-  mx: 1,
   p: 2,
   marginBottom: "2%",
   borderRadius: "20px",
 };
 
 const mobileCardStyles = {
-  width: "100%",
-  my: 1,
-  mx: 1,
+  width: "90%",
   p: 2,
   marginBottom: "2%",
   borderRadius: "20px",
@@ -70,13 +66,8 @@ const submitButtonStyle = {
   backgroundColor: Colors.palette.secondary.main,
 };
 
-const img = {
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-};
-
 function ContactUs() {
-  const isSmallScreen = useMediaQuery("(max-width: 960px)");
+  const isSmallScreen = useMediaQuery("(max-width: 900px)");
 
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -134,12 +125,10 @@ function ContactUs() {
   return (
     <>
       <Nav />
-      <Guest1 />
+      <BackgroundImg />
       <Box
         sx={{
           backgroundColor: Colors.palette.secondary.cardBackground,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
           height: "100%",
           display: "flex",
           justifyContent: "center",
@@ -151,18 +140,20 @@ function ContactUs() {
           <Box sx={{ mt: 2 }}>
             <Container>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <Box sx={{}}>
-                    <Card
-                      sx={{
-                        width: "50%",
-                        ...cardStyles,
-                        ...(isSmallScreen && mobileCardStyles),
-                      }}
-                    >
-                      <Grid container wrap="nowrap" spacing={6}>
+                <Grid item xs={12} sm={12} md={6}>
+                  {/* <Box> */}
+                  <Card
+                    sx={{
+                      width: "55%",
+                      ...cardStyles,
+                      ...(isSmallScreen && mobileCardStyles),
+                    }}
+                  >
+                    {" "}
+                    <Container>
+                      <Grid container wrap="nowrap" spacing={8}>
                         <Grid item marginTop="5%">
-                          <HourglassEmptyIcon />
+                          <HourglassFullIcon />
                         </Grid>
                         <Grid item>
                           <Typography>
@@ -174,15 +165,18 @@ function ContactUs() {
                           </Typography>
                         </Grid>
                       </Grid>
-                    </Card>
-                    <Card
-                      sx={{
-                        width: "60%",
-                        ...cardStyles,
-                        ...(isSmallScreen && mobileCardStyles),
-                      }}
-                    >
-                      <Grid container wrap="nowrap" spacing={6}>
+                    </Container>
+                  </Card>
+                  <Card
+                    sx={{
+                      width: "65%",
+                      ...cardStyles,
+                      ...(isSmallScreen && mobileCardStyles),
+                    }}
+                  >
+                    {" "}
+                    <Container>
+                      <Grid container wrap="nowrap" spacing={8}>
                         <Grid item marginTop="5%">
                           <CallIcon />
                         </Grid>
@@ -196,15 +190,17 @@ function ContactUs() {
                           </Typography>
                         </Grid>
                       </Grid>
-                    </Card>
-                    <Card
-                      sx={{
-                        width: "70%",
-                        ...cardStyles,
-                        ...(isSmallScreen && mobileCardStyles),
-                      }}
-                    >
-                      <Grid container wrap="nowrap" spacing={6}>
+                    </Container>
+                  </Card>
+                  <Card
+                    sx={{
+                      width: "75%",
+                      ...cardStyles,
+                      ...(isSmallScreen && mobileCardStyles),
+                    }}
+                  >
+                    <Container>
+                      <Grid container wrap="nowrap" spacing={8}>
                         <Grid item marginTop="5%">
                           <ExploreIcon />
                         </Grid>
@@ -217,13 +213,15 @@ function ContactUs() {
                           </Typography>
                         </Grid>
                       </Grid>
-                    </Card>
-                  </Box>
+                    </Container>
+                  </Card>
+                  {/* </Box> */}
                 </Grid>
-                <Grid item xs={12} sm={6}>
+
+                <Grid item xs={12} sm={12} md={6}>
                   <Card>
                     <Container component="main" maxWidth="xs">
-                      <Grid container style={img}>
+                      <Grid container>
                         <Box
                           style={{
                             ...boxStyle,

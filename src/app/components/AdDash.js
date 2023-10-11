@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
@@ -16,14 +15,12 @@ import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded
 import { Typography, Button } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Colors from "../utils/colors";
-import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
-
 
 const drawerWidth = 240;
 
@@ -39,10 +36,10 @@ function AdDash(props) {
   const [openPayment, setopenPayment] = React.useState(false);
   const [openUsers, setopenUsers] = React.useState(false);
   const [openEditSupervisor, setopenEditSupervisor] = React.useState(false);
-  const [selectedPaymentOption, setSelectedPaymentOption] = React.useState(null);
+  const [selectedPaymentOption, setSelectedPaymentOption] =
+    React.useState(null);
   const [selectedUserOption, setSelectedUserOption] = React.useState(null);
   const [editSupervisorOption, setEditSupervisorOption] = React.useState(null);
-
 
   const handleDashboardClick = () => {
     setopenDashboard(!openDashboard);
@@ -56,27 +53,27 @@ function AdDash(props) {
     setopenUsers(!openUsers);
   };
 
+  const handleSupervisorClick = () => {
+    setopenEditSupervisor(!openEditSupervisor);
+  };
+
   const handlePaymentOptionClick = (option) => {
-    setSelectedPaymentOption(option);
+    setSelectedPaymentOption(selectedPaymentOption);
   };
 
   const handleUserOptionClick = (option) => {
-    setSelectedUserOption(option);
+    setSelectedUserOption(selectedUserOption);
   };
 
-  const handleEditSupervisorClick = () => {
-    setopenEditSupervisor(!openEditSupervisor);
+  const handleEditSupervisorClick = (option) => {
+    setEditSupervisorOption(editSupervisorOption);
   };
 
   const drawer = (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <List sx={{ marginTop: "30%" }}>
-        <NavLink
-          to="/admindashboard"
-          style={{ textDecoration: "none" }}
-          onClick={() => handleDashboardClick}
-        >
+        <NavLink to="/admindashboard" style={{ textDecoration: "none" }}>
           <ListItem
             key="dashboard"
             disablePadding
@@ -147,16 +144,11 @@ function AdDash(props) {
             <NavLink
               to="/adminpaysuccessful"
               style={{ textDecoration: "none" }}
-              onClick={() => handlePaymentOptionClick("Successful Payments")}
             >
               <ListItem key="successful" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
-                    backgroundColor:
-                      selectedPaymentOption === "Successful Payments"
-                        ? Colors.palette.background.lightGreen
-                        : Colors.palette.primary.main,
                     "&:hover": {
                       color: Colors.palette.primary.main,
                       backgroundColor: Colors.palette.background.lightBlue,
@@ -167,11 +159,18 @@ function AdDash(props) {
                   }
                 >
                   <ListItemIcon>
-                    {selectedPaymentOption === "Successful Payments" ? (
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "12px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                    {/* {selectedPaymentOption === "Successful Payments" ? (
                       <RadioButtonCheckedIcon />
                     ) : (
                       <RadioButtonUncheckedIcon />
-                    )}
+                    )} */}
                   </ListItemIcon>
                   <ListItemText primary="Successful Payments" />
                 </ListItemButton>
@@ -181,16 +180,11 @@ function AdDash(props) {
             <NavLink
               to="/adminpayunsucessful"
               style={{ textDecoration: "none" }}
-              onClick={() => handlePaymentOptionClick("Unsuccessful Payments")}
             >
               <ListItem key="unsuccessful" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
-                    backgroundColor:
-                      selectedPaymentOption === "Unsuccessful Payments"
-                        ? Colors.palette.background.lightRed
-                        : Colors.palette.primary.main,
                     "&:hover": {
                       color: Colors.palette.primary.main,
                       backgroundColor: Colors.palette.background.lightBlue,
@@ -201,11 +195,18 @@ function AdDash(props) {
                   }
                 >
                   <ListItemIcon>
-                    {selectedPaymentOption === "Unsuccessful Payments" ? (
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "12px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                    {/* {selectedPaymentOption === "Unsuccessful Payments" ? (
                       <RadioButtonCheckedIcon />
                     ) : (
                       <RadioButtonUncheckedIcon />
-                    )}
+                    )} */}
                   </ListItemIcon>
 
                   <ListItemText primary="Unsuccessful Payments" />
@@ -250,89 +251,105 @@ function AdDash(props) {
         </ListItem>
         {openUsers && (
           <List component="div" disablePadding>
-            <ListItem key="request" disablePadding>
-              <ListItemButton
-                sx={{
-                  color: Colors.palette.secondary.main,
-                  backgroundColor:
-                    selectedUserOption === "Request"
-                      ? Colors.palette.background.lightskyBlue
-                      : Colors.palette.primary.main,
-                  "&:hover": {
-                    color: Colors.palette.primary.main,
-                    backgroundColor: Colors.palette.background.lightBlue,
-                  },
-                }}
-                onClick={() => handleUserOptionClick("Request")}
-              >
-                <ListItemIcon>
-                  {selectedUserOption === "Request" ? (
+            <NavLink to="/adminuserrequest" style={{ textDecoration: "none" }}>
+              <ListItem key="request" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleUserOptionClick("Request")}
+                >
+                  <ListItemIcon>
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "12px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                    {/* {selectedUserOption === "Request" ? (
                     <RadioButtonCheckedIcon />
                   ) : (
                     <RadioButtonUncheckedIcon />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary="Request" />
-              </ListItemButton>
-            </ListItem>
+                  )} */}
+                  </ListItemIcon>
+                  <ListItemText primary="Request" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
 
-            <ListItem key="active" disablePadding>
-              <ListItemButton
-                sx={{
-                  color: Colors.palette.secondary.main,
-                  backgroundColor:
-                    selectedUserOption === "Active Users"
-                      ? Colors.palette.background.lightGreen
-                      : Colors.palette.primary.main,
-                  "&:hover": {
-                    color: Colors.palette.primary.main,
-                    backgroundColor: Colors.palette.background.lightBlue,
-                  },
-                }}
-                onClick={() => handleUserOptionClick("Active Users")}
-              >
-                <ListItemIcon>
-                  {selectedUserOption === "Active Users" ? (
+            <NavLink to="/adminuseractive" style={{ textDecoration: "none" }}>
+              <ListItem key="active" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleUserOptionClick("Active Users")}
+                >
+                  <ListItemIcon>
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "12px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                    {/* {selectedUserOption === "Active Users" ? (
                     <RadioButtonCheckedIcon />
                   ) : (
                     <RadioButtonUncheckedIcon />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary="Active Users" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key="declined" disablePadding>
-              <ListItemButton
-                sx={{
-                  color: Colors.palette.secondary.main,
-                  backgroundColor:
-                    selectedUserOption === "Declined Users"
-                      ? Colors.palette.background.lightRed
-                      : Colors.palette.primary.main,
-                  "&:hover": {
-                    color: Colors.palette.primary.main,
-                    backgroundColor: Colors.palette.background.lightBlue,
-                  },
-                }}
-                onClick={() => handleUserOptionClick("Declined Users")}
-              >
-                <ListItemIcon>
-                  {selectedUserOption === "Declined Users" ? (
+                  )} */}
+                  </ListItemIcon>
+                  <ListItemText primary="Active Users" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/adminuserdeclined" style={{ textDecoration: "none" }}>
+              <ListItem key="declined" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleUserOptionClick("Declined Users")}
+                >
+                  <ListItemIcon>
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "12px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                    {/* {selectedUserOption === "Declined Users" ? (
                     <RadioButtonCheckedIcon />
                   ) : (
                     <RadioButtonUncheckedIcon />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary="Declined Users" />
-              </ListItemButton>
-            </ListItem>
+                  )} */}
+                  </ListItemIcon>
+                  <ListItemText primary="Declined Users" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
           </List>
         )}
 
         <ListItem
           key="editsupervisor"
           disablePadding
-          onClick={handleEditSupervisorClick}
+          onClick={handleSupervisorClick}
           sx={{
             color: Colors.palette.secondary.main,
             backgroundColor: Colors.palette.primary.main,
@@ -369,56 +386,73 @@ function AdDash(props) {
         </ListItem>
         {openEditSupervisor && (
           <List component="div" disablePadding>
-            <ListItem key="editsupervisoroption" disablePadding>
-              <ListItemButton
-                sx={{
-                  color: Colors.palette.secondary.main,
-                  backgroundColor:
-                    editSupervisorOption === "Edit Supervisor"
-                      ? Colors.palette.background.lightskyBlue
-                      : Colors.palette.primary.main,
-                  "&:hover": {
-                    color: Colors.palette.primary.main,
-                    backgroundColor: Colors.palette.background.lightBlue,
-                  },
-                }}
-                onClick={() => setEditSupervisorOption("Edit Supervisor")}
-              >
-                <ListItemIcon>
-                  {editSupervisorOption === "Edit Supervisor" ? (
+            <NavLink
+              to="/admineditsupervisor"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="editsupervisoroption" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleEditSupervisorClick("Edit Supervisor")}
+                >
+                  <ListItemIcon>
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "12px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                    {/* {editSupervisorOption === "Edit Supervisor" ? (
                     <RadioButtonCheckedIcon />
                   ) : (
                     <RadioButtonUncheckedIcon />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary="Edit Supervisor" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key="createsupervisoroption" disablePadding>
-              <ListItemButton
-                sx={{
-                  color: Colors.palette.secondary.main,
-                  backgroundColor:
-                    editSupervisorOption === "Create Supervisor"
-                      ? Colors.palette.background.lightskyBlue
-                      : Colors.palette.primary.main,
-                  "&:hover": {
-                    color: Colors.palette.primary.main,
-                    backgroundColor: Colors.palette.background.lightBlue,
-                  },
-                }}
-                onClick={() => setEditSupervisorOption("Create Supervisor")}
-              >
-                <ListItemIcon>
-                  {editSupervisorOption === "Create Supervisor" ? (
+                  )} */}
+                  </ListItemIcon>
+                  <ListItemText primary="Edit Supervisor" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink
+              to="/admincreatesupervisor"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="createsupervisoroption" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleEditSupervisorClick("Create Supervisor")}
+                >
+                  <ListItemIcon>
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "12px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                    {/* {editSupervisorOption === "Create Supervisor" ? (
                     <RadioButtonCheckedIcon />
                   ) : (
                     <RadioButtonUncheckedIcon />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary="Create Supervisor" />
-              </ListItemButton>
-            </ListItem>
+                  )} */}
+                  </ListItemIcon>
+                  <ListItemText primary="Create Supervisor" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
           </List>
         )}
       </List>
@@ -445,7 +479,7 @@ function AdDash(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "block",md:"none" } }}
+            sx={{ mr: 2, display: { sm: "block", md: "none" } }}
           >
             <MenuIcon />
           </IconButton>
