@@ -62,7 +62,7 @@ function AppRouter() {
     <>
       {/*======== COMPONENTS========== */}
 
-      {/* <Dryclean/>  */}
+      {/* <Dryclean/> */}
       {/* <Card1/> */}
       {/* <HomeCards/> */}
       {/* <PaymentOptions/> */}
@@ -70,7 +70,7 @@ function AppRouter() {
       {/* <Nav/>  */}
       {/* <Searcher/> */}
       {/* <AboutGuest/> */}
-      {/* <BackgroundImg/>   */}
+      {/* <BackgroundImg/> */}
       {/* <Question/> */}
       {/* <Rectanglefield/> */}
       {/* <OurServices/> */}
