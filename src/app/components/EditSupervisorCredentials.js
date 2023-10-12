@@ -17,6 +17,10 @@ import Colors from "../utils/colors";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
+import Axios from "../utils/Axios";
+// import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import axios from "axios";
 
 function EditSupervisorCredentials() {
   const validationSchema = Yup.object({
@@ -117,6 +121,41 @@ function EditSupervisorCredentials() {
     width: "100%",
     marginTop: "3%",
   };
+  const createUser=async()=>{
+    const data={
+      "firstName": "Sohit",
+     "surName": "singh",
+ 
+     "address": {
+       "locality": "Varanasi",
+       "city": "Varanasi",
+       "district": "Varanasi",
+       "state": "U P",
+       "pincode": "221002"
+     },
+ 
+     "userName": "rohitmaurya",
+     "passWord": "GaolaRohit234",
+     "mobileNumber": '743354654'
+ }
+ 
+
+//  const [loading, setLoading] = useState(false);
+//  const [ setData] = useState([]); 
+
+    Axios.post('/src/routes/createData',JSON.stringify(data))
+    .then(res=>{
+      console.log('response',res.data)
+    })
+    .catch(e=>{
+      console.log('error',e)
+    })
+  }
+  useEffect(() => {
+    // fetchGetAllActive();
+    createUser()
+  }, []);
+
   return (
     <Box
       sx={{
