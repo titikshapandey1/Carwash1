@@ -16,7 +16,42 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 
+import Axios from "../../../utils/Axios";
+import { useState, useEffect } from "react";
+
 function RegisterPage() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const createUser = async () => {
+    const data = {
+      firstName: formik.values.firstName,
+      surName: formik.values.surName,
+      mobileNumber: formik.values.mobileNumber,
+      alternateNumber: formik.values.alternateNumber,
+      email: formik.values.email,
+      
+      address: {
+        locality: formik.values.locality,
+        city: formik.values.city,
+        district: formik.values.district,
+        state: formik.values.state,
+        pincode: formik.values.pincode,
+      },
+      age: formik.values.age,
+      price: formik.values.price,
+      createusername: formik.values.createusername,
+      password: formik.values.password,
+    };
+
+    try {
+      const response = await Axios.post("/src/routes/createData", data);
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const paperStyle = {
     padding: "20px",
     display: "flex",
@@ -84,8 +119,8 @@ function RegisterPage() {
   const formik = useFormik({
     initialValues: {
       firstName: "",
-      lastName: "",
-      contactNumber: "",
+      surName: "",
+      mobileNumber: "",
       alternateNumber: "",
       email: "",
       locality: "",
@@ -96,7 +131,7 @@ function RegisterPage() {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
     },
   });
 
@@ -402,6 +437,7 @@ function RegisterPage() {
                     type="submit"
                     variant="contained"
                     sx={submitButtonStyle}
+                    onClick={createUser}
                   >
                     {/* <NavLink
                       to="/login"
