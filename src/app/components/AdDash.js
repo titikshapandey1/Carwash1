@@ -33,54 +33,7 @@ function AdDash(props) {
   };
 
 
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]); 
-
-  // const fetchGetAllActive = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const response1 = await Axios.get('');  //  FOR ALL supervisors
-  //     const response = await Axios.get(""); // FOR ALL USERS
-     
-  //     // setData(response.data.data); // Update the state with fetched data
-  //     console.log(response.data.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
-//   const createUser=async()=>{
-//     const data={
-//       "firstName": "Sohit",
-//      "surName": "singh",
- 
-//      "address": {
-//        "locality": "Varanasi",
-//        "city": "Varanasi",
-//        "district": "Varanasi",
-//        "state": "U P",
-//        "pincode": "221002"
-//      },
- 
-//      "userName": "rohitmaurya",
-//      "passWord": "GaolaRohit234",
-//      "mobileNumber": '743354654'
-//  }
- 
-//     Axios.post('/src/routes/createData',JSON.stringify(data))
-//     .then(res=>{
-//       console.log('response',res.data)
-//     })
-//     .catch(e=>{
-//       console.log('error',e)
-//     })
-//   }
-//   useEffect(() => {
-//     // fetchGetAllActive();
-//     createUser()
-//   }, []);
+  
 
   const [openDashboard, setopenDashboard] = React.useState(false);
   const [openPayment, setopenPayment] = React.useState(false);
