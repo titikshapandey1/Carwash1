@@ -15,16 +15,13 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
-
 import Axios from "../../../utils/Axios";
-import { useState, useEffect } from "react";
+import axios from "axios";
 
 function RegisterPage() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  const createUser = async () => {
-    const data = {
+  const RegiterUser = async() =>{
+    const data={
       firstName: formik.values.firstName,
       surName: formik.values.surName,
       mobileNumber: formik.values.mobileNumber,
@@ -43,14 +40,17 @@ function RegisterPage() {
       createusername: formik.values.createusername,
       password: formik.values.password,
     };
-
-    try {
-      const response = await Axios.post("/src/routes/createData", data);
-      console.log("Response:", response.data);
-    } catch (error) {
-      console.error("Error:", error);
+    try{
+      const response=await Axios.post("/src/routes/createData" ,data);
+       console.log("response",response.data);
+      
     }
-  };
+    catch(error){
+      console.log(error)
+    }
+  }
+
+
 
   const paperStyle = {
     padding: "20px",
@@ -87,10 +87,10 @@ function RegisterPage() {
     firstName: Yup.string()
       .required("First Name is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
-    lastName: Yup.string()
+      surName: Yup.string()
       .required("Last Name is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in Last Name"),
-    contactNumber: Yup.string()
+      mobileNumber: Yup.string()
       .required("Contact Number is required")
       .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
     alternateNumber: Yup.string()
@@ -122,6 +122,7 @@ function RegisterPage() {
       surName: "",
       mobileNumber: "",
       alternateNumber: "",
+
       email: "",
       locality: "",
       city: "",
@@ -131,7 +132,7 @@ function RegisterPage() {
     },
     validationSchema,
     onSubmit: (values) => {
-      // console.log(values);
+     
     },
   });
 
@@ -235,18 +236,18 @@ function RegisterPage() {
                       required
                       fullWidth
                       size="small"
-                      id="lastName"
+                      id="surName"
                       label="Last Name"
-                      name="lastName"
+                      name="surName"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.lastName}
+                      value={formik.values.surName}
                       error={
-                        formik.touched.lastName &&
-                        Boolean(formik.errors.lastName)
+                        formik.touched.surName &&
+                        Boolean(formik.errors.surName)
                       }
                       helperText={
-                        formik.touched.lastName && formik.errors.lastName
+                        formik.touched.surName && formik.errors.surName
                       }
                       sx={textFieldStyles}
                     />
@@ -257,20 +258,20 @@ function RegisterPage() {
                       required
                       fullWidth
                       size="small"
-                      id="contactNumber"
+                      id="mobileNumber"
                       label="Contact Number"
                       // type="Mobile"
-                      name="contactNumber"
+                      name="mobileNumber"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.contactNumber}
+                      value={formik.values.mobileNumber}
                       error={
-                        formik.touched.contactNumber &&
-                        Boolean(formik.errors.contactNumber)
+                        formik.touched.mobileNumber &&
+                        Boolean(formik.errors.mobileNumber)
                       }
                       helperText={
-                        formik.touched.contactNumber &&
-                        formik.errors.contactNumber
+                        formik.touched.mobileNumber &&
+                        formik.errors.mobileNumber
                       }
                       sx={textFieldStyles}
                     />
@@ -437,7 +438,7 @@ function RegisterPage() {
                     type="submit"
                     variant="contained"
                     sx={submitButtonStyle}
-                    onClick={createUser}
+                    onClick={RegiterUser}
                   >
                     {/* <NavLink
                       to="/login"
