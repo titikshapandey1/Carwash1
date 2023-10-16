@@ -23,6 +23,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
 
+import Axios from "../../utils/Axios";
+import { useState, useEffect } from "react";
+
 const cardStyles = {
   p: 2,
   marginBottom: "2%",
@@ -67,6 +70,32 @@ const submitButtonStyle = {
 };
 
 function ContactUs() {
+  const createUser = async () => {
+    const data = {
+      firstName: formik.values.firstName,
+      surName: formik.values.lastName,
+      mobileNumber: formik.values.contactNumber,
+      alternateNumber: formik.values.alternateNumber,
+      email: formik.values.email,
+
+      address: {
+        locality: formik.values.locality,
+        city: formik.values.city,
+        district: formik.values.District,
+        state: formik.values.State,
+        pincode: formik.values.Pincode,
+      },
+      message: formik.values.message,
+    };
+
+    try {
+      const response = await Axios.post("/src/routes/createData", data);
+      console.log("API Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const isSmallScreen = useMediaQuery("(max-width: 900px)");
 
   const validationSchema = Yup.object({
@@ -115,10 +144,12 @@ function ContactUs() {
       city: "",
       State: "",
       Pincode: "",
+      message: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      console.log("On Submit Values: ", values);
+      formik.resetForm();
     },
   });
 
@@ -465,7 +496,16 @@ function ContactUs() {
                                   id="message"
                                   name="message"
                                   onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
                                   value={formik.values.message}
+                                  error={
+                                    formik.touched.message &&
+                                    Boolean(formik.errors.message)
+                                  }
+                                  helperText={
+                                    formik.touched.message &&
+                                    formik.errors.message
+                                  }
                                 />
                               </Grid>
                             </Grid>
@@ -474,6 +514,7 @@ function ContactUs() {
                                 type="submit"
                                 variant="contained"
                                 style={submitButtonStyle}
+                                onClick={createUser}
                               >
                                 Submit &nbsp;
                                 <ArrowForwardIosIcon

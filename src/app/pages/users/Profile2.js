@@ -13,6 +13,8 @@ import Colors from "../../utils/colors";
 import { useFormik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+import Axios from "../../utils/Axios";
+import { useState, useEffect } from "react";
 
 const submitButtonStyle = {
   width: "80px",
@@ -25,50 +27,32 @@ const submitButtonStyle = {
   backgroundColor: Colors.palette.secondary.main,
 };
 
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  contactNumber: "",
-  alternateNumber: "",
-  email: "",
-  password: "",
-  Locality: "",
-  City: "",
-  District: "",
-  State: "",
-  Pincode: "",
-};
-
-const validationSchema = Yup.object({
-  firstName: Yup.string()
-    .required("First Name is required")
-    .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
-  surname: Yup.string()
-    .required("Surname Name is required")
-    .matches(/^[A-Za-z]+$/, "Only letters are allowed in Surname"),
-  contactNumber: Yup.string()
-    .required("Contact Number is required")
-    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
-  alternateNumber: Yup.string()
-    .required("Alternate Number is required")
-    .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
-  email: Yup.string().email("Invalid email ").required("Email is required"),
-  Locality: Yup.string().required("Locality is required"),
-  City: Yup.string()
-    .required("City is required")
-    .matches(/^[A-Za-z]+$/, "Only letters are allowed in City"),
-  District: Yup.string()
-    .required("District is required")
-    .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
-  State: Yup.string()
-    .required("State is required")
-    .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
-  Pincode: Yup.string()
-    .required("Pincode is required")
-    .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
-});
-
 function Profile2() {
+  const createProfile = async () => {
+    const data = {
+      firstName: formik.values.firstName,
+      surName: formik.values.surname,
+      mobileNumber: formik.values.contactNumber,
+      alternateNumber: formik.values.alternateNumber,
+      email: formik.values.email,
+
+      address: {
+        locality: formik.values.Locality,
+        city: formik.values.City,
+        district: formik.values.District,
+        state: formik.values.State,
+        pincode: formik.values.Pincode,
+      },
+    };
+
+    try {
+      const response = await Axios.post("/src/routes/createData", data);
+      console.log("API Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const paperStyle = {
     padding: "20px",
     display: "flex",
@@ -83,11 +67,33 @@ function Profile2() {
     marginTop: "3%",
   };
 
-  const { values, handleBlur, handleChange, handleSubmit } = useFormik({
-    initialValues: initialValues,
-    onSubmit: (values) => {
-      console.log(values);
-    },
+  const validationSchema = Yup.object({
+    firstName: Yup.string()
+      .required("First Name is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
+    surname: Yup.string()
+      .required("Surname Name is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in Surname"),
+    contactNumber: Yup.string()
+      .required("Contact Number is required")
+      .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+    alternateNumber: Yup.string()
+      .required("Alternate Number is required")
+      .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
+    email: Yup.string().email("Invalid email ").required("Email is required"),
+    Locality: Yup.string().required("Locality is required"),
+    City: Yup.string()
+      .required("City is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in City"),
+    District: Yup.string()
+      .required("District is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
+    State: Yup.string()
+      .required("State is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+    Pincode: Yup.string()
+      .required("Pincode is required")
+      .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
   });
 
   const formik = useFormik({
@@ -105,7 +111,8 @@ function Profile2() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      console.log("On Submit Values: ", values);
+      formik.resetForm();
     },
   });
 
@@ -176,7 +183,7 @@ function Profile2() {
                 }}
               />
             </Box>
-            <form style={formStyle} onSubmit={handleSubmit}>
+            <form style={formStyle} onSubmit={formik.handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -387,7 +394,8 @@ function Profile2() {
                   fullWidth
                   variant="contained"
                   style={{ ...submitButtonStyle }}
-                  onClick={formik.handleSubmit}
+                  // onClick={formik.handleSubmit}
+                  onClick={createProfile}
                 >
                   Login
                 </Button>

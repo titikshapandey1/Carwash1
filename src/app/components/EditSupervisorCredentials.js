@@ -17,27 +17,61 @@ import Colors from "../utils/colors";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
+
 import Axios from "../utils/Axios";
-// import { useState, useEffect } from "react";
-import { useState, useEffect } from 'react';
-import axios from "axios";
+import { useState, useEffect } from "react";
 
 function EditSupervisorCredentials() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const createUser = async () => {
+    const data = {
+      firstName: formik.values.firstName,
+      surName: formik.values.surName,
+      mobileNumber: formik.values.mobileNumber,
+      alternateNumber: formik.values.alternateNumber,
+      email: formik.values.email,
+      address: {
+        locality: formik.values.locality,
+        city: formik.values.city,
+        district: formik.values.district,
+        state: formik.values.state,
+        pincode: formik.values.pincode,
+      },
+      city: formik.values.city,
+      district: formik.values.district,
+      state: formik.values.state,
+      pincode: formik.values.pincode,
+      age: formik.values.age,
+      price: formik.values.price,
+      userName: formik.values.createusername,
+      passWord: formik.values.password,
+    };
+
+    try {
+      const response = await Axios.post("/src/routes/createData", data);
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const validationSchema = Yup.object({
     firstName: Yup.string()
       .required("First Name is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
-    lastName: Yup.string()
+    surName: Yup.string()
       .required("Last Name is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in Last Name"),
-    contactNumber: Yup.string()
+    mobileNumber: Yup.string()
       .required("Contact Number is required")
       .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
     alternateNumber: Yup.string()
       .required("Alternate Number is required")
       .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
     email: Yup.string().email("Invalid email").required("Email is required"),
-    address: Yup.string().required("Address is required"),
+    locality: Yup.string().required("Address is required"),
     city: Yup.string()
       .required("City/Town is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in City"),
@@ -66,16 +100,17 @@ function EditSupervisorCredentials() {
   const formik = useFormik({
     initialValues: {
       firstName: "",
-      lastName: "",
-      contactNumber: "",
+      surName: "",
+      mobileNumber: "",
       alternateNumber: "",
+
       email: "",
-      address: "",
+      locality: "",
       city: "",
       district: "",
       state: "",
       pincode: "",
-      age: "",
+
       price: "",
       createusername: "",
       password: "",
@@ -121,40 +156,6 @@ function EditSupervisorCredentials() {
     width: "100%",
     marginTop: "3%",
   };
-  const createUser=async()=>{
-    const data={
-      "firstName": "Sohit",
-     "surName": "singh",
- 
-     "address": {
-       "locality": "Varanasi",
-       "city": "Varanasi",
-       "district": "Varanasi",
-       "state": "U P",
-       "pincode": "221002"
-     },
- 
-     "userName": "rohitmaurya",
-     "passWord": "GaolaRohit234",
-     "mobileNumber": '743354654'
- }
- 
-
-//  const [loading, setLoading] = useState(false);
-//  const [ setData] = useState([]); 
-
-    Axios.post('/src/routes/createData',JSON.stringify(data))
-    .then(res=>{
-      console.log('response',res.data)
-    })
-    .catch(e=>{
-      console.log('error',e)
-    })
-  }
-  useEffect(() => {
-    // fetchGetAllActive();
-    createUser()
-  }, []);
 
   return (
     <Box
@@ -201,20 +202,18 @@ function EditSupervisorCredentials() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="lastName"
+                    id="surName"
                     label="Last Name"
-                    name="lastName"
+                    name="surName"
                     size="small"
                     sx={textFieldStyles}
-                    value={formik.values.lastName}
+                    value={formik.values.surName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     error={
-                      formik.touched.lastName && Boolean(formik.errors.lastName)
+                      formik.touched.surName && Boolean(formik.errors.surName)
                     }
-                    helperText={
-                      formik.touched.lastName && formik.errors.lastName
-                    }
+                    helperText={formik.touched.surName && formik.errors.surName}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -222,21 +221,20 @@ function EditSupervisorCredentials() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="contactNumber"
+                    id="mobileNumber"
                     label="Contact Number"
-                    name="contactNumber"
+                    name="mobileNumber"
                     size="small"
                     sx={textFieldStyles}
-                    value={formik.values.contactNumber}
+                    value={formik.values.mobileNumber}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     error={
-                      formik.touched.contactNumber &&
-                      Boolean(formik.errors.contactNumber)
+                      formik.touched.mobileNumber &&
+                      Boolean(formik.errors.mobileNumber)
                     }
                     helperText={
-                      formik.touched.contactNumber &&
-                      formik.errors.contactNumber
+                      formik.touched.mobileNumber && formik.errors.mobileNumber
                     }
                   />
                 </Grid>
@@ -294,18 +292,20 @@ function EditSupervisorCredentials() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="address"
+                    id="locality"
                     label="Locality / Building / Street / Society"
-                    name="address"
+                    name="locality"
                     size="small"
                     sx={textFieldStyles}
-                    value={formik.values.address}
+                    value={formik.values.locality}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     error={
-                      formik.touched.address && Boolean(formik.errors.address)
+                      formik.touched.locality && Boolean(formik.errors.locality)
                     }
-                    helperText={formik.touched.address && formik.errors.address}
+                    helperText={
+                      formik.touched.locality && formik.errors.locality
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -523,6 +523,7 @@ function EditSupervisorCredentials() {
                   type="submit"
                   variant="contained"
                   sx={{ ...submitButtonStyle }}
+                  onClick={createUser}
                 >
                   Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
                 </Button>

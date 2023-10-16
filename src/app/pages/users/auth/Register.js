@@ -135,7 +135,8 @@ function RegisterPage() {
     },
     validationSchema,
     onSubmit: (values) => {
-     
+      console.log("On Submit Values: ", values);
+      formik.resetForm();
     },
   });
 
