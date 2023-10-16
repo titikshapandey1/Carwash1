@@ -41,7 +41,7 @@ function RegisterPage() {
       password: formik.values.password,
     };
     try{
-      const response=await Axios.post("/src/routes/createData" ,data);
+      const response=await Axios.post("src/routes/userRegister" ,data);
        console.log("response",response.data);
       
     }
@@ -97,6 +97,9 @@ function RegisterPage() {
       .required("Alternate Number is required")
       .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
     email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string()
+    .required("Password is required")
+    .matches(!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/),
     locality: Yup.string().required("Locality is required"),
     city: Yup.string()
       .required("City is required")
@@ -315,6 +318,25 @@ function RegisterPage() {
                         formik.touched.email && Boolean(formik.errors.email)
                       }
                       helperText={formik.touched.email && formik.errors.email}
+                      sx={textFieldStyles}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      size="small"
+                      id="password"
+                      label="Password"
+                      name="Password"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.password}
+                      error={
+                        formik.touched.password && Boolean(formik.errors.password)
+                      }
+                      helperText={formik.touched.password && formik.errors.password}
                       sx={textFieldStyles}
                     />
                   </Grid>
