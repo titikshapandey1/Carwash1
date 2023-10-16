@@ -52,7 +52,7 @@ function ServiceLocation() {
     };
 
     try {
-      const response = await Axios.post("/src/routes/createData", data);
+      const response = await Axios.post("src/routes/serviceRqst", data);
       console.log("API Response:", response.data);
     } catch (error) {
       console.error("Error:", error);

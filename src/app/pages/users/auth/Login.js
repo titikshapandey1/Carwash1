@@ -15,10 +15,31 @@ import LockIcon from "@mui/icons-material/Lock";
 import Colors from "../../../utils/colors";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink } from "react-router-dom";
+import Axios from "../../../utils/Axios";
+import Mobile from "./Mobile";
+import { validate } from "email-validator";
+
 
 function Login() {
+  const LoginUser = async() =>{
+    const data={
+     
+      email: useState.values.email,
+     
+      password: useState.values.password,
+};
+try{
+  const response=await Axios.post("src/routes/serviceRqst" ,data);
+   console.log("response",response.data);
+  
+}
+catch(error){
+  console.log(error)
+}
+}
+
   const [formData, setFormData] = useState({
-    username: "",
+    userName: "",
     password: "",
   });
   const [formErrors, setFormErrors] = useState({});
@@ -68,12 +89,12 @@ function Login() {
     e.preventDefault();
     const errors = {};
 
-    if (!formData.username) {
-      errors.username = "Username/Email is required";
+    if (!formData.userName) {
+      errors.userName = "Username/Email is required";
     } else if (
-      !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(formData.username)
+      !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(formData.userName)
     ) {
-      errors.username = "Invalid email address";
+      errors.userName = "Invalid email address";
     }
 
     if (!formData.password) {
@@ -107,6 +128,7 @@ function Login() {
           alignItems: "center",
         }}
       >
+        
         <Box
           sx={{
             width: "80%",
@@ -128,6 +150,7 @@ function Login() {
                       color: Colors.palette.secondary.main,
                       justifyContent: "flex-start",
                     }}
+                    onClick={Mobile}
                   >
                     <NavLink
                       to="/"
@@ -155,14 +178,14 @@ function Login() {
                   <TextField
                     variant="outlined"
                     placeholder="Username/Email"
-                    name="username"
+                    name="userName"
                     fullWidth
                     size="small"
                     type="email"
-                    value={formData.username}
+                    value={formData.userName}
                     onChange={handleFormChange}
-                    error={!!formErrors.username}
-                    helperText={formErrors.username}
+                    error={!!formErrors.userName}
+                    helperText={formErrors.userName}
                     InputProps={{ sx: { mb: 2 } }}
                   />
                   <TextField
@@ -211,16 +234,17 @@ function Login() {
                       fullWidth
                       variant="contained"
                       style={{ ...submitButtonStyle }}
+                  
                     >
-                      <NavLink
+                      {/* <NavLink
                         to="/home"
                         style={{
                           textDecoration: "none",
                           color: Colors.palette.primary.main,
                         }}
-                      >
+                      > */}
                         Login
-                      </NavLink>
+                      {/* </NavLink> */}
                     </Button>
                   </Box>
                   <Box align="center">

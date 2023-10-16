@@ -16,7 +16,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 import Axios from "../../../utils/Axios";
-import axios from "axios";
+
 
 function RegisterPage() {
 
@@ -331,6 +331,7 @@ function RegisterPage() {
                       id="password"
                       label="Password"
                       name="Password"
+                      type="password"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       value={formik.values.password}
