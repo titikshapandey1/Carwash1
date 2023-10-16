@@ -6,6 +6,7 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import Axios from "../../utils/Axios";
 
 function Profile() {
+  
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -116,27 +117,27 @@ function Profile() {
 
                   <Grid item xs={12}>
                     <Typography sx={{ margin: "15px" }}>
-                      {userData.address.locality}
+                    {userData.address && userData.address.locality}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <Typography sx={{ margin: "15px" }}>
-                      {userData.address.city}
+                    {userData.address && userData.address.city}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <Typography sx={{ margin: "15px" }}>
-                      {userData.address.district}
+                    {userData.address && userData.address.district}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={8}>
                     <Typography sx={{ margin: "15px" }}>
-                      {userData.address.state}
+                    {userData.address && userData.address.state}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <Typography sx={{ margin: "15px" }}>
-                      {userData.address.pincode}
+                    {userData.address && userData.address.pincode}
                     </Typography>
                   </Grid>
                 </Grid>
