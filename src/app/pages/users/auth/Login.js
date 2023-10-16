@@ -1,55 +1,33 @@
-import React, { useState } from "react";
-import {
-  Grid,
-  Paper,
-  Button,
-  Typography,
-  Box,
-  Container,
-  TextField,
-  Link,
-  Navlink,
-} from "@mui/material";
+import React from "react";
+import { Box, Button, Container, Grid, Paper, TextField, Typography } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
-// import car1 from "../assests/images/car1guest.png";
-import Colors from "../../../utils/colors";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import Axios from "../../../utils/Axios";
 import Mobile from "./Mobile";
-import { validate } from "email-validator";
-
+import Colors from "../../../utils/colors";
 
 function Login() {
-  const LoginUser = async() =>{
-    const data={
-     
-      email: useState.values.email,
-     
-      password: useState.values.password,
-};
-try{
-  const response=await Axios.post("src/routes/serviceRqst" ,data);
-   console.log("response",response.data);
-  
-}
-catch(error){
-  console.log(error)
-}
-}
+  const LoginUser = async() => {
+    const data = {
+      userName: formik.values.userName,
+      passWord: formik.values.passWord,
+    }
 
-  const [formData, setFormData] = useState({
-    userName: "",
-    password: "",
-  });
-  const [formErrors, setFormErrors] = useState({});
-
+    try {
+      const response = await Axios.post("/src/routes/login", data);
+      console.log("API Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
   const paperStyle = {
     padding: "20px",
     display: "flex",
     flexDirection: "column",
     borderRadius: 25,
-    // opacity: ".8",
   };
 
   const formStyle = {
@@ -70,49 +48,28 @@ catch(error){
     marginLeft: { xs: "20%", sm: "30%" },
   };
 
-  const img = {
-    // backgroundImage: `url(${car1})`,
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-    borderRadius: 50,
-    height: "100%",
-  };
 
-  const handleFormChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-  const [formSubmission, setFormSubmission] = useState(null);
+  const validationSchema = Yup.object({
+    userName:Yup.string().email("Invalid Email").required("Username/Email is required"),
+    passWord: Yup.string()
+    .required("Password is required")
+    .matches(
+      /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,8}$/,
+      "Password Should have one Capital Letter, Number, Specical Character and be 6 to 8 characters in length"
+    ),
+  });
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const errors = {};
 
-    if (!formData.userName) {
-      errors.userName = "Username/Email is required";
-    } else if (
-      !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(formData.userName)
-    ) {
-      errors.userName = "Invalid email address";
-    }
-
-    if (!formData.password) {
-      errors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      errors.password = "Password must be at least 6 characters long";
-    }
-
-    if (Object.keys(errors).length === 0) {
-      setFormSubmission("Success! Redirecting...");
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-    } else {
-      setFormErrors(errors);
-      setFormSubmission(null);
-    }
-  };
+  const formik = useFormik({
+    initialValues: {
+      userName: "",
+      passWord: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      // console.log("On Submit: ",values);
+    },
+  });
 
   return (
     <>
@@ -128,7 +85,6 @@ catch(error){
           alignItems: "center",
         }}
       >
-        
         <Box
           sx={{
             width: "80%",
@@ -139,10 +95,7 @@ catch(error){
           }}
         >
           <Container maxWidth="xs">
-            <Grid
-              container
-              // style={img}
-            >
+            <Grid container>
               <Paper elevation={3} style={paperStyle} sx={{ width: "100%" }}>
                 <Box style={{ display: "flex" }}>
                   <Button
@@ -174,32 +127,37 @@ catch(error){
                   </Typography>
                 </Box>
 
-                <form style={formStyle} noValidate onSubmit={handleFormSubmit}>
+                <form
+                  style={formStyle}
+                  noValidate
+                  onSubmit={formik.handleSubmit}
+                >
                   <TextField
                     variant="outlined"
                     placeholder="Username/Email"
+                    id="userName"
                     name="userName"
                     fullWidth
                     size="small"
                     type="email"
-                    value={formData.userName}
-                    onChange={handleFormChange}
-                    error={!!formErrors.userName}
-                    helperText={formErrors.userName}
                     InputProps={{ sx: { mb: 2 } }}
+                    value={formik.values.userName}
+                    onChange={formik.handleChange}
+                    error={formik.touched.userName && Boolean(formik.errors.userName)}
+                    helperText={formik.touched.userName && formik.errors.userName}
                   />
                   <TextField
                     variant="outlined"
                     placeholder="Password"
-                    name="password"
+                    id="passWord"
+                    name="passWord"
                     fullWidth
                     size="small"
-                    type="password"
-                    value={formData.password}
-                    onChange={handleFormChange}
-                    error={!!formErrors.password}
-                    helperText={formErrors.password}
-                    // InputProps={{ sx: { borderColor:"red" } }}
+                    type="passWord"
+                    value={formik.values.passWord}
+                    onChange={formik.handleChange}
+                    error={formik.touched.passWord && Boolean(formik.errors.passWord)}
+                    helperText={formik.touched.passWord && formik.errors.passWord}
                   />
                   <Typography
                     sx={{
@@ -209,8 +167,7 @@ catch(error){
                     }}
                   >
                     <LockIcon />
-
-                    <Link
+                    {/* <Link
                       sx={{
                         textDecoration: "none",
                         ml: 1,
@@ -223,10 +180,10 @@ catch(error){
                           textDecoration: "none",
                           color: Colors.palette.secondary.main,
                         }}
-                      >
-                        Forgot Password ?
-                      </NavLink>
-                    </Link>
+                      > */}
+                        Forgot password?
+                      {/* </NavLink>
+                    </Link> */}
                   </Typography>
                   <Box align="center">
                     <Button
@@ -234,17 +191,9 @@ catch(error){
                       fullWidth
                       variant="contained"
                       style={{ ...submitButtonStyle }}
-                  
+                      onClick={LoginUser}
                     >
-                      {/* <NavLink
-                        to="/home"
-                        style={{
-                          textDecoration: "none",
-                          color: Colors.palette.primary.main,
-                        }}
-                      > */}
-                        Login
-                      {/* </NavLink> */}
+                      Login
                     </Button>
                   </Box>
                   <Box align="center">

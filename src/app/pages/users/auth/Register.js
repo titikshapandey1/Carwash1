@@ -17,17 +17,16 @@ import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 import Axios from "../../../utils/Axios";
 
-
 function RegisterPage() {
-
-  const RegiterUser = async() =>{
-    const data={
+  const RegiterUser = async () => {
+    
+    const data = {
       firstName: formik.values.firstName,
       surName: formik.values.surName,
       mobileNumber: formik.values.mobileNumber,
       alternateNumber: formik.values.alternateNumber,
       email: formik.values.email,
-      
+      passWord: formik.values.password,
       address: {
         locality: formik.values.locality,
         city: formik.values.city,
@@ -40,17 +39,14 @@ function RegisterPage() {
       createusername: formik.values.createusername,
       password: formik.values.password,
     };
-    try{
-      const response=await Axios.post("src/routes/userRegister" ,data);
-       console.log("response",response.data);
-      
-    }
-    catch(error){
-      console.log(error)
-    }
-  }
 
-
+    try {
+      const response = await Axios.post("src/routes/userRegister", data);
+      console.log("response", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const paperStyle = {
     padding: "20px",
@@ -87,10 +83,10 @@ function RegisterPage() {
     firstName: Yup.string()
       .required("First Name is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
-      surName: Yup.string()
+    surName: Yup.string()
       .required("Last Name is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in Last Name"),
-      mobileNumber: Yup.string()
+    mobileNumber: Yup.string()
       .required("Contact Number is required")
       .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
     alternateNumber: Yup.string()
@@ -98,8 +94,11 @@ function RegisterPage() {
       .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
-    .required("Password is required")
-    .matches(!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/),
+      .required("Password is required")
+      .matches(
+        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,8}$/,
+        "Password Should have one Capital Letter, Number, Specical Character and be 6 to 8 characters in length"
+      ),
     locality: Yup.string().required("Locality is required"),
     city: Yup.string()
       .required("City is required")
@@ -125,8 +124,8 @@ function RegisterPage() {
       surName: "",
       mobileNumber: "",
       alternateNumber: "",
-
       email: "",
+      password:"",
       locality: "",
       city: "",
       district: "",
@@ -247,8 +246,7 @@ function RegisterPage() {
                       onBlur={formik.handleBlur}
                       value={formik.values.surName}
                       error={
-                        formik.touched.surName &&
-                        Boolean(formik.errors.surName)
+                        formik.touched.surName && Boolean(formik.errors.surName)
                       }
                       helperText={
                         formik.touched.surName && formik.errors.surName
@@ -330,15 +328,18 @@ function RegisterPage() {
                       size="small"
                       id="password"
                       label="Password"
-                      name="Password"
+                      name="password"
                       type="password"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       value={formik.values.password}
                       error={
-                        formik.touched.password && Boolean(formik.errors.password)
+                        formik.touched.password &&
+                        Boolean(formik.errors.password)
                       }
-                      helperText={formik.touched.password && formik.errors.password}
+                      helperText={
+                        formik.touched.password && formik.errors.password
+                      }
                       sx={textFieldStyles}
                     />
                   </Grid>
