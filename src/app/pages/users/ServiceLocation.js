@@ -20,25 +20,45 @@ import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
 import PaymentOptions from "../../components/Paymentoption";
 import Colors from "../../utils/colors";
-
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  contactNumber: "",
-  email: "",
-  locality: "",
-  city: "",
-  District: "",
-  State: "",
-  Pincode: "",
-  PickupLocality: "",
-  PickupCity: "",
-  PickupDistrict: "",
-  PickupState: "",
-  PickupPincode: "",
-};
+import Axios from "../../utils/Axios";
+import { useState, useEffect } from "react";
 
 function ServiceLocation() {
+  const createServiceLocation = async () => {
+    const data = {
+      firstName: formik.values.firstName,
+      surName: formik.values.lastName,
+      mobileNumber: formik.values.contactNumber,
+      alternateNumber: formik.values.alternateNumber,
+      email: formik.values.email,
+
+      address: {
+        locality: formik.values.locality,
+        city: formik.values.city,
+        district: formik.values.District,
+        state: formik.values.State,
+        pincode: formik.values.Pincode,
+      },
+
+      PickUp_location: {
+        locality: formik.values.PickupLocality,
+        city: formik.values.PickupCity,
+        district: formik.values.PickupDistrict,
+        state: formik.values.PickupState,
+        pincode: formik.values.PickupPincode,
+      },
+
+      paymentMode:formik.values.payment,
+    };
+
+    try {
+      const response = await Axios.post("/src/routes/createData", data);
+      console.log("API Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const submitButtonStyle = {
     marginTop: "20px",
     marginBottom: "20px",
@@ -74,13 +94,6 @@ function ServiceLocation() {
     width: "100%",
     marginTop: "3%",
   };
-
-  const { values, handleBlur, handleChange, handleSubmit } = useFormik({
-    initialValues: initialValues,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
 
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -145,10 +158,12 @@ function ServiceLocation() {
       PickupDistrict: "",
       PickupState: "",
       PickupPincode: "",
+      payment:"",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      console.log("On Submit Values: ", values);
+      formik.resetForm();
     },
   });
 
@@ -179,7 +194,7 @@ function ServiceLocation() {
             >
               Enter your credentials here:
             </Typography>
-            <form style={formStyle} onSubmit={handleSubmit}>
+            <form style={formStyle} onSubmit={formik.handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -277,7 +292,8 @@ function ServiceLocation() {
                     variant="h6"
                     sx={{ color: Colors.palette.secondary.main }}
                   >
-                    Address
+                    Addres
+                    s
                     <br />
                   </Typography>
                 </Grid>
@@ -532,7 +548,8 @@ function ServiceLocation() {
                   type="button"
                   variant="contained"
                   sx={{ ...submitButtonStyle }}
-                  onClick={formik.handleSubmit}
+                  // onClick={formik.handleSubmit}
+                  onClick={createServiceLocation}
                 >
                   {/* <NavLink 
                     to="/home" 

@@ -85,11 +85,12 @@ function ContactUs() {
         state: formik.values.State,
         pincode: formik.values.Pincode,
       },
+      message: formik.values.message,
     };
 
     try {
       const response = await Axios.post("/src/routes/createData", data);
-      console.log("Response:", response.data);
+      console.log("API Response:", response.data);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -143,10 +144,12 @@ function ContactUs() {
       city: "",
       State: "",
       Pincode: "",
+      message: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      console.log("On Submit Values: ", values);
+      formik.resetForm();
     },
   });
 
@@ -493,7 +496,16 @@ function ContactUs() {
                                   id="message"
                                   name="message"
                                   onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
                                   value={formik.values.message}
+                                  error={
+                                    formik.touched.message &&
+                                    Boolean(formik.errors.message)
+                                  }
+                                  helperText={
+                                    formik.touched.message &&
+                                    formik.errors.message
+                                  }
                                 />
                               </Grid>
                             </Grid>

@@ -7,8 +7,13 @@ import {
   Typography,
 } from "@mui/material";
 import Colors from "../utils/colors";
+import { Formik, Field, ErrorMessage, Form } from "formik";
+import * as Yup from "yup";
+
 function PaymentOptions() {
-  const [paymentMethod, setPaymentMethod] = useState("cashOnDelivery");
+
+  const [paymentMethod, setPaymentMethod] = useState(null);
+
   const handlePaymentChange = (event) => {
     setPaymentMethod(event.target.value);
   };

@@ -42,7 +42,7 @@ function RegisterPage() {
     };
     try{
       const response=await Axios.post("/src/routes/createData" ,data);
-       console.log("response",response.data);
+       console.log("API Response",response.data);
       
     }
     catch(error){
@@ -132,7 +132,8 @@ function RegisterPage() {
     },
     validationSchema,
     onSubmit: (values) => {
-     
+      console.log("On Submit Values: ", values);
+      formik.resetForm();
     },
   });
 
