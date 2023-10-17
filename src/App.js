@@ -1,10 +1,9 @@
-
 import Index from "./app/routes/index";
-import Work from "./app/components/Work"
+import Footer from "./app/partials/Footer";
 function App() {
   return (
     <>
-<Work/>
+      <Footer />
       {/* <Index /> */}
     </>
   );

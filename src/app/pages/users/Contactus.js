@@ -28,7 +28,7 @@ import { useState, useEffect } from "react";
 
 const cardStyles = {
   p: 2,
-  marginBottom: "2%",
+  marginBottom: "5%",
   borderRadius: "20px",
 };
 
@@ -262,7 +262,7 @@ function ContactUs() {
 
                 <Grid item xs={12} sm={12} md={6}>
                   <Card>
-                    <Container component="main" maxWidth="xs">
+                    <Container component="main" maxWidth="sm">
                       <Grid container>
                         <Box
                           style={{

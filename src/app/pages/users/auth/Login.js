@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Button, Container, Grid, Paper, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink } from "react-router-dom";
@@ -10,12 +18,11 @@ import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
 
 function Login() {
-
-  const LoginUser = async() => {
+  const LoginUser = async () => {
     const data = {
       userName: formik.values.userName,
       passWord: formik.values.passWord,
-    }
+    };
 
     try {
       const response = await Axios.post("/src/routes/login", data);
@@ -23,7 +30,7 @@ function Login() {
     } catch (error) {
       console.error("Error:", error);
     }
-  }
+  };
 
   const paperStyle = {
     padding: "20px",
@@ -51,13 +58,15 @@ function Login() {
   };
 
   const validationSchema = Yup.object({
-    userName:Yup.string().email("Invalid Email").required("Username/Email is required"),
+    userName: Yup.string()
+      .email("Invalid Email")
+      .required("Username/Email is required"),
     passWord: Yup.string()
-    .required("Password is required")
-    .matches(
-      /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,8}$/,
-      "Password Should have one Capital Letter, Number, Specical Character and be 6 to 8 characters in length"
-    ),
+      .required("Password is required")
+      .matches(
+        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,8}$/,
+        "Password Should have one Capital Letter, Number, Specical Character and be 6 to 8 characters in length"
+      ),
   });
 
   const formik = useFormik({
@@ -75,9 +84,8 @@ function Login() {
     <>
       <Box
         sx={{
-          backgroundColor: "#023159",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          background:
+            "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
           height: "100vh",
           width: "100vw",
           display: "flex",
@@ -87,17 +95,24 @@ function Login() {
       >
         <Box
           sx={{
-            width: "80%",
-            height: "80%",
+            width: "100%",
+            height: "100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <Container maxWidth="xs">
+          <Container maxWidth="sm">
             <Grid container>
-              <Paper elevation={3} style={paperStyle} sx={{ width: "100%" }}>
-                <Box style={{ display: "flex" }}>
+              <Paper
+                elevation={3}
+                style={paperStyle}
+                sx={{
+                  width: "100%",
+                  background: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))`,
+                }}
+              >
+                <Box sx={{ display: "flex" }}>
                   <Button
                     sx={{
                       color: Colors.palette.secondary.main,
@@ -140,11 +155,15 @@ function Login() {
                     fullWidth
                     size="small"
                     type="email"
-                    InputProps={{ sx: { mb: 2 } }}
+                    InputProps={{ sx: { mb: 3 } }}
                     value={formik.values.userName}
                     onChange={formik.handleChange}
-                    error={formik.touched.userName && Boolean(formik.errors.userName)}
-                    helperText={formik.touched.userName && formik.errors.userName}
+                    error={
+                      formik.touched.userName && Boolean(formik.errors.userName)
+                    }
+                    helperText={
+                      formik.touched.userName && formik.errors.userName
+                    }
                   />
                   <TextField
                     variant="outlined"
@@ -156,17 +175,21 @@ function Login() {
                     type="passWord"
                     value={formik.values.passWord}
                     onChange={formik.handleChange}
-                    error={formik.touched.passWord && Boolean(formik.errors.passWord)}
-                    helperText={formik.touched.passWord && formik.errors.passWord}
+                    error={
+                      formik.touched.passWord && Boolean(formik.errors.passWord)
+                    }
+                    helperText={
+                      formik.touched.passWord && formik.errors.passWord
+                    }
                   />
                   <Typography
                     sx={{
                       color: Colors.palette.secondary.main,
                       display: "flex",
-                      mt: "1rem",
+                      mt: "1.2rem",
                     }}
                   >
-                    <LockIcon />
+                    <LockIcon sx={{ mr: "1rem" }} />
                     {/* <Link
                       sx={{
                         textDecoration: "none",
@@ -181,8 +204,8 @@ function Login() {
                           color: Colors.palette.secondary.main,
                         }}
                       > */}
-                        Forgot password?
-                      {/* </NavLink>
+                    Forgot password?
+                    {/* </NavLink>
                     </Link> */}
                   </Typography>
                   <Box align="center">

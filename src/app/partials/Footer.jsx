@@ -2,7 +2,6 @@ import * as React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-//import Car from "../images/Car.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -65,7 +64,7 @@ const Footer = () => {
             <Typography
               variant="body2"
               gutterBottom
-              sx={{ marginTop: "11%",color: Colors.palette.primary.main }}
+              sx={{ marginTop: "11%", color: Colors.palette.primary.main }}
             >
               Services
             </Typography>

@@ -1,9 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
@@ -11,6 +6,15 @@ import { NavLink } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Axios from "../../../utils/Axios";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 const submitButtonStyle = {
   marginTop: "20px",
@@ -24,7 +28,7 @@ const submitButtonStyle = {
 
 const Mobile = () => {
   const MobileUser = async () => {
-    const data ={
+    const data = {
       mobileNumber: formik.values.mobileNumber,
     };
     try {
@@ -37,12 +41,12 @@ const Mobile = () => {
 
   const validationSchema = Yup.object().shape({
     mobileNumber: Yup.string()
-    .required("Contact Number is required")
-    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+      .required("Contact Number is required")
+      .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
   });
   const formik = useFormik({
     initialValues: {
-      mobileNumber: ""
+      mobileNumber: "",
     },
     validationSchema,
     onSubmit: (values) => {
@@ -51,9 +55,8 @@ const Mobile = () => {
     },
   });
 
-
   return (
-    <Box>
+    <>
       <Box
         sx={{
           background:
@@ -64,15 +67,13 @@ const Mobile = () => {
           alignItems: "center",
         }}
       >
-        <Grid container justifyContent="center" sx={{}}>
+        <Grid container justifyContent="center">
           <Grid item xs={10} sm={8} md={6} lg={4}>
             <Box
               sx={{
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))`,
+                background: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))`,
                 borderRadius: "20px",
                 backgroundSize: "100%",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
                 display: "flex",
                 flexDirection: "column",
                 padding: "16px",
@@ -132,21 +133,20 @@ const Mobile = () => {
                   variant="outlined"
                   fullWidth
                   name="mobileNumber"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.mobileNumber}
-                      error={
-                        formik.touched.mobileNumber &&
-                        Boolean(formik.errors.mobileNumber)
-                      }
-                      helperText={
-                        formik.touched.mobileNumber &&
-                        formik.errors.mobileNumber
-                      }
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.mobileNumber}
+                  error={
+                    formik.touched.mobileNumber &&
+                    Boolean(formik.errors.mobileNumber)
+                  }
+                  helperText={
+                    formik.touched.mobileNumber && formik.errors.mobileNumber
+                  }
                 />
               </Box>
               <Box
-                onClick={MobileUser }
+                onClick={MobileUser}
                 sx={{
                   display: "flex",
                   justifyContent: "center",
@@ -200,10 +200,8 @@ const Mobile = () => {
           </Grid>
         </Grid>
       </Box>
-    </Box>
+    </>
   );
 };
 
 export default Mobile;
-
-
