@@ -27,6 +27,7 @@ function RegisterPage() {
       mobileNumber: formik.values.mobileNumber,
       alternateNumber: formik.values.alternateNumber,
       email: formik.values.email,
+      password:formik.values.password,
       
       address: {
         locality: formik.values.locality,
@@ -35,10 +36,7 @@ function RegisterPage() {
         state: formik.values.state,
         pincode: formik.values.pincode,
       },
-      age: formik.values.age,
-      price: formik.values.price,
-      createusername: formik.values.createusername,
-      password: formik.values.password,
+    
     };
     try{
       const response=await Axios.post("src/routes/userRegister" ,data);
@@ -49,8 +47,6 @@ function RegisterPage() {
       console.log(error)
     }
   }
-
-
 
   const paperStyle = {
     padding: "20px",
@@ -125,6 +121,7 @@ function RegisterPage() {
       surName: "",
       mobileNumber: "",
       alternateNumber: "",
+      password:"",
 
       email: "",
       locality: "",
