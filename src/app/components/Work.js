@@ -15,17 +15,17 @@ import Colors from '../utils/colors';
 
 const steps = [
   {
-    title: 'Step One',
+    title: 'Book Slot',
     description: 'Book your car wash online at your convenience.',
     image: Book,
   },
   {
-    title: 'Step Two',
+    title: '5Star Services',
     description: 'Our experienced team arrives to clean your car thoroughly, We provide Best services.',
     image: Star,
   },
   {
-    title: 'Step Three',
+    title: 'Payment',
     description: 'Payment can be made securely, and you can rate our service. We provide Best services.',
     image: Payment,
   },
@@ -36,7 +36,7 @@ function Work() {
 
   return (
     <Container>
-      <Typography variant="h1" align="center" style={{ marginTop: '20px', color: Colors.palette.secondary.main }}>
+      <Typography variant="h1" align="center" sx={{ marginTop: '20px', color: Colors.palette.secondary.main }}>
         How We Works
       </Typography>
       <Grid container spacing={3}>

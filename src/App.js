@@ -1,10 +1,12 @@
 
 import Index from "./app/routes/index";
-import Work from "./app/components/Work"
+import FAQ1 from "./app/components/FAQ1"
+import Mobile from "./app/pages/users/auth/Mobile";
 function App() {
   return (
     <>
-<Work/>
+<FAQ1/>
+{/* <Mobile/> */}
       {/* <Index /> */}
     </>
   );
