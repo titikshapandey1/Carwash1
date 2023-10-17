@@ -5,8 +5,8 @@ import Index from "./app/routes/index";
 function App() {
   return (
     <>
-   {/* <Mobile/> */}
-      <Index />
+   <Mobile/>
+      {/* <Index /> */}
     </>
   );
 }
