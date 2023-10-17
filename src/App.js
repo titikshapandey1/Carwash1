@@ -1,11 +1,10 @@
 
-import Mobile from "./app/pages/users/auth/Mobile";
 import Index from "./app/routes/index";
-
+import Work from "./app/components/Work"
 function App() {
   return (
     <>
-   <Mobile/>
+<Work/>
       {/* <Index /> */}
     </>
   );
