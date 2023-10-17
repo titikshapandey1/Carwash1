@@ -10,6 +10,7 @@ import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
 
 function Login() {
+
   const LoginUser = async() => {
     const data = {
       userName: formik.values.userName,
@@ -23,6 +24,7 @@ function Login() {
       console.error("Error:", error);
     }
   }
+
   const paperStyle = {
     padding: "20px",
     display: "flex",
@@ -48,7 +50,6 @@ function Login() {
     marginLeft: { xs: "20%", sm: "30%" },
   };
 
-
   const validationSchema = Yup.object({
     userName:Yup.string().email("Invalid Email").required("Username/Email is required"),
     passWord: Yup.string()
@@ -58,7 +59,6 @@ function Login() {
       "Password Should have one Capital Letter, Number, Specical Character and be 6 to 8 characters in length"
     ),
   });
-
 
   const formik = useFormik({
     initialValues: {

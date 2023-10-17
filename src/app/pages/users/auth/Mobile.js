@@ -60,8 +60,6 @@ const Mobile = () => {
           <Grid item xs={10} sm={8} md={6} lg={4}>
             <Box
               sx={{
-                // minHeight: '50vh',
-                // backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
                 backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))`,
                 borderRadius: "20px",
                 backgroundSize: "100%",
@@ -69,7 +67,6 @@ const Mobile = () => {
                 backgroundPosition: "center",
                 display: "flex",
                 flexDirection: "column",
-                // alignItems: 'center',
                 padding: "16px",
               }}
             >
