@@ -66,7 +66,7 @@ const AdminDashboard = () => {
         >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={6}>
-              <Card sx={{ maxWidth: { xs: 700, md: 300 }, ...cardStyle }}>
+              <Card sx={{ maxWidth: { xs: 700, md: 410 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -84,7 +84,7 @@ const AdminDashboard = () => {
               </Card>
             </Grid>
             <Grid item xs={12} sm={6} md={6}>
-              <Card sx={{ maxWidth: { xs: 700, md: 300 }, ...cardStyle }}>
+              <Card sx={{ maxWidth: { xs: 700, md: 400 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -180,7 +180,7 @@ const AdminDashboard = () => {
             <Grid item xs={8} sm={8} md={10}>
               <Card
                 sx={{
-                  maxWidth: 700,
+                  maxWidth: 800,
                   // marginTop: { xs: "7%", sm: "2%" },
                   ...cardStyle,
                 }}

@@ -48,10 +48,29 @@ const Nav = () => {
             <Box
               sx={{
                 justifyContent: "center",
-                gap: { md: "50px", xl: "100px", sm: "25px" },
+                gap: { md: "20px" },
                 display: { xs: "none", sm: "flex" },
               }}
             >
+              <Button
+                sx={{
+                  "&:hover": {
+                    backgroundColor: Colors.palette.primary.lightBlue,
+                    color: "red",
+                  },
+                }}
+              >
+                <NavLink
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.primary.main,
+                  }}
+                >
+                  Home
+                </NavLink>
+              </Button>
+
               <Button
                 sx={{
                   "&:hover": {
@@ -125,6 +144,27 @@ const Nav = () => {
                   }}
                 >
                   Login
+                </NavLink>
+              </Button>
+
+              <Button
+                sx={{
+                  backgroundColor: Colors.palette.primary.lightBlue,
+                  cursor: "pointer",
+                  "&:hover": {
+                    backgroundColor: Colors.palette.primary.darkBlue,
+                    // color: Colors.palette.primary.red,
+                  },
+                }}
+              >
+                <NavLink
+                  to="/login"
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.primary.main,
+                  }}
+                >
+                  Register
                 </NavLink>
               </Button>
             </Box>

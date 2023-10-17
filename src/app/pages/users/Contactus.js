@@ -22,7 +22,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
-
+import car1 from "../../assests/images/AboutCar.png";
 import Axios from "../../utils/Axios";
 import { useState, useEffect } from "react";
 
@@ -89,7 +89,7 @@ function ContactUs() {
     };
 
     try {
-      const response = await Axios.post("/src/routes/createData", data);
+      const response = await Axios.post("/src/routes/fedBack", data);
       console.log("API Response:", response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -175,19 +175,23 @@ function ContactUs() {
                   {/* <Box> */}
                   <Card
                     sx={{
-                      width: "55%",
+                      width: "80%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
                     }}
                   >
                     {" "}
                     <Container>
-                      <Grid container wrap="nowrap" spacing={8}>
+                      <Grid container wrap="nowrap" spacing={10}>
                         <Grid item marginTop="5%">
-                          <HourglassFullIcon />
+                          <HourglassFullIcon
+                            sx={{ color: Colors.palette.secondary.main }}
+                          />
                         </Grid>
                         <Grid item>
-                          <Typography>
+                          <Typography
+                            sx={{ color: Colors.palette.secondary.main }}
+                          >
                             <b>Hours</b>
                             <br />
                             Mon-Fri : 9 AM - 7 PM
@@ -200,19 +204,23 @@ function ContactUs() {
                   </Card>
                   <Card
                     sx={{
-                      width: "65%",
+                      width: "80%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
                     }}
                   >
                     {" "}
                     <Container>
-                      <Grid container wrap="nowrap" spacing={8}>
+                      <Grid container wrap="nowrap" spacing={10}>
                         <Grid item marginTop="5%">
-                          <CallIcon />
+                          <CallIcon
+                            sx={{ color: Colors.palette.secondary.main }}
+                          />
                         </Grid>
                         <Grid item xs>
-                          <Typography>
+                          <Typography
+                            sx={{ color: Colors.palette.secondary.main }}
+                          >
                             <b>Contact:</b>
                             <br />
                             mifs@info.com
@@ -225,18 +233,22 @@ function ContactUs() {
                   </Card>
                   <Card
                     sx={{
-                      width: "75%",
+                      width: "80%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
                     }}
                   >
                     <Container>
-                      <Grid container wrap="nowrap" spacing={8}>
+                      <Grid container wrap="nowrap" spacing={10}>
                         <Grid item marginTop="5%">
-                          <ExploreIcon />
+                          <ExploreIcon
+                            sx={{ color: Colors.palette.secondary.main }}
+                          />
                         </Grid>
                         <Grid item xs>
-                          <Typography>
+                          <Typography
+                            sx={{ color: Colors.palette.secondary.main }}
+                          >
                             <b>Address:</b>
                             <br />
                             2972 Westheimer Rd. Santa Ana,
@@ -246,7 +258,6 @@ function ContactUs() {
                       </Grid>
                     </Container>
                   </Card>
-                  {/* </Box> */}
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={6}>

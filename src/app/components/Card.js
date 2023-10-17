@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
+import DoneAllOutlinedIcon from "@mui/icons-material/DoneAllOutlined";
 import OurServices from "../components/OurServices";
 import Colors from "../utils/colors";
 import { NavLink } from "react-router-dom";
@@ -47,37 +47,47 @@ const Card1 = () => {
                   </b>
                 </Typography>
                 <Typography>
-               
-                    <List >
-                  <ListItem >
+                  <List>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                    <ListItemText style={{marginLeft:'15px'}}primary="Exterior Wash, removing dust and grime." />
-                  </ListItem>
-                  <ListItem>
-                    
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Exterior Wash, removing dust and grime."
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                  
-                    <ListItemText style={{marginLeft:'15px'}} primary="Interior Vacuuming, dusting seats and carpets and floor mats." />
-                  </ListItem>
-                  <ListItem>
-           
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Interior Vacuuming, dusting seats and carpets and floor mats."
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                   
-                    <ListItemText style={{marginLeft:'15px'}} primary="Cleaning and Polishing all windows and mirrors." />
-                  </ListItem>
-                  <ListItem>
-                   
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Cleaning and Polishing all windows and mirrors."
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                  
-                    <ListItemText style={{marginLeft:'15px'}} primary="Cleaning and Shining tires and rims." />
-                  </ListItem>
-                  <ListItem>
-                
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Cleaning and Shining tires and rims."
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                
-                    <ListItemText style={{marginLeft:'15px'}} primary="Wiping down interior surfaces, including dashboard and door panels." />
-                  </ListItem>
-                </List>
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Wiping down interior surfaces, including dashboard and door panels."
+                      />
+                    </ListItem>
+                  </List>
                 </Typography>
 
                 <Box
@@ -138,41 +148,50 @@ const Card1 = () => {
                   </b>
                 </Typography>
                 <Typography>
-                
-             <List >
-                  <ListItem >
+                  <List>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                    <ListItemText style={{marginLeft:'15px'}}primary=" Cleaning of the exterior removing dirt, dust, and grime." />
-                  </ListItem>
-                  <ListItem>
-                    
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary=" Cleaning of the exterior removing dirt, dust, and grime."
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                  
-                    <ListItemText style={{marginLeft:'15px'}} primary=" Vacuuming, wiping, and sanitizing interior, including
-                      seats, dashboard, and windows." />
-                  </ListItem>
-                  <ListItem>
-           
-                      <DoneAllOutlinedIcon />
-                   
-                    <ListItemText style={{marginLeft:'15px'}} primary=" Specialized cleaning of seats, carpets, and fabric
-                      surfaces to remove stains and odors." />
-                  </ListItem>
-                  <ListItem>
-                   
-                      <DoneAllOutlinedIcon />
-                  
-                    <ListItemText style={{marginLeft:'15px'}} primary=" Application of protective coatings or sealants to maintain
-                      the car's paint finish." />
-                  </ListItem>
-                  <ListItem>
-                
-                      <DoneAllOutlinedIcon />
-                
-                    <ListItemText style={{marginLeft:'15px'}} primary=" Fine detailing work, polishing, waxing, and tire cleaning." />
-                  </ListItem>
-                </List>
 
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary=" Vacuuming, wiping, and sanitizing interior, including
+                      seats, dashboard, and windows."
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <DoneAllOutlinedIcon />
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary=" Specialized cleaning of seats, carpets, and fabric
+                      surfaces to remove stains and odors."
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <DoneAllOutlinedIcon />
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary=" Application of protective coatings or sealants to maintain
+                      the car's paint finish."
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <DoneAllOutlinedIcon />
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary=" Fine detailing work, polishing, waxing, and tire cleaning."
+                      />
+                    </ListItem>
+                  </List>
                 </Typography>
                 <Box
                   sx={{
@@ -216,7 +235,7 @@ const Card1 = () => {
                 bgcolor: Colors.palette.primary.main,
               }}
             >
-              <CardContent sx={{outline:'bold'}}>
+              <CardContent sx={{ outline: "bold" }}>
                 <Typography
                   variant="h5"
                   sx={{
@@ -232,38 +251,48 @@ const Card1 = () => {
                   </b>
                 </Typography>
                 <Typography>
-               
-                   <List >
-                  <ListItem >
+                  <List>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                    <ListItemText style={{marginLeft:'15px'}}primary="Thorough cleaning of seats, carpets, and upholstery" />
-                  </ListItem>
-                  <ListItem>
-                    
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Thorough cleaning of seats, carpets, and upholstery"
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                  
-                    <ListItemText style={{marginLeft:'15px'}} primary="Cleaning, waxing, and polishing the car's exterior." />
-                  </ListItem>
-                  <ListItem>
-           
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Cleaning, waxing, and polishing the car's exterior."
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                   
-                    <ListItemText style={{marginLeft:'15px'}} primary="Removing dirt and grime from the engine compartment." />
-                  </ListItem>
-                  <ListItem>
-                   
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Removing dirt and grime from the engine compartment."
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                  
-                    <ListItemText style={{marginLeft:'15px'}} primary="Detailed cleaning and tire dressing" />
-                  </ListItem>
-                  <ListItem>
-                
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="Detailed cleaning and tire dressing"
+                      />
+                    </ListItem>
+                    <ListItem>
                       <DoneAllOutlinedIcon />
-                
-                    <ListItemText style={{marginLeft:'15px'}} primary="  Ensuring windows and mirrors are streak-free for
-                      visibility and safety." />
-                  </ListItem>
-                </List>
+
+                      <ListItemText
+                        style={{ marginLeft: "15px" }}
+                        primary="  Ensuring windows and mirrors are streak-free for
+                      visibility and safety."
+                      />
+                    </ListItem>
+                  </List>
                 </Typography>
 
                 <Box

@@ -12,18 +12,18 @@ const HomeCards = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${Cardshome})`,
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          opacity: 1,
-          position: "relative",
-          width: "100%",
-          height: "100%",
-          zIndex: -1,
-          "@media (max-width: 960px)": {
-            backgroundImage: "none",
-          },
+          // backgroundImage: `url(${Cardshome})`,
+          // backgroundSize: "contain",
+          // backgroundRepeat: "no-repeat",
+          // backgroundPosition: "center",
+          // opacity: 1,
+          // position: "relative",
+          // width: "100%",
+          // height: "100%",
+          // zIndex: -1,
+          // "@media (max-width: 960px)": {
+          //   backgroundImage: "none",
+          // },
         }}
       >
         <Container sx={{ mt: 10 }}>

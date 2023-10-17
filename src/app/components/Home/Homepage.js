@@ -64,6 +64,17 @@ const HomePage = () => {
         <Grid container spacing={2} justifyContent={"center"}>
           {/* Left Content */}
           <Grid item xs={12} sm={12} md={6}>
+            <Box
+              component="img"
+              src={vector}
+              alt="Vector"
+              width="80%"
+              height="auto"
+            />
+          </Grid>
+
+          {/* Right Side Image */}
+          <Grid item xs={12} sm={12} md={6}>
             <Box>
               <Typography
                 variant="h4"
@@ -136,16 +147,6 @@ const HomePage = () => {
                 </NavLink>
               </Button>
             </Box>
-          </Grid>
-          {/* Right Side Image */}
-          <Grid item xs={12} sm={12} md={6}>
-            <Box
-              component="img"
-              src={vector}
-              alt="Vector"
-              width="100%"
-              height="auto"
-            />
           </Grid>
         </Grid>
       </Container>

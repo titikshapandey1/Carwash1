@@ -1,15 +1,16 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import car1 from "../../../assests/images/car1guest.png";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import { Link } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import Axios from "../../../utils/Axios";
 
 const submitButtonStyle = {
   marginTop: "20px",
@@ -22,29 +23,34 @@ const submitButtonStyle = {
 };
 
 const Mobile = () => {
-  const [mobileNumber, setMobileNumber] = React.useState("");
-  const [errors, setErrors] = React.useState({ mobileNumber: "" });
-
-  const handleMobileNumberChange = (e) => {
-    const { value } = e.target;
-    setMobileNumber(value);
-  };
-
-  const handleFormSubmit = () => {
-    const newErrors = {};
-
-    if (!mobileNumber) {
-      newErrors.mobileNumber = "Mobile Number is required";
-    } else if (!/^\d{10}$/.test(mobileNumber)) {
-      newErrors.mobileNumber = "Invalid Mobile Number (10 digits required)";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      // history.push("/otp");
+  const MobileUser = async () => {
+    const data ={
+      mobileNumber: formik.values.mobileNumber,
+    };
+    try {
+      const response = await Axios.post("src/routes/resbymobnum", data);
+      console.log("response", response.data);
+    } catch (error) {
+      console.log(error);
     }
   };
+
+  const validationSchema = Yup.object().shape({
+    mobileNumber: Yup.string()
+    .required("Contact Number is required")
+    .matches(/^[1-9]\d{9}$/, "Invalid Contact Number"),
+  });
+  const formik = useFormik({
+    initialValues: {
+      mobileNumber: ""
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      console.log("On Submit Values: ", values);
+      formik.resetForm();
+    },
+  });
+
 
   return (
     <Box>
@@ -62,8 +68,6 @@ const Mobile = () => {
           <Grid item xs={10} sm={8} md={6} lg={4}>
             <Box
               sx={{
-                // minHeight: '50vh',
-                // backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${car1})`,
                 backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))`,
                 borderRadius: "20px",
                 backgroundSize: "100%",
@@ -71,7 +75,6 @@ const Mobile = () => {
                 backgroundPosition: "center",
                 display: "flex",
                 flexDirection: "column",
-                // alignItems: 'center',
                 padding: "16px",
               }}
             >
@@ -128,14 +131,22 @@ const Mobile = () => {
                   placeholder="Mobile Number"
                   variant="outlined"
                   fullWidth
-                  value={mobileNumber}
-                  onChange={handleMobileNumberChange}
-                  error={!!errors.mobileNumber}
-                  helperText={errors.mobileNumber}
+                  name="mobileNumber"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.mobileNumber}
+                      error={
+                        formik.touched.mobileNumber &&
+                        Boolean(formik.errors.mobileNumber)
+                      }
+                      helperText={
+                        formik.touched.mobileNumber &&
+                        formik.errors.mobileNumber
+                      }
                 />
               </Box>
               <Box
-                onClick={handleFormSubmit}
+                onClick={MobileUser }
                 sx={{
                   display: "flex",
                   justifyContent: "center",
