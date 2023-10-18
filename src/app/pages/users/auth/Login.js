@@ -41,6 +41,8 @@ function Login() {
     }
   };
 
+  
+
   const paperStyle = {
     padding: "20px",
     display: "flex",
@@ -172,8 +174,10 @@ function Login() {
                     helperText={
                       formik.touched.userName && formik.errors.userName
                     }
+                    sx={{marginBottom:'20px'}}
                   />
-                  <TextField
+                  <TextField 
+
                     variant="outlined"
                     placeholder="Password"
                     id="passWord"
