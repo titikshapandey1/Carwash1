@@ -55,7 +55,7 @@ function ServiceLocation() {
       const response = await Axios.post("src/routes/serviceRqst", data);
       console.log("API Response:", response.data);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error?.response?.data?.message);
     }
   };
 
