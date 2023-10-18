@@ -9,9 +9,11 @@ import { Box } from "@mui/material";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import Colors from "../utils/colors";
 
+
 const Footer = () => {
+
   return (
-    <Box
+    <Box 
       sx={{
         backgroundColor: Colors.palette.primary.darkBlue,
         width: "100%",
@@ -19,6 +21,8 @@ const Footer = () => {
         overflow: "hidden",
       }}
     >
+     
+
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ marginInline: "3%" }}>
           <Grid

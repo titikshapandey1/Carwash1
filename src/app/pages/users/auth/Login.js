@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -7,7 +7,14 @@ import {
   Paper,
   TextField,
   Typography,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
+import {
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
+
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink } from "react-router-dom";
@@ -16,9 +23,10 @@ import * as Yup from "yup";
 import Axios from "../../../utils/Axios";
 import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
-import { useState, useEffect } from "react";
+
 
 function Login() {
+  const [showPassword, setShowPassword] = useState(false);
   const LoginUser = async () => {
     const data = {
       userName: formik.values.userName,
@@ -172,8 +180,7 @@ function Login() {
                     name="passWord"
                     fullWidth
                     size="small"
-                    type="passWord"
-                    InputProps={{ sx: { mt: 3 } }}
+                    type={showPassword ? "text" : "password"} 
                     value={formik.values.passWord}
                     onChange={formik.handleChange}
                     error={
@@ -182,6 +189,17 @@ function Login() {
                     helperText={
                       formik.touched.passWord && formik.errors.passWord
                     }
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={() => setShowPassword(!showPassword)}
+                          >
+                            {showPassword ? <Visibility /> : <VisibilityOff />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
                   />
                   <Typography
                     sx={{
