@@ -16,6 +16,7 @@ import * as Yup from "yup";
 import Axios from "../../../utils/Axios";
 import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
+import { useState, useEffect } from "react";
 
 function Login() {
   const LoginUser = async () => {
@@ -113,23 +114,23 @@ function Login() {
                 }}
               >
                 <Box sx={{ display: "flex" }}>
-                  <Button
-                    sx={{
+                  <NavLink
+                    to="/"
+                    style={{
+                      textDecoration: "none",
                       color: Colors.palette.secondary.main,
-                      justifyContent: "flex-start",
                     }}
-                    onClick={Mobile}
                   >
-                    <NavLink
-                      to="/"
-                      style={{
-                        textDecoration: "none",
+                    <Button
+                      sx={{
                         color: Colors.palette.secondary.main,
+                        justifyContent: "flex-start",
                       }}
+                      onClick={Mobile}
                     >
                       <ArrowBackIosIcon />
-                    </NavLink>
-                  </Button>
+                    </Button>
+                  </NavLink>
                   <Typography
                     variant="h4"
                     sx={{
@@ -155,7 +156,6 @@ function Login() {
                     fullWidth
                     size="small"
                     type="email"
-                    InputProps={{ sx: { mb: 3 } }}
                     value={formik.values.userName}
                     onChange={formik.handleChange}
                     error={
@@ -173,6 +173,7 @@ function Login() {
                     fullWidth
                     size="small"
                     type="passWord"
+                    InputProps={{ sx: { mt: 3 } }}
                     value={formik.values.passWord}
                     onChange={formik.handleChange}
                     error={
@@ -190,25 +191,24 @@ function Login() {
                     }}
                   >
                     <LockIcon sx={{ mr: "1rem" }} />
-                    {/* <Link
-                      sx={{
+                    <NavLink
+                      to="/mobile"
+                      style={{
                         textDecoration: "none",
-                        ml: 1,
                         color: Colors.palette.secondary.main,
                       }}
                     >
-                      <NavLink
-                        to="/mobile"
-                        style={{
-                          textDecoration: "none",
-                          color: Colors.palette.secondary.main,
-                        }}
-                      > */}
-                    Forgot password?
-                    {/* </NavLink>
-                    </Link> */}
+                      Forgot password?
+                    </NavLink>
                   </Typography>
                   <Box align="center">
+                    {/* <NavLink
+                      to="/registerpage"
+                      style={{
+                        textDecoration: "none",
+                        color: Colors.palette.secondary.main,
+                      }}
+                    > */}
                     <Button
                       type="submit"
                       fullWidth
@@ -218,6 +218,7 @@ function Login() {
                     >
                       Login
                     </Button>
+                    {/* </NavLink> */}
                   </Box>
                   <Box align="center">
                     <Typography sx={{ color: Colors.palette.secondary.main }}>

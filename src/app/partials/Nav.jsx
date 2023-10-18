@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Colors from "../utils/colors";
 import DrawerComp from "./Drawer";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // const linkStyle = {
 //   color:Colors.palette.primary.main ,
@@ -158,7 +158,7 @@ const Nav = () => {
                 }}
               >
                 <NavLink
-                  to="/login"
+                  to="/registerpage"
                   style={{
                     textDecoration: "none",
                     color: Colors.palette.primary.main,

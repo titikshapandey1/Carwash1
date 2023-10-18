@@ -36,6 +36,7 @@ import Booking from "../pages/users/Booking";
 import Contactus from "../pages/users/Contactus";
 import History from "../components/Table";
 import Profile2 from "../pages/users/Profile2";
+import FAQs from "../components/FAQ1";
 
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import AdPaySucc from "../pages/admin/AdPaySucc";
@@ -99,7 +100,8 @@ function AppRouter() {
         <Route path="/booking" element={<Booking />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/history" element={<History />}></Route>
-
+        <Route path="/faqs" element={<FAQs />}></Route>
+        
         {/*======== ADMIN ========== */}
         <Route path="/admindashboard" element={<AdminDashboard />}></Route>
         <Route path="/adminpaysuccessful" element={<AdPaySucc />}></Route>

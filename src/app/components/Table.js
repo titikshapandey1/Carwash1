@@ -10,6 +10,7 @@ import Paper from "@mui/material/Paper";
 import { Box, Container } from "@mui/material";
 import Colors from "../utils/colors";
 // import Nav from "../../partials/Nav";
+import { NavLink } from "react-router-dom"; 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -102,7 +103,7 @@ export default function History() {
                         color: "white",
                       }}
                     >
-                      Data
+                      Date
                     </TableCell>
                     <TableCell
                       style={{
@@ -151,7 +152,9 @@ export default function History() {
                       <StyledTableCell>{row.BookingID}</StyledTableCell>
                       <StyledTableCell>{row.ServiceTYpe}</StyledTableCell>
                       <StyledTableCell>{row.Amount}</StyledTableCell>
-                      <StyledTableCell>{row.viewdetails}</StyledTableCell>
+                      <StyledTableCell>
+                        <NavLink to="/">{row.viewdetails}</NavLink>
+                      </StyledTableCell>
                     </StyledTableRow>
                   ))}
                 </TableBody>
