@@ -48,8 +48,8 @@ const Nav = () => {
             <Box
               sx={{
                 justifyContent: "center",
-                gap: { md: "20px" },
-                display: { xs: "none", sm: "flex" },
+                gap: { md: "30px" },
+                display: { xs: "none", sm: "none", md:"flex" },
               }}
             >
               <Button
@@ -99,7 +99,7 @@ const Nav = () => {
                 }}
               >
                 <NavLink
-                  to="/homepage"
+                  to="/aboutus"
                   style={{
                     textDecoration: "none",
                     color: Colors.palette.primary.main,

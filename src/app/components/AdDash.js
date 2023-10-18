@@ -15,12 +15,18 @@ import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded
 import { Typography, Button } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Colors from "../utils/colors";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
+import Successfull from "@mui/icons-material/ThumbUp";
+import Unsuccessfull from "@mui/icons-material/ThumbDown";
+import Request from "@mui/icons-material/BookmarkAdd";
+import Active from "@mui/icons-material/BookmarkAdded";
+import Declined from "@mui/icons-material/BookmarkRemove";
+import EditIcon from "@mui/icons-material/Create";
+import CreateIcon from "@mui/icons-material/AddCircle";
 
 const drawerWidth = 240;
 
@@ -31,9 +37,6 @@ function AdDash(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-
-  
 
   const [openDashboard, setopenDashboard] = React.useState(false);
   const [openPayment, setopenPayment] = React.useState(false);
@@ -162,9 +165,9 @@ function AdDash(props) {
                   }
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Successfull
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
@@ -198,9 +201,9 @@ function AdDash(props) {
                   }
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Unsuccessfull
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
@@ -267,9 +270,9 @@ function AdDash(props) {
                   onClick={() => handleUserOptionClick("Request")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Request
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
@@ -298,9 +301,9 @@ function AdDash(props) {
                   onClick={() => handleUserOptionClick("Active Users")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Active
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
@@ -329,9 +332,9 @@ function AdDash(props) {
                   onClick={() => handleUserOptionClick("Declined Users")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Declined
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
@@ -405,9 +408,9 @@ function AdDash(props) {
                   onClick={() => handleEditSupervisorClick("Edit Supervisor")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <EditIcon
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
@@ -439,9 +442,9 @@ function AdDash(props) {
                   onClick={() => handleEditSupervisorClick("Create Supervisor")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <CreateIcon
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
