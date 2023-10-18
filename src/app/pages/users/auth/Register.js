@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Grid,
@@ -7,8 +7,10 @@ import {
   Typography,
   Box,
   Paper,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
-import Sedan from "../../../assests/images/car1guest.png";
+// import Sedan from "../../../assests/images/car1guest.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -16,8 +18,15 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 import Axios from "../../../utils/Axios";
+import {
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
+
 
 function RegisterPage() {
+  const [showPassword, setShowPassword] = useState(false);
+
   const RegiterUser = async () => {
     
     const data = {
@@ -326,7 +335,8 @@ function RegisterPage() {
                       id="password"
                       label="Password"
                       name="password"
-                      type="password"
+                    type={showPassword ? "text" : "password"} 
+                      
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       value={formik.values.password}
@@ -338,6 +348,17 @@ function RegisterPage() {
                         formik.touched.password && formik.errors.password
                       }
                       sx={textFieldStyles}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              onClick={() => setShowPassword(!showPassword)}
+                            >
+                              {showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
                     />
                   </Grid>
                   <Grid item xs={12}>

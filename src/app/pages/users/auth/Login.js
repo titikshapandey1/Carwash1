@@ -34,7 +34,7 @@ function Login() {
     };
 
     try {
-      const response = await Axios.post("/src/routes/login", data);
+      const response = await Axios.post("src/routes/login", data);
       console.log("API Response:", response.data);
     } catch (error) {
       console.error("Error:", error);
