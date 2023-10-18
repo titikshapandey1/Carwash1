@@ -185,7 +185,10 @@ function ContactUs() {
                       <Grid container wrap="nowrap" spacing={10}>
                         <Grid item marginTop="5%">
                           <HourglassFullIcon
-                            sx={{ color: Colors.palette.secondary.main }}
+                            sx={{
+                              color: Colors.palette.secondary.main,
+                              fontSize: "30px",
+                            }}
                           />
                         </Grid>
                         <Grid item>
@@ -214,7 +217,10 @@ function ContactUs() {
                       <Grid container wrap="nowrap" spacing={10}>
                         <Grid item marginTop="5%">
                           <CallIcon
-                            sx={{ color: Colors.palette.secondary.main }}
+                            sx={{
+                              color: Colors.palette.secondary.main,
+                              fontSize: "30px",
+                            }}
                           />
                         </Grid>
                         <Grid item xs>
@@ -242,7 +248,10 @@ function ContactUs() {
                       <Grid container wrap="nowrap" spacing={10}>
                         <Grid item marginTop="5%">
                           <ExploreIcon
-                            sx={{ color: Colors.palette.secondary.main }}
+                            sx={{
+                              color: Colors.palette.secondary.main,
+                              fontSize: "30px",
+                            }}
                           />
                         </Grid>
                         <Grid item xs>

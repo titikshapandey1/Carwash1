@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Container,
   TextField,
@@ -6,14 +6,14 @@ import {
   InputAdornment,
   Typography,
   Grid,
-} from '@mui/material';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import { blue } from '@mui/material/colors';
-import Colors from '../utils/colors';
+} from "@mui/material";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import { blue } from "@mui/material/colors";
+import Colors from "../utils/colors";
 
 function FAQ1() {
   const handleSearch = () => {
-    console.log('Search button clicked');
+    console.log("Search button clicked");
   };
 
   return (
@@ -23,24 +23,27 @@ function FAQ1() {
         // spacing={2}
         alignItems="center"
         justifyContent="center"
-      sx={{ minHeight: '200px',color: Colors.palette.secondary.main  }} 
-
+        sx={{ minHeight: "200px", color: Colors.palette.secondary.main }}
       >
-        <Grid item xs={12} sm={6}> 
-          <Typography variant="h5" align="center" sx={{color: Colors.palette.secondary.main }}>
-            Questions
+        <Grid item xs={12} sm={6}>
+          <Typography
+            variant="h5"
+            align="center"
+            sx={{ color: Colors.palette.secondary.main, marginBottom: "20px" }}
+          >
+            Search Questions
           </Typography>
           <TextField
             fullWidth
-            size="small"
             variant="outlined"
-            label="Search"
+            placeholder="Search"
             InputProps={{
-             
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton>
-                    <TelegramIcon sx={{ color: Colors.palette.secondary.main}}  />
+                    <TelegramIcon
+                      sx={{ color: Colors.palette.secondary.main }}
+                    />
                   </IconButton>
                 </InputAdornment>
               ),

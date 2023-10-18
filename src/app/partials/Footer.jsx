@@ -17,7 +17,7 @@ const Footer = () => {
       sx={{
         backgroundColor: Colors.palette.primary.darkBlue,
         width: "100%",
-        marginTop: "5%",
+        // marginTop: "5%",
         overflow: "hidden",
       }}
     >
