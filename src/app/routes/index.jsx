@@ -88,7 +88,7 @@ function AppRouter() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/services" element={<Services />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/homepage" element={<HomePage />}></Route>
+        <Route path="/aboutus" element={<HomePage />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/profile2" element={<Profile2 />}></Route>
         <Route path="/servicelocation" element={<ServiceLocation />}></Route>

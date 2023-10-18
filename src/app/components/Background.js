@@ -2,6 +2,8 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import car1 from "../assests/images/car-wash.jpg";
 import Colors from "../utils/colors";
+import HomeSeracher from "../components/Home/HomeSearcher";
+
 const BackgroundImg = () => {
   return (
     <>
@@ -10,12 +12,10 @@ const BackgroundImg = () => {
           display: "flex",
           backgroundImage: `url(${car1})`,
           backgroundSize: "cover",
-          opacity:'1',
-          // backgroundRepeat: "no-repeat",
+          opacity: "1",
           backgroundPosition: "center",
           minHeight: "500px",
-          backgroundColor:'grey',
-        
+          backgroundColor: "grey",
         }}
       >
         <Grid container spacing={3}>
@@ -35,6 +35,11 @@ const BackgroundImg = () => {
                 Lorem ipsum <br /> dolor sit amet, <br /> consectetur adipiscing
                 elit
               </Typography>
+            </Container>
+          </Grid>
+          <Grid item xs={12} sm={12} md={8} padding={"2%"}>
+            <Container>
+              <HomeSeracher />
             </Container>
           </Grid>
         </Grid>

@@ -5,7 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import { Box, Typography, Grid } from "@mui/material";
 import Colors from "../../utils/colors";
-import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
@@ -76,7 +75,7 @@ const AdminDashboard = () => {
                       24{" "}
                     </Typography>
                     <Typography variant="body1" sx={subHeading}>
-                      Successfull
+                      Successful
                       <br /> Payments
                     </Typography>
                   </CardContent>
