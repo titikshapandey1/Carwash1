@@ -47,7 +47,7 @@ function RegisterPage() {
     };
 
     try {
-      const response = await Axios.post("src/routes/userRegister", data);
+      const response = await Axios.post("v1/userRegister", data);
       console.log("response", response.data);
     } catch (error) {
       console.log(error);
