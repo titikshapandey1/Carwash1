@@ -156,6 +156,7 @@ export default function History() {
                         <NavLink to="/">{row.viewdetails}</NavLink>
                       </StyledTableCell>
                     </StyledTableRow>
+                    
                   ))}
                 </TableBody>
               </Table>

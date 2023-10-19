@@ -267,12 +267,19 @@ function ContactUs() {
                       </Grid>
                     </Container>
                   </Card>
-              <card>  
-                <iframe  width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=3rd%20floor%20Bhavani%20Market%20sector%2018+(Spiraleinfosoft)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                  <Link href="https://www.maps.ie/location/">location</Link>
-                  </iframe>
+                  <card>
+                    <iframe
+                      width="100%"
+                      height="400"
+                      frameborder="0"
+                      scrolling="no"
+                      marginheight="0"
+                      marginwidth="0"
+                      src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=3rd%20floor%20Bhavani%20Market%20sector%2018+(Spiraleinfosoft)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    >
+                      <Link href="https://www.maps.ie/location/">location</Link>
+                    </iframe>
                   </card>
-
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                   <Card>

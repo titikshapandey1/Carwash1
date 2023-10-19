@@ -103,8 +103,7 @@ export default function CustomizedAccordions() {
         align="center"
         sx={{ marginTop: "20px", color: Colors.palette.secondary.main }}
       >
-        Explore answers to the most commonly asked questions about the online
-        website maker.
+        Explore answers to the most commonly asked questions.
       </Typography>
       <FAQSeracher />
       {faqData.map((item, index) => (

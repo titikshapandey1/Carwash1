@@ -13,7 +13,7 @@ function Profile() {
   const fetchProfileData = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("/src/routes/getUserData/6527aa4e881d3d3be4b5990a");
+      const response = await Axios.get("v1/getUserData/6527aa4e881d3d3be4b5990a");
       console.log("Response Data:", response.data.data);
       setUserData(response.data.data);
     } catch (error) {
