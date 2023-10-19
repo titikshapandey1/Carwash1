@@ -19,7 +19,7 @@ const Footer = () => {
       <Wave
         fill={Colors.palette.primary.darkBlue}
         paused={false}
-        style={{ display: "flex", marginTop: "5%" }}
+        style={{ display: "flex", marginTop: "5%" ,}}
         options={{
           height: 5,
           amplitude: 20,

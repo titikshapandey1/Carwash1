@@ -20,28 +20,53 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Axios from "../../../utils/Axios";
 import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
+import axios from "axios";
 
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const LoginUser = async () => {
-    const data = {
+    const data = JSON.stringify({
       userName: formik.values.userName,
       passWord: formik.values.passWord,
-    };
+    })
+  
 
-    try {
-      const response = await Axios.post("src/routes/login", data);
-      console.log("API Response:", response.data);
-    } catch (error) {
-      console.error("Error:", error);
-    }
+  //   let data = JSON.stringify({
+  //     "userName": "singh222@.com",
+  //     "passWord": "Bip22lav@",
+  //     "role": " ",
+  //     // "firstName": "biplov",
+  //     // "surName": "singh",
+  //     // "mobileNumber": 9876543211,
+  //     // "address": {
+  //     //     "locality": "uttar ;pradesh",
+  //     //     "city": "state",
+  //     //     "district": "patna",
+  //     //     "state": "rurki",
+  //     //     "pincode": 654321
+  //     // }
+  // });
+
+  let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url:'https://carws.onrender.com/v1/login',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      data: data
   };
 
-  
+  axios.request(config).then((response) => {
+      console.log(JSON.stringify(response.data));
+  }).catch((error) => {
+      console.log(error);
+  });
+
+  };
 
   const paperStyle = {
     padding: "20px",
@@ -236,7 +261,7 @@ function Login() {
                       fullWidth
                       variant="contained"
                       style={{ ...submitButtonStyle }}
-                      onClick={LoginUser}
+                      onClick={LoginUser }
                     >
                       Login
                     </Button>
