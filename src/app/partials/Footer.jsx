@@ -12,6 +12,7 @@ import Colors from "../utils/colors";
 import { NavLink } from "react-router-dom";
 import Wave from "react-wavify";
 import SendIcon from "@mui/icons-material/Send";
+import Logo from "../assests/images/logo.jpeg"
 
 const Footer = () => {
   return (
@@ -44,9 +45,18 @@ const Footer = () => {
               marginTop="2%"
               sx={{ color: Colors.palette.primary.main }}
             >
-              <Typography variant="h4">
+              {/* <Typography variant="h4">
                 <b> Logo </b>
-              </Typography>
+              </Typography> */}
+                <img
+                src={Logo} // Use your logo image
+                alt=""
+                style={{
+                  width: "200px", 
+                  padding:'2px',
+                  
+                }}
+              />
               <Typography sx={{ marginTop: "11%" }}>
                 About us: Lorem ipsum dolor sit amet,
                 <br />
