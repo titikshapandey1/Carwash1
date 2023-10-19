@@ -121,7 +121,6 @@ function AppRouter() {
         <Route path="/supervisoruserdeclined" element={<SupUserDec />}></Route>
 
 
-
         {/*======== EXTRA ========== */}
         <Route path="/addash" element={<AdDash />}></Route>
         <Route path="/supdash" element={<SupDash />}></Route>
