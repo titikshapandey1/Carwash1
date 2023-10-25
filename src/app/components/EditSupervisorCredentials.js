@@ -31,7 +31,7 @@ function EditSupervisorCredentials() {
       surName: formik.values.surName,
       mobileNumber: formik.values.mobileNumber,
       alternateNumber: formik.values.alternateNumber,
-      email: formik.values.email,
+    userName: formik.values.email,
       address: {
         locality: formik.values.locality,
         city: formik.values.city,
@@ -39,18 +39,15 @@ function EditSupervisorCredentials() {
         state: formik.values.state,
         pincode: formik.values.pincode,
       },
-      // city: formik.values.city,
-      // district: formik.values.district,
-      // state: formik.values.state,
-      // pincode: formik.values.pincode,
-      age: formik.values.service,
+     
+    Service: formik.values.Service,
       price: formik.values.price,
-      userName: formik.values.createusername,
+      // userName: formik.values.createusername,
       passWord: formik.values.password,
     };
 
     try {
-      const response = await Axios.post("/src/routes/createData", data);
+      const response = await Axios.post("/create-supervisior", data);
       console.log("Response:", response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -84,7 +81,7 @@ function EditSupervisorCredentials() {
     pincode: Yup.string()
       .required("Pincode is required")
       .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
-    age: Yup.string().required("Service Type is required"),
+    Service: Yup.string().required("Service Type is required"),
     price: Yup.number()
       .required("Price is required")
       .positive("Price must be positive")
@@ -400,21 +397,21 @@ function EditSupervisorCredentials() {
                     </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
-                      id="age"
-                      name="age"
-                      value={formik.values.service}
+                      id="Service"
+                      name="Service"
+                      value={formik.values.Service}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       label="Select Service Type"
-                      error={formik.touched.service && Boolean(formik.errors.service)}
+                      error={formik.touched.Service && Boolean(formik.errors.Service)}
                     >
                       <MenuItem value={10}>Routine Clean</MenuItem>
                       <MenuItem value={20}>Dry Clean</MenuItem>
                       <MenuItem value={30}>Deep Clean</MenuItem>
                     </Select>
-                    {formik.touched.service && formik.errors.service && (
+                    {formik.touched.Service && formik.errors.Service && (
                       <Typography variant="caption" color="error">
-                        {formik.errors.service}
+                        {formik.errors.Service}
                       </Typography>
                     )}
                   </FormControl>
