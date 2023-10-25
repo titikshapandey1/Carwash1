@@ -12,7 +12,8 @@ import Colors from "../utils/colors";
 import { NavLink } from "react-router-dom";
 import Wave from "react-wavify";
 import SendIcon from "@mui/icons-material/Send";
-import Logo from "../assests/images/logo.jpeg"
+// import Logo from "../assests/images/logo.jpeg"
+import Logo1 from "../assests/images/Logo1.jpeg"
 
 const Footer = () => {
   return (
@@ -49,7 +50,7 @@ const Footer = () => {
                 <b> Logo </b>
               </Typography> */}
                 <img
-                src={Logo} // Use your logo image
+                src={Logo1} // Use your logo image
                 alt=""
                 style={{
                   width: "200px", 
