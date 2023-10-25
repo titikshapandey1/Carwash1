@@ -16,8 +16,18 @@ const ServiceLocation2 = () => {
   return (
     <>
       <Box align="center">
-        <Button variant="outlined" size="large" sx={{ backgroundColor: Colors.palette.secondary.main, color: Colors.palette.primary.main, borderRadius: "5px", "&:hover": { backgroundColor: Colors.palette.secondary.blue }, mt: "5%" }}>
-          print
+        <Button
+          variant="outlined"
+          size="large"
+          sx={{
+            backgroundColor: Colors.palette.secondary.main,
+            color: Colors.palette.primary.main,
+            borderRadius: "5px",
+            "&:hover": { backgroundColor: Colors.palette.secondary.blue },
+            mt: "5%",
+          }}
+        >
+          Print
         </Button>
       </Box>
 
@@ -26,12 +36,10 @@ const ServiceLocation2 = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          //   height: "100vh",
           mt: "3%",
-
+          mb:"5%",
         }}
       >
-
         <Box
           sx={{
             background: Colors.palette.secondary.cardBackground,
@@ -88,7 +96,8 @@ const ServiceLocation2 = () => {
                 <PhoneIcon sx={{}} />
                 7017866149 / 7017866149
               </Typography>
-            </Box><br />
+            </Box>
+            <br />
 
             <Box
               sx={{
@@ -100,45 +109,13 @@ const ServiceLocation2 = () => {
               }}
             >
               <Typography>Full Name + Surname</Typography>
-              <Typography> <MailIcon />kushbhardwaj7017@gmail.com</Typography>
+              <Typography>
+                {" "}
+                <MailIcon />
+                kushbhardwaj7017@gmail.com
+              </Typography>
             </Box>
 
-
-
-            {/* <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="name"
-                    placeholder="Full Name + Surname"
-                    name="name"
-                    size="small"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="email"
-                    name="email"
-                    size="small"
-                    placeholder="kushbhardwaj7017@gmail.com"
-                    InputProps={{
-                      startAdornment: (
-                        <MailIcon
-                          sx={{
-                            marginRight: "5px",
-                          }}
-                        />
-                      ),
-                    }}
-                  />
-                </Grid>
-              </Grid>
-   */}
             <Box sx={{ marginTop: "2%" }}>
               <Grid item xs={12}>
                 <Typography
@@ -149,50 +126,29 @@ const ServiceLocation2 = () => {
                 </Typography>
               </Grid>
               <br />
-
-              <Box sx={{ width: "50%", backgroundColor: Colors.palette.secondary.lightGrey, padding: "15px" }}>
-                {/* hgfehjkmnegfujnfje */}
-              </Box> <br />
-
-              <Box sx={{ width: "30%", backgroundColor: Colors.palette.secondary.lightGrey, padding: "15px" }}>
-                {/* hgfehjkmnegfujnfje */}
-              </Box> <br />
-
-              <Box sx={{ width: "50%", backgroundColor: Colors.palette.secondary.lightGrey, padding: "15px" }}>
-                {/* hgfehjkmnegfujnfje */}
-              </Box>
-              {/* <Grid container spacing={1}>
-                  <Grid item md={12}>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      size="small"
-                      sx={{ width: "50%" }}
-                    />
-                  </Grid>
-                </Grid>
-                <br />
-                <Grid container spacing={1}>
-                  <Grid item md={12}>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      size="small"
-                      sx={{ width: "30%" }}
-                    />
-                  </Grid>
-                </Grid>
-                <br />
-                <Grid container spacing={1}>
-                  <Grid item md={12}>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      size="small"
-                      sx={{ width: "40%" }}
-                    />
-                  </Grid>
-                </Grid> */}
+              <Box
+                sx={{
+                  width: "50%",
+                  backgroundColor: Colors.palette.secondary.lightGrey,
+                  padding: "15px",
+                }}
+              ></Box>{" "}
+              <br />
+              <Box
+                sx={{
+                  width: "30%",
+                  backgroundColor: Colors.palette.secondary.lightGrey,
+                  padding: "15px",
+                }}
+              ></Box>{" "}
+              <br />
+              <Box
+                sx={{
+                  width: "50%",
+                  backgroundColor: Colors.palette.secondary.lightGrey,
+                  padding: "15px",
+                }}
+              ></Box>
             </Box>
           </Paper>
 
@@ -227,7 +183,6 @@ const ServiceLocation2 = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              //   justifyContent:"flex-end",
               alignItems: "center",
               width: "40%",
               padding: "20px",

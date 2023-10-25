@@ -30,7 +30,7 @@ function ServiceLocation() {
       surName: formik.values.lastName,
       mobileNumber: formik.values.contactNumber,
       alternateNumber: formik.values.alternateNumber,
-      email: formik.values.email,
+      userName: formik.values.email,
 
       address: {
         locality: formik.values.locality,
@@ -48,11 +48,11 @@ function ServiceLocation() {
         pincode: formik.values.PickupPincode,
       },
 
-      paymentMode:formik.values.payment,
+      paymentMode: formik.values.payment,
     };
 
     try {
-      const response = await Axios.post("src/routes/serviceRqst", data);
+      const response = await Axios.post("v1/serviceRqst", data);
       console.log("API Response:", response.data);
     } catch (error) {
       console.error("Error:", error?.response?.data?.message);
@@ -158,7 +158,7 @@ function ServiceLocation() {
       PickupDistrict: "",
       PickupState: "",
       PickupPincode: "",
-      payment:"",
+      payment: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -172,8 +172,6 @@ function ServiceLocation() {
       sx={{
         background:
           "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -181,11 +179,7 @@ function ServiceLocation() {
         borderRadius: "25",
       }}
     >
-      <Container
-        component="main"
-        maxWidth="sm"
-        sx={{ mt: "1%", mb: "1%", ml: "20%", mr: "20%" }}
-      >
+      <Container component="main" maxWidth="sm" sx={{ mt: "8%", mb: "8%" }}>
         <Grid container>
           <Paper elevation={10} style={paperStyle}>
             <Typography
@@ -292,8 +286,7 @@ function ServiceLocation() {
                     variant="h6"
                     sx={{ color: Colors.palette.secondary.main }}
                   >
-                    Addres
-                    s
+                    Addres s
                     <br />
                   </Typography>
                 </Grid>

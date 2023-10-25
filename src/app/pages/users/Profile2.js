@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Colors from "../../utils/colors";
-import { useFormik, Field, Form, ErrorMessage } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import Axios from "../../utils/Axios";
@@ -161,7 +161,7 @@ function Profile2() {
                 sx={{
                   backgroundColor: Colors.palette.secondary.lightGrey,
                   fontSize: "200px",
-                  color: "#D9D9D9",
+                  color: Colors.palette.secondary.lightGrey,
                   position: "relative",
                   borderRadius: "60%",
                   border: `2px solid ${Colors.palette.secondary.main}`,
