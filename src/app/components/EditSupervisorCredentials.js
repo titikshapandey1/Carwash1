@@ -22,11 +22,7 @@ import { NavLink } from "react-router-dom";
 
 import Axios from "../utils/Axios";
 import { useState, useEffect } from "react";
-import {
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
-
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function EditSupervisorCredentials() {
   const [showPassword, setShowPassword] = useState(false);
@@ -84,7 +80,7 @@ function EditSupervisorCredentials() {
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     state: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State "),
     pincode: Yup.string()
       .required("Pincode is required")
       .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
@@ -94,8 +90,8 @@ function EditSupervisorCredentials() {
       .positive("Price must be positive")
       .integer("Price must be an integer"),
     createusername: Yup.string()
-    .required("Create Username is required")
-    .matches(/^[A-Za-z]+$/, "Only letters are allowed in userName"),
+      .required("Create Username is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in userName"),
     password: Yup.string().required("Password is required"),
     confirmpass: Yup.string().oneOf(
       [Yup.ref("password"), null],
@@ -499,35 +495,35 @@ function EditSupervisorCredentials() {
                       formik.touched.password && formik.errors.password
                     }
                   /> */}
-                   <TextField 
-
-variant="outlined"
-placeholder="Password"
-id="passWord"
-name="passWord"
-fullWidth
-size="small"
-type={showPassword ? "text" : "password"} 
-value={formik.values.passWord}
-onChange={formik.handleChange}
-error={
-  formik.touched.passWord && Boolean(formik.errors.passWord)
-}
-helperText={
-  formik.touched.passWord && formik.errors.passWord
-}
-InputProps={{
-  endAdornment: (
-    <InputAdornment position="end">
-      <IconButton
-        onClick={() => setShowPassword(!showPassword)}
-      >
-        {showPassword ? <Visibility /> : <VisibilityOff />}
-      </IconButton>
-    </InputAdornment>
-  ),
-}}
-/>
+                  <TextField
+                    variant="outlined"
+                    label="Password"
+                    id="password"
+                    name="password"
+                    fullWidth
+                    size="small"
+                    sx={textFieldStyles}
+                    type={showPassword ? "text" : "password"}
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.password && Boolean(formik.errors.password)
+                    }
+                    helperText={
+                      formik.touched.password && formik.errors.password
+                    }
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={() => setShowPassword(!showPassword)}
+                          >
+                            {showPassword ? <Visibility /> : <VisibilityOff />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={12}>
                   <TextField
