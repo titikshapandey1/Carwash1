@@ -39,11 +39,11 @@ function EditSupervisorCredentials() {
         state: formik.values.state,
         pincode: formik.values.pincode,
       },
-      city: formik.values.city,
-      district: formik.values.district,
-      state: formik.values.state,
-      pincode: formik.values.pincode,
-      age: formik.values.age,
+      // city: formik.values.city,
+      // district: formik.values.district,
+      // state: formik.values.state,
+      // pincode: formik.values.pincode,
+      age: formik.values.service,
       price: formik.values.price,
       userName: formik.values.createusername,
       passWord: formik.values.password,
@@ -402,19 +402,19 @@ function EditSupervisorCredentials() {
                       labelId="demo-simple-select-label"
                       id="age"
                       name="age"
-                      value={formik.values.age}
+                      value={formik.values.service}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       label="Select Service Type"
-                      error={formik.touched.age && Boolean(formik.errors.age)}
+                      error={formik.touched.service && Boolean(formik.errors.service)}
                     >
                       <MenuItem value={10}>Routine Clean</MenuItem>
                       <MenuItem value={20}>Dry Clean</MenuItem>
                       <MenuItem value={30}>Deep Clean</MenuItem>
                     </Select>
-                    {formik.touched.age && formik.errors.age && (
+                    {formik.touched.service && formik.errors.service && (
                       <Typography variant="caption" color="error">
-                        {formik.errors.age}
+                        {formik.errors.service}
                       </Typography>
                     )}
                   </FormControl>

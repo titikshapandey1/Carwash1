@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Container, Grid, Paper, Typography, Box } from "@mui/material";
+import { Container, Grid, Paper, Typography, Box, Button } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Colors from "../../utils/colors";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import EditIcon from "@mui/icons-material/Edit";
 import Axios from "../../utils/Axios";
 
 function Profile() {
-  
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(false);
 
   const fetchProfileData = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("v1/getUserData/6527aa4e881d3d3be4b5990a");
+      const response = await Axios.get(
+        "v1/getUserData/6527aa4e881d3d3be4b5990a"
+      );
       console.log("Response Data:", response.data.data);
       setUserData(response.data.data);
     } catch (error) {
@@ -30,6 +31,7 @@ function Profile() {
   const paperStyle = {
     padding: "20px",
     display: "flex",
+    position: "relative",
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
@@ -44,9 +46,7 @@ function Profile() {
   return (
     <Box
       sx={{
-        backgroundColor: " #F5F5F5",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundColor: Colors.palette.secondary.cardBackground,
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -60,20 +60,39 @@ function Profile() {
             style={paperStyle}
             sx={{ borderRadius: "30px" }}
           >
-            <Box
+            <div
+              style={{
+                position: "absolute",
+                top: "-10px",
+                left: "0",
+                right: "0",
+                width: "100%",
+                height: "35%",
+                backgroundColor: Colors.palette.secondary.main,
+                borderRadius: "0 0 40% 40%",
+              }}
+            ></div>
+            <Button
+              variant="text"
+              startIcon={<EditIcon />}
               sx={{
+                position: "relative",
                 marginLeft: "80%",
-                color: Colors.palette.primary.darkBlue,
+                background: Colors.palette.secondary.main,
+                color: Colors.palette.primary.main,
                 fontWeight: "600",
-                fontSize: "20px",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
+                fontSize: "16px",
+                marginTop: "3%",
               }}
             >
-              <EditOutlinedIcon sx={{ marginRight: "5px" }} /> Edit
-            </Box>
-            <Box sx={{ marginBottom: "2rem" }}>
+              Edit
+            </Button>
+            <Box
+              sx={{
+                display: "flex",
+                marginBottom: "2rem",
+              }}
+            >
               <CircleIcon
                 sx={{
                   backgroundColor: Colors.palette.secondary.lightGrey,
@@ -81,10 +100,10 @@ function Profile() {
                   color: Colors.palette.secondary.lightGrey,
                   borderRadius: "60%",
                   border: `2px solid ${Colors.palette.secondary.main}`,
+                  position: "relative",
                 }}
               />
             </Box>
-
             {loading ? (
               <Typography>Loading</Typography>
             ) : (
@@ -120,27 +139,27 @@ function Profile() {
 
                   <Grid item xs={12}>
                     <Typography sx={{ margin: "15px" }}>
-                    {userData.address && userData.address.locality}
+                      {userData.address && userData.address.locality}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <Typography sx={{ margin: "15px" }}>
-                    {userData.address && userData.address.city}
+                      {userData.address && userData.address.city}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <Typography sx={{ margin: "15px" }}>
-                    {userData.address && userData.address.district}
+                      {userData.address && userData.address.district}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={8}>
                     <Typography sx={{ margin: "15px" }}>
-                    {userData.address && userData.address.state}
+                      {userData.address && userData.address.state}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <Typography sx={{ margin: "15px" }}>
-                    {userData.address && userData.address.pincode}
+                      {userData.address && userData.address.pincode}
                     </Typography>
                   </Grid>
                 </Grid>

@@ -179,7 +179,7 @@ function ServiceLocation() {
         borderRadius: "25",
       }}
     >
-      <Container component="main" maxWidth="sm" sx={{ mt: "8%", mb: "8%" }}>
+      <Container component="main" maxWidth="sm" sx={{ mt: "5%", mb: "5%" }}>
         <Grid container>
           <Paper elevation={10} style={paperStyle}>
             <Typography

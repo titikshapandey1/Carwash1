@@ -31,6 +31,7 @@ const SupUserAct = () => {
   }, []);
 
   const paperStyle = {
+    position: "relative",
     padding: "20px",
     display: "flex",
     flexDirection: "column",
@@ -72,24 +73,34 @@ const SupUserAct = () => {
                 style={paperStyle}
                 sx={{ borderRadius: "30px" }}
               >
-                {/* <Box
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-10px",
+                    left: "0",
+                    right: "0",
+                    width: "100%",
+                    height: "30%",
+                    backgroundColor: Colors.palette.secondary.main,
+                    borderRadius: "0 0 40% 40%",
+                  }}
+                ></div>
+                <Box
                   sx={{
-                    marginLeft: "80%",
-                    color: Colors.palette.primary.darkBlue,
-                    fontWeight: "600",
-                    fontSize: "20px",
-                    cursor: "pointer",
                     display: "flex",
-                    alignItems: "center",
+                    position: "relative",
+                    marginBottom: "2rem",
+                    marginTop: "5%",
                   }}
                 >
-                  <EditOutlinedIcon sx={{ marginRight: "5px" }} /> Edit
-                </Box> */}
-                <Box sx={{ marginBottom: "2rem" }}>
                   <CircleIcon
                     sx={{
+                      backgroundColor: Colors.palette.secondary.lightGrey,
                       fontSize: "200px",
                       color: Colors.palette.secondary.lightGrey,
+                      position: "relative",
+                      borderRadius: "60%",
+                      border: `2px solid ${Colors.palette.secondary.main}`,
                     }}
                   />
                 </Box>

@@ -56,6 +56,7 @@ function Profile2() {
   const paperStyle = {
     padding: "20px",
     display: "flex",
+    position: "relative",
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
@@ -119,9 +120,7 @@ function Profile2() {
   return (
     <Box
       sx={{
-        backgroundColor: " #F5F5F5",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundColor: Colors.palette.secondary.cardBackground,
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -135,21 +134,33 @@ function Profile2() {
             style={paperStyle}
             sx={{ borderRadius: "30px" }}
           >
-            <Box
+            <div
+              style={{
+                position: "absolute",
+                top: "-10px",
+                left: "0",
+                right: "0",
+                width: "100%",
+                height: "23%",
+                backgroundColor: Colors.palette.secondary.main,
+                borderRadius: "0 0 40% 40%",
+              }}
+            ></div>
+            <Button
+              variant="contained"
               sx={{
+                position: "relative",
                 marginLeft: "80%",
                 background: Colors.palette.primary.main,
                 color: Colors.palette.primary.darkBlue,
                 borderRadius: "20px",
-                padding: "10px",
                 fontWeight: "600",
-                fontSize: "20px",
+                fontSize: "16px",
                 marginTop: "3%",
-                cursor: "pointer",
               }}
             >
               Done
-            </Box>
+            </Button>
             <Box
               sx={{
                 display: "flex",
