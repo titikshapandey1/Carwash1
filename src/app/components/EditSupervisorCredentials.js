@@ -42,7 +42,6 @@ function EditSupervisorCredentials() {
      
     Service: formik.values.Service,
       price: formik.values.price,
-      // userName: formik.values.createusername,
       passWord: formik.values.password,
     };
 
@@ -77,7 +76,7 @@ function EditSupervisorCredentials() {
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     state: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     pincode: Yup.string()
       .required("Pincode is required")
       .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
@@ -86,7 +85,9 @@ function EditSupervisorCredentials() {
       .required("Price is required")
       .positive("Price must be positive")
       .integer("Price must be an integer"),
-    createusername: Yup.string().required("Create Username is required"),
+    createusername: Yup.string()
+    .required("Create Username is required")
+    .matches(/^[A-Za-z]+$/, "Only letters are allowed in userName"),
     password: Yup.string().required("Password is required"),
     confirmpass: Yup.string().oneOf(
       [Yup.ref("password"), null],
