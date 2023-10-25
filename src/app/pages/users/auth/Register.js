@@ -115,9 +115,9 @@ try {
     district: Yup.string()
       .required("District is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
-    state: Yup.string()
+      state: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     pincode: Yup.string()
       .required("Pincode is required")
       .test(

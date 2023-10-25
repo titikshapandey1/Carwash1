@@ -115,7 +115,7 @@ function ServiceLocation() {
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     State: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     Pincode: Yup.string()
       .required("Pincode is required")
       .test(
@@ -131,8 +131,8 @@ function ServiceLocation() {
       .required("District is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     PickupState: Yup.string()
-      .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+    .required("State is required")
+    .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     PickupPincode: Yup.string()
       .required("Pincode is required")
       .test(
