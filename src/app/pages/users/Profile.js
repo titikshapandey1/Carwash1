@@ -76,8 +76,11 @@ function Profile() {
             <Box sx={{ marginBottom: "2rem" }}>
               <CircleIcon
                 sx={{
+                  backgroundColor: Colors.palette.secondary.lightGrey,
                   fontSize: "200px",
                   color: Colors.palette.secondary.lightGrey,
+                  borderRadius: "60%",
+                  border: `2px solid ${Colors.palette.secondary.main}`,
                 }}
               />
             </Box>

@@ -53,6 +53,8 @@ import SupPayUnsucc from "../pages/supervisor/SupPayUnsucc";
 import SupUserReq from "../pages/supervisor/SupUserReq";
 import SupUserAct from "../pages/supervisor/SupUserAct";
 import SupUserDec from "../pages/supervisor/SupUserDec";
+import SupPayDetails from "../pages/supervisor/SupPayDetails";
+import SupUserDetails from "../pages/supervisor/SupUserDetails";
 
 import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
@@ -119,7 +121,8 @@ function AppRouter() {
         <Route path="/supervisoruserrequest" element={<SupUserReq />}></Route>
         <Route path="/supervisoruseractive" element={<SupUserAct />}></Route>
         <Route path="/supervisoruserdeclined" element={<SupUserDec />}></Route>
-
+        <Route path="/supervisorpaymentdetails" element={<SupPayDetails />}></Route>
+        <Route path="/supervisoruserdetails" element={<SupUserDetails />}></Route>
 
         {/*======== EXTRA ========== */}
         <Route path="/addash" element={<AdDash />}></Route>

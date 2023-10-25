@@ -18,17 +18,12 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 import Axios from "../../../utils/Axios";
-import {
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
-
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   const RegiterUser = async () => {
-    
     const data = {
       
       firstName: formik.values.firstName,
@@ -44,7 +39,6 @@ function RegisterPage() {
         state: formik.values.state,
         pincode: formik.values.pincode,
       },
-    
     };
   
     const apiKey = "/user-register"; 
@@ -108,11 +102,12 @@ try {
       .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
-      .required("Password is required")
-      .matches(
-        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,8}$/,
-        "Password Should have one Capital Letter, Number, Specical Character and be 6 to 8 characters in length"
-      ),
+    .required("Password is required")
+    .matches(
+      /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+      "Password should have one capital letter, one number, and one special character"
+    )
+    .min(6, "Password must be at least 6 characters in length"),
     locality: Yup.string().required("Locality is required"),
     city: Yup.string()
       .required("City is required")
@@ -139,7 +134,7 @@ try {
       mobileNumber: "",
       alternateNumber: "",
       email: "",
-      password:"",
+      password: "",
       locality: "",
       city: "",
       district: "",
@@ -158,34 +153,22 @@ try {
       sx={{
         background:
           "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Box
         sx={{
-          width: "170vh",
-          height: "50%",
+          width: "100%",
+          height: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <Container
-          maxWidth="sm"
-          sx={{ mt: "8%", mb: "8%", ml: "20%", mr: "20%" }}
-        >
-          <Grid
-            container
-            style={{
-              backgroundPosition: "center",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              height: "100%",
-            }}
-          >
+        <Container maxWidth="sm" sx={{ mt: "8%", mb: "8%" }}>
+          <Grid container>
             <Paper elevation={10} style={paperStyle}>
               <Box
                 style={{
@@ -343,8 +326,7 @@ try {
                       id="password"
                       label="Password"
                       name="password"
-                    type={showPassword ? "text" : "password"} 
-                      
+                      type={showPassword ? "text" : "password"}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       value={formik.values.password}
@@ -362,7 +344,11 @@ try {
                             <IconButton
                               onClick={() => setShowPassword(!showPassword)}
                             >
-                              {showPassword ? <Visibility /> : <VisibilityOff />}
+                              {showPassword ? (
+                                <Visibility />
+                              ) : (
+                                <VisibilityOff />
+                              )}
                             </IconButton>
                           </InputAdornment>
                         ),

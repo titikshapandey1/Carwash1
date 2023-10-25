@@ -114,12 +114,13 @@ try {
     userName: Yup.string()
       .email("Invalid Email")
       .required("Username/Email is required"),
-    passWord: Yup.string()
+      passWord: Yup.string()
       .required("Password is required")
       .matches(
-        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,8}$/,
-        "Password Should have one Capital Letter, Number, Specical Character and be 6 to 8 characters in length"
-      ),
+        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+        "Password should have one capital letter, one number, and one special character"
+      )
+      .min(6, "Password must be at least 6 characters in length"),
   });
 
   const formik = useFormik({
