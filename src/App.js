@@ -9,9 +9,9 @@ function App() {
    
 
     return (<>
-        {/* <Index/> */}
+        <Index/>
         {/* <Button title="Fetch data" onClick={fetchdata}/> */}
-        <AdEditSup1/>
+       
 
     </>);
 }
