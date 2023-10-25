@@ -120,8 +120,8 @@ function ContactUs() {
       .required("District is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     State: Yup.string()
-      .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+    .required("State is required")
+    .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     Pincode: Yup.string()
       .required("Pincode is required")
       .test(

@@ -91,7 +91,7 @@ function Profile2() {
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     State: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     Pincode: Yup.string()
       .required("Pincode is required")
       .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
