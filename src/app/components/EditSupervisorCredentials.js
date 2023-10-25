@@ -39,7 +39,7 @@ function EditSupervisorCredentials() {
       surName: formik.values.surName,
       mobileNumber: formik.values.mobileNumber,
       alternateNumber: formik.values.alternateNumber,
-    userName: formik.values.email,
+      userName: formik.values.email,
       address: {
         locality: formik.values.locality,
         city: formik.values.city,
@@ -47,8 +47,8 @@ function EditSupervisorCredentials() {
         state: formik.values.state,
         pincode: formik.values.pincode,
       },
-     
-    Service: formik.values.Service,
+
+      Service: formik.values.Service,
       price: formik.values.price,
       passWord: formik.values.password,
     };
@@ -412,7 +412,9 @@ function EditSupervisorCredentials() {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       label="Select Service Type"
-                      error={formik.touched.Service && Boolean(formik.errors.Service)}
+                      error={
+                        formik.touched.Service && Boolean(formik.errors.Service)
+                      }
                     >
                       <MenuItem value={10}>Routine Clean</MenuItem>
                       <MenuItem value={20}>Dry Clean</MenuItem>
