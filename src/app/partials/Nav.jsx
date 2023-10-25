@@ -36,7 +36,8 @@ const Nav = () => {
                 style={{
                   width: "200px",
                   maxWidth: "100%", 
-                 padding:'5px'
+                 padding:'2px',
+                //  height:'50px'
                 }}
               />
             </NavLink>

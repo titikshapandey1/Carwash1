@@ -22,33 +22,68 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
-import axios from "axios";
+import Axios from "axios";
 
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+
   const LoginUser = async () => {
-    const data = JSON.stringify({
+   
+    const data = {
       userName: formik.values.userName,
-      passWord: formik.values.passWord,
-    })
-  let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url:'https://carws.onrender.com/v1/login',
+      passWord: formik.values.password,
+    };
+  
+    const apiKey = "/login"; 
+    const config = {
       headers: {
-          'Content-Type': 'application/json'
+        Authorization: `Bearer ${apiKey}`,
       },
-      data: data
-  };
+    };
+  
 
-  axios.request(config).then((response) => {
-      console.log(JSON.stringify(response.data));
-  }).catch((error) => {
-      console.log(error);
-  });
+try {
+  const response = await Axios.post("/login", data, config);
+  console.log("response", response.data);
+} catch (error) {
+  console.log(error);
+}
+};
 
-  };
+  // //   let data = JSON.stringify({
+  // //     "userName": "singh222@.com",
+  // //     "passWord": "Bip22lav@",
+  // //     "role": " ",
+  // //     // "firstName": "biplov",
+  // //     // "surName": "singh",
+  // //     // "mobileNumber": 9876543211,
+  // //     // "address": {
+  // //     //     "locality": "uttar ;pradesh",
+  // //     //     "city": "state",
+  // //     //     "district": "patna",
+  // //     //     "state": "rurki",
+  // //     //     "pincode": 654321
+  // //     // }
+  // // });
+
+  // let config = {
+  //     method: 'post',
+  //     maxBodyLength: Infinity,
+  //     url:'https://carws.onrender.com/v1/login',
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //     },
+  //     data: data
+  // };
+
+  // axios.request(config).then((response) => {
+  //     console.log(JSON.stringify(response.data));
+  // }).catch((error) => {
+  //     console.log(error);
+  // });
+
+  // };
 
   const paperStyle = {
     padding: "20px",

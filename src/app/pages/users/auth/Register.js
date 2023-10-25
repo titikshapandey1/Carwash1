@@ -25,6 +25,7 @@ function RegisterPage() {
 
   const RegiterUser = async () => {
     const data = {
+      
       firstName: formik.values.firstName,
       surName: formik.values.surName,
       mobileNumber: formik.values.mobileNumber,
@@ -39,15 +40,22 @@ function RegisterPage() {
         pincode: formik.values.pincode,
       },
     };
+  
+    const apiKey = "/user-register"; 
+    const config = {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+      },
+    };
+  
 
-    try {
-      const response = await Axios.post("v1/userRegister", data);
-      console.log("response", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+try {
+  const response = await Axios.post("/user-register", data, config);
+  console.log("response", response.data);
+} catch (error) {
+  console.log(error);
+}
+};
   const paperStyle = {
     padding: "20px",
     display: "flex",
