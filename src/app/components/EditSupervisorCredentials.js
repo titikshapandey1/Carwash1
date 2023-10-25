@@ -11,6 +11,8 @@ import {
   Select,
   InputLabel,
   MenuItem,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../utils/colors";
@@ -20,8 +22,14 @@ import { NavLink } from "react-router-dom";
 
 import Axios from "../utils/Axios";
 import { useState, useEffect } from "react";
+import {
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
+
 
 function EditSupervisorCredentials() {
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -42,7 +50,6 @@ function EditSupervisorCredentials() {
 
       Service: formik.values.Service,
       price: formik.values.price,
-      // userName: formik.values.createusername,
       passWord: formik.values.password,
     };
 
@@ -86,7 +93,9 @@ function EditSupervisorCredentials() {
       .required("Price is required")
       .positive("Price must be positive")
       .integer("Price must be an integer"),
-    createusername: Yup.string().required("Create Username is required"),
+    createusername: Yup.string()
+    .required("Create Username is required")
+    .matches(/^[A-Za-z]+$/, "Only letters are allowed in userName"),
     password: Yup.string().required("Password is required"),
     confirmpass: Yup.string().oneOf(
       [Yup.ref("password"), null],
@@ -469,7 +478,7 @@ function EditSupervisorCredentials() {
                   />
                 </Grid>
                 <Grid item xs={12} sm={12}>
-                  <TextField
+                  {/* <TextField
                     variant="outlined"
                     required
                     fullWidth
@@ -489,7 +498,36 @@ function EditSupervisorCredentials() {
                     helperText={
                       formik.touched.password && formik.errors.password
                     }
-                  />
+                  /> */}
+                   <TextField 
+
+variant="outlined"
+placeholder="Password"
+id="passWord"
+name="passWord"
+fullWidth
+size="small"
+type={showPassword ? "text" : "password"} 
+value={formik.values.passWord}
+onChange={formik.handleChange}
+error={
+  formik.touched.passWord && Boolean(formik.errors.passWord)
+}
+helperText={
+  formik.touched.passWord && formik.errors.passWord
+}
+InputProps={{
+  endAdornment: (
+    <InputAdornment position="end">
+      <IconButton
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        {showPassword ? <Visibility /> : <VisibilityOff />}
+      </IconButton>
+    </InputAdornment>
+  ),
+}}
+/>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                   <TextField
