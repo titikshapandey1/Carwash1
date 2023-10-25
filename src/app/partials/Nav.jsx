@@ -7,8 +7,8 @@ import Button from "@mui/material/Button";
 import Colors from "../utils/colors";
 import DrawerComp from "./Drawer";
 import { NavLink } from "react-router-dom";
-// import Logo from "../assests/images/logo.jpeg"
-import Logo1 from "../assests/images/Logo1.jpeg"
+import Logo from "../assests/images/Logo.png"
+// import Logo1 from "../assests/images/Logo1.jpeg"
 
 // const linkStyle = {
 //   color:Colors.palette.primary.main ,
@@ -32,13 +32,14 @@ const Nav = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <NavLink to="/" style={{ textDecoration: "none", color: Colors.palette.primary.main }}>
               <img
-                src={Logo1}
+                src={Logo}
                 alt=""
                 style={{
-                  width: "200px",
+                  marginTop:"15px",
+                  width: "150px",
                   maxWidth: "100%", 
-                 padding:'2px',
-                //  height:'50px'
+                  height:"50px"
+                
                 }}
               />
             </NavLink>

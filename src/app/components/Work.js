@@ -76,18 +76,8 @@ function Work() {
         ))}
       </Grid>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
-        <Button
-          variant="contained"
-          color="primary"
-        >
-          Back
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-        >
-          Next
-        </Button>
+      
+      
       </div>
     </Container>
   );

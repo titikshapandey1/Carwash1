@@ -12,8 +12,8 @@ import Colors from "../utils/colors";
 import { NavLink } from "react-router-dom";
 import Wave from "react-wavify";
 import SendIcon from "@mui/icons-material/Send";
-// import Logo from "../assests/images/logo.jpeg"
-import Logo1 from "../assests/images/Logo1.jpeg"
+import Logo from "../assests/images/Logo.png"
+
 
 const Footer = () => {
   return (
@@ -23,9 +23,9 @@ const Footer = () => {
         paused={false}
         style={{ display: "flex", marginTop: "5%" ,}}
         options={{
-          height: 5,
-          amplitude: 20,
-          speed: .3,
+          // height: 5,
+          // amplitude: 20,
+          speed: .5,
           points: 3,
         }}
       />
@@ -43,14 +43,14 @@ const Footer = () => {
               xs={12}
               sm={3}
               md={3}
-              marginTop="2%"
+              // marginTop="2%"
               sx={{ color: Colors.palette.primary.main }}
             >
               {/* <Typography variant="h4">
                 <b> Logo </b>
               </Typography> */}
                 <img
-                src={Logo1} // Use your logo image
+                src={Logo} // Use your logo image
                 alt=""
                 style={{
                   width: "200px", 
@@ -70,8 +70,8 @@ const Footer = () => {
               <Typography
                 variant="body2"
                 sx={{
-                  marginTop: "12%",
-                  marginBottom: "17%",
+                  // marginTop: "2%",
+                  marginBottom: "4%",
                   color: Colors.palette.primary.main,
                 }}
               >
@@ -79,7 +79,7 @@ const Footer = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={15} sm={2} marginTop="4%">
+            <Grid item xs={15} sm={2} >
               <Typography
                 variant="body1"
                 gutterBottom
@@ -135,7 +135,7 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={2} marginTop="4%">
+            <Grid item xs={15} sm={2} >
               <Typography
                 variant="body1"
                 gutterBottom
@@ -191,7 +191,7 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={2} marginTop="4%">
+            <Grid item xs={15} sm={2} >
               <Typography
                 variant="body1"
                 gutterBottom
@@ -247,7 +247,7 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={3} marginTop="4%">
+            <Grid item xs={15} sm={3}>
               {/* <NavLink
                 to="/"
                 style={{ textDecoration: "none", cursor: "pointer" }}
