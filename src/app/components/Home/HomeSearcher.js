@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Box,
   FormControl,
@@ -6,7 +8,6 @@ import {
   MenuItem,
   Button,
   Typography,
-  useTheme,
   Grid,
 } from "@mui/material";
 import Colors from "../../utils/colors";
@@ -29,7 +30,8 @@ const searcherContainerStyle = {
 
 const Searcher = () => {
   const [servicetype, setservicetype] = useState("");
-  const [subcategory, setsubcategory] = useState("");
+  const [subcategory, setsubcategory] = useState([]);
+  const [serviceTypes, setServiceTypes] = useState([]);
 
   const handleServiceTypeChange = (event) => {
     setservicetype(event.target.value);
@@ -38,6 +40,22 @@ const Searcher = () => {
   const handleSubcategoryChange = (event) => {
     setsubcategory(event.target.value);
   };
+
+  useEffect(() => {
+    // Make sure the API endpoint is correct and accessible
+    axios
+      .get("/get-cartype")
+      .then((response) => {
+        if (Array.isArray(response.data.srv)) {
+          setServiceTypes(response.data.srv);
+        } else {
+          console.error("Service types data is not an array:", response.data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching service types:", error);
+      });
+  }, []);
 
   return (
     <Box
@@ -64,9 +82,11 @@ const Searcher = () => {
               <MenuItem value="">
                 <Typography>Select Service Type</Typography>
               </MenuItem>
-              <MenuItem value={1}>HatchBack</MenuItem>
-              <MenuItem value={2}>Sedan</MenuItem>
-              <MenuItem value={3}>SUV</MenuItem>
+              {serviceTypes.map((type) => (
+                <MenuItem key={type._id} value={type._id}>
+                  {type.serviceName}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
         </Grid>
@@ -86,11 +106,13 @@ const Searcher = () => {
               inputProps={{ "aria-label": "Without label" }}
             >
               <MenuItem value="">
-                <Typography>Select Subcategory</Typography>
+                <Typography>Select Car type</Typography>
               </MenuItem>
-              <MenuItem value={1}>Routine Clean</MenuItem>
-              <MenuItem value={2}>Dry Clean</MenuItem>
-              <MenuItem value={3}>Deep Clean</MenuItem>
+              {serviceTypes.map((type) => (
+                <MenuItem key={type._id} value={type._id}>
+                  {type.carBrand}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
         </Grid>

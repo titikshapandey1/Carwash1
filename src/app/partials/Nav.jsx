@@ -38,7 +38,7 @@ const Nav = () => {
                   marginTop:"15px",
                   width: "150px",
                   maxWidth: "100%", 
-                  height:"50px"
+                  height:"40px"
                 
                 }}
               />

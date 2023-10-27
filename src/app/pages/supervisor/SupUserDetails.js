@@ -15,7 +15,7 @@ const SupUserAct = () => {
     setLoading(true);
     try {
       const response = await Axios.get(
-        "v1/getUserData/6527aa4e881d3d3be4b5990a"
+        "/getUserData/6527aa4e881d3d3be4b5990a"
       );
       console.log("Response Data:", response.data.data);
       setUserData(response.data.data);

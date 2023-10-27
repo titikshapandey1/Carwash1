@@ -1,31 +1,64 @@
 import React from "react";
 import {
-    Container,
-    Grid,
-    Paper,
-    TextField,
-    Button,
-    Typography,
-    Box,
-    FormControl,
-    Select,
-    InputLabel,
-    MenuItem,
-    IconButton,
-    InputAdornment,
-  } from "@mui/material";
+  Container,
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  Typography,
+  Box,
+  FormControl,
+  Select,
+  InputLabel,
+  MenuItem,
+  IconButton,
+  InputAdornment,
+} from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../utils/colors";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-// import { NavLink } from "react-router-dom";
-import AdDash from "../../components/AdDash";
+import { NavLink } from "react-router-dom";
+
 import Axios from "../../utils/Axios";
+import { useState, useEffect } from "react";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import AdDash from "../../components/AdDash";
 
+function EditSupervisorCredentials() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
+  const createUser = async () => {
+    const data = {
+      firstName: formik.values.firstName,
+      surName: formik.values.surName,
+      mobileNumber: formik.values.mobileNumber,
+      alternateNumber: formik.values.alternateNumber,
+      userName: formik.values.email,
+      address: {
+        locality: formik.values.locality,
+        city: formik.values.city,
+        district: formik.values.district,
+        state: formik.values.state,
+        pincode: formik.values.pincode,
+      },
 
+      Service: formik.values.Service,
+      price: formik.values.price,
+  
+    };
 
-const validationSchema = Yup.object({
+    try {
+      const response = await Axios.post("/create-supervisior", data);
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const validationSchema = Yup.object({
     firstName: Yup.string()
       .required("First Name is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in First Name"),
@@ -58,9 +91,10 @@ const validationSchema = Yup.object({
       .positive("Price must be positive")
       .integer("Price must be an integer"),
   
+   
   });
 
-  const formik = ({
+  const formik = useFormik({
     initialValues: {
       firstName: "",
       surName: "",
@@ -75,7 +109,9 @@ const validationSchema = Yup.object({
       pincode: "",
 
       price: "",
-     
+      createusername: "",
+      password: "",
+      confirmpass: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -118,26 +154,25 @@ const validationSchema = Yup.object({
     marginTop: "3%",
   };
 
-const AdEditSup1 = () => {
+  return (
     
-        return (
-          <>
-           
-              <AdDash/>
-              <Box
+    <Box
       sx={{
         height: "auto",
-        borderRadius: "25",
+        // borderRadius: "25",
+        marginLeft:"250px",
+        marginTop:"100px"
       }}
     >
+     <AdDash/>
       <Container maxWidth="md">
         <Grid container>
           <Paper elevation={10} style={paperStyle}>
             <Typography
               variant="h6"
+              align="center"
               sx={{ color: Colors.palette.secondary.main }}
-            >
-              Enter your credentials here:
+            >Edit Supervisor credentials here:
             </Typography>
             <form style={formStyle} onSubmit={formik.handleSubmit} noValidate>
               <Grid container spacing={2}>
@@ -405,33 +440,19 @@ const AdEditSup1 = () => {
                   />
                 </Grid>
 
-                <Grid item xs={12}>
-                  <Typography
-                    variant="h6"
-                    sx={{ color: Colors.palette.secondary.main }}
-                  >
-                    Generate Id
-                    <br />
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={12}>
-                 
-                </Grid>
-                <Grid item xs={12} sm={12}>
-              
-                
-                </Grid>
-               
+             
+      
+             
               </Grid>
 
-              <Box align="center">
+              <Box align="center" marginTop={20}>
                 <Button
                   type="submit"
                   variant="contained"
                   sx={{ ...submitButtonStyle }}
-                  onClick={AdEditSup1}
+                  onClick={createUser}
                 >
-                  Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                  Submit <ArrowForwardIosIcon sx={{ fontSize: "20px"}} />
                 </Button>
               </Box>
             </form>
@@ -439,10 +460,8 @@ const AdEditSup1 = () => {
         </Grid>
       </Container>
     </Box>
-            
-          </>
-        );
-      };
+  );
+}
 
+export default EditSupervisorCredentials;
 
-export default AdEditSup1;
