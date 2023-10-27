@@ -232,7 +232,7 @@ const Searcher = () => {
               inputProps={{ "aria-label": "Without label" }}
             >
               <MenuItem value="">
-                <Typography>Select Subcategory</Typography>
+                <Typography>Select Car type</Typography>
               </MenuItem>
               {serviceTypes.map((type) => (
                 <MenuItem key={type._id} value={type._id}>

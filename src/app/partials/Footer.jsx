@@ -58,7 +58,7 @@ const Footer = () => {
                   
                 }}
               />
-              <Typography sx={{ marginTop: "11%" }}>
+              <Typography sx={{ marginTop: "2%" }}>
                 About us: Lorem ipsum dolor sit amet,
                 <br />
                 consectetur adipiscing elit,sed do <br />
@@ -247,7 +247,7 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={3}>
+            <Grid item xs={15} sm={2} marginBottom={5}>
               {/* <NavLink
                 to="/"
                 style={{ textDecoration: "none", cursor: "pointer" }}
@@ -350,7 +350,7 @@ const Footer = () => {
                 >
                   <FacebookIcon
                     sx={{
-                      marginLeft: "15%",
+                      marginLeft: "10%",
                       color: Colors.palette.primary.main,
                       // "&:hover": { fontSize: 30, opacity: 0.75 },
                     }}

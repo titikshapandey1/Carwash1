@@ -63,6 +63,8 @@ import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
 import Table from "../components/Table";
 
+
+
 function AppRouter() {
   return (
     <>
@@ -129,6 +131,9 @@ function AppRouter() {
         <Route path="/supervisoruserdeclined" element={<SupUserDec />}></Route>
         <Route path="/supervisorpaymentdetails" element={<SupPayDetails />}></Route>
         <Route path="/supervisoruserdetails" element={<SupUserDetails />}></Route>
+        <Route path="/admineditsupervisor1" element={<AdEditSup1 />}></Route>
+
+        
 
         {/*======== EXTRA ========== */}
         <Route path="/addash" element={<AdDash />}></Route>
