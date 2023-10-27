@@ -45,8 +45,10 @@ import AdUserReq from "../pages/admin/AdUserReq";
 import AdUserAct from "../pages/admin/AdUserAct";
 import AdUserDec from "../pages/admin/AdUserDec";
 import AdEditSup from "../pages/admin/AdEditSup";
+import AdEditSup1 from "../pages/admin/AdEditSup1";
 import AdCreateSup from "../pages/admin/AdCreateSup";
 import AdPayDetails from "../pages/admin/AdPayDetails";
+import AdUserDetails from "../pages/admin/AdUserDetail";
 
 import SupervisorDashboard from "../pages/supervisor/SupervisorDashboard";
 import SupPaySucc from "../pages/supervisor/SupPaySucc";
@@ -115,9 +117,11 @@ function AppRouter() {
         <Route path="/adminuseractive" element={<AdUserAct />}></Route>
         <Route path="/adminuserdeclined" element={<AdUserDec />}></Route>
         <Route path="/admineditsupervisor" element={<AdEditSup />}></Route>
+        <Route path="/admineditsupervisor1" element={<AdEditSup1 />}></Route>
         <Route path="/admincreatesupervisor" element={<AdCreateSup />}></Route>
         <Route path="/adminpaymentdetails" element={<AdPayDetails />}></Route>
-
+        <Route path="/adminuserdetails" element={<AdUserDetails />}></Route>
+        
         {/*======== SUPERVISOR ========== */}
         <Route path="/supervisordashboard" element={<SupervisorDashboard />}></Route>
         <Route path="/supervisorpaysuccessful" element={<SupPaySucc />}></Route>

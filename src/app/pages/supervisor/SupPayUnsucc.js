@@ -3,8 +3,86 @@ import SupDash from "../../components/SupDash";
 import Table from "../../components/Table";
 import Colors from "../../utils/colors";
 import { Box, Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 const SupPayUnsucc = () => {
+  const tableHeaders = [
+    "Date",
+    "Booking ID",
+    "Service Type",
+    "Amount",
+    "View Details",
+  ];
+  const tableData = [
+    {
+      d1: "27/12/2023",
+      d2: "Booking ID 1",
+      d3: "Service Type 1",
+      d4: "Amount 1",
+      viewdetails: (
+        <NavLink
+          to="/supervisorpaymentdetails"
+          style={{
+            textDecoration: "none",
+            color: Colors.palette.secondary.main,
+          }}
+        >
+          View Details
+        </NavLink>
+      ),
+    },
+    {
+      d1: "27/12/2023",
+      d2: "Booking ID 2",
+      d3: "Service Type 2",
+      d4: "Amount 2",
+      viewdetails: (
+        <NavLink
+          to="/supervisorpaymentdetails"
+          style={{
+            textDecoration: "none",
+            color: Colors.palette.secondary.main,
+          }}
+        >
+          View Details
+        </NavLink>
+      ),
+    },
+    {
+      d1: "27/12/2023",
+      d2: "Booking ID 3",
+      d3: "Service Type 3",
+      d4: "Amount 3",
+      viewdetails: (
+        <NavLink
+          to="/supervisorpaymentdetails"
+          style={{
+            textDecoration: "none",
+            color: Colors.palette.secondary.main,
+          }}
+        >
+          View Details
+        </NavLink>
+      ),
+    },
+    {
+      d1: "27/12/2023",
+      d2: "Booking ID 4",
+      d3: "Service Type 4",
+      d4: "Amount 4",
+      viewdetails: (
+        <NavLink
+          to="/supervisorpaymentdetails"
+          style={{
+            textDecoration: "none",
+            color: Colors.palette.secondary.main,
+          }}
+        >
+          View Details
+        </NavLink>
+      ),
+    },
+  ];
   return (
     <>
       <Box
@@ -40,7 +118,7 @@ const SupPayUnsucc = () => {
             marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
-          <Table />
+          <Table data={tableData} headers={tableHeaders} />
         </Box>
       </Box>
     </>

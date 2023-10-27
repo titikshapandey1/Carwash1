@@ -20,7 +20,7 @@ import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
-
+import Logo from "../assests/images/Logo.png";
 const drawerWidth = 240;
 
 function SupDash(props) {
@@ -376,7 +376,24 @@ function SupDash(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
-            Logo
+            <NavLink
+              to="/"
+              style={{
+                textDecoration: "none",
+                color: Colors.palette.primary.main,
+              }}
+            >
+              <img
+                src={Logo}
+                alt=""
+                style={{
+                  marginTop: "15px",
+                  width: "150px",
+                  maxWidth: "100%",
+                  height: "50px",
+                }}
+              />
+            </NavLink>
           </Typography>
           <Box
             sx={{

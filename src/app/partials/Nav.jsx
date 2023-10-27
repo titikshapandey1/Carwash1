@@ -8,16 +8,8 @@ import Colors from "../utils/colors";
 import DrawerComp from "./Drawer";
 import { NavLink } from "react-router-dom";
 import Logo from "../assests/images/Logo.png"
-// import Logo1 from "../assests/images/Logo1.jpeg"
-
-// const linkStyle = {
-//   color:Colors.palette.primary.main ,
-//   textDecoration: "none",
-
-// };
 
 const Nav = () => {
-  // const [value, setValue] = useState();
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
