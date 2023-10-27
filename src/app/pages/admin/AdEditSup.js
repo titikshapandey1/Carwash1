@@ -164,6 +164,7 @@ const AdEditSup = () => {
             marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
+          {/* <Table data={tableData} headers={tableHeaders} /> */}
           <Table data={tableData} headers={tableHeaders} />
         </Box>
       </Box>

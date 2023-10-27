@@ -393,7 +393,7 @@ function AdDash(props) {
         {openEditSupervisor && (
           <List component="div" disablePadding>
             <NavLink
-              to="/admineditsupervisor1"
+              to="/admineditsupervisor"
               style={{ textDecoration: "none" }}
             >
               <ListItem key="editsupervisoroption" disablePadding>
