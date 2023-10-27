@@ -62,7 +62,7 @@ import SupUserDetails from "../pages/supervisor/SupUserDetails";
 import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
 import Table from "../components/Table";
-import AdEditSup1 from "../pages/admin/AdEditSup1";
+
 
 
 function AppRouter() {
