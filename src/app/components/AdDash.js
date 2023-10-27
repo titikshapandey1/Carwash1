@@ -27,7 +27,7 @@ import Active from "@mui/icons-material/BookmarkAdded";
 import Declined from "@mui/icons-material/BookmarkRemove";
 import EditIcon from "@mui/icons-material/Create";
 import CreateIcon from "@mui/icons-material/AddCircle";
-
+import Logo from "../assests/images/Logo.png";
 const drawerWidth = 240;
 
 function AdDash(props) {
@@ -490,7 +490,24 @@ function AdDash(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
-            Logo
+            <NavLink
+              to="/"
+              style={{
+                textDecoration: "none",
+                color: Colors.palette.primary.main,
+              }}
+            >
+              <img
+                src={Logo}
+                alt=""
+                style={{
+                  marginTop: "15px",
+                  width: "150px",
+                  maxWidth: "100%",
+                  height: "50px",
+                }}
+              />
+            </NavLink>
           </Typography>
           <Box
             sx={{

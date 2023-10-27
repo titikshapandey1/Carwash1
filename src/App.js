@@ -1,13 +1,10 @@
 import Index from "./app/routes/index";
 function App() {
-   
-
-    return (<>
-        <Index/>
-        {/* <Button title="Fetch data" onClick={fetchdata}/> */}
-       
-
-    </>);
+  return (
+    <>
+      <Index />
+    </>
+  );
 }
 
 export default App;

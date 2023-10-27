@@ -189,7 +189,7 @@ const AdminDashboard = () => {
                     <AccountCircleOutlinedIcon
                       sx={{
                         ...iconsStyles,
-                        marginLeft: {xs:"85%",sm:"95%"},
+                        marginLeft: { xs: "85%", sm: "95%" },
                       }}
                     />
                     <Typography variant="h4" component="div" sx={headingStyles}>

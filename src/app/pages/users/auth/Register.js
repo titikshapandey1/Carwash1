@@ -25,7 +25,6 @@ function RegisterPage() {
 
   const RegiterUser = async () => {
     const data = {
-      
       firstName: formik.values.firstName,
       surName: formik.values.surName,
       mobileNumber: formik.values.mobileNumber,
@@ -40,22 +39,21 @@ function RegisterPage() {
         pincode: formik.values.pincode,
       },
     };
-  
-    const apiKey = "/user-register"; 
+
+    const apiKey = "/user-register";
     const config = {
       headers: {
         Authorization: `Bearer ${apiKey}`,
       },
     };
-  
 
-try {
-  const response = await Axios.post("/user-register", data, config);
-  console.log("response", response.data);
-} catch (error) {
-  console.log(error);
-}
-};
+    try {
+      const response = await Axios.post("/user-register", data, config);
+      console.log("response", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const paperStyle = {
     padding: "20px",
     display: "flex",
@@ -102,12 +100,12 @@ try {
       .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
-    .required("Password is required")
-    .matches(
-      /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-      "Password should have one capital letter, one number, and one special character"
-    )
-    .min(6, "Password must be at least 6 characters in length"),
+      .required("Password is required")
+      .matches(
+        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+        "Password should have one capital letter, one number, and one special character"
+      )
+      .min(6, "Password must be at least 6 characters in length"),
     locality: Yup.string().required("Locality is required"),
     city: Yup.string()
       .required("City is required")
@@ -115,7 +113,7 @@ try {
     district: Yup.string()
       .required("District is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
-      state: Yup.string()
+    state: Yup.string()
       .required("State is required")
       .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     pincode: Yup.string()

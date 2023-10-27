@@ -2,14 +2,78 @@ import React from "react";
 import AdminDash from "../../components/AdDash";
 import Table from "../../components/Table";
 import Colors from "../../utils/colors";
-
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
 
 const AdUserDec = () => {
-  return ( 
+  const tableHeaders = ["User Name", "Location", "Mobile No.", "View Details"];
+  const tableData = [
+    {
+      d1: "User Name",
+      d2: "Address",
+      d3: "8754215421",
+      viewdetails: (
+        <NavLink
+          to="/adminuserdetails"
+          style={{
+            textDecoration: "none",
+            color: Colors.palette.secondary.main,
+          }}
+        >
+          View Details
+        </NavLink>
+      ),
+    },
+    {
+      d1: "User Name",
+      d2: "Address",
+      d3: "8754215421",
+      viewdetails: (
+        <NavLink
+          to="/adminuserdetails"
+          style={{
+            textDecoration: "none",
+            color: Colors.palette.secondary.main,
+          }}
+        >
+          View Details
+        </NavLink>
+      ),
+    },
+    {
+      d1: "User Name",
+      d2: "Address",
+      d3: "8754215421",
+      viewdetails: (
+        <NavLink
+          to="/adminuserdetails"
+          style={{
+            textDecoration: "none",
+            color: Colors.palette.secondary.main,
+          }}
+        >
+          View Details
+        </NavLink>
+      ),
+    },
+    {
+      d1: "User Name",
+      d2: "Address",
+      d3: "8754215421",
+      viewdetails: (
+        <NavLink
+          to="/adminuserdetails"
+          style={{
+            textDecoration: "none",
+            color: Colors.palette.secondary.main,
+          }}
+        >
+          View Details
+        </NavLink>
+      ),
+    },
+  ];
+  return (
     <>
       <Box
         display="block"
@@ -44,7 +108,7 @@ const AdUserDec = () => {
             marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
-          <Table />
+          <Table data={tableData} headers={tableHeaders} />
         </Box>
       </Box>
     </>

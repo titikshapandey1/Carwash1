@@ -1,71 +1,3 @@
-// import { Box, Button } from "@mui/material";
-// import React from "react";
-// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-// import Colors from "../utils/colors";
-
-// const Searcher = () => {
-//   return (
-//     <>
-//       <Box sx={{ background: Colors.palette.secondary.main }}>
-//         <Button
-//           variant="Text"
-//           sx={{
-//             background: Colors.palette.primary.main,
-//             color: Colors.palette.secondary.black,
-//             borderRadius: "10px",
-//             margin: "2%",
-//             "&:hover": {
-//               backgroundColor: Colors.palette.primary.lightBlue,
-//               color: Colors.palette.primary.main,
-//               border: `1px solid ${Colors.palette.primary.main}`,
-//             },
-//           }}
-//         >
-//           Select Service Type <ArrowDropDownIcon />
-//         </Button>
-
-//         <Button
-//           variant="Text"
-//           sx={{
-//             backgroundColor: Colors.palette.primary.main,
-//             color: Colors.palette.secondary.black,
-//             borderRadius: "10px",
-            // margin: { xs: "2%", sm: "0.4%", md: "1%" },
-//             "&:hover": {
-//               backgroundColor: Colors.palette.primary.lightBlue,
-//               color: Colors.palette.primary.main,
-//               border: `1px solid ${Colors.palette.primary.main}`,
-//             },
-//           }}
-//         >
-//           Select Service Type <ArrowDropDownIcon />
-//         </Button>
-
-//         <Button
-//           variant="Text"
-//           sx={{
-//             backgroundColor: Colors.palette.primary.main,
-//             color: Colors.palette.secondary.black,
-//             borderRadius: "10px",
-            // margin: { xs: "2%", sm: "0.4%", md: "1%" },
-//             "&:hover": {
-//               backgroundColor: Colors.palette.primary.lightBlue,
-//               color: Colors.palette.primary.main,
-//               border: `1px solid ${Colors.palette.primary.main}`,
-//             },
-//           }}
-//         >
-//           Go
-//         </Button>
-//       </Box>
-//     </>
-//   );
-// };
-
-// export default Searcher;
-
-
-
 import React, { useState } from "react";
 import { TextField, Autocomplete, Button, Box, Grid} from "@mui/material";
 import Colors from "../utils/colors";
@@ -74,7 +6,6 @@ const Searcher = () => {
   const [inputValue1, setInputValue1] = useState("");
   const [inputValue2, setInputValue2] = useState("");
   const [options, 
-    // setOptions
   ] = useState([
     "4Wheeler",
     "Audi",
@@ -91,11 +22,6 @@ const Searcher = () => {
     setInputValue2(newInputValue);
   };
 
-  // const handleSearch = () => {
-  //   // Handle the search based on the selected options or input values
-  //   console.log("Search Field 1:", inputValue1);
-  //   console.log("Search Field 2:", inputValue2);
-  // };
 
   return (
     <Box sx={{ background: Colors.palette.secondary.main }}>
