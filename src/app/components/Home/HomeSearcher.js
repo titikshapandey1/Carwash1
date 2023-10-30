@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import Axios from "../../utils/Axios";
 import {
   Box,
   FormControl,
@@ -41,34 +41,28 @@ const Searcher = () => {
     setCarType(event.target.value);
   };
 
-  useEffect(() => {
-    // Fetch service types
-    axios
-      .get("https://carws.onrender.com/v1/get-all-service")
-      .then((response) => {
-        if (Array.isArray(response.data.srv)) {
-          setServiceTypes(response.data.srv);
-        } else {
-          console.error("Error:", response.data);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching service types:", error);
-      });
+  const fetchData = async () => {
+    try {
+      const responseService = await Axios.get("/get-all-service");
+      if (Array.isArray(responseService.data.srv)) {
+        setServiceTypes(responseService.data.srv);
+      } else {
+        console.error("Error:", responseService.data);
+      }
 
-    // Fetch car types
-    axios
-      .get("https://carwsh.onrender.com/v1/get-cartype")
-      .then((response) => {
-        if (Array.isArray(response.data.c)) {
-          setCarTypes(response.data.c);
-        } else {
-          console.error("Error:", response.data);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching car types:", error);
-      });
+      const responseCarType = await Axios.get("/get-cartype");
+      if (Array.isArray(responseCarType.data.c)) {
+        setCarTypes(responseCarType.data.c);
+      } else {
+        console.error("Error:", responseCarType.data);
+      }
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (

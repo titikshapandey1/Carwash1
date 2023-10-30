@@ -1,25 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Autocomplete, Button, Box, Grid } from "@mui/material";
 import Colors from "../utils/colors";
+import Axios from "../utils/Axios";
 
 const Searcher = () => {
   const [inputValue1, setInputValue1] = useState("");
   const [inputValue2, setInputValue2] = useState("");
-  const [options] = useState([
-    "4Wheeler",
-    "Audi",
-    "BMW",
-    "Option 4",
-    "Option 5",
-  ]);
+  const [serviceTypes, setServiceTypes] = useState([]);
+  const [carTypes, setCarTypes] = useState([]);
 
-  const handleInputChange1 = (event, newInputValue) => {
-    setInputValue1(newInputValue);
+  const handleServiceTypeChange = (event, newValue) => {
+    setInputValue1(newValue);
   };
 
-  const handleInputChange2 = (event, newInputValue) => {
-    setInputValue2(newInputValue);
+  const handleCarTypeChange = (event, newValue) => {
+    setInputValue2(newValue);
   };
+
+  const fetchData = async () => {
+    try {
+      const responseService = await Axios.get("/get-all-service");
+      if (Array.isArray(responseService.data.srv)) {
+        setServiceTypes(responseService.data.srv);
+      } else {
+        console.error("Error:", responseService.data);
+      }
+
+      const responseCarType = await Axios.get("/get-cartype");
+      if (Array.isArray(responseCarType.data.c)) {
+        setCarTypes(responseCarType.data.c);
+      } else {
+        console.error("Error:", responseCarType.data);
+      }
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <Box sx={{ background: Colors.palette.secondary.main }}>
@@ -32,11 +52,12 @@ const Searcher = () => {
         >
           <Autocomplete
             value={inputValue1}
-            onChange={(event, newValue) => {
-              setInputValue1(newValue);
-            }}
-            options={options}
-            onInputChange={handleInputChange1}
+            onChange={handleServiceTypeChange}
+            options={serviceTypes.map((type) => ({
+              key: type._id,
+              value: type._id,
+              label: type.serviceName,
+            }))}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -61,15 +82,16 @@ const Searcher = () => {
         >
           <Autocomplete
             value={inputValue2}
-            onChange={(event, newValue) => {
-              setInputValue2(newValue);
-            }}
-            options={options}
-            onInputChange={handleInputChange2}
+            onChange={handleCarTypeChange}
+            options={carTypes.map((type) => ({
+              key: type._id,
+              value: type._id,
+              label: type.carName,
+            }))}
             renderInput={(params) => (
               <TextField
                 {...params}
-                placeholder="Select Service Type"
+                placeholder="Select Car Type"
                 variant="outlined"
                 size="small"
                 fullWidth
