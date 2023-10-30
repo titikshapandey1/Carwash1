@@ -8,6 +8,7 @@ import Axios from "../../utils/Axios";
 import Loader from "../../components/Loader";
 
 const AdPaySucc = () => {
+
   const [loading, setLoading] = useState(false);
   const [tableData, setTableData] = useState([]);
   const tableHeaders = [
@@ -21,7 +22,7 @@ const AdPaySucc = () => {
   const fetchPaymentSucc = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("/get-sucessfuly-payment?pages=1");
+      const response = await Axios.get("/get-sucessfuly-payment");
       setTableData(
         response.data.service.map((service) => ({
           d1: service.createdAt,
