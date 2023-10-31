@@ -96,7 +96,7 @@ const AdUserDec = () => {
             fontWeight: "600",
           }}
         >
-          Declined Users
+          Inactive Users
         </Typography>
         <Box
           display="flex"

@@ -1,13 +1,17 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
-// import Colors from '../../../utils/Colors';
+import Colors from "../utils/colors";
 import car1 from "../assests/images/AboutCar.png";
 const AboutGuest = () => {
   return (
     <Box>
       <Grid container spacing={4} sx={{ marginTop: "3%" }}>
         <Grid item xs={12} sm={6} md={8}>
-          <Typography variant="h5" sx={{ marginLeft: "5%" }} gutterBottom>
+          <Typography
+            variant="h5"
+            sx={{ marginLeft: "5%", color: Colors.palette.secondary.main }}
+            gutterBottom
+          >
             <b> About Us</b>
           </Typography>
 

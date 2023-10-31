@@ -43,8 +43,8 @@ import AdPaySucc from "../pages/admin/AdPaySucc";
 import AdPayUnsucc from "../pages/admin/AdPayUnsucc";
 import AdUserReq from "../pages/admin/AdUserReq";
 import AdUserAct from "../pages/admin/AdUserAct";
-import AdUserDec from "../pages/admin/AdUserDec";
-import AdEditSup from "../pages/admin/AdEditSup";
+import AdUserInact from "../pages/admin/AdUserDec";
+import AdAllSup from "../pages/admin/AdEditSup";
 import AdEditSup1 from "../pages/admin/AdEditSup1";
 import AdCreateSup from "../pages/admin/AdCreateSup";
 import AdPayDetails from "../pages/admin/AdPayDetails";
@@ -115,8 +115,8 @@ function AppRouter() {
         <Route path="/adminpayunsucessful" element={<AdPayUnsucc />}></Route>
         <Route path="/adminuserrequest" element={<AdUserReq />}></Route>
         <Route path="/adminuseractive" element={<AdUserAct />}></Route>
-        <Route path="/adminuserdeclined" element={<AdUserDec />}></Route>
-        <Route path="/admineditsupervisor" element={<AdEditSup />}></Route>
+        <Route path="/adminuserinactive" element={<AdUserInact />}></Route>
+        <Route path="/adminallsupervisor" element={<AdAllSup />}></Route>
         <Route path="/admineditsupervisor1" element={<AdEditSup1 />}></Route>
         <Route path="/admincreatesupervisor" element={<AdCreateSup />}></Route>
         <Route path="/adminpaymentdetails" element={<AdPayDetails />}></Route>

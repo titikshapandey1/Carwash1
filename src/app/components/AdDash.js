@@ -27,6 +27,11 @@ import Active from "@mui/icons-material/BookmarkAdded";
 import Declined from "@mui/icons-material/BookmarkRemove";
 import EditIcon from "@mui/icons-material/Create";
 import CreateIcon from "@mui/icons-material/AddCircle";
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
+import AddIcon from '@mui/icons-material/Add';
+import ChecklistRtlIcon from '@mui/icons-material/ChecklistRtl';
 import Logo from "../assests/images/Logo.png";
 const drawerWidth = 240;
 
@@ -39,13 +44,17 @@ function AdDash(props) {
   };
 
   const [openDashboard, setopenDashboard] = React.useState(false);
+
   const [openPayment, setopenPayment] = React.useState(false);
   const [openUsers, setopenUsers] = React.useState(false);
   const [openEditSupervisor, setopenEditSupervisor] = React.useState(false);
+  const [openService, setopenService] = React.useState(false);
+
   const [selectedPaymentOption, setSelectedPaymentOption] =
     React.useState(null);
   const [selectedUserOption, setSelectedUserOption] = React.useState(null);
   const [editSupervisorOption, setEditSupervisorOption] = React.useState(null);
+  const [openServiceOption, setServiceOption] = React.useState(null);
 
   const handleDashboardClick = () => {
     setopenDashboard(!openDashboard);
@@ -57,6 +66,10 @@ function AdDash(props) {
 
   const handleUserClick = () => {
     setopenUsers(!openUsers);
+  };
+
+  const handleServiceClick = () => {
+    setopenService(!openService);
   };
 
   const handleSupervisorClick = () => {
@@ -73,6 +86,10 @@ function AdDash(props) {
 
   const handleEditSupervisorClick = (option) => {
     setEditSupervisorOption(editSupervisorOption);
+  };
+
+  const handleServiceOptionClick = (option) => {
+    setServiceOption(openServiceOption);
   };
 
   const drawer = (
@@ -111,6 +128,8 @@ function AdDash(props) {
           </ListItem>
         </NavLink>
 
+        {/* ================ Payment ================ */}
+
         <ListItem
           key="payment"
           disablePadding
@@ -140,7 +159,9 @@ function AdDash(props) {
             {openPayment ? (
               <ExpandLess />
             ) : (
-              <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+              <ArrowForwardIosIcon
+                sx={{ fontSize: "16px", marginLeft: "4rem" }}
+              />
             )}
           </ListItemButton>
         </ListItem>
@@ -172,11 +193,6 @@ function AdDash(props) {
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedPaymentOption === "Successful Payments" ? (
-                      <RadioButtonCheckedIcon />
-                    ) : (
-                      <RadioButtonUncheckedIcon />
-                    )} */}
                   </ListItemIcon>
                   <ListItemText primary="Successful Payments" />
                 </ListItemButton>
@@ -208,11 +224,6 @@ function AdDash(props) {
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedPaymentOption === "Unsuccessful Payments" ? (
-                      <RadioButtonCheckedIcon />
-                    ) : (
-                      <RadioButtonUncheckedIcon />
-                    )} */}
                   </ListItemIcon>
 
                   <ListItemText primary="Unsuccessful Payments" />
@@ -221,6 +232,151 @@ function AdDash(props) {
             </NavLink>
           </List>
         )}
+
+         {/* ================ Services ================ */}
+         <ListItem
+          key="service"
+          disablePadding
+          onClick={handleServiceClick}
+          sx={{
+            color: Colors.palette.secondary.main,
+            backgroundColor: Colors.palette.primary.main,
+            "&:hover": {
+              color: Colors.palette.primary.main,
+              backgroundColor: Colors.palette.secondary.main,
+            },
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <MiscellaneousServicesIcon
+                sx={{
+                  padding: "2px",
+                  color: Colors.palette.primary.main,
+                  backgroundColor: Colors.palette.secondary.main,
+                  borderRadius: "50%",
+                  border: `2px solid ${Colors.palette.secondary.main}`,
+                }}
+              />
+            </ListItemIcon>
+            <ListItemText primary="Services" />
+            {openService ? (
+              <ExpandLess />
+            ) : (
+              <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+            )}
+          </ListItemButton>
+        </ListItem>
+        {openService && (
+          <List component="div" disablePadding>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <ListItem key="declined" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Declined Users")}
+                >
+                  <ListItemIcon>
+                    <ChecklistRtlIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="All Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <ListItem key="request" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Request")}
+                >
+                  <ListItemIcon>
+                    <AddIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Requested Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <ListItem key="active" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Active Users")}
+                >
+                  <ListItemIcon>
+                    <CheckIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Accepted Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <ListItem key="declined" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Declined Users")}
+                >
+                  <ListItemIcon>
+                    <ClearIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                        fontWeight:"600"
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Denied Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </List>
+        )}
+
+        {/* ================ Users ================ */}
 
         <ListItem
           key="users"
@@ -277,11 +433,6 @@ function AdDash(props) {
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedUserOption === "Request" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
                   <ListItemText primary="Request" />
                 </ListItemButton>
@@ -308,18 +459,13 @@ function AdDash(props) {
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedUserOption === "Active Users" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
                   <ListItemText primary="Active Users" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
 
-            <NavLink to="/adminuserdeclined" style={{ textDecoration: "none" }}>
+            <NavLink to="/adminuserinactive" style={{ textDecoration: "none" }}>
               <ListItem key="declined" disablePadding>
                 <ListItemButton
                   sx={{
@@ -339,18 +485,15 @@ function AdDash(props) {
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedUserOption === "Declined Users" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
-                  <ListItemText primary="Declined Users" />
+                  <ListItemText primary="Inactive Users" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
           </List>
         )}
+
+        {/* ================ Supervisor ================ */}
 
         <ListItem
           key="editsupervisor"
@@ -377,7 +520,7 @@ function AdDash(props) {
                 }}
               />
             </ListItemIcon>
-            <ListItemText primary="Edit Supervisor" />
+            <ListItemText primary="Supervisor" />
             {openEditSupervisor ? (
               <ExpandLess />
             ) : (
@@ -393,7 +536,7 @@ function AdDash(props) {
         {openEditSupervisor && (
           <List component="div" disablePadding>
             <NavLink
-              to="/admineditsupervisor"
+              to="/adminallsupervisor"
               style={{ textDecoration: "none" }}
             >
               <ListItem key="editsupervisoroption" disablePadding>
@@ -415,13 +558,8 @@ function AdDash(props) {
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {editSupervisorOption === "Edit Supervisor" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
-                  <ListItemText primary="Edit Supervisor" />
+                  <ListItemText primary="All Supervisor" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
@@ -449,11 +587,6 @@ function AdDash(props) {
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {editSupervisorOption === "Create Supervisor" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
                   <ListItemText primary="Create Supervisor" />
                 </ListItemButton>
@@ -461,6 +594,8 @@ function AdDash(props) {
             </NavLink>
           </List>
         )}
+
+       
       </List>
     </Box>
   );

@@ -92,7 +92,7 @@ const AdEditSup = () => {
             fontWeight: "600",
           }}
         >
-          Edit Supervisor
+          All Supervisors
         </Typography>
         <Box
           display="flex"

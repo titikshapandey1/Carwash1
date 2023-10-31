@@ -52,7 +52,7 @@ function ServiceLocation() {
     };
 
     try {
-      const response = await Axios.post("v1/serviceRqst", data);
+      const response = await Axios.post("/serviceRqst", data);
       console.log("API Response:", response.data);
     } catch (error) {
       console.error("Error:", error?.response?.data?.message);
@@ -179,7 +179,7 @@ function ServiceLocation() {
         borderRadius: "25",
       }}
     >
-      <Container component="main" maxWidth="sm" sx={{ mt: "5%", mb: "5%" }}>
+      <Container component="main" maxWidth="md" sx={{ mt: "5%", mb: "5%" }}>
         <Grid container>
           <Paper elevation={10} style={paperStyle}>
             <Typography
@@ -286,7 +286,7 @@ function ServiceLocation() {
                     variant="h6"
                     sx={{ color: Colors.palette.secondary.main }}
                   >
-                    Addres s
+                    Address
                     <br />
                   </Typography>
                 </Grid>
