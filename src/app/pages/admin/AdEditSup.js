@@ -32,7 +32,7 @@ const AdEditSup = () => {
           d4: service.price,
           d6: [
             <NavLink
-              to={`/admineditsupervisor${index + 1}`}
+              to={`/admineditsupervisor1?id=${service._id}`}
               style={{
                 textDecoration: "none",
                 color: Colors.palette.secondary.main,

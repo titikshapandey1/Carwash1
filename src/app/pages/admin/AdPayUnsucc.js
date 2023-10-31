@@ -30,7 +30,7 @@ const AdPayUnsucc = () => {
           d4: service.amount,
           viewdetails: (
             <NavLink
-              to="/adminpaymentdetails"
+              to={`/adminpaymentdetails?id=${service._id}`}
               style={{
                 textDecoration: "none",
                 color: Colors.palette.secondary.main,

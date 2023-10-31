@@ -8,7 +8,6 @@ import Axios from "../../utils/Axios";
 import Loader from "../../components/Loader";
 
 const AdPaySucc = () => {
-
   const [loading, setLoading] = useState(false);
   const [tableData, setTableData] = useState([]);
   const tableHeaders = [
@@ -22,24 +21,26 @@ const AdPaySucc = () => {
   const fetchPaymentSucc = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("/get-sucessfuly-payment");
+      const response = await Axios.get("/get-sucessfuly-payment?pages=1");
       setTableData(
         response.data.service.map((service) => ({
           d1: service.createdAt,
           d2: service._id,
           d3: service.serviceType,
           d4: service.amount,
-          viewdetails: (
-            <NavLink
-              to="/adminpaymentdetails"
-              style={{
-                textDecoration: "none",
-                color: Colors.palette.secondary.main,
-              }}
-            >
-              View Details
-            </NavLink>
-          ),
+          viewdetails:
+            (service.viewDetail._id,
+            (
+              <NavLink
+                to={`/adminpaymentdetails?id=${service._id}`}
+                style={{
+                  textDecoration: "none",
+                  color: Colors.palette.secondary.main,
+                }}
+              >
+                View Details
+              </NavLink>
+            )),
         }))
       );
     } catch (error) {
