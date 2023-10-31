@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminDash from "../../components/AdDash";
 import Colors from "../../utils/colors";
 import Table from "../../components/Table";
-import { NavLink } from "react-router-dom"; 
-
+import { NavLink } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
+import Axios from "../../utils/Axios";
+import Loader from "../../components/Loader";
 
 const AdPaySucc = () => {
+
+  const [loading, setLoading] = useState(false);
+  const [tableData, setTableData] = useState([]);
   const tableHeaders = [
     "Date",
     "Booking ID",
@@ -14,76 +18,41 @@ const AdPaySucc = () => {
     "Amount",
     "View Details",
   ];
-  const tableData = [
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 1",
-      d3: "Service Type 1",
-      d4: "Amount 1",
-      viewdetails: (
-        <NavLink
-          to="/adminpaymentdetails"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          View Details
-        </NavLink>
-      ),
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 2",
-      d3: "Service Type 2",
-      d4: "Amount 2",
-      viewdetails: (
-        <NavLink
-          to="/adminpaymentdetails"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          View Details
-        </NavLink>
-      ),
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 3",
-      d3: "Service Type 3",
-      d4: "Amount 3",
-      viewdetails: (
-        <NavLink
-          to="/adminpaymentdetails"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          View Details
-        </NavLink>
-      ),
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 4",
-      d3: "Service Type 4",
-      d4: "Amount 4",
-      viewdetails: (
-        <NavLink
-          to="/adminpaymentdetails"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          View Details
-        </NavLink>
-      ),
-    },
-  ];
+
+  const fetchPaymentSucc = async () => {
+    setLoading(true);
+    try {
+      const response = await Axios.get("/get-sucessfuly-payment");
+      setTableData(
+        response.data.service.map((service) => ({
+          d1: service.createdAt,
+          d2: service._id,
+          d3: service.serviceType,
+          d4: service.amount,
+          viewdetails: (
+            <NavLink
+              to="/adminpaymentdetails"
+              style={{
+                textDecoration: "none",
+                color: Colors.palette.secondary.main,
+              }}
+            >
+              View Details
+            </NavLink>
+          ),
+        }))
+      );
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }
+  };
+  useEffect(() => {
+    fetchPaymentSucc();
+  }, []);
 
   return (
     <>
@@ -120,7 +89,13 @@ const AdPaySucc = () => {
             marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
-          <Table data={tableData} headers={tableHeaders} />
+          {loading ? (
+            <h1>
+              <Loader />
+            </h1>
+          ) : (
+            <Table data={tableData} headers={tableHeaders} />
+          )}
         </Box>
       </Box>
     </>

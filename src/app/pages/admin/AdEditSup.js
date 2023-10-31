@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminDash from "../../components/AdDash";
 import Table from "../../components/Table";
 import Colors from "../../utils/colors";
@@ -6,8 +6,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import Axios from "../../utils/Axios";
+import Loader from "../../components/Loader";
 
 const AdEditSup = () => {
+  const [loading, setLoading] = useState(false);
+  const [tableData, setTableData] = useState([]);
   const tableHeaders = [
     "Joining",
     "Supervisor ID",
@@ -15,120 +19,56 @@ const AdEditSup = () => {
     "Amount",
     "",
   ];
-  const tableData = [
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 1",
-      d3: "Service Type 1",
-      d4: "Amount 1",
-      d6: [
-        <NavLink
-          to="/admineditsupervisor1"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <EditIcon
-            sx={{ marginRight: "30%", color: Colors.palette.secondary.main }}
-          />
-        </NavLink>,
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <DeleteIcon sx={{ color: Colors.palette.secondary.main }} />
-        </NavLink>,
-      ],
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 2",
-      d3: "Service Type 2",
-      d4: "Amount 2",
-      d6: [
-        <NavLink
-          to="/admineditsupervisor1"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <EditIcon
-            sx={{ marginRight: "30%", color: Colors.palette.secondary.main }}
-          />
-        </NavLink>,
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <DeleteIcon sx={{ color: Colors.palette.secondary.main }} />
-        </NavLink>,
-      ],
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 3",
-      d3: "Service Type 3",
-      d4: "Amount 3",
-      d6: [
-        <NavLink
-          to="/admineditsupervisor1"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <EditIcon
-            sx={{ marginRight: "30%", color: Colors.palette.secondary.main }}
-          />
-        </NavLink>,
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <DeleteIcon sx={{ color: Colors.palette.secondary.main }} />
-        </NavLink>,
-      ],
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 4",
-      d3: "Service Type 4",
-      d4: "Amount 4",
-      d6: [
-        <NavLink
-          to="/admineditsupervisor1"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <EditIcon
-            sx={{ marginRight: "30%", color: Colors.palette.secondary.main }}
-          />
-        </NavLink>,
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <DeleteIcon sx={{ color: Colors.palette.secondary.main }} />
-        </NavLink>,
-      ],
-    },
-  ];
+
+  const fetchPaymentSucc = async () => {
+    setLoading(true);
+    try {
+      const response = await Axios.get("/get-all-supervisior?pages=5");
+      setTableData(
+        response.data.supervisior.map((service, index) => ({
+          d1: service.createdAt,
+          d2: service._id,
+          d3: service.service,
+          d4: service.price,
+          d6: [
+            <NavLink
+              to={`/admineditsupervisor${index + 1}`}
+              style={{
+                textDecoration: "none",
+                color: Colors.palette.secondary.main,
+              }}
+            >
+              <EditIcon
+                sx={{
+                  marginRight: "30%",
+                  color: Colors.palette.secondary.main,
+                }}
+              />
+            </NavLink>,
+            <NavLink
+              to="/"
+              style={{
+                textDecoration: "none",
+                color: Colors.palette.secondary.main,
+              }}
+            >
+              <DeleteIcon sx={{ color: Colors.palette.secondary.main }} />
+            </NavLink>,
+          ],
+        }))
+      );
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }
+  };
+  useEffect(() => {
+    fetchPaymentSucc();
+  }, []);
+
   return (
     <>
       <Box
@@ -164,8 +104,13 @@ const AdEditSup = () => {
             marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
-          {/* <Table data={tableData} headers={tableHeaders} /> */}
-          <Table data={tableData} headers={tableHeaders} />
+          {loading ? (
+            <h1>
+              <Loader />
+            </h1>
+          ) : (
+            <Table data={tableData} headers={tableHeaders} />
+          )}
         </Box>
       </Box>
     </>

@@ -1,7 +1,5 @@
-
-
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import Axios from "../../utils/Axios";
 import {
   Box,
   FormControl,
@@ -31,30 +29,40 @@ const searcherContainerStyle = {
 
 const Searcher = () => {
   const [servicetype, setservicetype] = useState("");
-  const [setcartype, setsetcartype] = useState([]);
+  const [carType, setCarType] = useState("");
   const [serviceTypes, setServiceTypes] = useState([]);
+  const [carTypes, setCarTypes] = useState([]);
 
   const handleServiceTypeChange = (event) => {
     setservicetype(event.target.value);
   };
 
-  const handlesetcartypeChange = (event) => {
-    setsetcartype(event.target.value);
+  const handleCarTypeChange = (event) => {
+    setCarType(event.target.value);
+  };
+
+  const fetchData = async () => {
+    try {
+      const responseService = await Axios.get("/get-all-service");
+      if (Array.isArray(responseService.data.srv)) {
+        setServiceTypes(responseService.data.srv);
+      } else {
+        console.error("Error:", responseService.data);
+      }
+
+      const responseCarType = await Axios.get("/get-cartype");
+      if (Array.isArray(responseCarType.data.c)) {
+        setCarTypes(responseCarType.data.c);
+      } else {
+        console.error("Error:", responseCarType.data);
+      }
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
   };
 
   useEffect(() => {
-    axios
-      .get("https://carwsh.onrender.com/v1/get-cartype")
-      .then((response) => {
-        if (Array.isArray(response.data.srv)) {
-          setServiceTypes(response.data.srv);
-        } else {
-          console.error("Service types data is not an array:", response.data);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching service types:", error);
-      });
+    fetchData();
   }, []);
 
   return (
@@ -100,17 +108,17 @@ const Searcher = () => {
             }}
           >
             <Select
-              value={setcartype}
-              onChange={handlesetcartypeChange}
+              value={carType}
+              onChange={handleCarTypeChange}
               displayEmpty
               inputProps={{ "aria-label": "Without label" }}
             >
               <MenuItem value="">
-                <Typography>Select Car type</Typography>
+                <Typography>Select Car Type</Typography>
               </MenuItem>
-              {serviceTypes.map((type) => (
+              {carTypes.map((type) => (
                 <MenuItem key={type._id} value={type._id}>
-                  {type.carBrand}
+                  {type.carName}
                 </MenuItem>
               ))}
             </Select>
