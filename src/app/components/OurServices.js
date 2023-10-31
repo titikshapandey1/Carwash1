@@ -246,7 +246,7 @@ const OurServices = () => {
               src={red}
               alt="Hatchback"
               style={imageStyles}
-              onMouseEnter={handleImageHover}
+              onMouseEnter={(e) => handleImageHover(e, "HatchBack")}
               onMouseLeave={handleImageLeave}
             />
           </Card>
@@ -274,6 +274,12 @@ const OurServices = () => {
                 textAlign: "center",
                 marginBottom: "1%",
                 fontWeight: "600",
+                backgroundColor:
+                  selectedService === "Sedan" ? Colors.palette.secondary.main : "transparent",
+                color:
+                  selectedService === "Sedan"
+                    ? Colors.palette.primary.main
+                    : Colors.palette.secondary.main,
               }}
             >
               Sedan
@@ -282,7 +288,7 @@ const OurServices = () => {
               src={yellow}
               alt="Sedan"
               style={imageStyles}
-              onMouseEnter={handleImageHover}
+              onMouseEnter={(e) => handleImageHover(e, "Sedan")}
               onMouseLeave={handleImageLeave}
             />
           </Card>
@@ -310,6 +316,12 @@ const OurServices = () => {
                 textAlign: "center",
                 marginBottom: "5%",
                 fontWeight: "600",
+                backgroundColor:
+                  selectedService === "SUV" ? Colors.palette.secondary.main : "transparent",
+                color:
+                  selectedService === "SUV"
+                    ? Colors.palette.primary.main
+                    : Colors.palette.secondary.main,
               }}
             >
               SUV
@@ -318,7 +330,7 @@ const OurServices = () => {
               src={blue}
               alt="SUV"
               style={imageStyles}
-              onMouseEnter={handleImageHover}
+              onMouseEnter={(e) => handleImageHover(e, "SUV")}
               onMouseLeave={handleImageLeave}
             />
           </Card>

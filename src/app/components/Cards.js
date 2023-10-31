@@ -24,12 +24,8 @@ const Cards = () => {
         <Container>
           <Grid container item spacing={2} sx={{ justifyContent: "center" }}>
             <Grid item xs={12} sm={6} md={4}>
-              <BookingCard
-                sx={{
-                  borderRadius: "20px",
-                  bgcolor: Colors.palette.primary.main,
-                }}
-              >
+            <BookingCard shadowColor={Colors.palette.background.lightGreen}>
+
                 <CardContent>
                   <Typography
                     variant="h5"
@@ -50,7 +46,7 @@ const Cards = () => {
                       <ListItem>
                         <DoneAllOutlinedIcon />
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Exterior Wash, removing dust and grime."
                         />
                       </ListItem>
@@ -58,7 +54,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Interior Vacuuming, dusting seats and carpets and floor mats."
                         />
                       </ListItem>
@@ -66,7 +62,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Cleaning and Polishing all windows and mirrors."
                         />
                       </ListItem>
@@ -74,7 +70,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Cleaning and Shining tires and rims."
                         />
                       </ListItem>
@@ -82,7 +78,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Wiping down interior surfaces, including dashboard and door panels."
                         />
                       </ListItem>
@@ -125,10 +121,7 @@ const Cards = () => {
 
             <Grid item xs={12} sm={6} md={4}>
               <BookingCard
-                sx={{
-                  borderRadius: "20px",
-                  bgcolor: Colors.palette.primary.main,
-                }}
+                shadowColor={Colors.palette.secondary.yellow}
               >
                 <CardContent>
                   <Typography
@@ -150,7 +143,7 @@ const Cards = () => {
                       <ListItem>
                         <DoneAllOutlinedIcon />
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Exterior Wash, removing dust and grime."
                         />
                       </ListItem>
@@ -158,7 +151,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Interior Vacuuming, dusting seats and carpets and floor mats."
                         />
                       </ListItem>
@@ -166,7 +159,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Cleaning and Polishing all windows and mirrors."
                         />
                       </ListItem>
@@ -174,7 +167,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Cleaning and Shining tires and rims."
                         />
                       </ListItem>
@@ -182,7 +175,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Wiping down interior surfaces, including dashboard and door panels."
                         />
                       </ListItem>
@@ -226,10 +219,7 @@ const Cards = () => {
 
             <Grid item xs={12} sm={6} md={4}>
               <BookingCard
-                sx={{
-                  borderRadius: "20px",
-                  bgcolor: Colors.palette.primary.main,
-                }}
+              shadowColor={Colors.palette.secondary.darkPurple}
               >
                 <CardContent>
                   <Typography
@@ -251,7 +241,7 @@ const Cards = () => {
                       <ListItem>
                         <DoneAllOutlinedIcon />
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                        style={{marginLeft:'15px',color:'Black'}}
                           primary="Exterior Wash, removing dust and grime."
                         />
                       </ListItem>
@@ -259,7 +249,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                        style={{marginLeft:'15px',color:'Black'}}
                           primary="Interior Vacuuming, dusting seats and carpets and floor mats."
                         />
                       </ListItem>
@@ -267,7 +257,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Cleaning and Polishing all windows and mirrors."
                         />
                       </ListItem>
@@ -275,7 +265,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Cleaning and Shining tires and rims."
                         />
                       </ListItem>
@@ -283,7 +273,7 @@ const Cards = () => {
                         <DoneAllOutlinedIcon />
 
                         <ListItemText
-                          style={{ marginLeft: "15px" }}
+                       style={{marginLeft:'15px',color:'Black'}}
                           primary="Wiping down interior surfaces, including dashboard and door panels."
                         />
                       </ListItem>
