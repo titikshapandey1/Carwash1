@@ -274,12 +274,14 @@ const OurServices = () => {
                 textAlign: "center",
                 marginBottom: "1%",
                 fontWeight: "600",
-                backgroundColor:
-                  selectedService === "Sedan" ? Colors.palette.secondary.main : "transparent",
-                color:
-                  selectedService === "Sedan"
-                    ? Colors.palette.primary.main
-                    : Colors.palette.secondary.main,
+                // backgroundColor:
+                //   selectedService === "Sedan"
+                //     ? Colors.palette.secondary.main
+                //     : "transparent",
+                // color:
+                //   selectedService === "Sedan"
+                //     ? Colors.palette.primary.main
+                //     : Colors.palette.secondary.main,
               }}
             >
               Sedan
@@ -316,12 +318,14 @@ const OurServices = () => {
                 textAlign: "center",
                 marginBottom: "5%",
                 fontWeight: "600",
-                backgroundColor:
-                  selectedService === "SUV" ? Colors.palette.secondary.main : "transparent",
-                color:
-                  selectedService === "SUV"
-                    ? Colors.palette.primary.main
-                    : Colors.palette.secondary.main,
+                // backgroundColor:
+                //   selectedService === "SUV"
+                //     ? Colors.palette.secondary.main
+                //     : "transparent",
+                // color:
+                //   selectedService === "SUV"
+                //     ? Colors.palette.primary.main
+                //     : Colors.palette.secondary.main,
               }}
             >
               SUV
