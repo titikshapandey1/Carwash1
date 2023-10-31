@@ -13,7 +13,7 @@ function Profile() {
     setLoading(true);
     try {
       const response = await Axios.get(
-        "/getUserData/6527aa4e881d3d3be4b5990a"
+        "/get-user-Data/653b84ae8d1573f1659c4e93"
       );
       console.log("Response Data:", response.data.data);
       setUserData(response.data.data);
