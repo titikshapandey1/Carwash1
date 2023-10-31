@@ -257,7 +257,7 @@ try {
                   >
                     <LockIcon sx={{ mr: "1rem" }} />
                     <NavLink
-                      to="/mobile"
+                      to="/email"
                       style={{
                         textDecoration: "none",
                         color: Colors.palette.secondary.main,

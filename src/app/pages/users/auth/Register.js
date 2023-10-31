@@ -62,9 +62,9 @@ function RegisterPage() {
   };
 
   const submitButtonStyle = {
-    marginTop: "20px",
-    marginBottom: "20px",
-    padding: "15px",
+    marginTop: "15px",
+    marginBottom: "10px",
+    padding: "10px",
     borderRadius: 5,
     display: "flex",
     textAlign: "center",
@@ -154,6 +154,7 @@ function RegisterPage() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+      
       }}
     >
       <Box
@@ -165,7 +166,7 @@ function RegisterPage() {
           alignItems: "center",
         }}
       >
-        <Container maxWidth="sm" sx={{ mt: "8%", mb: "8%" }}>
+        <Container maxWidth="sm" sx={{ mt: "2%", mb: "2%" }}>
           <Grid container>
             <Paper elevation={10} style={paperStyle}>
               <Box
@@ -192,9 +193,10 @@ function RegisterPage() {
               </Box>
               <Typography
                 variant="h6"
+                align="center"
                 sx={{
-                  mt: "35px",
-                  mb: "30px",
+                  mt: "20px",
+                  mb: "10px",
                   justifyContent: "center",
                   color: Colors.palette.secondary.main,
                 }}
@@ -205,7 +207,7 @@ function RegisterPage() {
                 style={{ color: Colors.palette.secondary.main }}
                 onSubmit={formik.handleSubmit}
               >
-                <Grid container spacing={2}>
+                <Grid container spacing={1.5}>
                   <Grid item xs={12} sm={6}>
                     <TextField
                       variant="outlined"
@@ -475,17 +477,17 @@ function RegisterPage() {
                     sx={submitButtonStyle}
                     onClick={RegiterUser}
                   >
-                    {/* <NavLink
-                      to="/login"
+                    <NavLink
+                      to="/otp"
                       style={{
                         textDecoration: "none",
                         color: Colors.palette.primary.main,
                         display: "flex",
                         alignItems: "center",
                       }}
-                    > */}
+                    >
                     Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                    {/* </NavLink> */}
+                    </NavLink>
                   </Button>
                 </Box>
               </form>

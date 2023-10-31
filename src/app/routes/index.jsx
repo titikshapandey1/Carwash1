@@ -62,6 +62,8 @@ import SupUserDetails from "../pages/supervisor/SupUserDetails";
 import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
 import Table from "../components/Table";
+import Email from "../pages/users/auth/Email";
+import PasswordReset from "../pages/users/auth/PasswordReset";
 
 
 
@@ -95,6 +97,8 @@ function AppRouter() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/services" element={<Services />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/email" element={<Email />}></Route>
+        <Route path="/passwordreset" element={< PasswordReset/>}></Route>
         <Route path="/aboutus" element={<HomePage />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/profile2" element={<Profile2 />}></Route>

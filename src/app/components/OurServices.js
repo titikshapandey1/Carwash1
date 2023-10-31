@@ -1,5 +1,4 @@
-
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Container, Card, Box } from "@mui/material";
@@ -18,12 +17,16 @@ const imageStyles = {
 };
 
 const OurServices = () => {
-  const handleImageHover = (event) => {
-    event.currentTarget.style.transform = "scale(1.1)"; // Enlarge the image on hover
+  const [selectedService, setSelectedService] = useState(null);
+
+  const handleImageHover = (event, serviceName) => {
+    event.currentTarget.style.transform = "scale(1.1)";
+    setSelectedService(serviceName);
   };
 
   const handleImageLeave = (event) => {
-    event.currentTarget.style.transform = "scale(1)"; // Reset the image size when the mouse leaves
+    event.currentTarget.style.transform = "scale(1)";
+    setSelectedService(null);
   };
 
   return (
@@ -58,7 +61,11 @@ const OurServices = () => {
       <Grid container spacing={4}>
         <Grid item xs={12} sm={4}>
           <Card
-            sx={{ background: Colors.palette.primary.main, boxShadow: "none" }}
+            sx={{
+              background: Colors.palette.primary.main,
+              boxShadow: "none",
+              cursor: "pointer", // Add cursor pointer
+            }}
           >
             <Typography
               variant="h5"
@@ -66,6 +73,13 @@ const OurServices = () => {
                 backgroundColor: Colors.palette.secondary.main,
                 color: Colors.palette.primary.main,
                 textAlign: "center",
+                fontWeight: "600",
+                backgroundColor:
+                  selectedService === "HatchBack" ? Colors.palette.secondary.main : "transparent",
+                color:
+                  selectedService === "HatchBack"
+                    ? Colors.palette.primary.main
+                    : Colors.palette.secondary.main,
               }}
             >
               HatchBack
@@ -74,20 +88,31 @@ const OurServices = () => {
               src={red}
               alt="Hatchback"
               style={imageStyles}
-              onMouseEnter={handleImageHover}
+              onMouseEnter={(e) => handleImageHover(e, "HatchBack")}
               onMouseLeave={handleImageLeave}
             />
           </Card>
         </Grid>
 
         <Grid item xs={12} sm={4}>
-          <Card sx={{ boxShadow: "none" }}>
+          <Card
+            sx={{
+              boxShadow: "none",
+              cursor: "pointer",
+            }}
+          >
             <Typography
               variant="h5"
               sx={{
                 textAlign: "center",
                 color: Colors.palette.secondary.main,
                 fontWeight: "600",
+                backgroundColor:
+                  selectedService === "Sedan" ? Colors.palette.secondary.main : "transparent",
+                color:
+                  selectedService === "Sedan"
+                    ? Colors.palette.primary.main
+                    : Colors.palette.secondary.main,
               }}
             >
               Sedan
@@ -96,20 +121,31 @@ const OurServices = () => {
               src={yellow}
               alt="Sedan"
               style={imageStyles}
-              onMouseEnter={handleImageHover}
+              onMouseEnter={(e) => handleImageHover(e, "Sedan")}
               onMouseLeave={handleImageLeave}
             />
           </Card>
         </Grid>
 
         <Grid item xs={12} sm={4}>
-          <Card sx={{ boxShadow: "none" }}>
+          <Card
+            sx={{
+              boxShadow: "none",
+              cursor: "pointer",
+            }}
+          >
             <Typography
               variant="h5"
               sx={{
                 textAlign: "center",
                 color: Colors.palette.secondary.main,
                 fontWeight: "600",
+                backgroundColor:
+                  selectedService === "SUV" ? Colors.palette.secondary.main : "transparent",
+                color:
+                  selectedService === "SUV"
+                    ? Colors.palette.primary.main
+                    : Colors.palette.secondary.main,
               }}
             >
               SUV
@@ -118,7 +154,7 @@ const OurServices = () => {
               src={blue}
               alt="SUV"
               style={imageStyles}
-              onMouseEnter={handleImageHover}
+              onMouseEnter={(e) => handleImageHover(e, "SUV")}
               onMouseLeave={handleImageLeave}
             />
           </Card>
