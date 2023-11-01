@@ -173,7 +173,7 @@ function EditSupervisorCredentials() {
               variant="h6"
               sx={{ color: Colors.palette.secondary.main }}
             >
-              Enter your credentials here:
+              Enter credentials here:
             </Typography>
             <form style={formStyle} onSubmit={formik.handleSubmit} noValidate>
               <Grid container spacing={2}>

@@ -21,6 +21,10 @@ import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
 import Logo from "../assests/images/Logo.png";
+import Request from "@mui/icons-material/BookmarkAdd";
+import Active from "@mui/icons-material/BookmarkAdded";
+import Declined from "@mui/icons-material/BookmarkRemove";
+
 const drawerWidth = 240;
 
 function SupDash(props) {
@@ -34,9 +38,12 @@ function SupDash(props) {
   const [openDashboard, setopenDashboard] = React.useState(false);
   const [openPayment, setopenPayment] = React.useState(false);
   const [openUsers, setopenUsers] = React.useState(false);
+  const [openService, setopenService] = React.useState(false);
+
   const [selectedPaymentOption, setSelectedPaymentOption] =
     React.useState(null);
   const [selectedUserOption, setSelectedUserOption] = React.useState(null);
+  const [openServiceOption, setServiceOption] = React.useState(null);
 
   const handleDashboardClick = () => {
     setopenDashboard(!openDashboard);
@@ -50,12 +57,20 @@ function SupDash(props) {
     setopenUsers(!openUsers);
   };
 
+  const handleServiceClick = () => {
+    setopenService(!openService);
+  };
+
   const handlePaymentOptionClick = (option) => {
     setSelectedPaymentOption(selectedPaymentOption);
   };
 
   const handleUserOptionClick = (option) => {
     setSelectedUserOption(selectedUserOption);
+  };
+
+  const handleServiceOptionClick = (option) => {
+    setServiceOption(openServiceOption);
   };
 
   const drawer = (
@@ -201,6 +216,148 @@ function SupDash(props) {
                   </ListItemIcon>
 
                   <ListItemText primary="Unsuccessful Payments" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </List>
+        )}
+
+         {/* ================ Services ================ */}
+         <ListItem
+          key="service"
+          disablePadding
+          onClick={handleServiceClick}
+          sx={{
+            color: Colors.palette.secondary.main,
+            backgroundColor: Colors.palette.primary.main,
+            "&:hover": {
+              color: Colors.palette.primary.main,
+              backgroundColor: Colors.palette.secondary.main,
+            },
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <PeopleAltOutlinedIcon
+                sx={{
+                  padding: "2px",
+                  color: Colors.palette.primary.main,
+                  backgroundColor: Colors.palette.secondary.main,
+                  borderRadius: "50%",
+                  border: `2px solid ${Colors.palette.secondary.main}`,
+                }}
+              />
+            </ListItemIcon>
+            <ListItemText primary="Services" />
+            {openService ? (
+              <ExpandLess />
+            ) : (
+              <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+            )}
+          </ListItemButton>
+        </ListItem>
+        {openService && (
+          <List component="div" disablePadding>
+            <NavLink to="/adminuserinactive" style={{ textDecoration: "none" }}>
+              <ListItem key="declined" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Declined Users")}
+                >
+                  <ListItemIcon>
+                    <Declined
+                      sx={{
+                        fontSize: "16px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="All Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/adminuserrequest" style={{ textDecoration: "none" }}>
+              <ListItem key="request" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Request")}
+                >
+                  <ListItemIcon>
+                    <Request
+                      sx={{
+                        fontSize: "16px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Requested Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/adminuseractive" style={{ textDecoration: "none" }}>
+              <ListItem key="active" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Active Users")}
+                >
+                  <ListItemIcon>
+                    <Active
+                      sx={{
+                        fontSize: "16px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Accepted Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/adminuserinactive" style={{ textDecoration: "none" }}>
+              <ListItem key="declined" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Declined Users")}
+                >
+                  <ListItemIcon>
+                    <Declined
+                      sx={{
+                        fontSize: "16px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Denied Services" />
                 </ListItemButton>
               </ListItem>
             </NavLink>

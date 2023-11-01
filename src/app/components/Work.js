@@ -1,32 +1,26 @@
-
-import React, { useState } from 'react';
-import {
-  Container,
-  Grid,
-  Typography,
-  Button,
-  Paper,
-
-} from '@mui/material';
-import Star from "../assests/images/5star.png";
-import Book from "../assests/images/bookslot.jpg";
-import Payment from "../assests/images/payme.jpg";
-import Colors from '../utils/colors';
+import React, { useState } from "react";
+import { Container, Grid, Typography, Paper } from "@mui/material";
+import Star from "../assests/images/Ratings.png";
+import Book from "../assests/images/booking.png";
+import Payment from "../assests/images/Payment.png";
+import Colors from "../utils/colors";
 
 const steps = [
   {
-    title: 'Book Slot',
-    description: 'Book your car wash online at your convenience.',
+    title: "Book Slot",
+    description: "Book your car wash online at your convenience.",
     image: Book,
   },
   {
-    title: '5Star Services',
-    description: 'Our experienced team arrives to clean your car thoroughly, We provide Best services.',
+    title: "5 Star Services",
+    description:
+      "Our experienced team arrives to clean your car thoroughly. We provide the best services.",
     image: Star,
   },
   {
-    title: 'Payment',
-    description: 'Payment can be made securely, and you can rate our service. We provide Best services.',
+    title: "Payment",
+    description:
+      "Make a secure payment and rate our service. We provide the best services.",
     image: Payment,
   },
 ];
@@ -36,8 +30,17 @@ function Work() {
 
   return (
     <Container>
-      <Typography variant="h1" align="center" sx={{ marginTop: '20px', color: Colors.palette.secondary.main }}>
-        How We Works
+      <Typography
+        variant="h4"
+        align="center"
+        sx={{
+          marginTop: "5%",
+          color: Colors.palette.secondary.main,
+          marginBottom: "3%",
+          fontWeight: "600",
+        }}
+      >
+        How We Work
       </Typography>
       <Grid container spacing={3}>
         {steps.map((step, index) => (
@@ -45,11 +48,18 @@ function Work() {
             <Paper
               elevation={3}
               style={{
-                padding: '20px',
-                textAlign: 'center',
-                cursor: 'pointer',
-                transition: 'transform 0.5s',
-                transform: hoveredStep === index ? 'scale(1.1)' : 'scale(1)',
+                padding: "20px",
+                textAlign: "center",
+                cursor: "pointer",
+                transition: "transform 0.5s",
+                transform: hoveredStep === index ? "scale(1.05)" : "scale(1)",
+                backgroundColor: Colors.palette.primary.main,
+                borderRadius: "10px",
+                border: `2px solid ${Colors.palette.primary.main}`,
+                boxShadow:
+                  hoveredStep === index
+                    ? `0 0 10px ${Colors.palette.background.lightGreen}`
+                    : "0px 4px 6px rgba(0, 0, 0, 0.1)",
               }}
               onMouseEnter={() => setHoveredStep(index)}
               onMouseLeave={() => setHoveredStep(null)}
@@ -58,15 +68,20 @@ function Work() {
                 src={step.image}
                 alt={step.title}
                 title={step.title}
-                style={{ maxWidth: '100%', height: '200px' }}
+                style={{
+                  maxWidth: "100%",
+                  height: "200px",
+                  borderRadius: "10px",
+                }}
               />
-              <Typography variant="h5">
+              <Typography variant="h5" style={{ marginTop: "20px" }}>
                 {step.title}
               </Typography>
               <Typography
                 style={{
                   opacity: hoveredStep === index ? 1 : 0.7,
-                  transition: 'opacity 0.3s',
+                  transition: "opacity 0.3s",
+                  margin: "20px 0",
                 }}
               >
                 {step.description}
@@ -75,10 +90,6 @@ function Work() {
           </Grid>
         ))}
       </Grid>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
-      
-      
-      </div>
     </Container>
   );
 }
