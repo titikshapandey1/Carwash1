@@ -20,7 +20,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useLocation, NavLink } from "react-router-dom";
 
-const ServiceLocation2 = () => {
+const ServiceInvoice = () => {
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(false);
   const [completeAddress, setCompleteAddress] = useState({});
@@ -384,4 +384,4 @@ const ServiceLocation2 = () => {
   );
 };
 
-export default ServiceLocation2;
+export default ServiceInvoice;
