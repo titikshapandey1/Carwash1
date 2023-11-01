@@ -21,7 +21,7 @@ const AdPaySucc = () => {
   const fetchPaymentSucc = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("/get-sucessfuly-payment?pages=1");
+      const response = await Axios.get("/get-sucessfuly-payment");
       setTableData(
         response.data.service.map((service) => ({
           d1: service.createdAt,
@@ -32,6 +32,7 @@ const AdPaySucc = () => {
             (service.viewDetail._id,
             (
               <NavLink
+              // to={`/adminpaymentdetails?id=${service.viewDetail._id}`}
                 to={`/adminpaymentdetails?id=${service._id}`}
                 style={{
                   textDecoration: "none",

@@ -609,7 +609,7 @@ function AdDash(props) {
       <AppBar
         position="fixed"
         sx={{
-          background: Colors.palette.secondary.main,
+          background: Colors.palette.primary.darkBlue,
           width: "100%",
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}

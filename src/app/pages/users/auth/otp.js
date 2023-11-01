@@ -154,7 +154,7 @@ const Otp = () => {
                     }}
                   >
                     <NavLink
-                      to="/mobile"
+                      to="/"
                       style={{
                         textDecoration: "none",
                         color: Colors.palette.secondary.main,
@@ -173,7 +173,7 @@ const Otp = () => {
                     variant="body1"
                     sx={{ color: Colors.palette.secondary.main }}
                   >
-                    <b>You have received an OTP on your number xxxxxx6149</b>
+                    <b>You have received an OTP on your Registered Email</b>
                   </Typography>
                   <br />
                   <Box
@@ -259,7 +259,7 @@ const Otp = () => {
                       disabled={isSubmitDisabled}
                     >
                       <NavLink
-                        to="/home"
+                        to="/"
                         style={{
                           textDecoration: "none",
                           color: Colors.palette.primary.main,

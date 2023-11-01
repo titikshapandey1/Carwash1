@@ -154,7 +154,6 @@ function RegisterPage() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      
       }}
     >
       <Box
@@ -486,7 +485,7 @@ function RegisterPage() {
                         alignItems: "center",
                       }}
                     >
-                    Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                      Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
                     </NavLink>
                   </Button>
                 </Box>

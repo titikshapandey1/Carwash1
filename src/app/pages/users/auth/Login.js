@@ -10,11 +10,7 @@ import {
   IconButton,
   InputAdornment,
 } from "@mui/material";
-import {
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
-
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink } from "react-router-dom";
@@ -24,32 +20,29 @@ import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
 import Axios from "axios";
 
-
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginUser = async () => {
-   
     const data = {
       userName: formik.values.userName,
       passWord: formik.values.password,
     };
-  
-    const apiKey = "/login"; 
+
+    const apiKey = "/login";
     const config = {
       headers: {
         Authorization: `Bearer ${apiKey}`,
       },
     };
-  
 
-try {
-  const response = await Axios.post("/login", data, config);
-  console.log("response", response.data);
-} catch (error) {
-  console.log(error);
-}
-};
+    try {
+      const response = await Axios.post("/login", data, config);
+      console.log("response", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // //   let data = JSON.stringify({
   // //     "userName": "singh222@.com",
@@ -114,7 +107,7 @@ try {
     userName: Yup.string()
       .email("Invalid Email")
       .required("Username/Email is required"),
-      passWord: Yup.string()
+    passWord: Yup.string()
       .required("Password is required")
       .matches(
         /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
@@ -217,17 +210,16 @@ try {
                     // helperText={
                     //   formik.touched.userName && formik.errors.userName
                     // }
-                    sx={{marginBottom:'20px'}}
+                    sx={{ marginBottom: "20px" }}
                   />
-                  <TextField 
-
+                  <TextField
                     variant="outlined"
                     placeholder="Password"
                     id="passWord"
                     name="passWord"
                     fullWidth
                     size="small"
-                    type={showPassword ? "text" : "password"} 
+                    type={showPassword ? "text" : "password"}
                     value={formik.values.passWord}
                     onChange={formik.handleChange}
                     error={
@@ -279,7 +271,7 @@ try {
                       fullWidth
                       variant="contained"
                       style={{ ...submitButtonStyle }}
-                      onClick={LoginUser }
+                      onClick={LoginUser}
                     >
                       Login
                     </Button>
