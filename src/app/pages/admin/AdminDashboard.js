@@ -636,7 +636,7 @@ const AdminDashboard = () => {
           <Grid container spacing={3}>
             <Grid item xs={12} md={3}>
               <NavLink
-                to="/"
+                to="/adminallservice"
                 style={{
                   textDecoration: "none",
                   color: Colors.palette.secondary.main,
@@ -665,7 +665,7 @@ const AdminDashboard = () => {
             </Grid>
             <Grid item xs={12} md={3}>
               <NavLink
-                to="/"
+                to="/aminrequestedservice"
                 style={{
                   textDecoration: "none",
                   color: Colors.palette.secondary.main,
@@ -694,7 +694,7 @@ const AdminDashboard = () => {
             </Grid>
             <Grid item xs={12} md={3}>
               <NavLink
-                to="/"
+                to="/adminacceptservice"
                 style={{
                   textDecoration: "none",
                   color: Colors.palette.secondary.main,
@@ -723,7 +723,7 @@ const AdminDashboard = () => {
             </Grid>
             <Grid item xs={12} md={3}>
               <NavLink
-                to="/"
+                to="/admindeniedservice"
                 style={{
                   textDecoration: "none",
                   color: Colors.palette.secondary.main,

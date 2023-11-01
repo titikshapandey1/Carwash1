@@ -297,7 +297,7 @@ function AdDash(props) {
             </NavLink>
 
             <NavLink to="/adminuseractive" style={{ textDecoration: "none" }}>
-              <ListItem key="active" disablePadding>
+              <ListItem key="activeusers" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -323,7 +323,7 @@ function AdDash(props) {
             </NavLink>
 
             <NavLink to="/adminuserinactive" style={{ textDecoration: "none" }}>
-              <ListItem key="declined" disablePadding>
+              <ListItem key="inactiveusers" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -332,7 +332,7 @@ function AdDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleUserOptionClick("Declined Users")}
+                  onClick={() => handleUserOptionClick("Inactive Users")}
                 >
                   <ListItemIcon>
                     <Declined
@@ -386,8 +386,8 @@ function AdDash(props) {
         </ListItem>
         {openService && (
           <List component="div" disablePadding>
-            <NavLink to="/" style={{ textDecoration: "none" }}>
-              <ListItem key="declined" disablePadding>
+            <NavLink to="/adminallservice" style={{ textDecoration: "none" }}>
+              <ListItem key="allservices" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -396,7 +396,7 @@ function AdDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleServiceOptionClick("Declined Users")}
+                  onClick={() => handleServiceOptionClick("All Services")}
                 >
                   <ListItemIcon>
                     <ChecklistRtlIcon
@@ -412,8 +412,11 @@ function AdDash(props) {
               </ListItem>
             </NavLink>
 
-            <NavLink to="/" style={{ textDecoration: "none" }}>
-              <ListItem key="request" disablePadding>
+            <NavLink
+              to="/aminrequestedservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="requestservices" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -422,7 +425,7 @@ function AdDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleServiceOptionClick("Request")}
+                  onClick={() => handleServiceOptionClick("Request Services")}
                 >
                   <ListItemIcon>
                     <AddIcon
@@ -438,8 +441,11 @@ function AdDash(props) {
               </ListItem>
             </NavLink>
 
-            <NavLink to="/" style={{ textDecoration: "none" }}>
-              <ListItem key="active" disablePadding>
+            <NavLink
+              to="/adminacceptservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="acceptedservices" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -448,7 +454,7 @@ function AdDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleServiceOptionClick("Active Users")}
+                  onClick={() => handleServiceOptionClick("Accepted Services")}
                 >
                   <ListItemIcon>
                     <CheckIcon
@@ -464,8 +470,11 @@ function AdDash(props) {
               </ListItem>
             </NavLink>
 
-            <NavLink to="/" style={{ textDecoration: "none" }}>
-              <ListItem key="declined" disablePadding>
+            <NavLink
+              to="/admindeniedservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="deniedusers" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -474,7 +483,7 @@ function AdDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleServiceOptionClick("Declined Users")}
+                  onClick={() => handleServiceOptionClick("Denied Services")}
                 >
                   <ListItemIcon>
                     <ClearIcon
@@ -496,7 +505,7 @@ function AdDash(props) {
         {/* ================ Supervisor ================ */}
 
         <ListItem
-          key="editsupervisor"
+          key="supervisor"
           disablePadding
           onClick={handleSupervisorClick}
           sx={{
@@ -539,7 +548,7 @@ function AdDash(props) {
               to="/adminallsupervisor"
               style={{ textDecoration: "none" }}
             >
-              <ListItem key="editsupervisoroption" disablePadding>
+              <ListItem key="allsupervisoroption" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -548,7 +557,7 @@ function AdDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleEditSupervisorClick("Edit Supervisor")}
+                  onClick={() => handleEditSupervisorClick("All Supervisor")}
                 >
                   <ListItemIcon>
                     <EditIcon
