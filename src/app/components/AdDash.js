@@ -27,11 +27,11 @@ import Active from "@mui/icons-material/BookmarkAdded";
 import Declined from "@mui/icons-material/BookmarkRemove";
 import EditIcon from "@mui/icons-material/Create";
 import CreateIcon from "@mui/icons-material/AddCircle";
-import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
-import CheckIcon from '@mui/icons-material/Check';
-import ClearIcon from '@mui/icons-material/Clear';
-import AddIcon from '@mui/icons-material/Add';
-import ChecklistRtlIcon from '@mui/icons-material/ChecklistRtl';
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import CheckIcon from "@mui/icons-material/Check";
+import ClearIcon from "@mui/icons-material/Clear";
+import AddIcon from "@mui/icons-material/Add";
+import ChecklistRtlIcon from "@mui/icons-material/ChecklistRtl";
 import Logo from "../assests/images/Logo.png";
 const drawerWidth = 240;
 
@@ -233,8 +233,125 @@ function AdDash(props) {
           </List>
         )}
 
-         {/* ================ Services ================ */}
-         <ListItem
+        {/* ================ Users ================ */}
+
+        <ListItem
+          key="users"
+          disablePadding
+          onClick={handleUserClick}
+          sx={{
+            color: Colors.palette.secondary.main,
+            backgroundColor: Colors.palette.primary.main,
+            "&:hover": {
+              color: Colors.palette.primary.main,
+              backgroundColor: Colors.palette.secondary.main,
+            },
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <PeopleAltOutlinedIcon
+                sx={{
+                  padding: "2px",
+                  color: Colors.palette.primary.main,
+                  backgroundColor: Colors.palette.secondary.main,
+                  borderRadius: "50%",
+                  border: `2px solid ${Colors.palette.secondary.main}`,
+                }}
+              />
+            </ListItemIcon>
+            <ListItemText primary="Users" />
+            {openUsers ? (
+              <ExpandLess />
+            ) : (
+              <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+            )}
+          </ListItemButton>
+        </ListItem>
+        {openUsers && (
+          <List component="div" disablePadding>
+            <NavLink to="/adminuserrequest" style={{ textDecoration: "none" }}>
+              <ListItem key="request" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleUserOptionClick("Request")}
+                >
+                  <ListItemIcon>
+                    <Request
+                      sx={{
+                        fontSize: "16px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Request" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/adminuseractive" style={{ textDecoration: "none" }}>
+              <ListItem key="active" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleUserOptionClick("Active Users")}
+                >
+                  <ListItemIcon>
+                    <Active
+                      sx={{
+                        fontSize: "16px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Active Users" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink to="/adminuserinactive" style={{ textDecoration: "none" }}>
+              <ListItem key="declined" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleUserOptionClick("Declined Users")}
+                >
+                  <ListItemIcon>
+                    <Declined
+                      sx={{
+                        fontSize: "16px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Inactive Users" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </List>
+        )}
+
+        {/* ================ Services ================ */}
+        <ListItem
           key="service"
           disablePadding
           onClick={handleServiceClick}
@@ -365,128 +482,11 @@ function AdDash(props) {
                         fontSize: "18px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
-                        fontWeight:"600"
+                        fontWeight: "600",
                       }}
                     />
                   </ListItemIcon>
                   <ListItemText primary="Denied Services" />
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
-          </List>
-        )}
-
-        {/* ================ Users ================ */}
-
-        <ListItem
-          key="users"
-          disablePadding
-          onClick={handleUserClick}
-          sx={{
-            color: Colors.palette.secondary.main,
-            backgroundColor: Colors.palette.primary.main,
-            "&:hover": {
-              color: Colors.palette.primary.main,
-              backgroundColor: Colors.palette.secondary.main,
-            },
-          }}
-        >
-          <ListItemButton>
-            <ListItemIcon>
-              <PeopleAltOutlinedIcon
-                sx={{
-                  padding: "2px",
-                  color: Colors.palette.primary.main,
-                  backgroundColor: Colors.palette.secondary.main,
-                  borderRadius: "50%",
-                  border: `2px solid ${Colors.palette.secondary.main}`,
-                }}
-              />
-            </ListItemIcon>
-            <ListItemText primary="Users" />
-            {openUsers ? (
-              <ExpandLess />
-            ) : (
-              <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
-            )}
-          </ListItemButton>
-        </ListItem>
-        {openUsers && (
-          <List component="div" disablePadding>
-            <NavLink to="/adminuserrequest" style={{ textDecoration: "none" }}>
-              <ListItem key="request" disablePadding>
-                <ListItemButton
-                  sx={{
-                    color: Colors.palette.secondary.main,
-                    "&:hover": {
-                      color: Colors.palette.primary.main,
-                      backgroundColor: Colors.palette.background.lightBlue,
-                    },
-                  }}
-                  onClick={() => handleUserOptionClick("Request")}
-                >
-                  <ListItemIcon>
-                    <Request
-                      sx={{
-                        fontSize: "16px",
-                        color: Colors.palette.secondary.main,
-                        marginLeft: "5px",
-                      }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText primary="Request" />
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
-
-            <NavLink to="/adminuseractive" style={{ textDecoration: "none" }}>
-              <ListItem key="active" disablePadding>
-                <ListItemButton
-                  sx={{
-                    color: Colors.palette.secondary.main,
-                    "&:hover": {
-                      color: Colors.palette.primary.main,
-                      backgroundColor: Colors.palette.background.lightBlue,
-                    },
-                  }}
-                  onClick={() => handleUserOptionClick("Active Users")}
-                >
-                  <ListItemIcon>
-                    <Active
-                      sx={{
-                        fontSize: "16px",
-                        color: Colors.palette.secondary.main,
-                        marginLeft: "5px",
-                      }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText primary="Active Users" />
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
-
-            <NavLink to="/adminuserinactive" style={{ textDecoration: "none" }}>
-              <ListItem key="declined" disablePadding>
-                <ListItemButton
-                  sx={{
-                    color: Colors.palette.secondary.main,
-                    "&:hover": {
-                      color: Colors.palette.primary.main,
-                      backgroundColor: Colors.palette.background.lightBlue,
-                    },
-                  }}
-                  onClick={() => handleUserOptionClick("Declined Users")}
-                >
-                  <ListItemIcon>
-                    <Declined
-                      sx={{
-                        fontSize: "16px",
-                        color: Colors.palette.secondary.main,
-                        marginLeft: "5px",
-                      }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText primary="Inactive Users" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
@@ -594,8 +594,6 @@ function AdDash(props) {
             </NavLink>
           </List>
         )}
-
-       
       </List>
     </Box>
   );
