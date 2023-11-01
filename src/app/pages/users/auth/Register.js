@@ -17,7 +17,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
-import Axios from "../../../utils/Axios";
+import Axios from "../../../utils/Axios1";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function RegisterPage() {

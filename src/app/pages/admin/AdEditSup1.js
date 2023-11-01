@@ -130,9 +130,17 @@ const AdEditSup1 = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      // Axios.put(`/edit-supervisior/${resourceId}`, values)
+      Axios.put(`/edit-supervisior/653f55571bea95d7d23e4e41`, values)
+        .then((response) => {
+          console.log("Update Successful", response.data);
+        })
+        .catch((error) => {
+          console.error("Update Failed", error);
+        });
     },
   });
+  // });
 
   return (
     <>
