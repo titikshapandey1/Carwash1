@@ -662,7 +662,7 @@ const ServiceLocation2 = () => {
       const response = await Axios.get("/get-service-request/6541fe47eb517bd381b2fec0");
       console.log("Response Data:", response.data);
       setUserData(response.data);
-      // Fetch complete address using another API call or update your existing API
+
       const completeAddressResponse = await Axios.get("/get-service-request/" + response.data._id);
       console.log("Complete Address Data:", completeAddressResponse.data.address);
       setCompleteAddress(completeAddressResponse.data.address);
@@ -681,10 +681,12 @@ const ServiceLocation2 = () => {
     if (bookingId === "success") {
       setBookingSuccess(true);
       handleClickOpen();
-    } else if (bookingId === "failure") {
-      setBookingSuccess(false);
-      handleClickOpen();
-    }
+    } 
+    // else if (bookingId === "failure") {
+    //   setBookingSuccess(false);
+    //   handleClickOpen();
+    // }
+    
   }, [bookingId]);
 
   const handleClickOpen = () => {

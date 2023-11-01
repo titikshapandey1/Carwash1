@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminDash from "../../components/AdDash";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -8,6 +8,7 @@ import Colors from "../../utils/colors";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
+import Axios from "../../utils/Axios";
 
 const cardStyle = {
   borderRadius: "10px",
@@ -37,6 +38,51 @@ const iconsStyles = {
 };
 
 const AdminDashboard = () => {
+  const [SuccData, setSuccData] = useState({});
+  const [UnsuccData, setUnsuccData] = useState({});
+  const [SupervisorData, setSupervisorData] = useState({});
+  const [UserReqData, setUserReqData] = useState({});
+  const [ActUserData, setActUserData] = useState({});
+  const [DecUserData, setDecUserData] = useState({});
+
+  const fetchData = async () => {
+    // setLoading(true);
+    try {
+      const responseSucc = await Axios.get("/count-sucessfully-pay");
+      setSuccData(responseSucc.data);
+      console.log("Response Data:", responseSucc.data);
+
+      const responseUnscc = await Axios.get("/count-unsucessfull-pay");
+      setUnsuccData(responseUnscc.data);
+      console.log("Response Data:", responseUnscc.data);
+
+      const responseSup = await Axios.get("/count-all-supervisior");
+      setSupervisorData(responseSup.data);
+      console.log("Response Data:", responseSup.data);
+
+      // const responseUserReq = await Axios.get("/");
+      // setUserReqData(responseUserReq.data);
+      // console.log("Response Data:", responseUserReq.data);
+
+      // const responseActUser = await Axios.get("/");
+      // setActUserData(responseActUser.data);
+      // console.log("Response Data:", responseActUser.data);
+
+      // const responseDecUser = await Axios.get("/");
+      // setDecUserData(responseDecUser.data);
+      // console.log("Response Data:", responseDecUser.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+    // finally {
+    //   setLoading(false);
+    // }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <Box
@@ -59,9 +105,11 @@ const AdminDashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          sx={{
-            // marginLeft: { xs: "1%", sm: "1%" },
-          }}
+          sx={
+            {
+              // marginLeft: { xs: "1%", sm: "1%" },
+            }
+          }
         >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={6}>
@@ -72,7 +120,7 @@ const AdminDashboard = () => {
                       <AccountBalanceRoundedIcon sx={iconsStyles} />
                     </Box>
                     <Typography variant="h4" component="div" sx={headingStyles}>
-                      24{" "}
+                      {SuccData.count}
                     </Typography>
                     <Typography variant="body1" sx={subHeading}>
                       Successful
@@ -90,7 +138,7 @@ const AdminDashboard = () => {
                       <AccountBalanceRoundedIcon sx={iconsStyles} />
                     </Box>
                     <Typography variant="h4" component="div" sx={headingStyles}>
-                      9
+                      {UnsuccData.count}
                     </Typography>
                     <Typography variant="body1" sx={subHeading}>
                       Unsuccessful <br /> Payments
@@ -193,7 +241,8 @@ const AdminDashboard = () => {
                       }}
                     />
                     <Typography variant="h4" component="div" sx={headingStyles}>
-                      12 <span style={{ fontSize: "0.4em" }}>Supervisors</span>
+                      {SupervisorData.count}
+                      <span style={{ fontSize: "0.4em" }}>Supervisors</span>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
