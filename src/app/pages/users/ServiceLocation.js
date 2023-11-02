@@ -17,14 +17,13 @@ import {
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PaymentOptions from "../../components/Paymentoption";
 import Colors from "../../utils/colors";
 import Axios from "../../utils/Axios";
-import { useState, useEffect } from "react";
 
 function ServiceLocation() {
-  const [apiResponseId, setApiResponseId] = useState(null);
+  const navigate = useNavigate();
 
   const createServiceLocation = async () => {
     const data = {
@@ -56,10 +55,10 @@ function ServiceLocation() {
     try {
       const response = await Axios.post("/service-request", data);
       console.log("API Response:", response.data);
-      setApiResponseId(response.data.id);
-      console.log("API Ids:", response.data.id);
+      navigate(`/serviceinvoice?id=${response.data.id}&response=success`);
     } catch (error) {
       console.error("Error:", error?.response?.data?.message);
+      alert("Something Went Wrong");
     }
   };
 
@@ -547,7 +546,7 @@ function ServiceLocation() {
                   alignItems: "center",
                 }}
               >
-                <NavLink
+                {/* <NavLink
                   to={
                     apiResponseId
                       ? `/serviceinvoice?id=${apiResponseId}&response=success`
@@ -559,16 +558,17 @@ function ServiceLocation() {
                     display: "flex",
                     alignItems: "center",
                   }}
+                > */}
+
+                <Button
+                  type="button"
+                  variant="contained"
+                  sx={{ ...submitButtonStyle }}
+                  onClick={createServiceLocation}
                 >
-                  <Button
-                    type="button"
-                    variant="contained"
-                    sx={{ ...submitButtonStyle }}
-                    onClick={createServiceLocation}
-                  >
-                    Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                  </Button>
-                </NavLink>
+                  Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                </Button>
+                {/* </NavLink> */}
               </Box>
             </form>
           </Paper>

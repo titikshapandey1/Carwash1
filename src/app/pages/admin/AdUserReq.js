@@ -146,7 +146,7 @@ const AdUserReq = () => {
             fontWeight: "600",
           }}
         >
-          Users Request
+          All Users Request
         </Typography>
         <Box
           display="flex"

@@ -144,8 +144,6 @@ function AppRouter() {
         <Route path="/supervisorpaymentdetails" element={<SupPayDetails />}></Route>
         <Route path="/supervisoruserdetails" element={<SupUserDetails />}></Route>
 
-        
-
         {/*======== EXTRA ========== */}
         <Route path="/addash" element={<AdDash />}></Route>
         <Route path="/supdash" element={<SupDash />}></Route>
