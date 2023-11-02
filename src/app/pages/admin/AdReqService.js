@@ -7,7 +7,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import { NavLink } from "react-router-dom";
 
-const AdUserReq = () => {
+const AdReqService = () => {
   const tableHeaders = ["Date", "Booking ID", "Service Type", "Amount", ""];
   const tableData = [
     {
@@ -146,7 +146,7 @@ const AdUserReq = () => {
             fontWeight: "600",
           }}
         >
-          All Users Request
+          Requested Services
         </Typography>
         <Box
           display="flex"
@@ -165,4 +165,4 @@ const AdUserReq = () => {
   );
 };
 
-export default AdUserReq;
+export default AdReqService;

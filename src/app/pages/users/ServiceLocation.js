@@ -17,13 +17,14 @@ import {
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PaymentOptions from "../../components/Paymentoption";
 import Colors from "../../utils/colors";
 import Axios from "../../utils/Axios";
-import { useState, useEffect } from "react";
 
 function ServiceLocation() {
+  const navigate = useNavigate();
+
   const createServiceLocation = async () => {
     const data = {
       firstName: formik.values.firstName,
@@ -52,10 +53,12 @@ function ServiceLocation() {
     };
 
     try {
-      const response = await Axios.post("/serviceRqst", data);
+      const response = await Axios.post("/service-request", data);
       console.log("API Response:", response.data);
+      navigate(`/serviceinvoice?id=${response.data.id}&response=success`);
     } catch (error) {
       console.error("Error:", error?.response?.data?.message);
+      alert("Something Went Wrong");
     }
   };
 
@@ -131,8 +134,8 @@ function ServiceLocation() {
       .required("District is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     PickupState: Yup.string()
-    .required("State is required")
-    .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
+      .required("State is required")
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     PickupPincode: Yup.string()
       .required("Pincode is required")
       .test(
@@ -536,26 +539,36 @@ function ServiceLocation() {
                   />
                 </Grid>
               </Grid>
-              <Box align="center">
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {/* <NavLink
+                  to={
+                    apiResponseId
+                      ? `/serviceinvoice?id=${apiResponseId}&response=success`
+                      : "#"
+                  }
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.primary.main,
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                > */}
+
                 <Button
                   type="button"
                   variant="contained"
                   sx={{ ...submitButtonStyle }}
-                  // onClick={formik.handleSubmit}
                   onClick={createServiceLocation}
                 >
-                  {/* <NavLink 
-                    to="/home" 
-                    style={{
-                      textDecoration: "none",
-                      color: Colors.palette.primary.main,
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >  */}
                   Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                  {/* </NavLink> */}
                 </Button>
+                {/* </NavLink> */}
               </Box>
             </form>
           </Paper>

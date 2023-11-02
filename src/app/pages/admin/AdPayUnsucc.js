@@ -21,7 +21,7 @@ const AdPayUnsucc = () => {
   const fetchPaymentUnsucc = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("/get-unsucessful-payment?pages=1");
+      const response = await Axios.get("/get-unsucessful-payment");
       setTableData(
         response.data.service.map((service) => ({
           d1: service.createdAt,

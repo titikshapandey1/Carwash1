@@ -102,7 +102,7 @@ const Cards = () => {
                       }}
                     >
                       <NavLink
-                        to="/services"
+                        to="/servicelocation"
                         style={{
                           textDecoration: "none",
                           color: Colors.palette.primary.main,
@@ -200,7 +200,7 @@ const Cards = () => {
                       }}
                     >
                       <NavLink
-                        to="/services"
+                        to="/servicelocation"
                         style={{
                           textDecoration: "none",
                           color: Colors.palette.primary.main,
@@ -297,7 +297,7 @@ const Cards = () => {
                       }}
                     >
                       <NavLink
-                        to="/services"
+                        to="/servicelocation"
                         style={{
                           textDecoration: "none",
                           color: Colors.palette.primary.main,
