@@ -14,8 +14,8 @@ const Guest1 = () => {
       <Nav />
       <BackgroundImg />
       <AboutGuest />
-      <Card/>
-      <Work/>
+      <Card />
+      <Work />
       <Review />
       <Question />
       <Footer />

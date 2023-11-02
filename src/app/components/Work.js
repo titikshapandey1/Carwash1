@@ -34,7 +34,7 @@ function Work() {
         variant="h4"
         align="center"
         sx={{
-          marginTop: "5%",
+          mt: 10,
           color: Colors.palette.secondary.main,
           marginBottom: "3%",
           fontWeight: "600",
@@ -48,6 +48,7 @@ function Work() {
             <Paper
               elevation={3}
               style={{
+                height: "90%",
                 padding: "20px",
                 textAlign: "center",
                 cursor: "pointer",
@@ -55,10 +56,10 @@ function Work() {
                 transform: hoveredStep === index ? "scale(1.05)" : "scale(1)",
                 backgroundColor: Colors.palette.primary.main,
                 borderRadius: "10px",
-                border: `2px solid ${Colors.palette.primary.main}`,
+                border: `2px solid ${Colors.palette.secondary.lightGrey}`,
                 boxShadow:
                   hoveredStep === index
-                    ? `0 0 10px ${Colors.palette.background.lightGreen}`
+                    ? `5px 5px 15px ${Colors.palette.background.lightGreen}`
                     : "0px 4px 6px rgba(0, 0, 0, 0.1)",
               }}
               onMouseEnter={() => setHoveredStep(index)}

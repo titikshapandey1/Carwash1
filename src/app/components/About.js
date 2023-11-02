@@ -5,7 +5,7 @@ import car1 from "../assests/images/AboutCar.png";
 const AboutGuest = () => {
   return (
     <Box>
-      <Grid container spacing={4} sx={{ marginTop: "3%" }}>
+      <Grid container spacing={4} sx={{ mt: 5 }}>
         <Grid item xs={12} sm={6} md={8}>
           <Typography
             variant="h5"
