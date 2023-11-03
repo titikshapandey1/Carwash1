@@ -26,7 +26,7 @@ const Footer = () => {
           borderBottom: `1px solid ${Colors.palette.primary.darkBlue}`,
         }}
         options={{
-          height: 5,
+          height: 1,
           speed: 0.5,
           points: 3,
         }}
@@ -38,7 +38,7 @@ const Footer = () => {
           overflow: "hidden",
         }}
       >
-        <Container maxWidth="xl" sx={{ mt: 2 }}>
+        <Container maxWidth="xl">
           <Grid container sx={{ marginInline: "2%" }}>
             <Grid
               item
