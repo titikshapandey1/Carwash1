@@ -306,9 +306,6 @@ function ContactUs() {
                       src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Noida&amp;t=&amp;z=10&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                       title="Map"
                     ></iframe>
-                    <p>
-                      <a href="https://www.maps.ie/location/">location</a>
-                    </p>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
