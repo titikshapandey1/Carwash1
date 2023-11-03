@@ -5,6 +5,7 @@ import vector2 from "../../assests/images/Vector2.png";
 import HomeCards from "../Home/HomeCards";
 import Nav from "../../partials/Nav";
 import AboutUsImg from "../../assests/images/About.png";
+import doubleinverted from "../../assests/images/doubleinverted.png";
 import car2 from "../../assests/images/AboutCar.png";
 import Dryclean from "./Dryclean";
 import Question from "../Question";
@@ -238,11 +239,21 @@ const HomePage = () => {
                 <br />
                 <br />
               </Typography>
+
               <Typography
-                fontSize={{ xs: 12, sm: 12, md: 13, lg: 15, xl: 15 }}
+                fontSize={{ sm: 12, md: 13, lg: 18 }}
                 mt={2}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
               >
-                <b> "Drive clean, drive happy; we make your journey shine."</b>
+                <img
+                  src={doubleinverted}
+                  alt=""
+                  style={{ marginRight: "2%" }}
+                />
+                "Drive clean, drive happy. We make your journey shine."
               </Typography>
             </Box>
           </Grid>
