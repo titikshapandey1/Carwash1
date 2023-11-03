@@ -20,11 +20,9 @@ import Colors from "../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Link, NavLink } from "react-router-dom";
-import car1 from "../../assests/images/Contactus.png";
+import { Link } from "react-router-dom";
+import ContactUsImg from "../../assests/images/Contact.png";
 import Axios from "../../utils/Axios";
-import { useState, useEffect } from "react";
-import HomeSeracher from "../../components/Home/HomeSearcher"
 
 const cardStyles = {
   p: 2,
@@ -120,8 +118,8 @@ function ContactUs() {
       .required("District is required")
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     State: Yup.string()
-    .required("State is required")
-    .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
+      .required("State is required")
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     Pincode: Yup.string()
       .required("Pincode is required")
       .test(
@@ -159,25 +157,24 @@ function ContactUs() {
       <Box
         sx={{
           display: "flex",
-          backgroundImage: `url(${car1})`,
+          backgroundImage: `url(${ContactUsImg})`,
           backgroundSize: "cover",
-          opacity: "1",
+          minHeight: "400px",
           backgroundPosition: "center",
-          minHeight: "450px",
-          backgroundColor: "grey",
+          // position: "relative",
         }}
       >
-        <Grid container >
+        <Grid container>
           <Grid
             item
             xs={12}
             sm={8}
             md={8}
-           justifyContent="center"
-           textAlign={"center"}
-            sx={{ mt:"200px",display:'flex'}}
+            justifyContent="center"
+            textAlign={"center"}
+            sx={{ mt: "200px", display: "flex" }}
           >
-            <Container>
+            {/* <Container>
               <Typography
                 variant="h3"
               
@@ -185,13 +182,8 @@ function ContactUs() {
               >
             Contact Us
               </Typography>
-            </Container>
+            </Container> */}
           </Grid>
-          {/* <Grid item xs={12} sm={12} md={8} padding={"2%"}>
-            <Container>
-              <HomeSeracher/>
-            </Container>
-          </Grid> */}
         </Grid>
       </Box>
       <Box

@@ -4,9 +4,8 @@ import vector from "../../assests/images/Vector.png";
 import vector2 from "../../assests/images/Vector2.png";
 import HomeCards from "../Home/HomeCards";
 import Nav from "../../partials/Nav";
-import car1 from "../../assests/images/Aboutus.png";
+import AboutUsImg from "../../assests/images/About.png";
 import car2 from "../../assests/images/AboutCar.png";
-import HomeSearcher from "../../components/Home/HomeSearcher"
 import Dryclean from "./Dryclean";
 import Question from "../Question";
 import Footer from "../../partials/Footer";
@@ -20,12 +19,11 @@ const HomePage = () => {
       <Box
         sx={{
           display: "flex",
-          backgroundImage: `url(${car1})`,
+          backgroundImage: `url(${AboutUsImg})`,
           backgroundSize: "cover",
-          opacity: "1",
+          minHeight: "400px",
           backgroundPosition: "center",
-          minHeight: "500px",
-          backgroundColor: "grey",
+          // position: "relative",
         }}
       >
         <Grid container spacing={3}>
@@ -33,24 +31,25 @@ const HomePage = () => {
             item
             xs={12}
             sm={8}
-            md={8}  
+            md={8}
             justifyContent="center"
-            sx={{ marginInline: { xs: "0%", sm: "0%" ,textAlign:'center'}, mt: "200px" ,display:"flex"}}
+            sx={{
+              position: "absolute",
+              top: "40%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              textAlign: "center",
+            }}
           >
-            <Container>
+            {/* <Container>
               <Typography
                 variant="h3"
-                sx={{ fontWeight: 600, color: Colors.palette.primary.main, }}
+                sx={{ fontWeight: 600, color: Colors.palette.primary.main }}
               >
-            About Us
+                About Us
               </Typography>
-            </Container>
+            </Container> */}
           </Grid>
-          {/* <Grid item xs={12} sm={12} md={8} padding={"2%"}>
-            <Container>
-              <HomeSearcher/>
-            </Container>
-          </Grid> */}
         </Grid>
       </Box>
       <Box>
@@ -192,9 +191,20 @@ const HomePage = () => {
 
       {/* ..................................................................... */}
 
-      <Container maxWidth="lg" sx={{ mt: 15 }}>
+      <Container maxWidth="lg" sx={{ mt: 10 }}>
         <Grid container item spacing={10} justifyContent={"center"}>
-          <Box component={"img"} src={vector2} height={250} width={250} />
+          <Grid item>
+            <Box
+              sx={{
+                display: "flex",
+                backgroundImage: `url(${vector2})`,
+                backgroundSize: "cover",
+                height: 250,
+                width: 250,
+                backgroundPosition: "center",
+              }}
+            />
+          </Grid>
 
           <Grid item>
             <Box width={{ xs: 250, sm: 500, md: 700, lg: 800, xl: 800 }}>

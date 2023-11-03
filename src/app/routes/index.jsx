@@ -23,8 +23,11 @@ import Guest1 from "../pages/users/Guest1";
 import Home from "../pages/users/Home";
 import Guest2 from "../pages/users/Guest2";
 import Services from "../pages/users/Services";
+import AboutUs from "../components/Home/Homepage";
+import Contactus from "../pages/users/Contactus";
 import Login from "../pages/users/auth/Login";
-import HomePage from "../components/Home/Homepage";
+import Email from "../pages/users/auth/Email";
+import PasswordReset from "../pages/users/auth/PasswordReset";
 import Profile from "../pages/users/Profile";
 import ServiceLocation from "../pages/users/ServiceLocation";
 import ServiceInvoice from "../pages/users/ServiceInvoice";
@@ -33,7 +36,7 @@ import Mobile from "../pages/users/auth/Mobile";
 import Otp from "../pages/users/auth/otp";
 import Subscriptions from "../pages/users/Subscription";
 import Booking from "../pages/users/Booking";
-import Contactus from "../pages/users/Contactus";
+
 import History from "../components/Table";
 import Profile2 from "../pages/users/Profile2";
 import FAQs from "../components/FAQ1";
@@ -66,10 +69,6 @@ import SupUserDetails from "../pages/supervisor/SupUserDetails";
 import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
 import Table from "../components/Table";
-import Email from "../pages/users/auth/Email";
-import PasswordReset from "../pages/users/auth/PasswordReset";
-
-
 
 function AppRouter() {
   return (
@@ -100,10 +99,11 @@ function AppRouter() {
         <Route path="/guest2" element={<Guest2 />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/services" element={<Services />}></Route>
+        <Route path="/aboutus" element={<AboutUs />}></Route>
+        <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/email" element={<Email />}></Route>
-        <Route path="/passwordreset" element={< PasswordReset/>}></Route>
-        <Route path="/aboutus" element={<HomePage />}></Route>
+        <Route path="/passwordreset" element={<PasswordReset />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/editprofile" element={<Profile2 />}></Route>
         <Route path="/servicelocation" element={<ServiceLocation />}></Route>
@@ -113,10 +113,9 @@ function AppRouter() {
         <Route path="/otp" element={<Otp />}></Route>
         <Route path="/subscriptions" element={<Subscriptions />}></Route>
         <Route path="/booking" element={<Booking />}></Route>
-        <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/history" element={<History />}></Route>
         <Route path="/faqs" element={<FAQs />}></Route>
-        
+
         {/*======== ADMIN ========== */}
         <Route path="/admindashboard" element={<AdminDashboard />}></Route>
         <Route path="/adminpaysuccessful" element={<AdPaySucc />}></Route>
@@ -133,16 +132,28 @@ function AppRouter() {
         <Route path="/aminrequestedservice" element={<AdReqService />}></Route>
         <Route path="/adminacceptservice" element={<AdAccptService />}></Route>
         <Route path="/admindeniedservice" element={<AdDeniedService />}></Route>
-        
+
         {/*======== SUPERVISOR ========== */}
-        <Route path="/supervisordashboard" element={<SupervisorDashboard />}></Route>
+        <Route
+          path="/supervisordashboard"
+          element={<SupervisorDashboard />}
+        ></Route>
         <Route path="/supervisorpaysuccessful" element={<SupPaySucc />}></Route>
-        <Route path="/supervisorpayunsuccessful" element={<SupPayUnsucc />}></Route>
+        <Route
+          path="/supervisorpayunsuccessful"
+          element={<SupPayUnsucc />}
+        ></Route>
         <Route path="/supervisoruserrequest" element={<SupUserReq />}></Route>
         <Route path="/supervisoruseractive" element={<SupUserAct />}></Route>
         <Route path="/supervisoruserdeclined" element={<SupUserDec />}></Route>
-        <Route path="/supervisorpaymentdetails" element={<SupPayDetails />}></Route>
-        <Route path="/supervisoruserdetails" element={<SupUserDetails />}></Route>
+        <Route
+          path="/supervisorpaymentdetails"
+          element={<SupPayDetails />}
+        ></Route>
+        <Route
+          path="/supervisoruserdetails"
+          element={<SupUserDetails />}
+        ></Route>
 
         {/*======== EXTRA ========== */}
         <Route path="/addash" element={<AdDash />}></Route>

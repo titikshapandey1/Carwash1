@@ -17,9 +17,8 @@ const Nav = () => {
       backgroundColor: Colors.palette.primary.lightBlue,
     },
     "&.active": {
-      backgroundColor: Colors.palette.secondary.lightGrey, 
-    color: Colors.palette.secondary.black,
-
+      backgroundColor: Colors.palette.primary.main,
+      color: Colors.palette.secondary.black,
     },
   };
   return (
@@ -60,27 +59,26 @@ const Nav = () => {
               }}
             >
               <Button
-               component={NavLink}
-               to="/"
-               exact
-               activeClassName="active"
-              
-               sx={buttonStyle}
-               >
-                  Home
+                component={NavLink}
+                to="/"
+                exact
+                activeClassName="active"
+                sx={buttonStyle}
+              >
+                Home
               </Button>
 
               <Button
-               component={NavLink}
-               to="/services"
-               activeClassName="active"
-               sx={buttonStyle}
+                component={NavLink}
+                to="/services"
+                activeClassName="active"
+                sx={buttonStyle}
                 // sx={{
                 //   "&:hover": {
                 //     backgroundColor: Colors.palette.primary.lightBlue,
                 //     color: "red",
                 //   },
-                 
+
                 // }}
               >
                 {/* <NavLink
@@ -90,29 +88,25 @@ const Nav = () => {
                     color: Colors.palette.primary.main,
                   }} 
                 > */}
-                  Services
+                Services
                 {/* </NavLink> */}
               </Button>
 
               <Button
-               component={NavLink}
+                component={NavLink}
                 to="/aboutus"
                 activeClassName="active"
                 sx={buttonStyle}
               >
-
-                  About Us
-               
+                About Us
               </Button>
               <Button
-              component={NavLink}
-              to="/contactus"
+                component={NavLink}
+                to="/contactus"
                 activeClassName="active"
                 sx={buttonStyle}
               >
-               
-                  Contact Us
-           
+                Contact Us
               </Button>
               <Button
                 sx={{
