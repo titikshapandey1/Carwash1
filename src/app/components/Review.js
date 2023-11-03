@@ -13,20 +13,20 @@ import Colors from "../utils/colors";
 const cards = [
   {
     content:
-      "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/><br/> ~ Amet ipsum ",
+      "Outstanding service! Impeccable cleaning, prompt pickup, and a gleaming car. Highly recommended for car care. <br/><br/> ~ Amet ipsum ",
   },
-{
-  content:
-    "sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/><br/> ~ Lorem ipsum",
-},
-{
-  content:
-    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, dolor sit amet, consectetur adipiscing elit. <br/><br/> ~ Adipiscing",
-},
-{
-  content:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/><br/> ~ Amet ipsum",
-},
+  {
+    content:
+      "Exceptional service, the deep clean was immaculate, and the pick-up/drop-off option made it hassle-free. Highly recommended !! <br/><br/> ~ Lorem ipsum",
+  },
+  {
+    content:
+      "A few days ago, encountered exceptional service. The clean was immaculate, drop-off and pick-up offered utmost convenience. A remarkable experience. <br/><br/> ~ Adipiscing",
+  },
+  {
+    content:
+      "My car's now a gleaming showstopper, thanks to the exceptional service, shining, spotless, and absolutely stunning after cleaning. <br/><br/> ~ Amet ipsum",
+  },
 ];
 
 const Review = () => {
@@ -35,7 +35,11 @@ const Review = () => {
       <Box sx={{ mt: 10 }}>
         <Typography
           variant="h4"
-          sx={{ color: Colors.palette.secondary.main, marginBottom: "50px", fontWeight: "bold" }}
+          sx={{
+            color: Colors.palette.secondary.main,
+            marginBottom: "50px",
+            fontWeight: "bold",
+          }}
         >
           Review
         </Typography>
@@ -96,11 +100,9 @@ const Review = () => {
             </Grid>
           ))}
         </Grid>
-
       </Box>
     </Container>
   );
 };
 
 export default Review;
-

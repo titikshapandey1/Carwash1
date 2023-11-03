@@ -258,9 +258,9 @@ function ContactUs() {
                           >
                             <b>Contact:</b>
                             <br />
-                            mifs@info.com
+                            wowkaar@info.com
                             <br />
-                            (303) 985-0105, (303) 355-0105
+                            +91 7017866149
                           </Typography>
                         </Grid>
                       </Grid>
@@ -289,26 +289,27 @@ function ContactUs() {
                           >
                             <b>Address:</b>
                             <br />
-                            2972 Westheimer Rd. Santa Ana,
-                            <br /> Illinois 85486
+                            Noida,
+                            <br /> Delhi NCR, UP
                           </Typography>
                         </Grid>
                       </Grid>
                     </Container>
                   </Card>
-                  <card>
+                  <div class="card">
                     <iframe
-                      width="100%"
+                      width="90%"
                       height="400"
                       frameborder="0"
-                      scrolling="no"
                       marginheight="0"
                       marginwidth="0"
-                      src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=3rd%20floor%20Bhavani%20Market%20sector%2018+(Spiraleinfosoft)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                    >
-                      <Link href="https://www.maps.ie/location/">location</Link>
-                    </iframe>
-                  </card>
+                      src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Noida&amp;t=&amp;z=10&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                      title="Map"
+                    ></iframe>
+                    <p>
+                      <a href="https://www.maps.ie/location/">location</a>
+                    </p>
+                  </div>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                   <Card>

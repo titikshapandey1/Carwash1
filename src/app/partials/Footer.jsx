@@ -55,13 +55,15 @@ const Footer = () => {
                   padding: "2px",
                 }}
               />
-              <Typography sx={{ marginTop: "2%" }}>
-                About us: Lorem ipsum dolor sit amet,
+              <Typography sx={{ marginTop: "2%", fontSize: "12px" }}>
+                Our premier car wash service center in Noida <br />
+                offers an unparalleled car cleaning experience <br />
+                with three comprehensive packages: Routine <br />
+                clean, Dry clean, and Deep clean. Our cutting-
                 <br />
-                consectetur adipiscing elit,sed do <br />
-                eiusmod tempor incididunt ut labore et <br />
-                dolore magna aliqua. Ut enim ad minim <br />
-                veniam,quis nostrud exercitation.
+                edge technology and skilled staff ensure top-
+                <br />
+                notch results for every vehicle
               </Typography>
 
               <Typography

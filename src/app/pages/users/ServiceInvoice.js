@@ -29,7 +29,6 @@ const ServiceInvoice = () => {
 
   const location = useLocation();
   const response = new URLSearchParams(location.search).get("response");
-  const responseId = new URLSearchParams(location.search).get("id");
 
   const handleClose = () => {
     setOpen(false);

@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import Colors from "../utils/colors";
 const Ourplans = () => {
@@ -12,12 +12,19 @@ const Ourplans = () => {
         }}
       >
         <Grid ml={4}>
-          <Typography variant="h5" mt={10} mb={2} sx={{ color: Colors.palette.secondary.main }}>
+          <Typography
+            variant="h5"
+            mt={10}
+            mb={2}
+            sx={{ color: Colors.palette.secondary.main }}
+          >
             <b> Our Plan</b>
           </Typography>
-          <Typography variant="">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <Typography fontSize="16.5px" sx={{lineHeight: "1.8"}}>
+            Explore Our Car Wash Options and Subscriptions : <br />
+            Routine, Dry, and Deep Clean. Sign up for our hassle-free
+            subscription plans to enjoy regular, convenient, and budget-friendly
+            cleaning for your vehicle in India.
           </Typography>
         </Grid>
       </Box>

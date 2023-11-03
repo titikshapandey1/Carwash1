@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 
 const Ourplan = () => {
@@ -8,18 +8,19 @@ const Ourplan = () => {
         sx={{
           width: "100%",
           marginTop: "3%",
-          marginBottom:"3%",
+          marginBottom: "3%",
         }}
       >
-        <Grid ml={4}>
+        <Grid ml={3}>
           <Typography variant="h4" mt={10} mb={2} sx={{ color: "darkblue" }}>
             <b> Contact Us</b>
           </Typography>
-          <Typography variant="">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          <Typography sx={{ lineHeight: "1.8" }}>
+            For professional-grade cleaning or any inquiries, feel free to
+            contact us. We're dedicated to your satisfaction and welcome your
+            feedback. Whether it's about our <br /> services or for any queries,
+            our team is here to assist you. Reach out today for top-notch car
+            care.
           </Typography>
         </Grid>
       </Box>

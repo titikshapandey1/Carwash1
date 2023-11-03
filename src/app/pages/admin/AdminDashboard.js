@@ -4,6 +4,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import { Box, Typography, Grid } from "@mui/material";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
 import Colors from "../../utils/colors";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -452,7 +454,7 @@ const AdminDashboard = () => {
               </NavLink>
             </Grid>
             <Grid item xs={4} sm={4} md={2}>
-              <Card
+              {/* <Card
                 sx={{
                   width: 70,
                   height: 70,
@@ -466,7 +468,20 @@ const AdminDashboard = () => {
                     <span style={{ fontSize: "16px" }}>Add +</span>
                   </CardContent>
                 </CardActionArea>
-              </Card>
+              </Card> */}
+              <Fab
+                aria-label="add"
+                sx={{
+                  width: 90,
+                  height: 90,
+                  mt: 0.5,
+                  textAlign: "center",
+                  background: Colors.palette.primary.main,
+                  boxShadow: "2px 2px 2px grey",
+                }}
+              >
+                <AddIcon sx={{ fontSize: "30px" }} />
+              </Fab>
             </Grid>
           </Grid>
         </Box>

@@ -64,21 +64,22 @@ const HomePage = () => {
               <b> About Us</b>
             </Typography>
 
-            <Typography variant="body1" sx={{ marginLeft: "5%" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <Typography
+              variant="body1"
+              sx={{ marginLeft: "5%", lineHeight: "1.8" }}
+            >
+              Welcome to our premier car wash service center in Noida. We offer
+              an unparalleled car cleaning experience with three comprehensive
+              packages: Routine clean, Dry clean, and Deep clean. Our
+              cutting-edge technology and skilled staff ensure top-notch results
+              for every vehicle. For added convenience, we provide pick-up and
+              drop-off services exclusively for deep cleans, allowing you to
+              focus on your day while we pamper your car. At our center,
+              customer satisfaction is our priority, and we take pride in
+              delivering excellence in every wash. Join us to experience the
+              ultimate care for your vehicle with our professional and reliable
+              services. Book now for a spotless, shining car ready to hit the
+              road, and let us elevate your driving experience today.
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} sx={{ position: "auto" }}>
@@ -121,14 +122,23 @@ const HomePage = () => {
                 <b>Professional Washing And Cleaning.</b>
               </Typography>
               <Typography
-                sx={{ fontSize: { xs: 12, sm: 12, md: 13, lg: 15, xl: 15 } }}
+                sx={{
+                  fontSize: { xs: 12, sm: 12, md: 13, lg: 15, xl: 15 },
+                  color: Colors.palette.secondary.grey,
+                  lineHeight: "1.8",
+                }}
                 mt={3}
               >
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim. <b>Call for book</b>
+                For professional cleaning services or inquiries, get in touch
+                with <br />
+                us at our Noida center. Our dedicated team is ready to assist
+                you.
+                <br />
+                <br /> Contact us via phone or email to schedule your car's
+                pampering
+                <br /> session or to learn more about our specialized cleaning
+                services. <br />
+                Your satisfaction is our priority.
               </Typography>
               <Button
                 variant="contained"
@@ -217,21 +227,22 @@ const HomePage = () => {
               <Typography
                 fontSize={{ xs: 12, sm: 12, md: 13, lg: 15, xl: 15 }}
                 mt={3}
+                sx={{ color: Colors.palette.secondary.grey, lineHeight: "1.8" }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
+                “Our aim is to redefine car care, providing unmatched quality
+                and convenience. We strive to
+                <br /> ensure a seamless, top-tier experience for our customers,
+                setting new standards in the industry
+                <br /> with our innovative approach and customer-centric
+                services.”
+                <br />
+                <br />
               </Typography>
               <Typography
                 fontSize={{ xs: 12, sm: 12, md: 13, lg: 15, xl: 15 }}
                 mt={2}
               >
-                <b>
-                  {" "}
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </b>
+                <b> "Drive clean, drive happy; we make your journey shine."</b>
               </Typography>
             </Box>
           </Grid>
