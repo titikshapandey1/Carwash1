@@ -93,7 +93,7 @@ export default function CustomizedAccordions() {
 
   return (
     <>
-      <Container>
+      <Container sx={{mb:10}}>
         <Typography
           variant="h2"
           align="center"

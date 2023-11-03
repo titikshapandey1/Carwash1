@@ -2,18 +2,17 @@ import * as React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-//import Car from "../images/Car.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Box, Button, InputAdornment, TextField } from "@mui/material";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import Colors from "../utils/colors";
 import { NavLink } from "react-router-dom";
 import Wave from "react-wavify";
 import SendIcon from "@mui/icons-material/Send";
-import Logo from "../assests/images/Logo.png"
-
+import Logo from "../assests/images/Logo.png";
 
 const Footer = () => {
   return (
@@ -21,11 +20,14 @@ const Footer = () => {
       <Wave
         fill={Colors.palette.primary.darkBlue}
         paused={false}
-        style={{ display: "flex", marginTop: "5%" ,}}
+        style={{
+          display: "flex",
+          marginTop: -20,
+          borderBottom: `1px solid ${Colors.palette.primary.darkBlue}`,
+        }}
         options={{
-          // height: 5,
-          // amplitude: 20,
-          speed: .5,
+          height: 5,
+          speed: 0.5,
           points: 3,
         }}
       />
@@ -36,26 +38,21 @@ const Footer = () => {
           overflow: "hidden",
         }}
       >
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ mt: 2 }}>
           <Grid container sx={{ marginInline: "2%" }}>
             <Grid
               item
               xs={12}
               sm={3}
               md={3}
-              // marginTop="2%"
               sx={{ color: Colors.palette.primary.main }}
             >
-              {/* <Typography variant="h4">
-                <b> Logo </b>
-              </Typography> */}
-                <img
-                src={Logo} // Use your logo image
+              <img
+                src={Logo}
                 alt=""
                 style={{
-                  width: "200px", 
-                  padding:'2px',
-                  
+                  width: "200px",
+                  padding: "2px",
                 }}
               />
               <Typography sx={{ marginTop: "2%" }}>
@@ -70,16 +67,19 @@ const Footer = () => {
               <Typography
                 variant="body2"
                 sx={{
-                  // marginTop: "2%",
-                  marginBottom: "4%",
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: "2%",
+
                   color: Colors.palette.primary.main,
                 }}
               >
-                <CopyrightIcon /> 2021 Car Wash.All Rights Reserved
+                <CopyrightIcon sx={{ mr: 1, fontSize: "18px" }} /> 2021 Car
+                Wash.All Rights Reserved
               </Typography>
             </Grid>
 
-            <Grid item xs={15} sm={2} >
+            <Grid item xs={15} sm={2}>
               <Typography
                 variant="body1"
                 gutterBottom
@@ -135,7 +135,7 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={2} >
+            <Grid item xs={15} sm={2}>
               <Typography
                 variant="body1"
                 gutterBottom
@@ -191,7 +191,7 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={2} >
+            <Grid item xs={15} sm={2}>
               <Typography
                 variant="body1"
                 gutterBottom
@@ -248,10 +248,6 @@ const Footer = () => {
             </Grid>
 
             <Grid item xs={15} sm={2} marginBottom={5}>
-              {/* <NavLink
-                to="/"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              > */}
               <Typography
                 variant="body2"
                 gutterBottom
@@ -260,9 +256,9 @@ const Footer = () => {
                   color: Colors.palette.secondary.grey,
                 }}
               >
-                (303) 985-0105,(303) 355-0105
+                +91 7017866149
               </Typography>
-              {/* </NavLink> */}
+
               <TextField
                 placeholder="Type Your Email"
                 type="text"
@@ -306,27 +302,22 @@ const Footer = () => {
                   // "&:hover": { fontSize: 15, opacity: 0.75 },
                 }}
               >
-                mifs@info.com
+                wowkaar@info.com
               </Typography>
               {/* </NavLink> */}
-              {/* <NavLink
-                to="/"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              > */}
+
               <Typography
                 variant="body2"
                 gutterBottom
                 sx={{
                   marginTop: "10%",
                   color: Colors.palette.secondary.grey,
-                  // "&:hover": { fontSize: 15, opacity: 0.75 },
                 }}
               >
-                2972 Westheimer Rd.Santa Ana,
+                Noida,
                 <br />
-                lllinois 85486
+                NOIDA, Delhi NCR, UP
               </Typography>
-              {/* </NavLink> */}
 
               <Typography
                 variant="body2"
@@ -340,7 +331,6 @@ const Footer = () => {
                   <InstagramIcon
                     sx={{
                       color: Colors.palette.primary.main,
-                      // "&:hover": { fontSize: 30, opacity: 0.75 },
                     }}
                   />
                 </NavLink>
@@ -348,11 +338,21 @@ const Footer = () => {
                   to="/"
                   style={{ textDecoration: "none", cursor: "pointer" }}
                 >
-                  <FacebookIcon
+                  <FacebookOutlinedIcon
                     sx={{
                       marginLeft: "10%",
                       color: Colors.palette.primary.main,
-                      // "&:hover": { fontSize: 30, opacity: 0.75 },
+                    }}
+                  />{" "}
+                </NavLink>
+                <NavLink
+                  to="/"
+                  style={{ textDecoration: "none", cursor: "pointer" }}
+                >
+                  <YouTubeIcon
+                    sx={{
+                      marginLeft: "10%",
+                      color: Colors.palette.primary.main,
                     }}
                   />{" "}
                 </NavLink>
@@ -362,7 +362,7 @@ const Footer = () => {
                 >
                   <TwitterIcon
                     sx={{
-                      marginLeft: "15%",
+                      marginLeft: "10%",
                       color: Colors.palette.primary.main,
                       // "&:hover": { fontSize: 30, opacity: 0.75 },
                     }}
