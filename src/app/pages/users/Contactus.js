@@ -14,7 +14,6 @@ import CallIcon from "@mui/icons-material/Call";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 import Footer from "../../partials/Footer";
 import Nav from "../../partials/Nav";
-import BackgroundImg from "../../components/Background";
 import Ourplan from "../../components/Ourplan";
 import Question from "../../components/Question";
 import Colors from "../../utils/colors";
@@ -22,9 +21,10 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Link, NavLink } from "react-router-dom";
-import car1 from "../../assests/images/AboutCar.png";
+import car1 from "../../assests/images/Contactus.png";
 import Axios from "../../utils/Axios";
 import { useState, useEffect } from "react";
+import HomeSeracher from "../../components/Home/HomeSearcher"
 
 const cardStyles = {
   p: 2,
@@ -156,7 +156,44 @@ function ContactUs() {
   return (
     <>
       <Nav />
-      <BackgroundImg />
+      <Box
+        sx={{
+          display: "flex",
+          backgroundImage: `url(${car1})`,
+          backgroundSize: "cover",
+          opacity: "1",
+          backgroundPosition: "center",
+          minHeight: "450px",
+          backgroundColor: "grey",
+        }}
+      >
+        <Grid container >
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={8}
+           justifyContent="center"
+           textAlign={"center"}
+            sx={{ mt:"200px",display:'flex'}}
+          >
+            <Container>
+              <Typography
+                variant="h3"
+              
+                sx={{ fontWeight: 500, color: Colors.palette.primary.main}}
+              >
+            Contact Us
+              </Typography>
+            </Container>
+          </Grid>
+          {/* <Grid item xs={12} sm={12} md={8} padding={"2%"}>
+            <Container>
+              <HomeSeracher/>
+            </Container>
+          </Grid> */}
+        </Grid>
+      </Box>
       <Box
         sx={{
           backgroundColor: Colors.palette.secondary.cardBackground,

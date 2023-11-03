@@ -19,9 +19,12 @@ import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 import Axios from "../../../utils/Axios1";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+
 
 function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const RegiterUser = async () => {
     const data = {
@@ -39,21 +42,24 @@ function RegisterPage() {
         pincode: formik.values.pincode,
       },
     };
-
-    const apiKey = "/user-register";
-    const config = {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
-    };
+    
+    // const apiKey = "/user-register";
+    // const config = {
+    //   headers: {
+    //     Authorization: `Bearer ${apiKey}`,
+    //   },
+    // };
 
     try {
-      const response = await Axios.post("/user-register", data, config);
+      // const response = await Axios.post("/user-register", data, config);
+      const response = await Axios.post("/user-register", data); 
       console.log("response", response.data);
+      navigate("/otp");
     } catch (error) {
       console.log(error);
     }
   };
+
   const paperStyle = {
     padding: "20px",
     display: "flex",
@@ -470,7 +476,7 @@ function RegisterPage() {
                     alignItems: "center",
                   }}
                 >
-                  <Button
+                  {/* <Button
                     type="submit"
                     variant="contained"
                     sx={submitButtonStyle}
@@ -487,7 +493,14 @@ function RegisterPage() {
                     >
                       Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
                     </NavLink>
-                  </Button>
+                  </Button> */}
+                     <Button
+                type="submit"
+                variant="contained"
+                sx={submitButtonStyle}
+              >
+                Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+              </Button>
                 </Box>
               </form>
             </Paper>

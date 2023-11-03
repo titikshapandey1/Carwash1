@@ -4,9 +4,10 @@ import vector from "../../assests/images/Vector.png";
 import vector2 from "../../assests/images/Vector2.png";
 import HomeCards from "../Home/HomeCards";
 import Nav from "../../partials/Nav";
-import car1 from "../../assests/images/AboutCar.png";
+import car1 from "../../assests/images/Aboutus.png";
+import car2 from "../../assests/images/AboutCar.png";
+import HomeSearcher from "../../components/Home/HomeSearcher"
 import Dryclean from "./Dryclean";
-import BackgroundImg from "../Background";
 import Question from "../Question";
 import Footer from "../../partials/Footer";
 import Colors from "../../utils/colors";
@@ -16,7 +17,42 @@ const HomePage = () => {
   return (
     <>
       <Nav />
-      <BackgroundImg />
+      <Box
+        sx={{
+          display: "flex",
+          backgroundImage: `url(${car1})`,
+          backgroundSize: "cover",
+          opacity: "1",
+          backgroundPosition: "center",
+          minHeight: "500px",
+          backgroundColor: "grey",
+        }}
+      >
+        <Grid container spacing={3}>
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={8}  
+            justifyContent="center"
+            sx={{ marginInline: { xs: "0%", sm: "0%" ,textAlign:'center'}, mt: "200px" ,display:"flex"}}
+          >
+            <Container>
+              <Typography
+                variant="h3"
+                sx={{ fontWeight: 600, color: Colors.palette.primary.main, }}
+              >
+            About Us
+              </Typography>
+            </Container>
+          </Grid>
+          {/* <Grid item xs={12} sm={12} md={8} padding={"2%"}>
+            <Container>
+              <HomeSearcher/>
+            </Container>
+          </Grid> */}
+        </Grid>
+      </Box>
       <Box>
         <Grid container spacing={4} sx={{ marginTop: "3%" }}>
           {" "}
@@ -48,7 +84,7 @@ const HomePage = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} sx={{ position: "auto" }}>
             <img
-              src={car1}
+              src={car2}
               alt=""
               style={{
                 maxWidth: "100%",

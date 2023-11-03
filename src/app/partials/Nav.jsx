@@ -10,6 +10,18 @@ import { NavLink } from "react-router-dom";
 import Logo from "../assests/images/Logo.png";
 
 const Nav = () => {
+  const buttonStyle = {
+    backgroundColor: Colors.palette.primary.darkBlue,
+    color: Colors.palette.primary.main,
+    "&:hover": {
+      backgroundColor: Colors.palette.primary.lightBlue,
+    },
+    "&.active": {
+      backgroundColor: Colors.palette.secondary.lightGrey, 
+    color: Colors.palette.secondary.black,
+
+    },
+  };
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -48,78 +60,59 @@ const Nav = () => {
               }}
             >
               <Button
-                sx={{
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.lightBlue,
-                    color: "red",
-                  },
-                }}
-              >
-                <NavLink
-                  to="/"
-                  style={{
-                    textDecoration: "none",
-                    color: Colors.palette.primary.main,
-                  }}
-                >
+               component={NavLink}
+               to="/"
+               exact
+               activeClassName="active"
+              
+               sx={buttonStyle}
+               >
                   Home
-                </NavLink>
               </Button>
 
               <Button
-                sx={{
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.lightBlue,
-                    color: "red",
-                  },
-                }}
+               component={NavLink}
+               to="/services"
+               activeClassName="active"
+               sx={buttonStyle}
+                // sx={{
+                //   "&:hover": {
+                //     backgroundColor: Colors.palette.primary.lightBlue,
+                //     color: "red",
+                //   },
+                 
+                // }}
               >
-                <NavLink
+                {/* <NavLink
                   to="/services"
                   style={{
                     textDecoration: "none",
                     color: Colors.palette.primary.main,
-                  }}
-                >
+                  }} 
+                > */}
                   Services
-                </NavLink>
+                {/* </NavLink> */}
               </Button>
 
               <Button
-                sx={{
-                  cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.lightBlue,
-                  },
-                }}
+               component={NavLink}
+                to="/aboutus"
+                activeClassName="active"
+                sx={buttonStyle}
               >
-                <NavLink
-                  to="/aboutus"
-                  style={{
-                    textDecoration: "none",
-                    color: Colors.palette.primary.main,
-                  }}
-                >
+
                   About Us
-                </NavLink>
+               
               </Button>
               <Button
-                sx={{
-                  cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.lightBlue,
-                  },
-                }}
+              component={NavLink}
+              to="/contactus"
+                activeClassName="active"
+                sx={buttonStyle}
               >
-                <NavLink
-                  to="/contactus"
-                  style={{
-                    textDecoration: "none",
-                    color: Colors.palette.primary.main,
-                  }}
-                >
+               
                   Contact Us
-                </NavLink>
+           
               </Button>
               <Button
                 sx={{

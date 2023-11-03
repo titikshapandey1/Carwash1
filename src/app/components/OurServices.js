@@ -215,8 +215,8 @@ const OurServices = () => {
         </Typography>
       </Box>
 
-      <Grid container spacing={4}>
-        <Grid item xs={12} sm={4}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={4} >
           <Card
             sx={{
               background: Colors.palette.primary.main,
