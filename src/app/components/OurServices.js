@@ -172,7 +172,7 @@ const OurServices = () => {
   };
 
   return (
-    <Container sx={{ marginTop: "3%" }}>
+    <Container sx={{ mt: 5 }}>
       <Box sx={{ display: "flex", alignItems: "center", marginBottom: "3%" }}>
         <Typography
           variant="h5"

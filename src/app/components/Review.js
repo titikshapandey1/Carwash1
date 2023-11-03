@@ -15,24 +15,24 @@ const cards = [
     content:
       "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/><br/> ~ Amet ipsum ",
   },
-  {
-    content:
-      "sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/><br/> ~ Lorem ipsum",
-  },
-  {
-    content:
-      "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, dolor sit amet, consectetur adipiscing elit. <br/><br/> ~ Adipiscing",
-  },
-  {
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/><br/> ~ Amet ipsum",
-  },
+{
+  content:
+    "sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/><br/> ~ Lorem ipsum",
+},
+{
+  content:
+    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, dolor sit amet, consectetur adipiscing elit. <br/><br/> ~ Adipiscing",
+},
+{
+  content:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/><br/> ~ Amet ipsum",
+},
 ];
 
 const Review = () => {
   return (
     <Container>
-      <Box sx={{ marginTop: "5px" }}>
+      <Box sx={{ mt: 10 }}>
         <Typography
           variant="h4"
           sx={{ color: Colors.palette.secondary.main, marginBottom: "50px", fontWeight: "bold" }}
@@ -96,7 +96,7 @@ const Review = () => {
             </Grid>
           ))}
         </Grid>
-    
+
       </Box>
     </Container>
   );

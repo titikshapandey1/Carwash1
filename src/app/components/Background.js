@@ -2,7 +2,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import car1 from "../assests/images/car-wash.jpg";
 import Colors from "../utils/colors";
-import HomeSeracher from "../components/Home/HomeSearcher";
+import HomeSearcher from "../components/Home/HomeSearcher";
 
 const BackgroundImg = () => {
   return (
@@ -10,14 +10,35 @@ const BackgroundImg = () => {
       <Box
         sx={{
           display: "flex",
-          backgroundImage: `url(${car1})`,
-          backgroundSize: "cover",
-          opacity: "1",
-          backgroundPosition: "center",
+          position: "relative",
           minHeight: "500px",
-          backgroundColor: "grey",
         }}
       >
+        <div
+          style={{
+            backgroundImage: `url(${car1})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: -1,
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: Colors.palette.primary.darkBlue,
+            opacity: "0.2",
+            zIndex: -1,
+          }}
+        ></div>
         <Grid container spacing={3}>
           <Grid
             item
@@ -32,14 +53,13 @@ const BackgroundImg = () => {
                 variant="h3"
                 sx={{ fontWeight: 600, color: Colors.palette.primary.main }}
               >
-                Lorem ipsum <br /> dolor sit amet, <br /> consectetur adipiscing
-                elit
+                Get Your Car <br /> The Best Ever Wash
               </Typography>
             </Container>
           </Grid>
           <Grid item xs={12} sm={12} md={8} padding={"2%"}>
             <Container>
-              <HomeSeracher />
+              <HomeSearcher />
             </Container>
           </Grid>
         </Grid>

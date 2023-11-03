@@ -16,8 +16,8 @@ const Guest1 = () => {
       <BackgroundImg />
       {/* <BackgroundVideo/> */}
       <AboutGuest />
-      <Card/>
-      <Work/>
+      <Card />
+      <Work />
       <Review />
       <Question />
       <Footer />
