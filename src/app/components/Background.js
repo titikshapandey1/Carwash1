@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import car1 from "../assests/images/car-wash.jpg";
+import car from "../assests/Video/carwash.mp4";
 import Colors from "../utils/colors";
 import HomeSearcher from "../components/Home/HomeSearcher";
 
@@ -14,7 +14,7 @@ const BackgroundImg = () => {
           minHeight: "500px",
         }}
       >
-        <div
+        {/* <div
           style={{
             backgroundImage: `url(${car1})`,
             backgroundSize: "cover",
@@ -26,7 +26,22 @@ const BackgroundImg = () => {
             left: 0,
             zIndex: -1,
           }}
-        ></div>
+        ></div> */}
+         <video
+          src={car}
+          autoPlay
+          loop
+          muted
+          style={{
+            objectFit: "cover",
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: -1,
+          }}
+        ></video>
         <div
           style={{
             position: "absolute",
