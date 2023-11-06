@@ -14,19 +14,6 @@ const BackgroundImg = () => {
           minHeight: "500px",
         }}
       >
-        {/* <div
-          style={{
-            backgroundImage: `url(${car1})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: -1,
-          }}
-        ></div> */}
          <video
           src={car}
           autoPlay
@@ -50,7 +37,7 @@ const BackgroundImg = () => {
             width: "100%",
             height: "100%",
             backgroundColor: Colors.palette.primary.darkBlue,
-            opacity: "0.2",
+            opacity: "0.1",
             zIndex: -1,
           }}
         ></div>

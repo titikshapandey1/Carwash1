@@ -8,16 +8,46 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { NavLink } from "react-router-dom"; // Import NavLink
+import { NavLink } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import ServicesIcon from "@mui/icons-material/Work";
+import AboutUsIcon from "@mui/icons-material/Info";
+import ContactUsIcon from "@mui/icons-material/Email";
+import LoginIcon from "@mui/icons-material/Login";
+import RegisterIcon from "@mui/icons-material/PersonAdd";
 import Colors from "../utils/colors";
 
 const pages = [
-  { title: "Home", path: "/" },
-  { title: "Services", path: "/services" },
-  { title: "About Us", path: "/aboutus" },
-  { title: "Contact Us", path: "/contactus" },
-  { title: "Login", path: "/login" },
-  { title: "Register", path: "/registerpage" },
+  {
+    title: "Home",
+    path: "/",
+    icon: <HomeIcon sx={{ mr: 5,  }} />,
+  },
+  {
+    title: "Services",
+    path: "/services",
+    icon: <ServicesIcon sx={{ mr: 5,   }} />,
+  },
+  {
+    title: "About Us",
+    path: "/aboutus",
+    icon: <AboutUsIcon sx={{ mr: 5,   }} />,
+  },
+  {
+    title: "Contact Us",
+    path: "/contactus",
+    icon: <ContactUsIcon sx={{ mr: 5,   }} />,
+  },
+  {
+    title: "Login",
+    path: "/login",
+    icon: <LoginIcon sx={{ mr: 5,   }} />,
+  },
+  {
+    title: "Register",
+    path: "/registerpage",
+    icon: <RegisterIcon sx={{ mr: 5,  }} />,
+  },
 ];
 
 const DrawerComp = () => {
@@ -29,6 +59,16 @@ const DrawerComp = () => {
         anchor="left"
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
+        PaperProps={{
+          sx: {
+            width: 230,
+            display: "flex",
+            flexDirection: "column",
+            padding: "16px",
+            backgroundColor: "#a2c9e8",
+            color:Colors.palette.secondary.black,
+          },
+        }}
       >
         <List>
           {pages.map((page, index) => (
@@ -38,9 +78,8 @@ const DrawerComp = () => {
               to={page.path}
               activeClassName="active"
             >
-              <ListItemIcon>
-                <ListItemText>{page.title}</ListItemText>
-              </ListItemIcon>
+              <ListItemIcon>{page.icon}</ListItemIcon>
+              <ListItemText primary={page.title} />
             </ListItemButton>
           ))}
         </List>
@@ -49,7 +88,7 @@ const DrawerComp = () => {
         sx={{
           display: { xs: "block", sm: "block", md: "none" },
           color: Colors.palette.primary.main,
-          marginRight: "auto",
+          marginRight: "10px",
         }}
         onClick={() => setOpenDrawer(!openDrawer)}
       >

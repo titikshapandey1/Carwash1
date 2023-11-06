@@ -73,23 +73,8 @@ const Nav = () => {
                 to="/services"
                 activeClassName="active"
                 sx={buttonStyle}
-                // sx={{
-                //   "&:hover": {
-                //     backgroundColor: Colors.palette.primary.lightBlue,
-                //     color: "red",
-                //   },
-
-                // }}
               >
-                {/* <NavLink
-                  to="/services"
-                  style={{
-                    textDecoration: "none",
-                    color: Colors.palette.primary.main,
-                  }} 
-                > */}
                 Services
-                {/* </NavLink> */}
               </Button>
 
               <Button
