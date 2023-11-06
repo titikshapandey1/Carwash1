@@ -94,6 +94,14 @@ function AppRouter() {
 
       {/*======== PAGES ========== */}
       <Routes>
+        {/*======== AUTHENTICATION ========== */}
+         <Route path="/registerpage" element={<RegisterPage />}></Route>
+        <Route path="/mobile" element={<Mobile />}></Route>
+        <Route path="/otp" element={<Otp />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/email" element={<Email />}></Route>
+        <Route path="/passwordreset" element={<PasswordReset />}></Route>
+
         {/*======== USERS ========== */}
         <Route path="/" element={<Guest1 />}></Route>
         <Route path="/guest2" element={<Guest2 />}></Route>
@@ -101,16 +109,12 @@ function AppRouter() {
         <Route path="/services" element={<Services />}></Route>
         <Route path="/aboutus" element={<AboutUs />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/email" element={<Email />}></Route>
-        <Route path="/passwordreset" element={<PasswordReset />}></Route>
+        
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/editprofile" element={<EditProfile />}></Route>
         <Route path="/servicelocation" element={<ServiceLocation />}></Route>
         <Route path="/serviceinvoice" element={<ServiceInvoice />}></Route>
-        <Route path="/registerpage" element={<RegisterPage />}></Route>
-        <Route path="/mobile" element={<Mobile />}></Route>
-        <Route path="/otp" element={<Otp />}></Route>
+       
         <Route path="/subscriptions" element={<Subscriptions />}></Route>
         <Route path="/booking" element={<Booking />}></Route>
         <Route path="/history" element={<History />}></Route>
