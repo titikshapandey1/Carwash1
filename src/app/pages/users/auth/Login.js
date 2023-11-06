@@ -16,9 +16,8 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
-import Axios from "axios";
+import Axios from "../../../utils/Axios1";
 
 function Login() {
   const navigate = useNavigate();
@@ -27,57 +26,17 @@ function Login() {
   const LoginUser = async () => {
     const data = {
       userName: formik.values.userName,
-      passWord: formik.values.password,
-    };
-
-    const apiKey = "/login";
-    const config = {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
+      passWord: formik.values.passWord,
     };
 
     try {
-      const response = await Axios.post("/login", data, config);
-      console.log("response", response.data);
+      const response = await Axios.post("/login", data);
+      console.log("Login successful:", response.data);
+      navigate("/home");
     } catch (error) {
-      console.log(error);
+      console.error("Login failed:", error);
     }
   };
-
-  // //   let data = JSON.stringify({
-  // //     "userName": "singh222@.com",
-  // //     "passWord": "Bip22lav@",
-  // //     "role": " ",
-  // //     // "firstName": "biplov",
-  // //     // "surName": "singh",
-  // //     // "mobileNumber": 9876543211,
-  // //     // "address": {
-  // //     //     "locality": "uttar ;pradesh",
-  // //     //     "city": "state",
-  // //     //     "district": "patna",
-  // //     //     "state": "rurki",
-  // //     //     "pincode": 654321
-  // //     // }
-  // // });
-
-  // let config = {
-  //     method: 'post',
-  //     maxBodyLength: Infinity,
-  //     url:'https://carws.onrender.com/v1/login',
-  //     headers: {
-  //         'Content-Type': 'application/json'
-  //     },
-  //     data: data
-  // };
-
-  // axios.request(config).then((response) => {
-  //     console.log(JSON.stringify(response.data));
-  // }).catch((error) => {
-  //     console.log(error);
-  // });
-
-  // };
 
   const paperStyle = {
     padding: "20px",
@@ -124,7 +83,8 @@ function Login() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      // console.log("On Submit: ",values);
+      console.log("On Submit: ", values);
+      // LoginUser();
     },
   });
 
@@ -203,14 +163,14 @@ function Login() {
                     fullWidth
                     size="small"
                     type="email"
-                    // value={formik.values.userName}
-                    // onChange={formik.handleChange}
-                    // error={
-                    //   formik.touched.userName && Boolean(formik.errors.userName)
-                    // }
-                    // helperText={
-                    //   formik.touched.userName && formik.errors.userName
-                    // }
+                    value={formik.values.userName}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.userName && Boolean(formik.errors.userName)
+                    }
+                    helperText={
+                      formik.touched.userName && formik.errors.userName
+                    }
                     sx={{ marginBottom: "20px" }}
                   />
                   <TextField
@@ -220,8 +180,8 @@ function Login() {
                     name="passWord"
                     fullWidth
                     size="small"
-                    type={showPassword ? "text" : "password"}
-                    value={formik.values.passWord}
+                    type={showPassword ? "text" : "passWord"}
+                    value={formik.values.password}
                     onChange={formik.handleChange}
                     error={
                       formik.touched.passWord && Boolean(formik.errors.passWord)
@@ -259,16 +219,17 @@ function Login() {
                       fullWidth
                       variant="contained"
                       style={{ ...submitButtonStyle }}
-                      // onClick={() =>
-                      // navigate(`/`)
-                      // }
+                      onClick={() => LoginUser()}
                     >
                       Login
                     </Button>
                   </Box>
                   <Box align="center">
                     <Typography
-                      sx={{ color: Colors.palette.secondary.main, cursor: "pointer", }}
+                      sx={{
+                        color: Colors.palette.secondary.main,
+                        cursor: "pointer",
+                      }}
                       onClick={() => navigate(`/registerpage`)}
                     >
                       Don't have an account?&nbsp;&nbsp; Register here

@@ -12,10 +12,14 @@ import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
-// import Sedan from "../../assests/images/car1guest.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import Axios from "../../../utils/Axios1";
 
 const Otp = () => {
+  const location = useLocation();
+  const otpFromAPI = location.state?.otp;
+  const { formData } = location.state;
+
   const [number, setNumber] = useState({
     0: "",
     1: "",
@@ -61,46 +65,72 @@ const Otp = () => {
     backgroundColor: Colors.palette.secondary.main,
   };
 
-
   const onChange = (e, index) => {
-    var onlyNums = e.target.value.replace(/[^0-9]+$/, "");
-    if (onlyNums) {
-      onlyNums = parseInt(onlyNums[0]);
-    }
-    setNumber({
-      ...number,
-      [index]: onlyNums,
-    });
+    const inputValue = e.target.value;
 
-    if (!onlyNums) {
-      setValidationErrors({
-        ...validationErrors,
-        [index]: "Field is required",
+    if (inputValue.length === 1 && /^[0-9]$/.test(inputValue)) {
+      setNumber({
+        ...number,
+        [index]: parseInt(inputValue),
       });
-    } else {
       setValidationErrors({
         ...validationErrors,
         [index]: "",
       });
+    } else {
+      setNumber({
+        ...number,
+        [index]: "",
+      });
+      setValidationErrors({
+        ...validationErrors,
+        [index]: "Field is required and must be a single digit (0-9).",
+      });
     }
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const isFormValid = Object.values(validationErrors).every(
-      (error) => !error
-    );
+    const enteredOtp = Object.values(number).join("").trim();
 
-    if (isFormValid) {
-      console.log("Form submitted successfully");
+    if (enteredOtp === otpFromAPI) {
+      alert("OTP Matched");
+      try {
+        const userData = {
+          userName: formData.userName,
+          passWord: formData.passWord,
+          role: 1,
+          firstName: formData.firstName,
+          surName: formData.surName,
+          mobileNumber: formData.mobileNumber,
+          alternateNumber: formData.alternateNumber,
+          address: formData.address,
+          otp: otpFromAPI,
+        };
 
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+        const response = await Axios.post("/user-register", userData);
+        console.log("User registration response:", response.data);
+      } catch (error) {
+        console.error("User registration failed:", error);
+      }
     } else {
-      console.log("Form has errors. Please correct them.");
+      alert("OTP does not match. Please enter the correct OTP.");
     }
+
+    // const isFormValid = Object.values(validationErrors).every(
+    //   (error) => !error
+    // );
+
+    // if (isFormValid) {
+    //   console.log("Form submitted successfully");
+
+    //   setTimeout(() => {
+    //     window.location.reload();
+    //   }, 1000);
+    // } else {
+    //   console.log("Form has errors. Please correct them.");
+    // }
   };
 
   const isSubmitDisabled = Object.values(validationErrors).some(
@@ -170,7 +200,7 @@ const Otp = () => {
                     variant="body1"
                     sx={{ color: Colors.palette.secondary.main }}
                   >
-                    <b>You have received an OTP on your Registered Email</b>
+                    You have received an OTP on your <b>{formData.userName}</b>
                   </Typography>
                   <br />
                   <Box
@@ -255,7 +285,7 @@ const Otp = () => {
                       sx={{ ...submitButtonStyle }}
                       disabled={isSubmitDisabled}
                     >
-                      <NavLink
+                      {/* <NavLink
                         to="/"
                         style={{
                           textDecoration: "none",
@@ -263,9 +293,9 @@ const Otp = () => {
                           display: "flex",
                           alignItems: "center",
                         }}
-                      >
-                        Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                      </NavLink>
+                      > */}
+                      Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                      {/* </NavLink> */}
                     </Button>
                   </Box>
                 </form>

@@ -18,11 +18,13 @@ import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 import Axios from "../../../utils/Axios1";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 
 function RegisterPage() {
+  const [otpFromAPI, setOtpFromAPI] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  // const history = useHistory();
 
   const RegiterUser = async () => {
     const data = {
@@ -43,15 +45,18 @@ function RegisterPage() {
 
     try {
       const response = await Axios.post("/sendOTP", data);
-      console.log("response", response.data);
-      navigate("/otp"); 
+      const otp = response.data.otp;
+      setOtpFromAPI(otp);
+      console.log(response.data);
+
+      navigate("/otp", { state: { formData: data, otp } });
     } catch (error) {
       if (error.response) {
         console.log("Server Error Data:", error.response.data);
         console.log("Server Error Status:", error.response.status);
-      } 
+      }
     }
-  };
+  }
 
   const paperStyle = {
     padding: "20px",
@@ -141,350 +146,356 @@ function RegisterPage() {
     validationSchema,
     onSubmit: (values) => {
       console.log("On Submit Values: ", values);
-      formik.resetForm();
+      
     },
   });
 
   return (
-    <Box
-      sx={{
-        background:
-          "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <>
+      {/* <Otp otpFromAPI={otpFromAPI} /> */}
       <Box
         sx={{
-          width: "100%",
-          height: "100%",
+          background:
+            "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <Container maxWidth="sm" sx={{ mt: "2%", mb: "2%" }}>
-          <Grid container>
-            <Paper elevation={10} style={paperStyle}>
-              <Box
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "left",
-                }}
-              >
-                <Button>
-                  <NavLink
-                    to="/login"
-                    style={{
-                      textDecoration: "none",
-                      color: Colors.palette.secondary.main,
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Container maxWidth="sm" sx={{ mt: "2%", mb: "2%" }}>
+            <Grid container>
+              <Paper elevation={10} style={paperStyle}>
+                <Box
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "left",
+                  }}
+                >
+                  <Button>
+                    <NavLink
+                      to="/login"
+                      style={{
+                        textDecoration: "none",
+                        color: Colors.palette.secondary.main,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <ArrowBackIosIcon />
+                      Login
+                    </NavLink>
+                  </Button>
+                </Box>
+                <Typography
+                  variant="h6"
+                  align="center"
+                  sx={{
+                    mt: "20px",
+                    mb: "10px",
+                    justifyContent: "center",
+                    color: Colors.palette.secondary.main,
+                  }}
+                >
+                  Enter your credentials here:
+                </Typography>
+                <form
+                  style={{ color: Colors.palette.secondary.main }}
+                  onSubmit={formik.handleSubmit}
+                >
+                  <Grid container spacing={1.5}>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="firstName"
+                        label="First Name"
+                        name="firstName"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.firstName}
+                        error={
+                          formik.touched.firstName &&
+                          Boolean(formik.errors.firstName)
+                        }
+                        helperText={
+                          formik.touched.firstName && formik.errors.firstName
+                        }
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="surName"
+                        label="Last Name"
+                        name="surName"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.surName}
+                        error={
+                          formik.touched.surName &&
+                          Boolean(formik.errors.surName)
+                        }
+                        helperText={
+                          formik.touched.surName && formik.errors.surName
+                        }
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="mobileNumber"
+                        label="Contact Number"
+                        // type="Mobile"
+                        name="mobileNumber"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.mobileNumber}
+                        error={
+                          formik.touched.mobileNumber &&
+                          Boolean(formik.errors.mobileNumber)
+                        }
+                        helperText={
+                          formik.touched.mobileNumber &&
+                          formik.errors.mobileNumber
+                        }
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        fullWidth
+                        size="small"
+                        id="alternateNumber"
+                        label="Alternate Number"
+                        name="alternateNumber"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.alternateNumber}
+                        error={
+                          formik.touched.alternateNumber &&
+                          Boolean(formik.errors.alternateNumber)
+                        }
+                        helperText={
+                          formik.touched.alternateNumber &&
+                          formik.errors.alternateNumber
+                        }
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="email"
+                        type="email"
+                        label="Email Address"
+                        name="email"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.email}
+                        error={
+                          formik.touched.email && Boolean(formik.errors.email)
+                        }
+                        helperText={formik.touched.email && formik.errors.email}
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="password"
+                        label="Password"
+                        name="password"
+                        type={showPassword ? "text" : "password"}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.password}
+                        error={
+                          formik.touched.password &&
+                          Boolean(formik.errors.password)
+                        }
+                        helperText={
+                          formik.touched.password && formik.errors.password
+                        }
+                        sx={textFieldStyles}
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <IconButton
+                                onClick={() => setShowPassword(!showPassword)}
+                              >
+                                {showPassword ? (
+                                  <Visibility />
+                                ) : (
+                                  <VisibilityOff />
+                                )}
+                              </IconButton>
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography
+                        variant="h6"
+                        sx={{ color: Colors.palette.secondary.main }}
+                      >
+                        Address
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        variant="outlined"
+                        size="small"
+                        required
+                        fullWidth
+                        id="locality"
+                        label="Locality / Building / Street / Society"
+                        name="locality"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.locality}
+                        error={
+                          formik.touched.locality &&
+                          Boolean(formik.errors.locality)
+                        }
+                        helperText={
+                          formik.touched.locality && formik.errors.locality
+                        }
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="city"
+                        label="City / Town  District"
+                        name="city"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={
+                          formik.touched.city && Boolean(formik.errors.city)
+                        }
+                        helperText={formik.touched.city && formik.errors.city}
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="district"
+                        label="District"
+                        name="district"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={
+                          formik.touched.district &&
+                          Boolean(formik.errors.district)
+                        }
+                        helperText={
+                          formik.touched.district && formik.errors.district
+                        }
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={8}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="state"
+                        label="State"
+                        name="state"
+                        onChange={formik.handleChange}
+                        s
+                        onBlur={formik.handleBlur}
+                        value={formik.values.state}
+                        error={
+                          formik.touched.state && Boolean(formik.errors.state)
+                        }
+                        helperText={formik.touched.state && formik.errors.state}
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        size="small"
+                        id="pincode"
+                        label="Pincode"
+                        name="pincode"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.pincode}
+                        error={
+                          formik.touched.pincode &&
+                          Boolean(formik.errors.pincode)
+                        }
+                        helperText={
+                          formik.touched.pincode && formik.errors.pincode
+                        }
+                        sx={textFieldStyles}
+                      />
+                    </Grid>
+                  </Grid>
+                  <Box
+                    sx={{
                       display: "flex",
+                      justifyContent: "center",
                       alignItems: "center",
                     }}
                   >
-                    <ArrowBackIosIcon />
-                    Login
-                  </NavLink>
-                </Button>
-              </Box>
-              <Typography
-                variant="h6"
-                align="center"
-                sx={{
-                  mt: "20px",
-                  mb: "10px",
-                  justifyContent: "center",
-                  color: Colors.palette.secondary.main,
-                }}
-              >
-                Enter your credentials here:
-              </Typography>
-              <form
-                style={{ color: Colors.palette.secondary.main }}
-                onSubmit={formik.handleSubmit}
-              >
-                <Grid container spacing={1.5}>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="firstName"
-                      label="First Name"
-                      name="firstName"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.firstName}
-                      error={
-                        formik.touched.firstName &&
-                        Boolean(formik.errors.firstName)
-                      }
-                      helperText={
-                        formik.touched.firstName && formik.errors.firstName
-                      }
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="surName"
-                      label="Last Name"
-                      name="surName"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.surName}
-                      error={
-                        formik.touched.surName && Boolean(formik.errors.surName)
-                      }
-                      helperText={
-                        formik.touched.surName && formik.errors.surName
-                      }
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="mobileNumber"
-                      label="Contact Number"
-                      // type="Mobile"
-                      name="mobileNumber"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.mobileNumber}
-                      error={
-                        formik.touched.mobileNumber &&
-                        Boolean(formik.errors.mobileNumber)
-                      }
-                      helperText={
-                        formik.touched.mobileNumber &&
-                        formik.errors.mobileNumber
-                      }
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="outlined"
-                      fullWidth
-                      size="small"
-                      id="alternateNumber"
-                      label="Alternate Number"
-                      name="alternateNumber"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.alternateNumber}
-                      error={
-                        formik.touched.alternateNumber &&
-                        Boolean(formik.errors.alternateNumber)
-                      }
-                      helperText={
-                        formik.touched.alternateNumber &&
-                        formik.errors.alternateNumber
-                      }
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="email"
-                      type="email"
-                      label="Email Address"
-                      name="email"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.email}
-                      error={
-                        formik.touched.email && Boolean(formik.errors.email)
-                      }
-                      helperText={formik.touched.email && formik.errors.email}
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="password"
-                      label="Password"
-                      name="password"
-                      type={showPassword ? "text" : "password"}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.password}
-                      error={
-                        formik.touched.password &&
-                        Boolean(formik.errors.password)
-                      }
-                      helperText={
-                        formik.touched.password && formik.errors.password
-                      }
-                      sx={textFieldStyles}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              onClick={() => setShowPassword(!showPassword)}
-                            >
-                              {showPassword ? (
-                                <Visibility />
-                              ) : (
-                                <VisibilityOff />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography
-                      variant="h6"
-                      sx={{ color: Colors.palette.secondary.main }}
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      sx={submitButtonStyle}
+                      onClick={RegiterUser}
                     >
-                      Address
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      variant="outlined"
-                      size="small"
-                      required
-                      fullWidth
-                      id="locality"
-                      label="Locality / Building / Street / Society"
-                      name="locality"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.locality}
-                      error={
-                        formik.touched.locality &&
-                        Boolean(formik.errors.locality)
-                      }
-                      helperText={
-                        formik.touched.locality && formik.errors.locality
-                      }
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="city"
-                      label="City / Town  District"
-                      name="city"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      error={formik.touched.city && Boolean(formik.errors.city)}
-                      helperText={formik.touched.city && formik.errors.city}
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="district"
-                      label="District"
-                      name="district"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      error={
-                        formik.touched.district &&
-                        Boolean(formik.errors.district)
-                      }
-                      helperText={
-                        formik.touched.district && formik.errors.district
-                      }
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={8}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="state"
-                      label="State"
-                      name="state"
-                      onChange={formik.handleChange}
-                      s
-                      onBlur={formik.handleBlur}
-                      value={formik.values.state}
-                      error={
-                        formik.touched.state && Boolean(formik.errors.state)
-                      }
-                      helperText={formik.touched.state && formik.errors.state}
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={4}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      size="small"
-                      id="pincode"
-                      label="Pincode"
-                      name="pincode"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.pincode}
-                      error={
-                        formik.touched.pincode && Boolean(formik.errors.pincode)
-                      }
-                      helperText={
-                        formik.touched.pincode && formik.errors.pincode
-                      }
-                      sx={textFieldStyles}
-                    />
-                  </Grid>
-                </Grid>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                 
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    sx={submitButtonStyle}
-                    onClick={RegiterUser}
-                  >
-                    Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                  </Button>
-                </Box>
-              </form>
-            </Paper>
-          </Grid>
-        </Container>
+                      Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                    </Button>
+                  </Box>
+                </form>
+              </Paper>
+            </Grid>
+          </Container>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }
 

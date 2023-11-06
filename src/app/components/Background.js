@@ -14,7 +14,7 @@ const BackgroundImg = () => {
           minHeight: "500px",
         }}
       >
-         <video
+        <video
           src={car}
           autoPlay
           loop

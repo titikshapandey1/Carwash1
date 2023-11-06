@@ -109,12 +109,10 @@ function AppRouter() {
         <Route path="/services" element={<Services />}></Route>
         <Route path="/aboutus" element={<AboutUs />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
-        
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/editprofile" element={<EditProfile />}></Route>
         <Route path="/servicelocation" element={<ServiceLocation />}></Route>
         <Route path="/serviceinvoice" element={<ServiceInvoice />}></Route>
-       
         <Route path="/subscriptions" element={<Subscriptions />}></Route>
         <Route path="/booking" element={<Booking />}></Route>
         <Route path="/history" element={<History />}></Route>

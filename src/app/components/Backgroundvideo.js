@@ -26,7 +26,6 @@ const BackgroundVideo = () => {
           muted
           width="250vh"
           height="auto"
-          
         />
       </div>
      
