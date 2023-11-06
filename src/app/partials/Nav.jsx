@@ -29,7 +29,6 @@ const Nav = () => {
           sx={{ background: Colors.palette.primary.darkBlue }}
         >
           <Toolbar>
-            <DrawerComp/>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <NavLink
                 to="/"
@@ -135,6 +134,7 @@ const Nav = () => {
                 </NavLink>
               </Button>
             </Box>
+            <DrawerComp />
           </Toolbar>
         </AppBar>
       </Box>
