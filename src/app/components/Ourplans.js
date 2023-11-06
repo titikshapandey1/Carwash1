@@ -7,20 +7,19 @@ const Ourplans = () => {
       <Box
         sx={{
           width: "100%",
-
           marginBottom: "2rem",
         }}
       >
         <Grid ml={4}>
           <Typography
-            variant="h5"
+            variant="h4"
             mt={10}
             mb={2}
             sx={{ color: Colors.palette.secondary.main }}
           >
             <b> Our Plan</b>
           </Typography>
-          <Typography fontSize="16.5px" sx={{lineHeight: "1.8"}}>
+          <Typography fontSize="16.5px" sx={{ lineHeight: "1.8" }}>
             Explore Our Car Wash Options and Subscriptions : <br />
             Routine, Dry, and Deep Clean. Sign up for our hassle-free
             subscription plans to enjoy regular, convenient, and budget-friendly

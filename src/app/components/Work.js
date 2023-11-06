@@ -32,7 +32,7 @@ function Work() {
     <Container>
       <Typography
         variant="h4"
-        align="center"
+        // align="center"
         sx={{
           mt: 10,
           color: Colors.palette.secondary.main,
@@ -71,7 +71,7 @@ function Work() {
                 title={step.title}
                 style={{
                   maxWidth: "100%",
-                  height: "200px",
+                  height: "150px",
                   borderRadius: "10px",
                 }}
               />

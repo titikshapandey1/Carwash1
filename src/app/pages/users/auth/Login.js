@@ -13,7 +13,7 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Mobile from "./Mobile";
@@ -21,6 +21,7 @@ import Colors from "../../../utils/colors";
 import Axios from "axios";
 
 function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginUser = async () => {
@@ -160,23 +161,23 @@ function Login() {
                 }}
               >
                 <Box sx={{ display: "flex" }}>
-                  <NavLink
+                  {/* <NavLink
                     to="/"
                     style={{
                       textDecoration: "none",
                       color: Colors.palette.secondary.main,
                     }}
+                  > */}
+                  <Button
+                    sx={{
+                      color: Colors.palette.secondary.main,
+                      justifyContent: "flex-start",
+                    }}
+                    onClick={() => navigate("/")}
                   >
-                    <Button
-                      sx={{
-                        color: Colors.palette.secondary.main,
-                        justifyContent: "flex-start",
-                      }}
-                      onClick={Mobile}
-                    >
-                      <ArrowBackIosIcon />
-                    </Button>
-                  </NavLink>
+                    <ArrowBackIosIcon />
+                  </Button>
+                  {/* </NavLink> */}
                   <Typography
                     variant="h4"
                     sx={{
@@ -245,50 +246,32 @@ function Login() {
                       color: Colors.palette.secondary.main,
                       display: "flex",
                       mt: "1.2rem",
+                      cursor: "pointer",
                     }}
+                    onClick={() => navigate(`/email`)}
                   >
                     <LockIcon sx={{ mr: "1rem" }} />
-                    <NavLink
-                      to="/email"
-                      style={{
-                        textDecoration: "none",
-                        color: Colors.palette.secondary.main,
-                      }}
-                    >
-                      Forgot password?
-                    </NavLink>
+                    Forgot password?
                   </Typography>
                   <Box align="center">
-                    {/* <NavLink
-                      to="/registerpage"
-                      style={{
-                        textDecoration: "none",
-                        color: Colors.palette.secondary.main,
-                      }}
-                    > */}
                     <Button
                       type="submit"
                       fullWidth
                       variant="contained"
                       style={{ ...submitButtonStyle }}
-                      onClick={LoginUser}
+                      // onClick={() =>
+                      // navigate(`/`)
+                      // }
                     >
                       Login
                     </Button>
-                    {/* </NavLink> */}
                   </Box>
                   <Box align="center">
-                    <Typography sx={{ color: Colors.palette.secondary.main }}>
-                      Don't have an account?&nbsp;&nbsp;
-                      <NavLink
-                        to="/registerpage"
-                        style={{
-                          textDecoration: "none",
-                          color: Colors.palette.secondary.main,
-                        }}
-                      >
-                        Register here
-                      </NavLink>
+                    <Typography
+                      sx={{ color: Colors.palette.secondary.main, cursor: "pointer", }}
+                      onClick={() => navigate(`/registerpage`)}
+                    >
+                      Don't have an account?&nbsp;&nbsp; Register here
                     </Typography>
                   </Box>
                 </form>

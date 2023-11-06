@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import AdminDash from "../../components/AdDash";
 import Colors from "../../utils/colors";
 import Table from "../../components/Table";
-import { NavLink } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Box, Typography, Button } from "@mui/material";
 import Axios from "../../utils/Axios";
 import Loader from "../../components/Loader";
 
 const AdPayUnsucc = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [tableData, setTableData] = useState([]);
   const tableHeaders = [
@@ -28,16 +29,22 @@ const AdPayUnsucc = () => {
           d2: service._id,
           d3: service.serviceType,
           d4: service.amount,
-          viewdetails: (
-            <NavLink
-              to={`/adminpaymentdetails?id=${service._id}`}
+          d5: (
+            <Button
               style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
                 textDecoration: "none",
                 color: Colors.palette.secondary.main,
+                fontSize: "12px",
               }}
+              onClick={() =>
+                navigate(`/adminpaymentdetails?id=${service.viewDetail._id}`)
+              }
             >
               View Details
-            </NavLink>
+            </Button>
           ),
         }))
       );

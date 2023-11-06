@@ -10,14 +10,17 @@ const AboutGuest = () => {
       <Grid container spacing={4} sx={{ mt: 5 }}>
         <Grid item xs={12} sm={6} md={8}>
           <Typography
-            variant="h5"
+            variant="h4"
             sx={{ marginLeft: "5%", color: Colors.palette.secondary.main }}
             gutterBottom
           >
             <b> About Us</b>
           </Typography>
 
-          <Typography variant="body1" sx={{ marginLeft: "5%" ,lineHeight: "1.8"}}>
+          <Typography
+            variant="body1"
+            sx={{ marginLeft: "5%", lineHeight: "1.8" }}
+          >
             Welcome to our premier car wash service center in Noida. We offer an
             unparalleled car cleaning experience
             <br /> with three comprehensive packages: Routine clean, Dry clean,

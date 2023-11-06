@@ -2,43 +2,69 @@ import React, { useEffect, useState } from "react";
 import AdminDash from "../../components/AdDash";
 import Table from "../../components/Table";
 import Colors from "../../utils/colors";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Box, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { Box, Typography,Button } from "@mui/material";
-import Axios from "../../utils/Axios1";
+import Axios from "../../utils/Axios";
 import Loader from "../../components/Loader";
 
-const AdUserAct = () => {
+const AdEditSup = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [tableData, setTableData] = useState([]);
-  const tableHeaders = ["User Name", "Location", "Mobile No.", "View Details"];
+  const tableHeaders = [
+    "Joining",
+    "Supervisor ID",
+    "Service Type",
+    "Amount",
+    "",
+  ];
 
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("/get-all-active-users");
-      const activeUsers = response.data.activeUsers; 
+      const response = await Axios.get("/get-all-supervisior?pages=5");
       setTableData(
-        activeUsers.map((item, index) => ({
-          d1: item.userName,
-          d2: `${item.address.state}, ${item.address.city}`, 
-          d3: item.mobileNumber,
-          d4: (
-            <Button
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                textDecoration: "none",
-                color: Colors.palette.secondary.main,
-                fontSize: "12px",
-              }}
-              onClick={() =>
-                navigate(`/adminpaymentdetails`)
-              }
-            >
-              View Details
-            </Button>
+        response.data.supervisior.map((service, index) => ({
+          d1: service.createdAt,
+          d2: service._id,
+          d3: service.service,
+          d4: service.price,
+          d5: (
+            <div>
+              <Button
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  color: Colors.palette.secondary.blue,
+                }}
+                onClick={() =>
+                  navigate(`/admineditsupervisor?id=${service._id}`)
+                }
+              >
+                <EditIcon
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                  }}
+                />
+              </Button>
+
+              <Button
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  color: Colors.palette.secondary.blue,
+                }}
+                onClick={() => navigate(`/`)}
+              >
+                <DeleteIcon sx={{ color: Colors.palette.secondary.main }} />
+              </Button>
+            </div>
           ),
         }))
       );
@@ -50,7 +76,6 @@ const AdUserAct = () => {
       }, 500);
     }
   };
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -78,7 +103,7 @@ const AdUserAct = () => {
             fontWeight: "600",
           }}
         >
-          Active Users
+          All Supervisors
         </Typography>
         <Box
           display="flex"
@@ -103,4 +128,4 @@ const AdUserAct = () => {
   );
 };
 
-export default AdUserAct;
+export default AdEditSup;

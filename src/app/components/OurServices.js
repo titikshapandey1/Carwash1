@@ -44,7 +44,7 @@ const OurServices = () => {
     <Container sx={{ marginTop: "3%" }}>
       <Box sx={{ display: "flex", alignItems: "center", marginBottom: "3%" }}>
         <Typography
-          variant="h5"
+          variant="h4"
           sx={{ color: Colors.palette.secondary.main, fontWeight: "600" }}
         >
           Our Services&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;•

@@ -10,7 +10,6 @@ import {
   IconButton,
   InputAdornment,
 } from "@mui/material";
-// import Sedan from "../../../assests/images/car1guest.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -20,7 +19,6 @@ import { NavLink } from "react-router-dom";
 import Axios from "../../../utils/Axios1";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-
 
 function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +30,7 @@ function RegisterPage() {
       surName: formik.values.surName,
       mobileNumber: formik.values.mobileNumber,
       alternateNumber: formik.values.alternateNumber,
-      email: formik.values.email,
+      userName: formik.values.email,
       passWord: formik.values.password,
       address: {
         locality: formik.values.locality,
@@ -42,21 +40,16 @@ function RegisterPage() {
         pincode: formik.values.pincode,
       },
     };
-    
-    // const apiKey = "/user-register";
-    // const config = {
-    //   headers: {
-    //     Authorization: `Bearer ${apiKey}`,
-    //   },
-    // };
 
     try {
-      // const response = await Axios.post("/user-register", data, config);
-      const response = await Axios.post("/user-register", data); 
+      const response = await Axios.post("/sendOTP", data);
       console.log("response", response.data);
-      navigate("/otp");
+      navigate("/otp"); 
     } catch (error) {
-      console.log(error);
+      if (error.response) {
+        console.log("Server Error Data:", error.response.data);
+        console.log("Server Error Status:", error.response.status);
+      } 
     }
   };
 
@@ -476,31 +469,15 @@ function RegisterPage() {
                     alignItems: "center",
                   }}
                 >
-                  {/* <Button
+                 
+                  <Button
                     type="submit"
                     variant="contained"
                     sx={submitButtonStyle}
                     onClick={RegiterUser}
                   >
-                    <NavLink
-                      to="/otp"
-                      style={{
-                        textDecoration: "none",
-                        color: Colors.palette.primary.main,
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                    </NavLink>
-                  </Button> */}
-                     <Button
-                type="submit"
-                variant="contained"
-                sx={submitButtonStyle}
-              >
-                Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-              </Button>
+                    Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                  </Button>
                 </Box>
               </form>
             </Paper>

@@ -95,7 +95,7 @@ export default function CustomizedAccordions() {
         variant="h4"
         sx={{ color: Colors.palette.secondary.main, mb: 5 }}
       >
-        <b>Frequently Asked Question:</b>
+        <b>Frequently Asked Question (FAQs)</b>
       </Typography>
 
       {faqData.map((item, index) => (

@@ -61,10 +61,7 @@ const Otp = () => {
     backgroundColor: Colors.palette.secondary.main,
   };
 
-  // const onChange = (e, index) => {
-  //   const value = e.target.value.replace(/[^0-9]/g, "");
-  // const onChange = (e, index) => {
-  //   //   const value = e.target.value.replace(/[^0-9]/g, "");
+
   const onChange = (e, index) => {
     var onlyNums = e.target.value.replace(/[^0-9]+$/, "");
     if (onlyNums) {

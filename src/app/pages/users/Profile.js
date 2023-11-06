@@ -4,9 +4,10 @@ import CircleIcon from "@mui/icons-material/Circle";
 import Colors from "../../utils/colors";
 import EditIcon from "@mui/icons-material/Edit";
 import Axios from "../../utils/Axios";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -14,7 +15,7 @@ function Profile() {
     setLoading(true);
     try {
       const response = await Axios.get(
-        "/get-user-Data/653b84ae8d1573f1659c4e93"
+        "/get-user-Data/6548872d291e67aa66316c6d"
       );
       console.log("Response Data:", response.data.data);
       setUserData(response.data.data);
@@ -73,7 +74,7 @@ function Profile() {
                 borderRadius: "0 0 40% 40%",
               }}
             ></div>
-            
+
             <Box
               style={{
                 display: "flex",
@@ -81,27 +82,28 @@ function Profile() {
                 width: "100%",
               }}
             >
-              <NavLink
+              {/* <NavLink
                 to="/editprofile"
                 style={{
                   textDecoration: "none",
                   color: Colors.palette.secondary.main,
                 }}
+              > */}
+              <Button
+                variant="text"
+                startIcon={<EditIcon />}
+                sx={{
+                  background: Colors.palette.secondary.main,
+                  color: Colors.palette.primary.main,
+                  fontWeight: "600",
+                  fontSize: "16px",
+                  marginTop: "3%",
+                }}
+                onClick={() => navigate(`/editprofile`)}
               >
-                <Button
-                  variant="text"
-                  startIcon={<EditIcon />}
-                  sx={{
-                    background: Colors.palette.secondary.main,
-                    color: Colors.palette.primary.main,
-                    fontWeight: "600",
-                    fontSize: "16px",
-                    marginTop: "3%",
-                  }}
-                >
-                  Edit
-                </Button>
-              </NavLink>
+                Edit
+              </Button>
+              {/* </NavLink> */}
             </Box>
             <Box
               sx={{

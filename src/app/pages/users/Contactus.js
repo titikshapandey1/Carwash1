@@ -298,7 +298,7 @@ function ContactUs() {
                   </Card>
                   <div class="card">
                     <iframe
-                      width="90%"
+                      width="500"
                       height="400"
                       frameborder="0"
                       marginheight="0"

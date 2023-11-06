@@ -1,128 +1,82 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminDash from "../../components/AdDash";
 import Table from "../../components/Table";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import Colors from "../../utils/colors";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Axios from "../../utils/Axios1";
+import Loader from "../../components/Loader";
 
 const AdUserReq = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [tableData, setTableData] = useState([]);
+
   const tableHeaders = ["Date", "Booking ID", "Service Type", "Amount", ""];
-  const tableData = [
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 1",
-      d3: "Service Type 1",
-      d4: "Amount 1",
-      d6: [
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <CheckIcon
-            sx={{ marginRight: "30%", color: Colors.palette.secondary.main }}
-          />{" "}
-        </NavLink>,
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <CloseIcon sx={{ color: Colors.palette.secondary.main }} />{" "}
-        </NavLink>,
-      ],
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 2",
-      d3: "Service Type 2",
-      d4: "Amount 2",
-      d6: [
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <CheckIcon
-            sx={{ marginRight: "30%", color: Colors.palette.secondary.main }}
-          />{" "}
-        </NavLink>,
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <CloseIcon sx={{ color: Colors.palette.secondary.main }} />{" "}
-        </NavLink>,
-      ],
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 3",
-      d3: "Service Type 3",
-      d4: "Amount 3",
-      d6: [
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <CheckIcon
-            sx={{ marginRight: "30%", color: Colors.palette.secondary.main }}
-          />{" "}
-        </NavLink>,
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <CloseIcon sx={{ color: Colors.palette.secondary.main }} />{" "}
-        </NavLink>,
-      ],
-    },
-    {
-      d1: "27/12/2023",
-      d2: "Booking ID 4",
-      d3: "Service Type 4",
-      d4: "Amount 4",
-      d6: [
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <CheckIcon
-            sx={{ marginRight: "30%", color: Colors.palette.secondary.main }}
-          />{" "}
-        </NavLink>,
-        <NavLink
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: Colors.palette.secondary.main,
-          }}
-        >
-          <CloseIcon sx={{ color: Colors.palette.secondary.main }} />{" "}
-        </NavLink>,
-      ],
-    },
-  ];
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await Axios.get("/finduser-request");
+      setTableData(
+        response.data.map((item) => ({
+          d1: item.date,
+          d2: item.bookingId,
+          d3: item.serviceType,
+          d4: item.Amount,
+          d5: (
+            <div>
+              <Button
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  color: Colors.palette.secondary.blue,
+                }}
+                onClick={() =>
+                  navigate(`/`)
+                }
+              >
+                <CheckIcon
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                  }}
+                />
+              </Button>
+
+              <Button
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  color: Colors.palette.secondary.blue,
+                }}
+                onClick={() =>
+                  navigate(`/`)
+                }
+              >
+                <CloseIcon sx={{ color: Colors.palette.secondary.main }} />
+              </Button>
+            </div>
+          ),
+        }))
+      );
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
       <Box
@@ -158,7 +112,13 @@ const AdUserReq = () => {
             marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
-          <Table data={tableData} headers={tableHeaders} />
+          {loading ? (
+            <h1>
+              <Loader />
+            </h1>
+          ) : (
+            <Table data={tableData} headers={tableHeaders} />
+          )}
         </Box>
       </Box>
     </>

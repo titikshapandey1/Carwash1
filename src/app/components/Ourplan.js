@@ -1,5 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
+import Colors from "../utils/colors";
 
 const Ourplan = () => {
   return (
@@ -12,7 +13,12 @@ const Ourplan = () => {
         }}
       >
         <Grid ml={3}>
-          <Typography variant="h4" mt={10} mb={2} sx={{ color: "darkblue" }}>
+          <Typography
+            variant="h4"
+            mt={10}
+            mb={2}
+            sx={{ color: Colors.palette.secondary.main }}
+          >
             <b> Contact Us</b>
           </Typography>
           <Typography sx={{ lineHeight: "1.8" }}>
