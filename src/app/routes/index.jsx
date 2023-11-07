@@ -69,6 +69,7 @@ import SupUserDetails from "../pages/supervisor/SupUserDetails";
 import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
 import Table from "../components/Table";
+import AdUserDec from "../pages/admin/AdUserDec";
 
 function AppRouter() {
   return (
@@ -134,6 +135,8 @@ function AppRouter() {
         <Route path="/admincreatesupervisor" element={<AdCreateSup />}></Route>
         <Route path="/adminpaymentdetails" element={<AdPayDetails />}></Route>
         <Route path="/adminuserdetails" element={<AdUserDetails />}></Route>
+        <Route path="/adminuserdetails" element={<AdUserDec />}></Route>
+
 
         {/*======== SUPERVISOR ========== */}
         <Route
