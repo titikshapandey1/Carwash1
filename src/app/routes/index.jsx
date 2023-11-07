@@ -135,7 +135,7 @@ function AppRouter() {
         <Route path="/admincreatesupervisor" element={<AdCreateSup />}></Route>
         <Route path="/adminpaymentdetails" element={<AdPayDetails />}></Route>
         <Route path="/adminuserdetails" element={<AdUserDetails />}></Route>
-        <Route path="/adminuserdetails" element={<AdUserDec />}></Route>
+        {/* <Route path="/adminuserdec" element={<AdUserDec />}></Route> */}
 
 
         {/*======== SUPERVISOR ========== */}

@@ -1,3 +1,147 @@
+// import React, { useState } from "react";
+// import {
+//   Grid,
+//   Paper,
+//   Button,
+//   Typography,
+//   Box,
+//   Container,
+//   TextField,
+// } from "@mui/material";
+// import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
+// import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+// import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+// import Colors from "../../../utils/colors";
+// import { NavLink, useLocation } from "react-router-dom";
+// import Axios from "../../../utils/Axios1";
+
+// const Otp = () => {
+//   // const location = useLocation();
+//   // const otpFromAPI = location.state?.otp;
+//   // const { formData } = location.state;
+//   const location = useLocation();
+//   const otpFromAPI = location.state?.otp;
+//   const { formData, formType } = location.state;
+
+//   const [number, setNumber] = useState({
+//     0: "",
+//     1: "",
+//     2: "",
+//     3: "",
+//     4: "",
+//     5: "",
+//   });
+
+//   const [validationErrors, setValidationErrors] = useState({
+//     0: "",
+//     1: "",
+//     2: "",
+//     3: "",
+//     4: "",
+//     5: "",
+//   });
+
+//   const paperStyle = {
+//     padding: "20px",
+//     display: "flex",
+//     flexDirection: "column",
+//     borderRadius: 5,
+//     opacity: ".8",
+//   };
+
+//   const formStyle = {
+//     width: "100%",
+//     marginTop: "10%",
+//     position: "center",
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//   };
+
+//   const submitButtonStyle = {
+//     marginTop: "20px",
+//     marginBottom: "20px",
+//     padding: "15px",
+//     borderRadius: 5,
+//     display: "flex",
+//     textAlign: "center",
+//     backgroundColor: Colors.palette.secondary.main,
+//   };
+
+//   const onChange = (e, index) => {
+//     const inputValue = e.target.value;
+
+//     if (inputValue.length === 1 && /^[0-9]$/.test(inputValue)) {
+//       setNumber({
+//         ...number,
+//         [index]: parseInt(inputValue),
+//       });
+//       setValidationErrors({
+//         ...validationErrors,
+//         [index]: "",
+//       });
+//     } else {
+//       setNumber({
+//         ...number,
+//         [index]: "",
+//       });
+//       setValidationErrors({
+//         ...validationErrors,
+//         [index]: "Field is required and must be a single digit (0-9).",
+//       });
+//     }
+//   };
+
+//   const handleFormSubmit = async (e) => {
+//     e.preventDefault();
+
+//     const enteredOtp = Object.values(number).join("").trim();
+   
+//       if (enteredOtp === otpFromAPI) {
+//         alert("OTP Matched");
+//       try {
+//         const userData = {
+//           userName: formData.userName,
+//           passWord: formData.passWord,
+//           role: 1,
+//           firstName: formData.firstName,
+//           surName: formData.surName,
+//           mobileNumber: formData.mobileNumber,
+//           alternateNumber: formData.alternateNumber,
+//           address: formData.address,
+//           otp: otpFromAPI,
+//         };
+
+//         const response = await Axios.post("/user-register", userData);
+//         console.log("User registration response:", response.data);
+//       } catch (error) {
+//         console.error("User registration failed:", error);
+//       }
+//     } else {
+//       alert("OTP does not match. Please enter the correct OTP.");
+//     }
+//     else if (formType === "forgetPassword") {
+
+//       setEmail(e.target.value);
+//     }
+//     if (email) {
+//       try {
+//         const response = await Axios.post("/otp-forgot-password", { email });
+//         console.log("Password reset initiation response:", response.data);
+//         alert("Password reset process initiated. Check your email for further instructions.");
+//       } catch (error) {
+//         console.error("Password reset initiation failed:", error);
+//         alert("Password reset initiation failed. Please try again.");
+//       }
+//     } else {
+//       alert("Please enter your email address.");
+//     }
+  
+//   };
+
+//   const isSubmitDisabled = Object.values(validationErrors).some(
+//     (error) => !!error
+//   );
 import React, { useState } from "react";
 import {
   Grid,
@@ -12,13 +156,14 @@ import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Axios from "../../../utils/Axios1";
 
 const Otp = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const otpFromAPI = location.state?.otp;
-  const { formData } = location.state;
+  const { formData, formType } = location.state;
 
   const [number, setNumber] = useState({
     0: "",
@@ -37,6 +182,8 @@ const Otp = () => {
     4: "",
     5: "",
   });
+
+  const [email, setEmail] = useState(""); 
 
   const paperStyle = {
     padding: "20px",
@@ -88,40 +235,57 @@ const Otp = () => {
       });
     }
   };
-
+  const enteredOtp = Object.values(number).join("").trim();
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const enteredOtp = Object.values(number).join("").trim();
+    if (formType === "registration") {
+      if (enteredOtp === otpFromAPI) {
+        alert("OTP Matched");
+        try {
+          const userData = {
+            userName: formData.userName,
+            passWord: formData.passWord,
+            role: 1,
+            firstName: formData.firstName,
+            surName: formData.surName,
+            mobileNumber: formData.mobileNumber,
+            alternateNumber: formData.alternateNumber,
+            address: formData.address,
+            otp: otpFromAPI,
+          };
 
-    if (enteredOtp === otpFromAPI) {
-      alert("OTP Matched");
-      try {
-        const userData = {
-          userName: formData.userName,
-          passWord: formData.passWord,
-          role: 1,
-          firstName: formData.firstName,
-          surName: formData.surName,
-          mobileNumber: formData.mobileNumber,
-          alternateNumber: formData.alternateNumber,
-          address: formData.address,
-          otp: otpFromAPI,
-        };
-
-        const response = await Axios.post("/user-register", userData);
-        console.log("User registration response:", response.data);
-      } catch (error) {
-        console.error("User registration failed:", error);
+          const response = await Axios.post("/user-register", userData);
+          console.log("User registration response:", response.data);
+        } catch (error) {
+          console.error("User registration failed:", error);
+        }
+      } else {
+        alert("OTP does not match. Please enter the correct OTP.");
       }
-    } else {
-      alert("OTP does not match. Please enter the correct OTP.");
+    } else if (formType === "forgetPassword") {
+      if (email) {
+        try {
+          const response = await Axios.post("/forgotPassword", { email });
+          console.log("Password reset initiation response:", response.data);
+          alert("Password reset process initiated. Check your email for further instructions.");
+          navigate("/passwordreset");
+         
+        } catch (error) {
+          console.error("Password reset initiation failed:", error);
+          alert("Password reset initiation failed. Please try again.");
+        }
+      } else {
+        alert("Please enter your email address.");
+      }
     }
   };
 
   const isSubmitDisabled = Object.values(validationErrors).some(
     (error) => !!error
   );
+
+
 
   return (
     <>
@@ -270,6 +434,8 @@ const Otp = () => {
                       variant="contained"
                       sx={{ ...submitButtonStyle }}
                       disabled={isSubmitDisabled}
+          // navigate("/passwordreset")
+         
                     >
                       {/* <NavLink
                         to="/"
