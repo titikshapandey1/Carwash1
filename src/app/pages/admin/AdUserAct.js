@@ -3,7 +3,7 @@ import AdminDash from "../../components/AdDash";
 import Table from "../../components/Table";
 import Colors from "../../utils/colors";
 import { useNavigate } from "react-router-dom";
-import { Box, Typography,Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import Axios from "../../utils/Axios1";
 import Loader from "../../components/Loader";
 
@@ -17,11 +17,14 @@ const AdUserAct = () => {
     setLoading(true);
     try {
       const response = await Axios.get("/get-all-active-users");
-      const activeUsers = response.data.activeUsers; 
+      const activeUsers = response.data.activeUsers;
+      // const id = response.data.activeUsers._id;
+      // console.log(id);
+      
       setTableData(
         activeUsers.map((item, index) => ({
           d1: item.userName,
-          d2: `${item.address.state}, ${item.address.city}`, 
+          d2: `${item.address.state}, ${item.address.city}`,
           d3: item.mobileNumber,
           d4: (
             <Button
@@ -33,9 +36,7 @@ const AdUserAct = () => {
                 color: Colors.palette.secondary.main,
                 fontSize: "12px",
               }}
-              onClick={() =>
-                navigate(`/adminpaymentdetails`)
-              }
+              onClick={() => handleViewDetails(item)}
             >
               View Details
             </Button>
@@ -50,8 +51,10 @@ const AdUserAct = () => {
       }, 500);
     }
   };
-
-  useEffect(() => {
+  const handleViewDetails = (user) => {
+    
+  };
+   useEffect(() => {
     fetchData();
   }, []);
 

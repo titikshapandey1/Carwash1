@@ -39,7 +39,6 @@ function PasswordReset() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      // Handle form submission (e.g., send data to the server)
       alert("Password reset successful!");
     },
   });

@@ -117,20 +117,6 @@ const Otp = () => {
     } else {
       alert("OTP does not match. Please enter the correct OTP.");
     }
-
-    // const isFormValid = Object.values(validationErrors).every(
-    //   (error) => !error
-    // );
-
-    // if (isFormValid) {
-    //   console.log("Form submitted successfully");
-
-    //   setTimeout(() => {
-    //     window.location.reload();
-    //   }, 1000);
-    // } else {
-    //   console.log("Form has errors. Please correct them.");
-    // }
   };
 
   const isSubmitDisabled = Object.values(validationErrors).some(

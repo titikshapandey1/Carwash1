@@ -28,10 +28,11 @@ const cardStyles = {
   p: 2,
   marginBottom: "5%",
   borderRadius: "20px",
+  width: "70%", 
 };
 
 const mobileCardStyles = {
-  width: "90%",
+  width: "auto", 
   p: 2,
   marginBottom: "2%",
   borderRadius: "20px",
@@ -174,15 +175,6 @@ function ContactUs() {
             textAlign={"center"}
             sx={{ mt: "200px", display: "flex" }}
           >
-            {/* <Container>
-              <Typography
-                variant="h3"
-              
-                sx={{ fontWeight: 500, color: Colors.palette.primary.main}}
-              >
-            Contact Us
-              </Typography>
-            </Container> */}
           </Grid>
         </Grid>
       </Box>
@@ -204,7 +196,7 @@ function ContactUs() {
                   {/* <Box> */}
                   <Card
                     sx={{
-                      width: "80%",
+                      // width: "70%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
                     }}
@@ -236,7 +228,7 @@ function ContactUs() {
                   </Card>
                   <Card
                     sx={{
-                      width: "80%",
+                      // width: "70%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
                     }}
@@ -268,7 +260,7 @@ function ContactUs() {
                   </Card>
                   <Card
                     sx={{
-                      width: "80%",
+                      // width: "70%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
                     }}

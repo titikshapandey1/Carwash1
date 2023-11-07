@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import {
@@ -10,28 +10,34 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import Colors from "../../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-
-const validationSchema = yup.object({
-  email: yup
-    .string()
-    .email("Invalid Email")
-    .required("Username/Email is required"),
-});
+import Axios from "../../../utils/Axios1";
 
 function Email() {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert("Successful!");
-    },
-  });
+  const [otpFromAPI, setOtpFromAPI] = useState(null);
+  const navigate = useNavigate();
+
+  const EmailOTP = async () => {
+    const data = {
+      userName: formik.values.userName,
+    };
+
+    try {
+      const response = await Axios.post("/otp-forgot-password", data);
+      const otp = response.data.otp;
+      setOtpFromAPI(otp);
+
+      console.log("OTP sent:", response.data);
+      alert("OTP Sent To Email");
+      navigate("/otp", { state: { formData: data, otp } });
+
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+  };
 
   const paperStyle = {
     padding: "20px",
@@ -48,13 +54,31 @@ function Email() {
 
   const submitButtonStyle = {
     marginTop: "20px",
-    marginBottom: "20px",
+    marginBottom: "10px",
     padding: "15px",
     borderRadius: 5,
     display: "flex",
     textAlign: "center",
     backgroundColor: Colors.palette.secondary.main,
   };
+
+  const validationSchema = yup.object({
+    userName: yup
+      .string()
+      .email("Invalid Email")
+      .required("Username/Email is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      userName: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log("On Submit: ", values);
+    },
+  });
+
   return (
     <>
       <Box
@@ -116,24 +140,28 @@ function Email() {
                       color: Colors.palette.secondary.main,
                       flex: 0.8,
                       textAlign: "center",
+                      mb: 5,
                     }}
                   >
                     Enter Email Address
                   </Typography>
                   <TextField
-                    fullWidth
-                    id="email"
-                    name="email"
-                    size="large"
-                    placeholder="Email"
                     variant="outlined"
+                    placeholder="Username/Email"
+                    id="userName"
+                    name="userName"
+                    fullWidth
+                    size="small"
                     type="email"
-                    sx={{ marginTop: "20px" }}
-                    value={formik.values.email}
+                    value={formik.values.userName}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.email && Boolean(formik.errors.email)}
-                    helperText={formik.touched.email && formik.errors.email}
+                    error={
+                      formik.touched.userName && Boolean(formik.errors.userName)
+                    }
+                    helperText={
+                      formik.touched.userName && formik.errors.userName
+                    }
+                    sx={{ marginBottom: "20px" }}
                   />
 
                   <Box
@@ -147,18 +175,9 @@ function Email() {
                       type="submit"
                       variant="contained"
                       sx={{ ...submitButtonStyle }}
+                      onClick={() => EmailOTP()}
                     >
-                      <NavLink
-                        to="/otp"
-                        style={{
-                          textDecoration: "none",
-                          color: Colors.palette.primary.main,
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                      </NavLink>
+                      Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
                     </Button>
                   </Box>
                 </form>
@@ -182,7 +201,6 @@ function Email() {
                       alignItems: "center",
                     }}
                   >
-                    {" "}
                     <h5>Login</h5>
                   </NavLink>
                 </Box>
