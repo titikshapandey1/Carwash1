@@ -33,7 +33,7 @@ const AdUserDec = () => {
                 color: Colors.palette.secondary.main,
                 fontSize: "12px",
               }}
-              onClick={() => navigate(`/adminpaymentdetails`)}
+              onClick={() => handleViewDetails(item)}
             >
               View Details
             </Button>
@@ -48,7 +48,11 @@ const AdUserDec = () => {
       }, 500);
     }
   };
-
+  const handleViewDetails = (user) => {
+    console.log('user', user)
+    navigate('/adminuserdetails', { state: { userId: user._id, userStatus: "inactive" } });
+    console.log('id: ', user._id)
+  };
   useEffect(() => {
     fetchData();
   }, []);

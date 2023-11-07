@@ -6,8 +6,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import Axios from "../../utils/Axios1";
 import AdminDashboard from "./AdminDashboard";
 import AdDash from "../../components/AdDash";
+import { useLocation } from "react-router-dom";
 
 function AdUserDetail() {
+  const location = useLocation();
+  const userId = location.state.userId;
+  const userStatus = location.state.userStatus;
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -15,11 +19,16 @@ function AdUserDetail() {
     setLoading(true);
     try {
       const response = await Axios.get(
-        // "v1/get-all-active-users/6544eceda6748cb8b0e1c42a"
-       "/view-details-active-user/6544eceda6748cb8b0e1c42a"
+        userStatus === "active"
+          ? `/view-details-active-user/${userId}`
+          : `/view-details-declined-user/${userId}`
       );
       console.log("Response Data:", response);
-      setUserData(response.data.activeUser);
+      if (userStatus === "active") {
+        setUserData(response.data.activeUser || {});
+      } else if (userStatus === "inactive") {
+        setUserData(response.data.declinedUser || {});
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {

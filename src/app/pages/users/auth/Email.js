@@ -32,8 +32,9 @@ function Email() {
 
       console.log("OTP sent:", response.data);
       alert("OTP Sent To Email");
-      navigate("/otp", { state: { formData: data, otp } });
-
+      navigate("/otp", {
+        state: { formData: data, otp, formType: "forgetPassword" },
+      });
     } catch (error) {
       console.error("Login failed:", error);
     }

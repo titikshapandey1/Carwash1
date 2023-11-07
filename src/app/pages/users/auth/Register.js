@@ -18,7 +18,7 @@ import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
 import Axios from "../../../utils/Axios1";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function RegisterPage() {
   const [otpFromAPI, setOtpFromAPI] = useState(null);
@@ -49,14 +49,20 @@ function RegisterPage() {
       setOtpFromAPI(otp);
       console.log(response.data);
 
-      navigate("/otp", { state: { formData: data, otp } });
+      navigate("/otp", {
+        state: {
+          formData: data,
+          otp,
+          formType: "registerpage",
+        },
+      });
     } catch (error) {
       if (error.response) {
         console.log("Server Error Data:", error.response.data);
         console.log("Server Error Status:", error.response.status);
       }
     }
-  }
+  };
 
   const paperStyle = {
     padding: "20px",
@@ -146,7 +152,6 @@ function RegisterPage() {
     validationSchema,
     onSubmit: (values) => {
       console.log("On Submit Values: ", values);
-      
     },
   });
 

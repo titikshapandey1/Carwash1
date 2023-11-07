@@ -40,7 +40,7 @@ const AdPaySucc = () => {
                 fontSize: "12px",
               }}
               onClick={() =>
-                navigate(`/adminpaymentdetails?id=${service.viewDetail._id}`)
+                navigate(`/adminpaymentdetails?id=${service._id}`)
               }
             >
               View Details

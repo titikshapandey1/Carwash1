@@ -276,14 +276,7 @@
 
 // export default AdPayDetails;
 
-
-
-
 //222222222222
-
-
-
-
 
 // import React, { useState, useEffect } from "react";
 // import { Box, Button, Container, Paper, Typography } from "@mui/material";
@@ -396,11 +389,11 @@
 //                   </Typography>
 //                   <br/>
 //                   <Typography>
-//                   {selectedService.viewDetail.paymentMode}
+//                   {selectedService.paymentMode}
 //                   </Typography>
 //                   <br/>
 //                   <Typography>
-//                   {selectedService.viewDetail.serviceType}
+//                   {selectedService.serviceType}
 //                   </Typography>
 //                 </Box>
 //                 {/* Add more details specific to the selected service here */}
@@ -415,16 +408,7 @@
 
 // export default AdPayDetails;
 
-
-
-
-
 // 33333333333333
-
-
-
-
-
 
 import React, { useState, useEffect } from "react";
 import { Box, Button, Container, Grid, Paper, Typography } from "@mui/material";
@@ -455,7 +439,8 @@ const AdPayDetails = () => {
     fetchUserDetails();
   }, []);
 
-  const selectedService = userData && userData.service.find((service) => service._id === userId);
+  const selectedService =
+    userData && userData.service.find((service) => service._id === userId);
 
   return (
     <>
@@ -557,7 +542,7 @@ const AdPayDetails = () => {
                       }}
                     >
                       <PhoneIcon sx={{}} />
-                      {selectedService.viewDetail.mobileNumber}
+                      {selectedService.mobileNumber}
                     </Typography>
                   </Box>
                   <br />
@@ -572,13 +557,13 @@ const AdPayDetails = () => {
                     }}
                   >
                     <Typography>
-                      {selectedService.viewDetail.firstName}{" "}
-                      {selectedService.viewDetail.surName}
+                      {selectedService.firstName}{" "}
+                      {selectedService.surName}
                     </Typography>
                     <Typography>
                       {" "}
                       <MailIcon />
-                      {selectedService.viewDetail.userName}
+                      {selectedService.userName}
                     </Typography>
                   </Box>
 
@@ -601,7 +586,7 @@ const AdPayDetails = () => {
                         }
                       }
                     >
-                      {selectedService.viewDetail.address.locality}
+                      {selectedService.address.locality}
                     </Typography>{" "}
                     <br />
                     <Box
@@ -613,8 +598,8 @@ const AdPayDetails = () => {
                         }
                       }
                     >
-                      {selectedService.viewDetail.address.city}{" "}
-                      {selectedService.viewDetail.address.district}
+                      {selectedService.address.city}{" "}
+                      {selectedService.address.district}
                     </Box>{" "}
                     <br />
                     <Box
@@ -626,7 +611,7 @@ const AdPayDetails = () => {
                         }
                       }
                     >
-                      {selectedService.viewDetail.address.state}
+                      {selectedService.address.state}
                     </Box>
                   </Box>
                 </Paper>
@@ -655,7 +640,7 @@ const AdPayDetails = () => {
                 }}
               >
                 <Typography>
-                  {selectedService.viewDetail.serviceType}
+                  {selectedService.serviceType}
                 </Typography>
                 <Typography>Rs. {selectedService.amount}</Typography>
               </Box>
@@ -691,7 +676,7 @@ const AdPayDetails = () => {
                 >
                   <Typography>Mode Of Payment :</Typography>
                   <Typography>
-                    {selectedService.viewDetail.paymentMode}
+                    {selectedService.paymentMode}
                   </Typography>
                 </div>
                 <div
@@ -703,7 +688,7 @@ const AdPayDetails = () => {
                 >
                   <Typography>Status :</Typography>
                   <Typography sx={{ color: "red" }}>
-                    {selectedService.viewDetail.paymentMode}
+                    {selectedService.paymentMode}
                   </Typography>
                 </div>
               </Box>
@@ -716,12 +701,3 @@ const AdPayDetails = () => {
 };
 
 export default AdPayDetails;
-
-
-
-
-
-
-
-
-
