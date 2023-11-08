@@ -269,8 +269,7 @@ const Otp = () => {
           const response = await Axios.post("/forgotPassword", { email });
           console.log("Password reset initiation response:", response.data);
           alert("Password reset process initiated. Check your email for further instructions.");
-          navigate("/passwordreset");
-         
+          navigate("/passwordreset")
         } catch (error) {
           console.error("Password reset initiation failed:", error);
           alert("Password reset initiation failed. Please try again.");
@@ -434,8 +433,6 @@ const Otp = () => {
                       variant="contained"
                       sx={{ ...submitButtonStyle }}
                       disabled={isSubmitDisabled}
-          // navigate("/passwordreset")
-         
                     >
                       {/* <NavLink
                         to="/"
