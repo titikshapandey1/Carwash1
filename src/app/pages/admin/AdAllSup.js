@@ -60,7 +60,7 @@ const AdEditSup = () => {
                   textDecoration: "none",
                   color: Colors.palette.secondary.blue,
                 }}
-                onClick={() => navigate(`/`)}
+                onClick={() => handleDelete(service._id)}
               >
                 <DeleteIcon sx={{ color: Colors.palette.secondary.main }} />
               </Button>
@@ -76,6 +76,15 @@ const AdEditSup = () => {
       }, 500);
     }
   };
+  const handleDelete = async (supervisorId) => {
+    try {
+      await Axios.delete(`/delete-request/${supervisorId}`);
+      fetchData();
+    } catch (error) {
+      console.error("Error deleting supervisor: ", error);
+    }
+  };
+  
   useEffect(() => {
     fetchData();
   }, []);
