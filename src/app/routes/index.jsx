@@ -139,26 +139,14 @@ function AppRouter() {
 
 
         {/*======== SUPERVISOR ========== */}
-        <Route
-          path="/supervisordashboard"
-          element={<SupervisorDashboard />}
-        ></Route>
+        <Route path="/supervisordashboard" element={<SupervisorDashboard />}></Route>
         <Route path="/supervisorpaysuccessful" element={<SupPaySucc />}></Route>
-        <Route
-          path="/supervisorpayunsuccessful"
-          element={<SupPayUnsucc />}
-        ></Route>
+        <Route path="/supervisorpayunsuccessful" element={<SupPayUnsucc />}></Route>
         <Route path="/supervisoruserrequest" element={<SupUserReq />}></Route>
         <Route path="/supervisoruseractive" element={<SupUserAct />}></Route>
         <Route path="/supervisoruserdeclined" element={<SupUserDec />}></Route>
-        <Route
-          path="/supervisorpaymentdetails"
-          element={<SupPayDetails />}
-        ></Route>
-        <Route
-          path="/supervisoruserdetails"
-          element={<SupUserDetails />}
-        ></Route>
+        <Route path="/supervisorpaymentdetails" element={<SupPayDetails />}></Route>
+        <Route path="/supervisoruserdetails" element={<SupUserDetails />}></Route>
 
         {/*======== EXTRA ========== */}
         <Route path="/addash" element={<AdDash />}></Route>

@@ -18,7 +18,6 @@ const AdUserAct = () => {
     try {
       const response = await Axios.get("/get-all-active-users");
       const activeUsers = response.data.activeUsers;
-      // const id = response.data.activeUsers._id;
       console.log(response);
       
       setTableData(
@@ -53,8 +52,8 @@ const AdUserAct = () => {
   };
   const handleViewDetails = (user) => {
     console.log('user', user)
-    navigate('/adminuserdetails', {queryParams: {userId: user._id}});
-    
+    navigate('/adminuserdetails', { state: { userId: user._id, userStatus: "active" } });
+    console.log('id: ', user._id)
   };
    useEffect(() => {
     fetchData();

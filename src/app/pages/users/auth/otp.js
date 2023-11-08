@@ -96,7 +96,7 @@
 //     e.preventDefault();
 
 //     const enteredOtp = Object.values(number).join("").trim();
-   
+
 //       if (enteredOtp === otpFromAPI) {
 //         alert("OTP Matched");
 //       try {
@@ -136,12 +136,13 @@
 //     } else {
 //       alert("Please enter your email address.");
 //     }
-  
+
 //   };
 
 //   const isSubmitDisabled = Object.values(validationErrors).some(
 //     (error) => !!error
 //   );
+
 import React, { useState } from "react";
 import {
   Grid,
@@ -183,7 +184,7 @@ const Otp = () => {
     5: "",
   });
 
-  const [email, setEmail] = useState(""); 
+  const [email, setEmail] = useState("");
 
   const paperStyle = {
     padding: "20px",
@@ -239,9 +240,11 @@ const Otp = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    if (formType === "registration") {
+    if (formType === "registerpage") {
       if (enteredOtp === otpFromAPI) {
         alert("OTP Matched");
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
         try {
           const userData = {
             userName: formData.userName,
@@ -257,25 +260,41 @@ const Otp = () => {
 
           const response = await Axios.post("/user-register", userData);
           console.log("User registration response:", response.data);
+          alert("User Registered Successfully");
+          navigate("/home");
         } catch (error) {
           console.error("User registration failed:", error);
         }
       } else {
         alert("OTP does not match. Please enter the correct OTP.");
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
       }
     } else if (formType === "forgetPassword") {
-      if (email) {
-        try {
-          const response = await Axios.post("/forgotPassword", { email });
-          console.log("Password reset initiation response:", response.data);
-          alert("Password reset process initiated. Check your email for further instructions.");
-          navigate("/passwordreset")
-        } catch (error) {
-          console.error("Password reset initiation failed:", error);
-          alert("Password reset initiation failed. Please try again.");
-        }
+      if (enteredOtp === otpFromAPI) {
+        // const userData = {
+        //   userName: formData.userName,
+        //   otp: otpFromAPI,
+        // };
+        alert("OTP Matched");
+        navigate("/passwordreset");
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
+        // try {
+        //   const response = await Axios.post("/forgotPassword", { userData });
+        //   console.log("Password reset initiation response:", response.data);
+        //   alert(
+        //     "Password reset process initiated. Check your email for further instructions."
+        //   );
+        //   navigate("/passwordreset");
+        // } catch (error) {
+        //   console.error("Password reset initiation failed:", error);
+        //   alert("Password reset initiation failed. Please try again.");
+        // }
       } else {
-        alert("Please enter your email address.");
+        alert("Wrong OTP, Enter Again");
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
       }
     }
   };
@@ -283,8 +302,6 @@ const Otp = () => {
   const isSubmitDisabled = Object.values(validationErrors).some(
     (error) => !!error
   );
-
-
 
   return (
     <>
@@ -433,6 +450,7 @@ const Otp = () => {
                       variant="contained"
                       sx={{ ...submitButtonStyle }}
                       disabled={isSubmitDisabled}
+                      // navigate("/passwordreset")
                     >
                       {/* <NavLink
                         to="/"
