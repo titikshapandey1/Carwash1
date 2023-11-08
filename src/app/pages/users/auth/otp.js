@@ -19,7 +19,7 @@ const Otp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const otpFromAPI = location.state?.otp;
-  const { formData, formType } = location.state;
+  const { formData, formType,userData } = location.state;
 
   const [number, setNumber] = useState({
     0: "",
@@ -127,21 +127,21 @@ const Otp = () => {
       }
     } else if (formType === "forgetPassword") {
       if (enteredOtp === otpFromAPI) {
-        const userData = {
-          userName: formData.userName,
-          otp: otpFromAPI,
-        };
-        alert("OTP Matched");
+        // const userData = {
+        //   userName: formData.userName,
+        //   otp: otpFromAPI,
+        // };
+        // alert("OTP Matched");
         navigate("/passwordreset");
-        console.log("otp from api: ", otpFromAPI);
-        console.log("entered otp: ", enteredOtp);
+        // console.log("otp from api: ", otpFromAPI);
+        // console.log("entered otp: ", enteredOtp);
         try {
           const response = await Axios.post("/forgotPassword", { userData });
           console.log("Password reset initiation response:", response.data);
           alert(
             "Password reset process initiated. Check your email for further instructions."
           );
-          navigate("/passwordreset");
+          // navigate("/passwordreset");
         } catch (error) {
           console.error("Password reset initiation failed:", error);
           alert("Password reset initiation failed. Please try again.");

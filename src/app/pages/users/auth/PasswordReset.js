@@ -14,6 +14,8 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Colors from "../../../utils/colors";
+import { Navigate,useNavigate } from "react-router-dom";
+
 
 const validationSchema = yup.object({
   password: yup
@@ -32,6 +34,7 @@ const validationSchema = yup.object({
 });
 
 function PasswordReset() {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       password: "",
@@ -40,6 +43,7 @@ function PasswordReset() {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       alert("Password reset successful!");
+      navigate("/login");
     },
   });
 
