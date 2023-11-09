@@ -12,14 +12,14 @@ import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
-import { NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Axios from "../../../utils/Axios1";
 
 const Otp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const otpFromAPI = location.state?.otp;
-  const { formData, formType,userData } = location.state;
+  const { formData, formType, userData } = location.state;
 
   const [number, setNumber] = useState({
     0: "",
@@ -91,6 +91,7 @@ const Otp = () => {
       });
     }
   };
+
   const enteredOtp = Object.values(number).join("").trim();
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -127,25 +128,20 @@ const Otp = () => {
       }
     } else if (formType === "forgetPassword") {
       if (enteredOtp === otpFromAPI) {
-        // const userData = {
-        //   userName: formData.userName,
-        //   otp: otpFromAPI,
-        // };
-        // alert("OTP Matched");
-        navigate("/passwordreset");
-        // console.log("otp from api: ", otpFromAPI);
-        // console.log("entered otp: ", enteredOtp);
-        try {
-          const response = await Axios.post("/forgotPassword", { userData });
-          console.log("Password reset initiation response:", response.data);
-          alert(
-            "Password reset process initiated. Check your email for further instructions."
-          );
-          // navigate("/passwordreset");
-        } catch (error) {
-          console.error("Password reset initiation failed:", error);
-          alert("Password reset initiation failed. Please try again.");
-        }
+        alert("OTP Matched");
+        const userData = {
+          userName: formData.userName,
+          otp: otpFromAPI,
+        };
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
+
+        navigate("/passwordreset", {
+          state: {
+            formData: userData,
+          },
+        });
+        console.log("Forget Password Data: ", userData);
       } else {
         alert("Wrong OTP, Enter Again");
         console.log("otp from api: ", otpFromAPI);
@@ -305,19 +301,8 @@ const Otp = () => {
                       variant="contained"
                       sx={{ ...submitButtonStyle }}
                       disabled={isSubmitDisabled}
-                      // navigate("/passwordreset")
                     >
-                      {/* <NavLink
-                        to="/"
-                        style={{
-                          textDecoration: "none",
-                          color: Colors.palette.primary.main,
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      > */}
                       Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                      {/* </NavLink> */}
                     </Button>
                   </Box>
                 </form>
