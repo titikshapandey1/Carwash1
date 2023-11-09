@@ -8,6 +8,7 @@ import Axios from "../../utils/Axios1";
 import Colors from "../../utils/colors";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailIcon from "@mui/icons-material/Mail";
+import Loader from "../../components/Loader";
 
 const AdPayDetails = () => {
   const location = useLocation();
@@ -35,7 +36,8 @@ const AdPayDetails = () => {
     }
   }, [userId]);
 
-  return (
+  return  (
+    !userData?<Loader/>:
     <>
       <Box
         display="block"
@@ -112,7 +114,7 @@ const AdPayDetails = () => {
                   padding: "10px",
                 }}
               >
-                {/* <Typography>Booking Date:{userData.transactionDetails.transaction.createdAt} </Typography> */}
+                <Typography>Booking Date:{userData?.transactionDetails[0]?.transactions?.createdAt} </Typography>
                 <Typography>Booking Date: </Typography>
                 <Typography>Scheduled Date: 10/10/2023</Typography>
               </Box>
@@ -149,7 +151,7 @@ const AdPayDetails = () => {
                     padding: "10px",
                   }}
                 >
-                  <Typography>Full Name + Surname</Typography>
+                  {/* <Typography>{userData.transactionDetails.serviceRequestDetails.firstName}</Typography> */}
                   <Typography>
                     {" "}
                     <MailIcon />
