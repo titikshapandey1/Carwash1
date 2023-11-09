@@ -128,7 +128,7 @@ const Footer = () => {
               <Typography variant="body1" sx={{ color: Colors.palette.primary.main,marginTop:'5%' }}>
                 <b> CARS</b>
               </Typography>
-              <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
+              <NavLink to="/ourservices" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
@@ -144,7 +144,7 @@ const Footer = () => {
                   HatchBack
                 </Typography>
               </NavLink>
-              <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
+              <NavLink to="/ourservices" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
@@ -156,7 +156,7 @@ const Footer = () => {
                   Sedan
                 </Typography>
               </NavLink>
-              <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
+              <NavLink to="/ourservices" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom

@@ -74,6 +74,7 @@ import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
 import Table from "../components/Table";
 import AdUserDec from "../pages/admin/AdUserDec";
+import OurServices from "../components/OurServices";
 
 function AppRouter() {
   return (
@@ -122,7 +123,8 @@ function AppRouter() {
         <Route path="/booking" element={<Booking />}></Route>
         <Route path="/history" element={<History />}></Route>
         <Route path="/faqs" element={<FAQs />}></Route>
-
+        <Route path="/ourservices" element={<OurServices />}></Route>
+        
         {/*======== ADMIN ========== */}
         <Route path="/admindashboard" element={<AdminDashboard />}></Route>
         <Route path="/adminpaysuccessful" element={<AdPaySucc />}></Route>
