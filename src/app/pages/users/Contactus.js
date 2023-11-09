@@ -9,6 +9,8 @@ import {
   Card,
   useMediaQuery,
 } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import { CardActionArea } from "@mui/material";
 import ExploreIcon from "@mui/icons-material/Explore";
 import CallIcon from "@mui/icons-material/Call";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
@@ -25,14 +27,14 @@ import ContactUsImg from "../../assests/images/Contact.png";
 import Axios from "../../utils/Axios";
 
 const cardStyles = {
-  p: 2,
+  // p: 2,
   marginBottom: "5%",
   borderRadius: "20px",
-  width: "90%", 
+  width: "70%",
 };
 
 const mobileCardStyles = {
-  width: "auto", 
+  width: "auto",
   p: 2,
   marginBottom: "2%",
   borderRadius: "20px",
@@ -174,8 +176,7 @@ function ContactUs() {
             justifyContent="center"
             textAlign={"center"}
             sx={{ mt: "200px", display: "flex" }}
-          >
-          </Grid>
+          ></Grid>
         </Grid>
       </Box>
       <Box
@@ -201,30 +202,70 @@ function ContactUs() {
                       ...(isSmallScreen && mobileCardStyles),
                     }}
                   >
-                    {" "}
-                    <Container>
-                      <Grid container wrap="nowrap" spacing={10}>
-                        <Grid item marginTop="5%">
-                          <HourglassFullIcon
-                            sx={{
-                              color: Colors.palette.secondary.main,
-                              fontSize: "30px",
-                            }}
-                          />
-                        </Grid>
-                        <Grid item>
-                          <Typography
-                            sx={{ color: Colors.palette.secondary.main }}
-                          >
-                            <b>Hours</b>
-                            <br />
-                            Mon-Fri : 9 AM - 7 PM
-                            <br />
-                            Sat : 9 AM - 2 PM
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Container>
+                    <CardActionArea>
+                      <CardContent>
+                        {" "}
+                        <Container>
+                          <Grid container wrap="nowrap" spacing={10}>
+                            <Grid item marginTop="5%">
+                              <HourglassFullIcon
+                                sx={{
+                                  color: Colors.palette.secondary.main,
+                                  fontSize: "30px",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item>
+                              <Typography
+                                sx={{ color: Colors.palette.secondary.main }}
+                              >
+                                <b>Hours</b>
+                                <br />
+                                Mon-Fri : 9 AM - 7 PM
+                                <br />
+                                Sat : 9 AM - 2 PM
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Container>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                  <Card
+                    sx={{
+                      // width: "70%",
+                      ...cardStyles,
+                      ...(isSmallScreen && mobileCardStyles),
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardContent>
+                        {" "}
+                        <Container>
+                          <Grid container wrap="nowrap" spacing={10}>
+                            <Grid item marginTop="5%">
+                              <CallIcon
+                                sx={{
+                                  color: Colors.palette.secondary.main,
+                                  fontSize: "30px",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs>
+                              <Typography
+                                sx={{ color: Colors.palette.secondary.main }}
+                              >
+                                <b>Contact:</b>
+                                <br />
+                                wowkaar@info.com
+                                <br />
+                                +91 7017866149
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Container>
+                      </CardContent>
+                    </CardActionArea>
                   </Card>
                   <Card
                     sx={{
@@ -234,63 +275,36 @@ function ContactUs() {
                     }}
                   >
                     {" "}
-                    <Container>
-                      <Grid container wrap="nowrap" spacing={10}>
-                        <Grid item marginTop="5%">
-                          <CallIcon
-                            sx={{
-                              color: Colors.palette.secondary.main,
-                              fontSize: "30px",
-                            }}
-                          />
-                        </Grid>
-                        <Grid item xs>
-                          <Typography
-                            sx={{ color: Colors.palette.secondary.main }}
-                          >
-                            <b>Contact:</b>
-                            <br />
-                            wowkaar@info.com
-                            <br />
-                            +91 7017866149
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Container>
+                    <CardActionArea>
+                      <CardContent>
+                        <Container>
+                          <Grid container wrap="nowrap" spacing={10}>
+                            <Grid item marginTop="5%">
+                              <ExploreIcon
+                                sx={{
+                                  color: Colors.palette.secondary.main,
+                                  fontSize: "30px",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs>
+                              <Typography
+                                sx={{ color: Colors.palette.secondary.main }}
+                              >
+                                <b>Address:</b>
+                                <br />
+                                Noida,
+                                <br /> Delhi NCR, UP
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Container>
+                      </CardContent>
+                    </CardActionArea>
                   </Card>
-                  <Card
-                    sx={{
-                      // width: "70%",
-                      ...cardStyles,
-                      ...(isSmallScreen && mobileCardStyles),
-                    }}
-                  >
-                    <Container>
-                      <Grid container wrap="nowrap" spacing={10}>
-                        <Grid item marginTop="5%">
-                          <ExploreIcon
-                            sx={{
-                              color: Colors.palette.secondary.main,
-                              fontSize: "30px",
-                            }}
-                          />
-                        </Grid>
-                        <Grid item xs>
-                          <Typography
-                            sx={{ color: Colors.palette.secondary.main }}
-                          >
-                            <b>Address:</b>
-                            <br />
-                            Noida,
-                            <br /> Delhi NCR, UP
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Container>
-                  </Card>
-                      <div className="card">
+                  <div className="card">
                     <iframe
-                      width="100%"
+                      width="90%"
                       height="400"
                       frameborder="0"
                       marginheight="0"

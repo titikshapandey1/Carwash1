@@ -69,6 +69,7 @@ function RegisterPage() {
     display: "flex",
     flexDirection: "column",
     borderRadius: 15,
+    height: "auto",
   };
 
   const submitButtonStyle = {
@@ -178,13 +179,13 @@ function RegisterPage() {
         }}
       >
         <Box
-         sx={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
           <Container maxWidth="sm" sx={{ mt: "2%", mb: "5%" }}>
             <Grid container>

@@ -1,5 +1,3 @@
-// 1111111111111111111
-
 import React, { useState, useEffect } from "react";
 import { Box, Button, Container, Grid, Paper, Typography } from "@mui/material";
 import AdDash from "../../components/AdDash";
@@ -9,6 +7,8 @@ import Colors from "../../utils/colors";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailIcon from "@mui/icons-material/Mail";
 import Loader from "../../components/Loader";
+import Logo from "../../assests/images/Logo.png";
+import { NavLink } from "react-router-dom";
 
 const AdPayDetails = () => {
   const location = useLocation();
@@ -36,8 +36,9 @@ const AdPayDetails = () => {
     }
   }, [userId]);
 
-  return  (
-    !userData?<Loader/>:
+  return !userData ? (
+    <Loader />
+  ) : (
     <>
       <Box
         display="block"
@@ -100,7 +101,28 @@ const AdPayDetails = () => {
                 }}
               >
                 <Typography variant="h4" sx={{ fontWeight: "600" }}>
-                  LOGO
+                  <Typography
+                    variant="h5"
+                    noWrap
+                    component="div"
+                    sx={{
+                      flexGrow: 1,
+                      background: Colors.palette.secondary.main,
+                      borderRadius: "20px",
+                      padding: "10px",
+                    }}
+                  >
+                    <img
+                      src={Logo}
+                      alt=""
+                      style={{
+                        marginTop: "15px",
+                        width: "150px",
+                        maxWidth: "100%",
+                        height: "50px",
+                      }}
+                    />
+                  </Typography>
                 </Typography>
                 <Typography>Booking ID: {userId}</Typography>
               </Box>
@@ -114,9 +136,14 @@ const AdPayDetails = () => {
                   padding: "10px",
                 }}
               >
-                <Typography>Booking Date:{userData?.transactionDetails[0]?.transactions?.createdAt} </Typography>
-                <Typography>Booking Date: </Typography>
-                <Typography>Scheduled Date: 10/10/2023</Typography>
+                <Typography>
+                  Booking Date:
+                  {userData?.transactionDetails?.transactions?.createdAt}{" "}
+                </Typography>
+                <Typography>
+                  Scheduled Date:{" "}
+                  {userData?.transactionDetails?.transactions?.updatedAt}
+                </Typography>
               </Box>
 
               <Paper sx={{ height: "auto", padding: "20px" }}>
@@ -136,8 +163,9 @@ const AdPayDetails = () => {
                       color: Colors.palette.primary.darkBlue,
                     }}
                   >
-                    <PhoneIcon sx={{}} />
-                    7017866149 / 7017866149
+                    <PhoneIcon sx={{ mr: 1 }} />
+                    {userData?.transactionDetails?.user?.mobileNumber} /{" "}
+                    {userData?.transactionDetails?.user?.alternateNumber}
                   </Typography>
                 </Box>
                 <br />
@@ -148,50 +176,48 @@ const AdPayDetails = () => {
                     justifyContent: "space-between",
                     alignItems: "center",
                     color: Colors.palette.primary.darkBlue,
-                    padding: "10px",
+                    // padding: "10px",
                   }}
                 >
-                  {/* <Typography>{userData.transactionDetails.serviceRequestDetails.firstName}</Typography> */}
                   <Typography>
+                    {userData?.transactionDetails?.user?.firstName}{" "}
+                    {userData?.transactionDetails?.user?.surName}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
                     {" "}
-                    <MailIcon />
-                    kushbhardwaj7017@gmail.com
+                    <MailIcon sx={{ mr: 1 }} />
+                    {userData?.transactionDetails?.user?.userName}
                   </Typography>
                 </Box>
 
                 <Box sx={{ marginTop: "2%" }}>
                   <Grid item xs={12}>
-                    <Typography
+                    {/* <Typography
                       variant="h6"
                       sx={{ color: Colors.palette.secondary.main }}
                     >
                       Address
-                    </Typography>
+                    </Typography> */}
                   </Grid>
                   <br />
-                  <Box
-                    sx={{
-                      width: "50%",
-                      backgroundColor: Colors.palette.secondary.lightGrey,
-                      padding: "15px",
-                    }}
-                  ></Box>{" "}
+                  <Typography>
+                    {userData?.transactionDetails?.user?.address?.locality}
+                  </Typography>{" "}
                   <br />
-                  <Box
-                    sx={{
-                      width: "30%",
-                      backgroundColor: Colors.palette.secondary.lightGrey,
-                      padding: "15px",
-                    }}
-                  ></Box>{" "}
+                  <Typography>
+                    {userData?.transactionDetails?.user?.address?.district}
+                  </Typography>{" "}
                   <br />
-                  <Box
-                    sx={{
-                      width: "50%",
-                      backgroundColor: Colors.palette.secondary.lightGrey,
-                      padding: "15px",
-                    }}
-                  ></Box>
+                  <Typography>
+                    {userData?.transactionDetails?.user?.address?.state} ,{" "}
+                    {userData?.transactionDetails?.user?.address?.pincode}
+                  </Typography>
                 </Box>
               </Paper>
 
@@ -218,8 +244,15 @@ const AdPayDetails = () => {
                   background: Colors.palette.primary.main,
                 }}
               >
-                <Typography>Routine Clean</Typography>
-                <Typography>Rs. 499</Typography>
+                <Typography>
+                  {
+                    userData?.transactionDetails?.serviceRequestDetails
+                      ?.serviceType
+                  }
+                </Typography>
+                <Typography>
+                  {userData?.transactionDetails?.serviceRequestDetails?.Amount}
+                </Typography>
               </Box>
 
               <Box
@@ -242,7 +275,12 @@ const AdPayDetails = () => {
                   }}
                 >
                   <Typography>Total Amount :</Typography>
-                  <Typography>Rs. 499</Typography>
+                  <Typography>
+                    {
+                      userData?.transactionDetails?.serviceRequestDetails
+                        ?.Amount
+                    }
+                  </Typography>
                 </div>
                 <div
                   style={{
@@ -252,7 +290,12 @@ const AdPayDetails = () => {
                   }}
                 >
                   <Typography>Mode Of Payment :</Typography>
-                  <Typography>Cash on Delivery</Typography>
+                  <Typography>
+                    {
+                      userData?.transactionDetails?.serviceRequestDetails
+                        ?.paymentMode
+                    }
+                  </Typography>
                 </div>
                 <div
                   style={{

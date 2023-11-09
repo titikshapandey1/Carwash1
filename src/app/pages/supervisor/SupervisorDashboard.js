@@ -40,12 +40,12 @@ const SupervisorsDashboard = () => {
     <>
       <Box
         display="block"
-        flexDirection="row"
-        alignItems="center"
+        flexDirection="column"
+        // alignItems="center"
         justifyContent="center"
-        className="wrapper"
+        // className="wrapper"
         sx={{
-          maxWidth: 950,
+          maxWidth: "100%",
           borderRadius: "20px",
           background: Colors.palette.secondary.cardBackground,
           padding: "20px",
@@ -59,13 +59,10 @@ const SupervisorsDashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          sx={{
-            marginLeft: { xs: "2%", sm: "3%" },
-          }}
         >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={6}>
-              <Card sx={{ maxWidth: { xs: 700, md: 300 }, ...cardStyle }}>
+              <Card sx={{ maxWidth: { xs: 700, md: 510 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -83,7 +80,7 @@ const SupervisorsDashboard = () => {
               </Card>
             </Grid>
             <Grid item xs={12} sm={6} md={6}>
-              <Card sx={{ maxWidth: { xs: 700, md: 300 }, ...cardStyle }}>
+              <Card sx={{ maxWidth: { xs: 700, md: 510 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -107,13 +104,13 @@ const SupervisorsDashboard = () => {
           alignItems="center"
           justifyContent="center"
           sx={{
-            marginLeft: { xs: "2%", sm: "3%" },
+            // marginLeft: { xs: "2%", sm: "3%" },
             marginTop: { xs: "7%", sm: "2%" },
           }}
         >
           <Grid container spacing={3}>
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={{ maxWidth: { xs: 700, md: 250 }, ...cardStyle }}>
+              <Card sx={{ maxWidth: { xs: 700, md: 340 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -130,7 +127,7 @@ const SupervisorsDashboard = () => {
               </Card>
             </Grid>
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={{ maxWidth: { xs: 700, md: 250 }, ...cardStyle }}>
+              <Card sx={{ maxWidth: { xs: 700, md: 340 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
@@ -147,7 +144,7 @@ const SupervisorsDashboard = () => {
               </Card>
             </Grid>
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={{ maxWidth: { xs: 700, md: 250 }, ...cardStyle }}>
+              <Card sx={{ maxWidth: { xs: 700, md: 340 }, ...cardStyle }}>
                 <CardActionArea>
                   <CardContent>
                     <Box sx={iconBoxStyles}>
