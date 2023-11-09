@@ -49,9 +49,11 @@ const AdUserDec = () => {
     }
   };
   const handleViewDetails = (user) => {
-    console.log('user', user)
-    navigate('/adminuserdetails', { state: { userId: user._id, userStatus: "inactive" } });
-    console.log('id: ', user._id)
+    console.log("user", user);
+    navigate("/adminuserdetails", {
+      state: { userId: user._id, userStatus: "inactive" },
+    });
+    console.log("id: ", user._id);
   };
   useEffect(() => {
     fetchData();

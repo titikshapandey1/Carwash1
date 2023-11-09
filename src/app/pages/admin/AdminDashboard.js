@@ -112,11 +112,6 @@ const AdminDashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          sx={
-            {
-              // marginLeft: { xs: "1%", sm: "1%" },
-            }
-          }
         >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={6}>
