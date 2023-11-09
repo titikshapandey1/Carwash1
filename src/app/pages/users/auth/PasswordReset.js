@@ -14,8 +14,8 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Colors from "../../../utils/colors";
-import { Navigate,useNavigate } from "react-router-dom";
-
+import { useLocation, useNavigate } from "react-router-dom";
+import Axios from "../../../utils/Axios1";
 
 const validationSchema = yup.object({
   password: yup
@@ -35,15 +35,30 @@ const validationSchema = yup.object({
 
 function PasswordReset() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const userDataFromOTP = location.state?.formData;
+
   const formik = useFormik({
     initialValues: {
       password: "",
       confirmPassword: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert("Password reset successful!");
-      navigate("/login");
+    onSubmit: async (values) => {
+      try {
+        const resetData = {
+          ...userDataFromOTP,
+          newPassword: values.password,
+          confirmPassword: values.confirmPassword,
+        };
+        const response = await Axios.post("/forgotPassword", resetData);
+        console.log("New Password:", response.data);
+        alert("Password reset successful!");
+        navigate("/login");
+      } catch (error) {
+        console.error("Password reset failed:", error);
+        alert("Password reset Unsuccessful!");
+      }
     },
   });
 
@@ -64,15 +79,6 @@ function PasswordReset() {
   };
 
   const submitButtonStyle = {
-    // padding: "12px",
-    // margin: "20px 0",
-    // borderRadius: 15,
-    // fontWeight: "600",
-    // backgroundColor: Colors.palette.secondary.main,
-    // display: "block",
-    // textAlign: "center",
-    // marginTop: "5%",
-    // marginLeft: { xs: "20%", sm: "30%" },
     marginTop: "20px",
     marginBottom: "20px",
     padding: "15px",
@@ -105,13 +111,6 @@ function PasswordReset() {
             alignItems: "center",
           }}
         >
-          {/* <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        height="100vh"
-      > */}
           <Container maxWidth="sm">
             <Grid container>
               <Paper

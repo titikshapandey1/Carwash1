@@ -4,7 +4,7 @@ import Colors from "../../utils/colors";
 import Table from "../../components/Table";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, Button } from "@mui/material";
-import Axios from "../../utils/Axios";
+import Axios from "../../utils/Axios1";
 import Loader from "../../components/Loader";
 
 const AdPayUnsucc = () => {
@@ -22,13 +22,13 @@ const AdPayUnsucc = () => {
   const fetchPaymentUnsucc = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("/get-unsucessful-payment");
+      const response = await Axios.get("/get-all-unsuccessfull-payments");
       setTableData(
-        response.data.service.map((service) => ({
-          d1: service.createdAt,
-          d2: service._id,
-          d3: service.serviceType,
-          d4: service.amount,
+        response.data.transactionDetails.map((transactionDetails) => ({
+          d1: transactionDetails.transaction.createdAt,
+          d2: transactionDetails.transaction._id,
+          d3: transactionDetails.serviceRequestDetails.serviceType,
+          d4: transactionDetails.serviceRequestDetails.Amount,
           d5: (
             <Button
               style={{
@@ -40,7 +40,9 @@ const AdPayUnsucc = () => {
                 fontSize: "12px",
               }}
               onClick={() =>
-                navigate(`/adminpaymentdetails?id=${service.viewDetail._id}`)
+                navigate(
+                  `/adminpaymentdetails?id=${transactionDetails.transaction._id}`
+                )
               }
             >
               View Details
