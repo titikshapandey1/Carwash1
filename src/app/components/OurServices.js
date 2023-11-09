@@ -39,7 +39,6 @@ const OurServices = () => {
     serviceText.style.backgroundColor = "transparent";
     serviceText.style.color = Colors.palette.secondary.main;
   };
-
   return (
     <Container sx={{ marginTop: "3%" }}>
       <Box sx={{ display: "flex", alignItems: "center", marginBottom: "3%" }}>
@@ -49,14 +48,20 @@ const OurServices = () => {
         >
           Our Services&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;•
         </Typography>
-        <Divider
-          sx={{
-            backgroundColor: Colors.palette.secondary.main,
-            height: "2px",
-            flex: 1,
-            marginLeft: "2%",
-          }}
-        />
+   <Divider
+  sx={{
+    backgroundColor: Colors.palette.secondary.main,
+    height: "2px",
+    flex: 1,
+    marginLeft: "2%",
+    display: {
+      xs: "none", 
+      sm: "block", 
+    },
+  }}
+/>
+
+
         <Typography
           sx={{
             color: Colors.palette.secondary.main,
