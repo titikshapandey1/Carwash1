@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -9,12 +9,17 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Box, Button, InputAdornment, TextField } from "@mui/material";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import Colors from "../utils/colors";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Wave from "react-wavify";
 import SendIcon from "@mui/icons-material/Send";
 import Logo from "../assests/images/Logo.png";
 
 const Footer = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
   return (
     <>
       <Wave
@@ -40,19 +45,13 @@ const Footer = () => {
       >
         <Container maxWidth="xl">
           <Grid container sx={{ marginInline: "2%" }}>
-            <Grid
-              item
-              xs={12}
-              sm={3}
-              md={3}
-              sx={{ color: Colors.palette.primary.main }}
-            >
+            <Grid item xs={12} sm={6} md={3} sx={{ color: Colors.palette.primary.main }}>
               <img
                 src={Logo}
                 alt=""
-                style={{
-                  width: "200px",
-                  padding: "2px",
+               style={{
+               width: "200px",
+               padding: "2px",
                 }}
               />
               <Typography sx={{ marginTop: "2%", fontSize: "12px" }}>
@@ -72,32 +71,26 @@ const Footer = () => {
                   display: "flex",
                   alignItems: "center",
                   marginTop: "2%",
-
                   color: Colors.palette.primary.main,
                 }}
               >
-                <CopyrightIcon sx={{ mr: 1, fontSize: "18px" }} /> 2021 Car
-                Wash.All Rights Reserved
+                <CopyrightIcon sx={{ mr: 1, fontSize: "18px" }} /> 2021 Car Wash. All Rights Reserved
               </Typography>
             </Grid>
 
-            <Grid item xs={15} sm={2}>
-              <Typography
-                variant="body1"
-                gutterBottom
-                sx={{ color: Colors.palette.primary.main }}
-              >
+            <Grid item xs={12} sm={6} md={2}>
+              <Typography variant="body1" gutterBottom sx={{ color: Colors.palette.primary.main, marginTop: "5%", }}>
                 <b> PAGES</b>
               </Typography>
-              <NavLink
-                to="/services"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/services" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
                   sx={{
-                    marginTop: "11%",
+                    marginTop: {
+                      xs: "2%", 
+                      sm: "11%", 
+                    },
                     color: Colors.palette.primary.main,
                     "&:hover": { fontSize: 15, opacity: 0.75 },
                   }}
@@ -105,10 +98,7 @@ const Footer = () => {
                   Services
                 </Typography>
               </NavLink>
-              <NavLink
-                to="/aboutus"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/aboutus" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
@@ -120,10 +110,7 @@ const Footer = () => {
                   About Us
                 </Typography>
               </NavLink>
-              <NavLink
-                to="/contactus"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/contactus" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
@@ -137,23 +124,19 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={2}>
-              <Typography
-                variant="body1"
-                gutterBottom
-                sx={{ color: Colors.palette.primary.main }}
-              >
+            <Grid item xs={12} sm={6} md={2}>
+              <Typography variant="body1" sx={{ color: Colors.palette.primary.main,marginTop:'5%' }}>
                 <b> CARS</b>
               </Typography>
-              <NavLink
-                to="/"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
                   sx={{
-                    marginTop: "11%",
+                    marginTop: {
+                      xs: "2%", 
+                      sm: "11%", 
+                    },
                     color: Colors.palette.primary.main,
                     "&:hover": { fontSize: 15, opacity: 0.75 },
                   }}
@@ -161,10 +144,7 @@ const Footer = () => {
                   HatchBack
                 </Typography>
               </NavLink>
-              <NavLink
-                to="/"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
@@ -176,10 +156,7 @@ const Footer = () => {
                   Sedan
                 </Typography>
               </NavLink>
-              <NavLink
-                to="/"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
@@ -193,23 +170,19 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={2}>
-              <Typography
-                variant="body1"
-                gutterBottom
-                sx={{ color: Colors.palette.primary.main }}
-              >
+            <Grid item xs={12} sm={6} md={2}>
+              <Typography variant="body1" sx={{ color: Colors.palette.primary.main,marginTop:'5%' }}>
                 <b>SERVICES </b>
               </Typography>
-              <NavLink
-                to="/services"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/services" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
                   sx={{
-                    marginTop: "11%",
+                    marginTop: {
+                      xs: "2%",  
+                      sm: "11%",
+                    },
                     color: Colors.palette.primary.main,
                     "&:hover": { fontSize: 15, opacity: 0.75 },
                   }}
@@ -217,10 +190,7 @@ const Footer = () => {
                   Routine Clean
                 </Typography>
               </NavLink>
-              <NavLink
-                to="/services"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/services" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
@@ -232,10 +202,7 @@ const Footer = () => {
                   Dry Clean
                 </Typography>
               </NavLink>
-              <NavLink
-                to="/services"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
+              <NavLink to="/services" style={{ textDecoration: "none", cursor: "pointer" }}>
                 <Typography
                   variant="body2"
                   gutterBottom
@@ -249,7 +216,7 @@ const Footer = () => {
               </NavLink>
             </Grid>
 
-            <Grid item xs={15} sm={2} marginBottom={5}>
+            <Grid item xs={12} sm={6} md={3} marginBottom={5}>
               <Typography
                 variant="body2"
                 gutterBottom
@@ -270,7 +237,7 @@ const Footer = () => {
                   sx: {
                     height: 38,
                     backgroundColor: "white",
-                    width: { xs: 200, sm: 200, md: 250 },
+                    width: "100%", // Adjust the width to your liking
                   },
                   endAdornment: (
                     <InputAdornment position="end">
@@ -291,22 +258,16 @@ const Footer = () => {
                 }}
               />
 
-              {/* <NavLink
-                to="/"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              > */}
               <Typography
                 variant="body2"
                 gutterBottom
                 sx={{
                   marginTop: "5%",
                   color: Colors.palette.primary.main,
-                  // "&:hover": { fontSize: 15, opacity: 0.75 },
                 }}
               >
                 wowkaar@info.com
               </Typography>
-              {/* </NavLink> */}
 
               <Typography
                 variant="body2"
@@ -316,9 +277,7 @@ const Footer = () => {
                   color: Colors.palette.secondary.grey,
                 }}
               >
-                Noida,
-                <br />
-                NOIDA, Delhi NCR, UP
+                Noida, NOIDA, Delhi NCR, UP
               </Typography>
 
               <Typography
@@ -326,20 +285,14 @@ const Footer = () => {
                 gutterBottom
                 sx={{ marginTop: "10%", color: Colors.palette.primary.main }}
               >
-                <NavLink
-                  to="/"
-                  style={{ textDecoration: "none", cursor: "pointer" }}
-                >
+                <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                   <InstagramIcon
                     sx={{
                       color: Colors.palette.primary.main,
                     }}
                   />
                 </NavLink>
-                <NavLink
-                  to="/"
-                  style={{ textDecoration: "none", cursor: "pointer" }}
-                >
+                <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                   <FacebookOutlinedIcon
                     sx={{
                       marginLeft: "10%",
@@ -347,10 +300,7 @@ const Footer = () => {
                     }}
                   />{" "}
                 </NavLink>
-                <NavLink
-                  to="/"
-                  style={{ textDecoration: "none", cursor: "pointer" }}
-                >
+                <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                   <YouTubeIcon
                     sx={{
                       marginLeft: "10%",
@@ -358,15 +308,11 @@ const Footer = () => {
                     }}
                   />{" "}
                 </NavLink>
-                <NavLink
-                  to="/"
-                  style={{ textDecoration: "none", cursor: "pointer" }}
-                >
+                <NavLink to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                   <TwitterIcon
                     sx={{
                       marginLeft: "10%",
                       color: Colors.palette.primary.main,
-                      // "&:hover": { fontSize: 30, opacity: 0.75 },
                     }}
                   />
                 </NavLink>
@@ -377,6 +323,7 @@ const Footer = () => {
       </Box>
     </>
   );
+  
 };
 
 export default Footer;

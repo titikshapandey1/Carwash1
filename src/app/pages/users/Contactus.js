@@ -26,16 +26,18 @@ import Axios from "../../utils/Axios";
 
 const cardStyles = {
   p: 2,
-  marginBottom: "5%",
-  borderRadius: "20px",
-  width: "90%", 
+  marginBottom: "5% !important",
+  borderRadius: "20px !important",
+  width: "90% !important",
+  marginRight: "5% !important",
 };
 
 const mobileCardStyles = {
-  width: "auto", 
-  p: 2,
-  marginBottom: "2%",
-  borderRadius: "20px",
+  width: "auto !important",
+  p: "0 !important",
+  marginBottom: "2% !important",
+  borderRadius: "20px !important",
+  marginRight: "0 !important",
 };
 
 const boxStyle = {
@@ -199,6 +201,8 @@ function ContactUs() {
                       // width: "70%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
+                      marginRight: isSmallScreen ? "0" : "5%",
+
                     }}
                   >
                     {" "}
@@ -231,6 +235,8 @@ function ContactUs() {
                       // width: "70%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
+                      marginRight: isSmallScreen ? "0" : "5%",
+
                     }}
                   >
                     {" "}
@@ -263,6 +269,8 @@ function ContactUs() {
                       // width: "70%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
+                      marginRight: isSmallScreen ? "0" : "5%",
+
                     }}
                   >
                     <Container>
