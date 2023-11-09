@@ -4,7 +4,6 @@ import CircleIcon from "@mui/icons-material/Circle";
 import Colors from "../../utils/colors";
 import EditIcon from "@mui/icons-material/Edit";
 import Axios from "../../utils/Axios1";
-import AdminDashboard from "./AdminDashboard";
 import AdDash from "../../components/AdDash";
 import { useLocation } from "react-router-dom";
 

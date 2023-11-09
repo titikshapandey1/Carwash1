@@ -1,20 +1,43 @@
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Box, Button, Container, Grid, Paper, Typography } from "@mui/material";
 import SupDash from "../../components/SupDash";
-import Table from "../../components/Table";
+import { useLocation } from "react-router-dom";
+import Axios from "../../utils/Axios1";
 import Colors from "../../utils/colors";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailIcon from "@mui/icons-material/Mail";
+import Loader from "../../components/Loader";
+import Logo from "../../assests/images/Logo.png";
 
 const SupPayDetails = () => {
-  return (
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const userId = searchParams.get("id");
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        console.log(userId);
+        const response = await Axios.get(
+          `/view-details-success&unsuccess-transaction/${userId}`
+        );
+        setUserData(response.data);
+        console.log(response.data);
+        // console.log(userData);
+        console.log(userId);
+      } catch (error) {
+        console.error("Error fetching user details: ", error);
+      }
+    };
+    if (userId) {
+      fetchUserDetails();
+    }
+  }, [userId]);
+
+  return !userData ? (
+    <Loader />
+  ) : (
     <>
       <Box
         display="block"
@@ -77,9 +100,30 @@ const SupPayDetails = () => {
                 }}
               >
                 <Typography variant="h4" sx={{ fontWeight: "600" }}>
-                  LOGO
+                  <Typography
+                    variant="h5"
+                    noWrap
+                    component="div"
+                    sx={{
+                      flexGrow: 1,
+                      background: Colors.palette.secondary.main,
+                      borderRadius: "20px",
+                      padding: "10px",
+                    }}
+                  >
+                    <img
+                      src={Logo}
+                      alt=""
+                      style={{
+                        marginTop: "15px",
+                        width: "150px",
+                        maxWidth: "100%",
+                        height: "50px",
+                      }}
+                    />
+                  </Typography>
                 </Typography>
-                <Typography>Booking ID: #7102023</Typography>
+                <Typography>Booking ID: {userId}</Typography>
               </Box>
 
               <Box
@@ -91,8 +135,14 @@ const SupPayDetails = () => {
                   padding: "10px",
                 }}
               >
-                <Typography>Booking Date: 07/10/2023</Typography>
-                <Typography>Scheduled Date: 10/10/2023</Typography>
+                <Typography>
+                  Booking Date:
+                  {userData?.transactionDetails?.transactions?.createdAt}{" "}
+                </Typography>
+                <Typography>
+                  Scheduled Date:{" "}
+                  {userData?.transactionDetails?.transactions?.updatedAt}
+                </Typography>
               </Box>
 
               <Paper sx={{ height: "auto", padding: "20px" }}>
@@ -112,8 +162,9 @@ const SupPayDetails = () => {
                       color: Colors.palette.primary.darkBlue,
                     }}
                   >
-                    <PhoneIcon sx={{}} />
-                    7017866149 / 7017866149
+                    <PhoneIcon sx={{ mr: 1 }} />
+                    {userData?.transactionDetails?.user?.mobileNumber} /{" "}
+                    {userData?.transactionDetails?.user?.alternateNumber}
                   </Typography>
                 </Box>
                 <br />
@@ -124,50 +175,48 @@ const SupPayDetails = () => {
                     justifyContent: "space-between",
                     alignItems: "center",
                     color: Colors.palette.primary.darkBlue,
-                    padding: "10px",
+                    // padding: "10px",
                   }}
                 >
-                  <Typography>Full Name + Surname</Typography>
                   <Typography>
+                    {userData?.transactionDetails?.user?.firstName}{" "}
+                    {userData?.transactionDetails?.user?.surName}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
                     {" "}
-                    <MailIcon />
-                    kushbhardwaj7017@gmail.com
+                    <MailIcon sx={{ mr: 1 }} />
+                    {userData?.transactionDetails?.user?.userName}
                   </Typography>
                 </Box>
 
                 <Box sx={{ marginTop: "2%" }}>
                   <Grid item xs={12}>
-                    <Typography
+                    {/* <Typography
                       variant="h6"
                       sx={{ color: Colors.palette.secondary.main }}
                     >
                       Address
-                    </Typography>
+                    </Typography> */}
                   </Grid>
                   <br />
-                  <Box
-                    sx={{
-                      width: "50%",
-                      backgroundColor: Colors.palette.secondary.lightGrey,
-                      padding: "15px",
-                    }}
-                  ></Box>{" "}
+                  <Typography>
+                    {userData?.transactionDetails?.user?.address?.locality}
+                  </Typography>{" "}
                   <br />
-                  <Box
-                    sx={{
-                      width: "30%",
-                      backgroundColor: Colors.palette.secondary.lightGrey,
-                      padding: "15px",
-                    }}
-                  ></Box>{" "}
+                  <Typography>
+                    {userData?.transactionDetails?.user?.address?.district}
+                  </Typography>{" "}
                   <br />
-                  <Box
-                    sx={{
-                      width: "50%",
-                      backgroundColor: Colors.palette.secondary.lightGrey,
-                      padding: "15px",
-                    }}
-                  ></Box>
+                  <Typography>
+                    {userData?.transactionDetails?.user?.address?.state} ,{" "}
+                    {userData?.transactionDetails?.user?.address?.pincode}
+                  </Typography>
                 </Box>
               </Paper>
 
@@ -194,8 +243,15 @@ const SupPayDetails = () => {
                   background: Colors.palette.primary.main,
                 }}
               >
-                <Typography>Routine Clean</Typography>
-                <Typography>Rs. 499</Typography>
+                <Typography>
+                  {
+                    userData?.transactionDetails?.serviceRequestDetails
+                      ?.serviceType
+                  }
+                </Typography>
+                <Typography>
+                  {userData?.transactionDetails?.serviceRequestDetails?.Amount}
+                </Typography>
               </Box>
 
               <Box
@@ -218,7 +274,12 @@ const SupPayDetails = () => {
                   }}
                 >
                   <Typography>Total Amount :</Typography>
-                  <Typography>Rs. 499</Typography>
+                  <Typography>
+                    {
+                      userData?.transactionDetails?.serviceRequestDetails
+                        ?.Amount
+                    }
+                  </Typography>
                 </div>
                 <div
                   style={{
@@ -228,7 +289,12 @@ const SupPayDetails = () => {
                   }}
                 >
                   <Typography>Mode Of Payment :</Typography>
-                  <Typography>Cash on Delivery</Typography>
+                  <Typography>
+                    {
+                      userData?.transactionDetails?.serviceRequestDetails
+                        ?.paymentMode
+                    }
+                  </Typography>
                 </div>
                 <div
                   style={{
@@ -243,7 +309,6 @@ const SupPayDetails = () => {
               </Box>
             </Box>
           </Container>
-          {/* <Table /> */}
         </Box>
       </Box>
     </>

@@ -50,33 +50,6 @@ const AdPaySucc = () => {
           ),
         }))
       );
-      // setTableData([
-      //   {
-      //     d1: response.data.transactionDetails.transaction.createdAt,
-      //     d2: response.data.transactionDetails.transaction._id,
-      //     d3: response.data.transactionDetails.serviceRequestDetails.serviceType,
-      //     d4: response.data.transactionDetails.serviceRequestDetails.Amount,
-      //     d5: (
-      //       <Button
-      //         style={{
-      //           background: "none",
-      //           border: "none",
-      //           cursor: "pointer",
-      //           textDecoration: "none",
-      //           color: Colors.palette.secondary.main,
-      //           fontSize: "12px",
-      //         }}
-      //         onClick={() =>
-      //           navigate(
-      //             `/adminpaymentdetails?id=${response.data.transactionDetails.transaction._id}`
-      //           )
-      //         }
-      //       >
-      //         View Details
-      //       </Button>
-      //     ),
-      //   },
-      // ]);
     } catch (error) {
       console.error("Error fetching data: ", error);
     } finally {

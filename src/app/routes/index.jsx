@@ -62,9 +62,13 @@ import SupPaySucc from "../pages/supervisor/SupPaySucc";
 import SupPayUnsucc from "../pages/supervisor/SupPayUnsucc";
 import SupUserReq from "../pages/supervisor/SupUserReq";
 import SupUserAct from "../pages/supervisor/SupUserAct";
-import SupUserDec from "../pages/supervisor/SupUserDec";
+import SupUserInact from "../pages/supervisor/SupUserDec";
 import SupPayDetails from "../pages/supervisor/SupPayDetails";
 import SupUserDetails from "../pages/supervisor/SupUserDetails";
+import SupAllService from "../pages/supervisor/SupAllService";
+import SupReqService from "../pages/supervisor/SupReqService";
+import SupAccptService from "../pages/supervisor/SupAccptService";
+import SupDeniedService from "../pages/supervisor/SupDeniedService";
 
 import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
@@ -123,16 +127,20 @@ function AppRouter() {
         <Route path="/admindashboard" element={<AdminDashboard />}></Route>
         <Route path="/adminpaysuccessful" element={<AdPaySucc />}></Route>
         <Route path="/adminpayunsucessful" element={<AdPayUnsucc />}></Route>
+
         <Route path="/adminuserrequest" element={<AdUserReq />}></Route>
         <Route path="/adminuseractive" element={<AdUserAct />}></Route>
         <Route path="/adminuserinactive" element={<AdUserInact />}></Route>
+
         <Route path="/adminallservice" element={<AdAllService />}></Route>
         <Route path="/aminrequestedservice" element={<AdReqService />}></Route>
         <Route path="/adminacceptservice" element={<AdAccptService />}></Route>
         <Route path="/admindeniedservice" element={<AdDeniedService />}></Route>
+
         <Route path="/adminallsupervisor" element={<AdAllSup />}></Route>
         <Route path="/admineditsupervisor" element={<AdEditSup />}></Route>
         <Route path="/admincreatesupervisor" element={<AdCreateSup />}></Route>
+
         <Route path="/adminpaymentdetails" element={<AdPayDetails />}></Route>
         <Route path="/adminuserdetails" element={<AdUserDetails />}></Route>
         {/* <Route path="/adminuserdec" element={<AdUserDec />}></Route> */}
@@ -142,9 +150,16 @@ function AppRouter() {
         <Route path="/supervisordashboard" element={<SupervisorDashboard />}></Route>
         <Route path="/supervisorpaysuccessful" element={<SupPaySucc />}></Route>
         <Route path="/supervisorpayunsuccessful" element={<SupPayUnsucc />}></Route>
+
         <Route path="/supervisoruserrequest" element={<SupUserReq />}></Route>
         <Route path="/supervisoruseractive" element={<SupUserAct />}></Route>
-        <Route path="/supervisoruserdeclined" element={<SupUserDec />}></Route>
+        <Route path="/supervisoruserinactive" element={<SupUserInact />}></Route>
+
+        <Route path="/supervisorallservice" element={<SupAllService />}></Route>
+        <Route path="/supervisorrequestedservice" element={<SupReqService />}></Route>
+        <Route path="/supervisoracceptservice" element={<SupAccptService />}></Route>
+        <Route path="/supervisordeniedservice" element={<SupDeniedService />}></Route>
+
         <Route path="/supervisorpaymentdetails" element={<SupPayDetails />}></Route>
         <Route path="/supervisoruserdetails" element={<SupUserDetails />}></Route>
 
