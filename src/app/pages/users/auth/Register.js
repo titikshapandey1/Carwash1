@@ -159,24 +159,34 @@ function RegisterPage() {
     <>
       {/* <Otp otpFromAPI={otpFromAPI} /> */}
       <Box
+        // sx={{
+        //   background:
+        //     "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
+        //   display: "flex",
+        //   height:"100%",
+        //   justifyContent: "center",
+        //   alignItems: "center",
+        // }}
         sx={{
           background:
             "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
+          height: "100vh",
+          width: "100vw",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
         <Box
-          sx={{
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+         sx={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
         >
-          <Container maxWidth="sm" sx={{ mt: "2%", mb: "2%" }}>
+          <Container maxWidth="sm" sx={{ mt: "2%", mb: "5%" }}>
             <Grid container>
               <Paper elevation={10} style={paperStyle}>
                 <Box

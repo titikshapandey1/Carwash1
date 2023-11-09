@@ -28,7 +28,7 @@ const cardStyles = {
   p: 2,
   marginBottom: "5%",
   borderRadius: "20px",
-  width: "70%", 
+  width: "90%", 
 };
 
 const mobileCardStyles = {
@@ -288,9 +288,9 @@ function ContactUs() {
                       </Grid>
                     </Container>
                   </Card>
-                  <div class="card">
+                      <div className="card">
                     <iframe
-                      width="500"
+                      width="100%"
                       height="400"
                       frameborder="0"
                       marginheight="0"
