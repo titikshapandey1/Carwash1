@@ -141,6 +141,7 @@ const Otp = () => {
             formData: userData,
           },
         });
+        
         console.log("Forget Password Data: ", userData);
       } else {
         alert("Wrong OTP, Enter Again");

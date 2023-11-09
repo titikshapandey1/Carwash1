@@ -146,7 +146,7 @@ function Login() {
                       textAlign: "center",
                     }}
                   >
-                    Log in
+                    Log In
                   </Typography>
                 </Box>
 
