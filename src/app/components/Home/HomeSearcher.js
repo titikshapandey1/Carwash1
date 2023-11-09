@@ -134,7 +134,7 @@ const Searcher = () => {
             }}
           >
             <NavLink
-              to="/services"
+              to={servicetype && carType ? "/services" : ""}
               style={{
                 textDecoration: "none",
                 color: Colors.palette.primary.main,
@@ -144,6 +144,7 @@ const Searcher = () => {
                 variant="contained"
                 endIcon={<ArrowForwardRoundedIcon />}
                 sx={buttonStyle}
+                disabled={!servicetype || !carType}
               >
                 Go for it
               </Button>

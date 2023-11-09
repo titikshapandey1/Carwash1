@@ -13,7 +13,7 @@ const Ourplans = () => {
         <Grid ml={4}>
           <Typography
             variant="h4"
-            mt={10}
+            mt={5}
             mb={2}
             sx={{ color: Colors.palette.secondary.main }}
           >

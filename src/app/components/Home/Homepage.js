@@ -99,7 +99,6 @@ const HomePage = () => {
       {/* {..........................................................} */}
       <Container sx={{ mt: 15 }}>
         <Grid container spacing={2} justifyContent={"center"}>
-          {/* Left Content */}
           <Grid item xs={12} sm={12} md={6}>
             <Box
               component="img"
@@ -109,8 +108,6 @@ const HomePage = () => {
               height="auto"
             />
           </Grid>
-
-          {/* Right Side Image */}
           <Grid item xs={12} sm={12} md={6}>
             <Box>
               <Typography
@@ -158,7 +155,7 @@ const HomePage = () => {
                   mt: 5,
                 }}
               >
-                +91-0000-000000
+                +91 7017866149
               </Button>
               <Button
                 variant="contained"
@@ -176,7 +173,7 @@ const HomePage = () => {
                     xs: "170px",
                   },
                   mt: 5,
-                  ml: { xs: 0, sm: 2, md: 2, lg: 2, xl: 2 },
+                  ml: { xs: 2, sm: 2, md: 2, lg: 2, xl: 2 },
                   "&:hover": {
                     backgroundColor: Colors.palette.primary.main,
                   },

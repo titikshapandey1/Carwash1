@@ -28,14 +28,8 @@ const HomeCards = () => {
       // }
       >
         <Container sx={{ mt: 10 }}>
-          <Grid
-            container
-            item
-            // justifyContent={"left"}
-            sx={{
-              backdropFilter: "blur(100%)",
-            }}
-          >
+         
+           <Grid container justifyContent="center" alignItems="center">
             <Grid item>
               <Typography
                 fontSize={50}
