@@ -73,8 +73,8 @@ function RegisterPage() {
   };
 
   const submitButtonStyle = {
-    marginTop: "15px",
-    marginBottom: "10px",
+    marginTop: "10px",
+    marginBottom: "5px",
     padding: "10px",
     borderRadius: 5,
     display: "flex",
@@ -160,23 +160,15 @@ function RegisterPage() {
     <>
       {/* <Otp otpFromAPI={otpFromAPI} /> */}
       <Box
-        // sx={{
-        //   background:
-        //     "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
-        //   display: "flex",
-        //   height:"100%",
-        //   justifyContent: "center",
-        //   alignItems: "center",
-        // }}
         sx={{
           background:
             "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
-          height: "100vh",
-          width: "100vw",
           display: "flex",
+          minHeight: "100vh", 
           justifyContent: "center",
           alignItems: "center",
         }}
+   
       >
         <Box
           sx={{
@@ -187,7 +179,7 @@ function RegisterPage() {
             alignItems: "center",
           }}
         >
-          <Container maxWidth="sm" sx={{ mt: "2%", mb: "5%" }}>
+          <Container maxWidth="sm" sx={{ mt: "1%", mb: "2%" }}>
             <Grid container>
               <Paper elevation={10} style={paperStyle}>
                 <Box
@@ -216,7 +208,7 @@ function RegisterPage() {
                   variant="h6"
                   align="center"
                   sx={{
-                    mt: "20px",
+                    mt: "5px",
                     mb: "10px",
                     justifyContent: "center",
                     color: Colors.palette.secondary.main,
@@ -228,7 +220,7 @@ function RegisterPage() {
                   style={{ color: Colors.palette.secondary.main }}
                   onSubmit={formik.handleSubmit}
                 >
-                  <Grid container spacing={1.5}>
+                  <Grid container spacing={1}>
                     <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
