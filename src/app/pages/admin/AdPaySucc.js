@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AdminDash from "../../components/AdDash";
 import Colors from "../../utils/colors";
 import Table from "../../components/Table";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { Box, Typography, Button } from "@mui/material";
 import Axios from "../../utils/Axios1";
 import Loader from "../../components/Loader";
