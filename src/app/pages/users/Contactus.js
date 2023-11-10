@@ -30,7 +30,7 @@ const cardStyles = {
   p: 2,
   marginBottom: "5% !important",
   borderRadius: "20px !important",
-  width: "90% !important",
+  width: "95% !important",
   marginRight: "5% !important",
 };
 
@@ -312,7 +312,7 @@ function ContactUs() {
                   </Card>
                   <div className="card">
                     <iframe
-                      width="90%"
+                      width="100%"
                       height="400"
                       frameborder="0"
                       marginheight="0"

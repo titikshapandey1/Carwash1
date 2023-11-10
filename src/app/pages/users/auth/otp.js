@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Grid,
   Paper,
@@ -68,6 +68,18 @@ const Otp = () => {
     backgroundColor: Colors.palette.secondary.main,
   };
 
+  const resendOtp = async () => {
+    try {
+      const response = await Axios.post("/otp-forgot-password", {
+        userName: formData.userName,
+      });
+      console.log("Resend OTP response:", response.data);
+      alert("OTP Resent Successfully");
+    } catch (error) {
+      console.error("Resend OTP failed:", error);
+    }
+  };
+  const textInputRefs = useRef(Array.from({ length: 6 }).map(() => React.createRef()));
   const onChange = (e, index) => {
     const inputValue = e.target.value;
 
@@ -80,6 +92,9 @@ const Otp = () => {
         ...validationErrors,
         [index]: "",
       });
+      if (index < 5 && textInputRefs.current[index + 1]?.current) {
+        textInputRefs.current[index + 1].current.focus();
+      }
     } else {
       setNumber({
         ...number,
@@ -141,7 +156,7 @@ const Otp = () => {
             formData: userData,
           },
         });
-        
+
         console.log("Forget Password Data: ", userData);
       } else {
         alert("Wrong OTP, Enter Again");
@@ -221,7 +236,7 @@ const Otp = () => {
                     You have received an OTP on your <b>{formData.userName}</b>
                   </Typography>
                   <br />
-                  <Box
+                  {/* <Box
                     sx={{
                       display: "flex",
                       justifyContent: "center",
@@ -254,8 +269,42 @@ const Otp = () => {
                         }}
                       />
                     ))}
+                  </Box> */}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {Array.from({ length: 6 }).map((_, index) => (
+                      <TextField
+                        key={index}
+                        name="number"
+                        type="text"
+                        placeholder="-"
+                        variant="outlined"
+                        value={number[index] ?? ""}
+                        onChange={(e) => onChange(e, index)}
+                        sx={{
+                          display: "solid",
+                          width: {
+                            md: "40px",
+                            sm: "35px",
+                          },
+                          mt: 1,
+                          ml: index === 3 ? 3 : 1,
+                        }}
+                        InputProps={{
+                          sx: {
+                            height: "40px",
+                            color: Colors.palette.secondary.main,
+                            border: `1px solid ${Colors.palette.secondary.main}`,
+                          },
+                        }}
+                        inputRef={textInputRefs.current[index]}
+                      />
+                    ))}
                   </Box>
-
                   {Object.values(validationErrors).map((error, index) => (
                     <Typography
                       key={index}
@@ -282,7 +331,9 @@ const Otp = () => {
                         style={{
                           color: Colors.palette.secondary.blue,
                           marginRight: "1.5rem",
+                          cursor: "pointer",
                         }}
+                        onClick={resendOtp}
                       >
                         &nbsp;&nbsp;Resend
                       </span>
