@@ -56,7 +56,7 @@ const DrawerComp = () => {
   return (
     <React.Fragment>
       <Drawer
-        anchor="right"
+        anchor="left"
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
         PaperProps={{
