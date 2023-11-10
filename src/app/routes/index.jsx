@@ -73,7 +73,6 @@ import SupDeniedService from "../pages/supervisor/SupDeniedService";
 import AdDash from "../components/AdDash";
 import SupDash from "../components/SupDash";
 import Table from "../components/Table";
-import AdUserDec from "../pages/admin/AdUserDec";
 import OurServices from "../components/OurServices";
 
 function AppRouter() {
