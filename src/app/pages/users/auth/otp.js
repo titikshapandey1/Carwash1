@@ -133,6 +133,7 @@ const Otp = () => {
           console.log("User registration response:", response.data);
           alert("User Registered Successfully");
           navigate("/home");
+          window.location.reload(); 
         } catch (error) {
           console.error("User registration failed:", error);
         }
@@ -162,6 +163,7 @@ const Otp = () => {
         alert("Wrong OTP, Enter Again");
         console.log("otp from api: ", otpFromAPI);
         console.log("entered otp: ", enteredOtp);
+        window.location.reload();
       }
     }
   };
