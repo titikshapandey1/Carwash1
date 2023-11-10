@@ -100,13 +100,19 @@ const HomePage = () => {
       <Container sx={{ mt: 15 }}>
         <Grid container spacing={2} justifyContent={"center"}>
           <Grid item xs={12} sm={12} md={6}>
-            <Box
-              component="img"
-              src={vector}
-              alt="Vector"
-              width="80%"
-              height="auto"
-            />
+               <Box
+        component="img"
+        src={vector}
+        alt="Vector"
+        width="80%"
+        height="auto"
+        sx={{
+          display: {
+            xs: "none", 
+            md: "block",
+          },
+        }}
+      />
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <Box>
@@ -191,6 +197,21 @@ const HomePage = () => {
               </Button>
             </Box>
           </Grid>
+          <Grid item xs={12} sm={12} md={6}>
+      <Box
+        component="img"
+        src={vector}
+        alt="Vector"
+        width="80%"
+        height="auto"
+        sx={{
+          display: {
+            xs: "block",
+            md: "none", 
+          },
+        }}
+      />
+    </Grid>
         </Grid>
       </Container>
 
