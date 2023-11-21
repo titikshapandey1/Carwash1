@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import {
   Box,
   Grid,
@@ -25,6 +25,7 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import ContactUsImg from "../../assests/images/Contact.png";
 import Axios from "../../utils/Axios";
+import React, { useEffect} from "react";
 
 const cardStyles = {
   p: 2,
@@ -98,6 +99,7 @@ function ContactUs() {
       console.error("Error:", error);
     }
   };
+  
 
   const isSmallScreen = useMediaQuery("(max-width: 900px)");
 
@@ -155,7 +157,22 @@ function ContactUs() {
       formik.resetForm();
     },
   });
+    
+  const [apiData, setApiData] = React.useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await Axios.get("/get-contactsus"); 
+        console.log("API Response:", response.data);
+        setApiData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <>
       <Nav />
@@ -197,6 +214,8 @@ function ContactUs() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={6}>
                   {/* <Box> */}
+                  {/* {apiData && ( */}
+                    <>
                   <Card
                     sx={{
                       // width: "70%",
@@ -212,6 +231,7 @@ function ContactUs() {
                         <Container>
                           <Grid container wrap="nowrap" spacing={10}>
                             <Grid item marginTop="5%">
+                            {/* {apiData.Hours} */}
                               <HourglassFullIcon
                                 sx={{
                                   color: Colors.palette.secondary.main,
@@ -230,6 +250,15 @@ function ContactUs() {
                                 Sat : 9 AM - 2 PM
                               </Typography>
                             </Grid>
+                             {/* <Grid item>
+                                  <Typography
+                                    sx={{ color: Colors.palette.secondary.main }}
+                                  >
+                                    <b>{apiData.Hours}</b>
+                                    <br />
+                                    {apiData.createdAt}
+                                  </Typography>
+                                </Grid> */}
                           </Grid>
                         </Container>
                       </CardContent>
@@ -310,6 +339,8 @@ function ContactUs() {
                       </CardContent>
                     </CardActionArea>
                   </Card>
+                  </>
+                  )}
                   <div className="card">
                     <iframe
                       width="100%"
