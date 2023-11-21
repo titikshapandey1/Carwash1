@@ -15,17 +15,26 @@ const Dryclean = () => {
                 fontSize={{ xs: 25, sm: 30, md: 35, lg: 37, xl: 37 }}
                 sx={{ color: Colors.palette.secondary.main }}
               >
-                <b>Dry Cleaning Any Dirt Inside The Car.</b>
+                <b>Dry Cleaning Any Dirt <br/>Inside The Car.</b>
               </Typography>
               <Typography
                 fontSize={{ xs: 13, sm: 13, md: 13, lg: 15, xl: 15 }}
                 mt={3}
+                sx={{ color: Colors.palette.secondary.grey,lineHeight: "1.8" }}
               >
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim.
+                Our dry and dirt cleaning process employs state-of-the-art{" "}
+                <br />
+                technology and eco-friendly solutions to gently remove grime and{" "}
+                <br />
+                restore your vehicle's pristine shine.
+                <br />
+                <br /> Using advanced techniques, we eliminate dirt effectively
+                while
+                <br /> preserving your car's finish, ensuring a thorough clean
+                without <br />
+                compromising its integrity. Experience superior care with our
+                dry
+                <br /> and dirt cleaning service.
               </Typography>
             </Box>
           </Grid>

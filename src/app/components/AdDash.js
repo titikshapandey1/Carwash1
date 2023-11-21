@@ -15,12 +15,24 @@ import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded
 import { Typography, Button } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Colors from "../utils/colors";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
+import Successfull from "@mui/icons-material/ThumbUp";
+import Unsuccessfull from "@mui/icons-material/ThumbDown";
+import Request from "@mui/icons-material/BookmarkAdd";
+import Active from "@mui/icons-material/BookmarkAdded";
+import Declined from "@mui/icons-material/BookmarkRemove";
+import EditIcon from "@mui/icons-material/Create";
+import CreateIcon from "@mui/icons-material/AddCircle";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import CheckIcon from "@mui/icons-material/Check";
+import ClearIcon from "@mui/icons-material/Clear";
+import AddIcon from "@mui/icons-material/Add";
+import ChecklistRtlIcon from "@mui/icons-material/ChecklistRtl";
+import Logo from "../assests/images/Logo.png";
 
 const drawerWidth = 240;
 
@@ -32,17 +44,18 @@ function AdDash(props) {
     setMobileOpen(!mobileOpen);
   };
 
-
-  
-
   const [openDashboard, setopenDashboard] = React.useState(false);
+
   const [openPayment, setopenPayment] = React.useState(false);
   const [openUsers, setopenUsers] = React.useState(false);
   const [openEditSupervisor, setopenEditSupervisor] = React.useState(false);
+  const [openService, setopenService] = React.useState(false);
+
   const [selectedPaymentOption, setSelectedPaymentOption] =
     React.useState(null);
   const [selectedUserOption, setSelectedUserOption] = React.useState(null);
   const [editSupervisorOption, setEditSupervisorOption] = React.useState(null);
+  const [openServiceOption, setServiceOption] = React.useState(null);
 
   const handleDashboardClick = () => {
     setopenDashboard(!openDashboard);
@@ -54,6 +67,10 @@ function AdDash(props) {
 
   const handleUserClick = () => {
     setopenUsers(!openUsers);
+  };
+
+  const handleServiceClick = () => {
+    setopenService(!openService);
   };
 
   const handleSupervisorClick = () => {
@@ -70,6 +87,10 @@ function AdDash(props) {
 
   const handleEditSupervisorClick = (option) => {
     setEditSupervisorOption(editSupervisorOption);
+  };
+
+  const handleServiceOptionClick = (option) => {
+    setServiceOption(openServiceOption);
   };
 
   const drawer = (
@@ -108,6 +129,8 @@ function AdDash(props) {
           </ListItem>
         </NavLink>
 
+        {/* ================ Payment ================ */}
+
         <ListItem
           key="payment"
           disablePadding
@@ -137,7 +160,9 @@ function AdDash(props) {
             {openPayment ? (
               <ExpandLess />
             ) : (
-              <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+              <ArrowForwardIosIcon
+                sx={{ fontSize: "16px", marginLeft: "4rem" }}
+              />
             )}
           </ListItemButton>
         </ListItem>
@@ -162,18 +187,13 @@ function AdDash(props) {
                   }
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Successfull
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedPaymentOption === "Successful Payments" ? (
-                      <RadioButtonCheckedIcon />
-                    ) : (
-                      <RadioButtonUncheckedIcon />
-                    )} */}
                   </ListItemIcon>
                   <ListItemText primary="Successful Payments" />
                 </ListItemButton>
@@ -198,18 +218,13 @@ function AdDash(props) {
                   }
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Unsuccessfull
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedPaymentOption === "Unsuccessful Payments" ? (
-                      <RadioButtonCheckedIcon />
-                    ) : (
-                      <RadioButtonUncheckedIcon />
-                    )} */}
                   </ListItemIcon>
 
                   <ListItemText primary="Unsuccessful Payments" />
@@ -218,6 +233,8 @@ function AdDash(props) {
             </NavLink>
           </List>
         )}
+
+        {/* ================ Users ================ */}
 
         <ListItem
           key="users"
@@ -267,18 +284,13 @@ function AdDash(props) {
                   onClick={() => handleUserOptionClick("Request")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Request
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedUserOption === "Request" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
                   <ListItemText primary="Request" />
                 </ListItemButton>
@@ -286,7 +298,7 @@ function AdDash(props) {
             </NavLink>
 
             <NavLink to="/adminuseractive" style={{ textDecoration: "none" }}>
-              <ListItem key="active" disablePadding>
+              <ListItem key="activeusers" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -298,26 +310,21 @@ function AdDash(props) {
                   onClick={() => handleUserOptionClick("Active Users")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Active
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedUserOption === "Active Users" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
                   <ListItemText primary="Active Users" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
 
-            <NavLink to="/adminuserdeclined" style={{ textDecoration: "none" }}>
-              <ListItem key="declined" disablePadding>
+            <NavLink to="/adminuserinactive" style={{ textDecoration: "none" }}>
+              <ListItem key="inactiveusers" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -326,31 +333,180 @@ function AdDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleUserOptionClick("Declined Users")}
+                  onClick={() => handleUserOptionClick("Inactive Users")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <Declined
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {selectedUserOption === "Declined Users" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
-                  <ListItemText primary="Declined Users" />
+                  <ListItemText primary="Inactive Users" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
           </List>
         )}
 
+        {/* ================ Services ================ */}
         <ListItem
-          key="editsupervisor"
+          key="service"
+          disablePadding
+          onClick={handleServiceClick}
+          sx={{
+            color: Colors.palette.secondary.main,
+            backgroundColor: Colors.palette.primary.main,
+            "&:hover": {
+              color: Colors.palette.primary.main,
+              backgroundColor: Colors.palette.secondary.main,
+            },
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <MiscellaneousServicesIcon
+                sx={{
+                  padding: "2px",
+                  color: Colors.palette.primary.main,
+                  backgroundColor: Colors.palette.secondary.main,
+                  borderRadius: "50%",
+                  border: `2px solid ${Colors.palette.secondary.main}`,
+                }}
+              />
+            </ListItemIcon>
+            <ListItemText primary="Services" />
+            {openService ? (
+              <ExpandLess />
+            ) : (
+              <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+            )}
+          </ListItemButton>
+        </ListItem>
+        {openService && (
+          <List component="div" disablePadding>
+            <NavLink to="/adminallservice" style={{ textDecoration: "none" }}>
+              <ListItem key="allservices" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("All Services")}
+                >
+                  <ListItemIcon>
+                    <ChecklistRtlIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="All Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink
+              to="/aminrequestedservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="requestservices" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Request Services")}
+                >
+                  <ListItemIcon>
+                    <AddIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Requested Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink
+              to="/adminacceptservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="acceptedservices" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Accepted Services")}
+                >
+                  <ListItemIcon>
+                    <CheckIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Accepted Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink
+              to="/admindeniedservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="deniedusers" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Denied Services")}
+                >
+                  <ListItemIcon>
+                    <ClearIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                        fontWeight: "600",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Denied Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </List>
+        )}
+
+        {/* ================ Supervisor ================ */}
+
+        <ListItem
+          key="supervisor"
           disablePadding
           onClick={handleSupervisorClick}
           sx={{
@@ -374,7 +530,7 @@ function AdDash(props) {
                 }}
               />
             </ListItemIcon>
-            <ListItemText primary="Edit Supervisor" />
+            <ListItemText primary="Supervisor" />
             {openEditSupervisor ? (
               <ExpandLess />
             ) : (
@@ -390,10 +546,10 @@ function AdDash(props) {
         {openEditSupervisor && (
           <List component="div" disablePadding>
             <NavLink
-              to="/admineditsupervisor"
+              to="/adminallsupervisor"
               style={{ textDecoration: "none" }}
             >
-              <ListItem key="editsupervisoroption" disablePadding>
+              <ListItem key="allsupervisoroption" disablePadding>
                 <ListItemButton
                   sx={{
                     color: Colors.palette.secondary.main,
@@ -402,23 +558,18 @@ function AdDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleEditSupervisorClick("Edit Supervisor")}
+                  onClick={() => handleEditSupervisorClick("All Supervisor")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <EditIcon
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {editSupervisorOption === "Edit Supervisor" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
-                  <ListItemText primary="Edit Supervisor" />
+                  <ListItemText primary="All Supervisor" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
@@ -439,18 +590,13 @@ function AdDash(props) {
                   onClick={() => handleEditSupervisorClick("Create Supervisor")}
                 >
                   <ListItemIcon>
-                    <FiberManualRecordIcon
+                    <CreateIcon
                       sx={{
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: Colors.palette.secondary.main,
                         marginLeft: "5px",
                       }}
                     />
-                    {/* {editSupervisorOption === "Create Supervisor" ? (
-                    <RadioButtonCheckedIcon />
-                  ) : (
-                    <RadioButtonUncheckedIcon />
-                  )} */}
                   </ListItemIcon>
                   <ListItemText primary="Create Supervisor" />
                 </ListItemButton>
@@ -471,7 +617,7 @@ function AdDash(props) {
       <AppBar
         position="fixed"
         sx={{
-          background: Colors.palette.secondary.main,
+          background: Colors.palette.primary.darkBlue,
           width: "100%",
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
@@ -487,7 +633,24 @@ function AdDash(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
-            Logo
+            <NavLink
+              to="/"
+              style={{
+                textDecoration: "none",
+                color: Colors.palette.primary.main,
+              }}
+            >
+              <img
+                src={Logo}
+                alt=""
+                style={{
+                  marginTop: "15px",
+                  width: "150px",
+                  maxWidth: "100%",
+                  height: "50px",
+                }}
+              />
+            </NavLink>
           </Typography>
           <Box
             sx={{

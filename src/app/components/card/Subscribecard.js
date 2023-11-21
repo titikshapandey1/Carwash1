@@ -54,8 +54,8 @@ function Subscribecard({ children, shadowColor }) {
     justifyContent: 'center',
     alignItems: 'center',
     color: shadowColor,
-    boxShadow: isHovered ? "0px 5px 15px" : "none", // Box shadow on hover
-    transition: "box-shadow 0.3s, color 0.3s", // Transition effect
+    boxShadow: isHovered ? "0px 5px 15px" : "none", 
+    transition: "box-shadow 0.3s, color 0.3s", 
   };
 
   return (
@@ -65,7 +65,7 @@ function Subscribecard({ children, shadowColor }) {
         justifyContent: 'center',
         alignItems: 'center',
         mt: '5%',
-        mb: '5%',
+        // mb: '5%',
         padding: "20px",
       }}
     >

@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Colors from "../utils/colors";
 import FAQSeracher from "./FAQSearcher";
+import Footer from "../partials/Footer";
 
 const faqData = [
   {
@@ -91,44 +92,46 @@ export default function CustomizedAccordions() {
   };
 
   return (
-    <Container>
-      <Typography
-        variant="h2"
-        align="center"
-        sx={{ marginTop: "20px", color: Colors.palette.secondary.main }}
-      >
-        Website FAQs
-      </Typography>
-      <Typography
-        align="center"
-        sx={{ marginTop: "20px", color: Colors.palette.secondary.main }}
-      >
-        Explore answers to the most commonly asked questions about the online
-        website maker.
-      </Typography>
-      <FAQSeracher />
-      {faqData.map((item, index) => (
-        <Accordion
-          key={index}
-          sx={{
-            marginBottom: "20px",
-            border: `1px solid ${Colors.palette.background.lightBlue}`,
-            boxShadow: "none",
-            padding: "20px",
-          }}
+    <>
+      <Container sx={{mb:10}}>
+        <Typography
+          variant="h2"
+          align="center"
+          sx={{ marginTop: "20px", color: Colors.palette.secondary.main }}
         >
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <SmallerFontSizeTypography variant="h5">
-              {item.question}
-            </SmallerFontSizeTypography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography sx={{ color: Colors.palette.secondary.grey }}>
-              {item.answer}
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      ))}
-    </Container>
+          Website FAQs
+        </Typography>
+        <Typography
+          align="center"
+          sx={{ marginTop: "20px", color: Colors.palette.secondary.main }}
+        >
+          Explore answers to the most commonly asked questions.
+        </Typography>
+        <FAQSeracher />
+        {faqData.map((item, index) => (
+          <Accordion
+            key={index}
+            sx={{
+              marginBottom: "20px",
+              border: `1px solid ${Colors.palette.background.lightBlue}`,
+              boxShadow: "none",
+              padding: "20px",
+            }}
+          >
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <SmallerFontSizeTypography variant="h5">
+                {item.question}
+              </SmallerFontSizeTypography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{ color: Colors.palette.secondary.grey }}>
+                {item.answer}
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </Container>
+      <Footer />
+    </>
   );
 }

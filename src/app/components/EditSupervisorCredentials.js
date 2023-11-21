@@ -11,6 +11,8 @@ import {
   Select,
   InputLabel,
   MenuItem,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../utils/colors";
@@ -20,8 +22,10 @@ import { NavLink } from "react-router-dom";
 
 import Axios from "../utils/Axios";
 import { useState, useEffect } from "react";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function EditSupervisorCredentials() {
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -31,7 +35,7 @@ function EditSupervisorCredentials() {
       surName: formik.values.surName,
       mobileNumber: formik.values.mobileNumber,
       alternateNumber: formik.values.alternateNumber,
-      email: formik.values.email,
+      userName: formik.values.email,
       address: {
         locality: formik.values.locality,
         city: formik.values.city,
@@ -39,18 +43,14 @@ function EditSupervisorCredentials() {
         state: formik.values.state,
         pincode: formik.values.pincode,
       },
-      city: formik.values.city,
-      district: formik.values.district,
-      state: formik.values.state,
-      pincode: formik.values.pincode,
-      age: formik.values.age,
+
+      Service: formik.values.Service,
       price: formik.values.price,
-      userName: formik.values.createusername,
       passWord: formik.values.password,
     };
 
     try {
-      const response = await Axios.post("/src/routes/createData", data);
+      const response = await Axios.post("/create-supervisior", data);
       console.log("Response:", response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -80,16 +80,18 @@ function EditSupervisorCredentials() {
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     state: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State "),
     pincode: Yup.string()
       .required("Pincode is required")
       .matches(/^[1-9]\d{5}$/, "Invalid Pincode"),
-    age: Yup.string().required("Service Type is required"),
+    Service: Yup.string().required("Service Type is required"),
     price: Yup.number()
       .required("Price is required")
       .positive("Price must be positive")
       .integer("Price must be an integer"),
-    createusername: Yup.string().required("Create Username is required"),
+    createusername: Yup.string()
+      .required("Create Username is required")
+      .matches(/^[A-Za-z]+$/, "Only letters are allowed in userName"),
     password: Yup.string().required("Password is required"),
     confirmpass: Yup.string().oneOf(
       [Yup.ref("password"), null],
@@ -171,7 +173,7 @@ function EditSupervisorCredentials() {
               variant="h6"
               sx={{ color: Colors.palette.secondary.main }}
             >
-              Enter your credentials here:
+              Enter credentials here:
             </Typography>
             <form style={formStyle} onSubmit={formik.handleSubmit} noValidate>
               <Grid container spacing={2}>
@@ -400,21 +402,23 @@ function EditSupervisorCredentials() {
                     </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
-                      id="age"
-                      name="age"
-                      value={formik.values.age}
+                      id="Service"
+                      name="Service"
+                      value={formik.values.Service}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       label="Select Service Type"
-                      error={formik.touched.age && Boolean(formik.errors.age)}
+                      error={
+                        formik.touched.Service && Boolean(formik.errors.Service)
+                      }
                     >
                       <MenuItem value={10}>Routine Clean</MenuItem>
                       <MenuItem value={20}>Dry Clean</MenuItem>
                       <MenuItem value={30}>Deep Clean</MenuItem>
                     </Select>
-                    {formik.touched.age && formik.errors.age && (
+                    {formik.touched.Service && formik.errors.Service && (
                       <Typography variant="caption" color="error">
-                        {formik.errors.age}
+                        {formik.errors.Service}
                       </Typography>
                     )}
                   </FormControl>
@@ -470,7 +474,7 @@ function EditSupervisorCredentials() {
                   />
                 </Grid>
                 <Grid item xs={12} sm={12}>
-                  <TextField
+                  {/* <TextField
                     variant="outlined"
                     required
                     fullWidth
@@ -490,6 +494,35 @@ function EditSupervisorCredentials() {
                     helperText={
                       formik.touched.password && formik.errors.password
                     }
+                  /> */}
+                  <TextField
+                    variant="outlined"
+                    label="Password"
+                    id="password"
+                    name="password"
+                    fullWidth
+                    size="small"
+                    sx={textFieldStyles}
+                    type={showPassword ? "text" : "password"}
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.password && Boolean(formik.errors.password)
+                    }
+                    helperText={
+                      formik.touched.password && formik.errors.password
+                    }
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={() => setShowPassword(!showPassword)}
+                          >
+                            {showPassword ? <Visibility /> : <VisibilityOff />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={12}>

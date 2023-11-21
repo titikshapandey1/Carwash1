@@ -1,24 +1,52 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
-// import Colors from '../../../utils/Colors';
+import Colors from "../utils/colors";
 import car1 from "../assests/images/AboutCar.png";
+import { NavLink } from "react-router-dom";
+//about
 const AboutGuest = () => {
   return (
     <Box>
-      <Grid container spacing={4} sx={{ marginTop: "3%" }}>
+      <Grid container spacing={4} sx={{ mt: 5 }}>
         <Grid item xs={12} sm={6} md={8}>
-          <Typography variant="h5" sx={{ marginLeft: "5%" }} gutterBottom>
+          <Typography
+            variant="h4"
+            sx={{ marginLeft: "5%", color: Colors.palette.secondary.main }}
+            gutterBottom
+          >
+
             <b> About Us</b>
           </Typography>
 
-          <Typography variant="body1" sx={{ marginLeft: "5%" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum....(see more)
+          <Typography
+            variant="body1"
+            sx={{ marginLeft: "5%", lineHeight: "1.8" }}
+          >
+            Welcome to our premier car wash service center in Noida. We offer an
+            unparalleled car cleaning experience
+            <br /> with three comprehensive packages: Routine clean, Dry clean,
+            and Deep clean. Our cutting-edge
+            <br />
+            technology and skilled staff ensure top-notch results for every
+            vehicle. For added convenience,
+            <br /> we provide pick-up and drop-off services exclusively for deep
+            cleans, allowing you to focus <br />
+            on your day while we pamper your car....
+            <NavLink
+              to="/aboutus"
+              style={{
+                textDecoration: "none",
+                color: Colors.palette.secondary.main,
+              }}
+            >
+              (see more)
+            </NavLink>
+            {/* At our center, customer satisfaction
+            is our priority, and we take pride in delivering excellence in every
+            wash. Join us to experience the ultimate care for your vehicle with
+            our professional and reliable services. Book now for a spotless,
+            shining car ready to hit the road, and let us elevate your driving
+            experience today. */}
           </Typography>
         </Grid>
 

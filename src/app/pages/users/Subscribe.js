@@ -21,7 +21,7 @@ const Subscribe = () => {
   return (
     <>
       <Container>
-        <Box sx={{ textAlign: "center", marginTop: "5%", marginBottom: "8%" }}>
+        <Box sx={{ textAlign: "center", marginTop: "5%"  }}>
           <Grid
             container
             spacing={2}

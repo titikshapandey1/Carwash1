@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import {
   Box,
   Grid,
@@ -9,34 +9,38 @@ import {
   Card,
   useMediaQuery,
 } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import { CardActionArea } from "@mui/material";
 import ExploreIcon from "@mui/icons-material/Explore";
 import CallIcon from "@mui/icons-material/Call";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 import Footer from "../../partials/Footer";
 import Nav from "../../partials/Nav";
-import BackgroundImg from "../../components/Background";
 import Ourplan from "../../components/Ourplan";
 import Question from "../../components/Question";
 import Colors from "../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { NavLink } from "react-router-dom";
-import car1 from "../../assests/images/AboutCar.png";
+import { Link } from "react-router-dom";
+import ContactUsImg from "../../assests/images/Contact.png";
 import Axios from "../../utils/Axios";
-import { useState, useEffect } from "react";
+import React, { useEffect} from "react";
 
 const cardStyles = {
   p: 2,
-  marginBottom: "5%",
-  borderRadius: "20px",
+  marginBottom: "5% !important",
+  borderRadius: "20px !important",
+  width: "95% !important",
+  marginRight: "5% !important",
 };
 
 const mobileCardStyles = {
-  width: "90%",
-  p: 2,
-  marginBottom: "2%",
-  borderRadius: "20px",
+  width: "auto !important",
+  p: "0 !important",
+  marginBottom: "2% !important",
+  borderRadius: "20px !important",
+  marginRight: "0 !important",
 };
 
 const boxStyle = {
@@ -95,6 +99,7 @@ function ContactUs() {
       console.error("Error:", error);
     }
   };
+  
 
   const isSmallScreen = useMediaQuery("(max-width: 900px)");
 
@@ -121,7 +126,7 @@ function ContactUs() {
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     State: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     Pincode: Yup.string()
       .required("Pincode is required")
       .test(
@@ -152,11 +157,47 @@ function ContactUs() {
       formik.resetForm();
     },
   });
+    
+  const [apiData, setApiData] = React.useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await Axios.get("/get-contactsus"); 
+        console.log("API Response:", response.data);
+        setApiData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <>
       <Nav />
-      <BackgroundImg />
+      <Box
+        sx={{
+          display: "flex",
+          backgroundImage: `url(${ContactUsImg})`,
+          backgroundSize: "cover",
+          minHeight: "400px",
+          backgroundPosition: "center",
+          // position: "relative",
+        }}
+      >
+        <Grid container>
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={8}
+            justifyContent="center"
+            textAlign={"center"}
+            sx={{ mt: "200px", display: "flex" }}
+          ></Grid>
+        </Grid>
+      </Box>
       <Box
         sx={{
           backgroundColor: Colors.palette.secondary.cardBackground,
@@ -173,102 +214,145 @@ function ContactUs() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={6}>
                   {/* <Box> */}
+                  {/* {apiData && ( */}
+                    <>
                   <Card
                     sx={{
-                      width: "80%",
+                      // width: "70%",
                       ...cardStyles,
                       ...(isSmallScreen && mobileCardStyles),
-                    }}
-                  >
-                    {" "}
-                    <Container>
-                      <Grid container wrap="nowrap" spacing={10}>
-                        <Grid item marginTop="5%">
-                          <HourglassFullIcon
-                            sx={{
-                              color: Colors.palette.secondary.main,
-                              fontSize: "30px",
-                            }}
-                          />
-                        </Grid>
-                        <Grid item>
-                          <Typography
-                            sx={{ color: Colors.palette.secondary.main }}
-                          >
-                            <b>Hours</b>
-                            <br />
-                            Mon-Fri : 9 AM - 7 PM
-                            <br />
-                            Sat : 9 AM - 2 PM
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Container>
-                  </Card>
-                  <Card
-                    sx={{
-                      width: "80%",
-                      ...cardStyles,
-                      ...(isSmallScreen && mobileCardStyles),
-                    }}
-                  >
-                    {" "}
-                    <Container>
-                      <Grid container wrap="nowrap" spacing={10}>
-                        <Grid item marginTop="5%">
-                          <CallIcon
-                            sx={{
-                              color: Colors.palette.secondary.main,
-                              fontSize: "30px",
-                            }}
-                          />
-                        </Grid>
-                        <Grid item xs>
-                          <Typography
-                            sx={{ color: Colors.palette.secondary.main }}
-                          >
-                            <b>Contact:</b>
-                            <br />
-                            mifs@info.com
-                            <br />
-                            (303) 985-0105, (303) 355-0105
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Container>
-                  </Card>
-                  <Card
-                    sx={{
-                      width: "80%",
-                      ...cardStyles,
-                      ...(isSmallScreen && mobileCardStyles),
-                    }}
-                  >
-                    <Container>
-                      <Grid container wrap="nowrap" spacing={10}>
-                        <Grid item marginTop="5%">
-                          <ExploreIcon
-                            sx={{
-                              color: Colors.palette.secondary.main,
-                              fontSize: "30px",
-                            }}
-                          />
-                        </Grid>
-                        <Grid item xs>
-                          <Typography
-                            sx={{ color: Colors.palette.secondary.main }}
-                          >
-                            <b>Address:</b>
-                            <br />
-                            2972 Westheimer Rd. Santa Ana,
-                            <br /> Illinois 85486
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Container>
-                  </Card>
-                </Grid>
+                      marginRight: isSmallScreen ? "0" : "5%",
 
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardContent>
+                        {" "}
+                        <Container>
+                          <Grid container wrap="nowrap" spacing={10}>
+                            <Grid item marginTop="5%">
+                            {/* {apiData.Hours} */}
+                              <HourglassFullIcon
+                                sx={{
+                                  color: Colors.palette.secondary.main,
+                                  fontSize: "30px",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item>
+                              <Typography
+                                sx={{ color: Colors.palette.secondary.main }}
+                              >
+                                <b>Hours</b>
+                                <br />
+                                Mon-Fri : 9 AM - 7 PM
+                                <br />
+                                Sat : 9 AM - 2 PM
+                              </Typography>
+                            </Grid>
+                             {/* <Grid item>
+                                  <Typography
+                                    sx={{ color: Colors.palette.secondary.main }}
+                                  >
+                                    <b>{apiData.Hours}</b>
+                                    <br />
+                                    {apiData.createdAt}
+                                  </Typography>
+                                </Grid> */}
+                          </Grid>
+                        </Container>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                  <Card
+                    sx={{
+                      // width: "70%",
+                      ...cardStyles,
+                      ...(isSmallScreen && mobileCardStyles),
+                      marginRight: isSmallScreen ? "0" : "5%",
+
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardContent>
+                        {" "}
+                        <Container>
+                          <Grid container wrap="nowrap" spacing={10}>
+                            <Grid item marginTop="5%">
+                              <CallIcon
+                                sx={{
+                                  color: Colors.palette.secondary.main,
+                                  fontSize: "30px",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs>
+                              <Typography
+                                sx={{ color: Colors.palette.secondary.main }}
+                              >
+                                <b>Contact:</b>
+                                <br />
+                                wowkaar@info.com
+                                <br />
+                                +91 7017866149
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Container>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                  <Card
+                    sx={{
+                      // width: "70%",
+                      ...cardStyles,
+                      ...(isSmallScreen && mobileCardStyles),
+                      marginRight: isSmallScreen ? "0" : "5%",
+
+                    }}
+                  >
+                    {" "}
+                    <CardActionArea>
+                      <CardContent>
+                        <Container>
+                          <Grid container wrap="nowrap" spacing={10}>
+                            <Grid item marginTop="5%">
+                              <ExploreIcon
+                                sx={{
+                                  color: Colors.palette.secondary.main,
+                                  fontSize: "30px",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs>
+                              <Typography
+                                sx={{ color: Colors.palette.secondary.main }}
+                              >
+                                <b>Address:</b>
+                                <br />
+                                Noida,
+                                <br /> Delhi NCR, UP
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Container>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                  </>
+                  )}
+                  <div className="card">
+                    <iframe
+                      width="100%"
+                      height="400"
+                      frameborder="0"
+                      marginheight="0"
+                      marginwidth="0"
+                      src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Noida&amp;t=&amp;z=10&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                      title="Map"
+                    ></iframe>
+                  </div>
+                </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                   <Card>
                     <Container component="main" maxWidth="sm">

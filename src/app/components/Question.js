@@ -26,19 +26,19 @@ const buttonHoverStyle = {
 
 const faqData = [
   {
-    question: "What is the FAQ page?",
+    question: "What's the recommended frequency for a deep clean ?",
     answer:
-      "The FAQ page contains frequently asked questions and their answers.",
+      "We suggest a deep clean every 2-3 months, depending on your usage and environmental exposure.",
   },
   {
-    question: "How do I use the FAQ page?",
+    question: "Are the cleaning products safe for all car finishes ?",
     answer:
-      "You can click on the question to reveal the answer. Click again to hide it.",
+      "Yes, our products are safe and tailored for various car finishes, ensuring no damage to your vehicle.",
   },
   {
-    question: "Can I add more questions and answers?",
+    question: "Do you offer any warranty or guarantee on the cleaning service?",
     answer:
-      "Yes, you can easily extend the FAQ page by adding more items to the data array.",
+      "We take pride in our work and offer a satisfaction guarantee. If you're not happy, we'll make it right.",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function CustomizedAccordions() {
         variant="h4"
         sx={{ color: Colors.palette.secondary.main, mb: 5 }}
       >
-        <b>Frequently Asked Question:</b>
+        <b>Frequently Asked Question (FAQs)</b>
       </Typography>
 
       {faqData.map((item, index) => (

@@ -17,20 +17,21 @@ import {
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PaymentOptions from "../../components/Paymentoption";
 import Colors from "../../utils/colors";
 import Axios from "../../utils/Axios";
-import { useState, useEffect } from "react";
 
 function ServiceLocation() {
+  const navigate = useNavigate();
+
   const createServiceLocation = async () => {
     const data = {
       firstName: formik.values.firstName,
       surName: formik.values.lastName,
       mobileNumber: formik.values.contactNumber,
       alternateNumber: formik.values.alternateNumber,
-      email: formik.values.email,
+      userName: formik.values.email,
 
       address: {
         locality: formik.values.locality,
@@ -48,14 +49,16 @@ function ServiceLocation() {
         pincode: formik.values.PickupPincode,
       },
 
-      paymentMode:formik.values.payment,
+      paymentMode: formik.values.payment,
     };
 
     try {
-      const response = await Axios.post("src/routes/serviceRqst", data);
+      const response = await Axios.post("/service-request", data);
       console.log("API Response:", response.data);
+      navigate(`/serviceinvoice?id=${response.data.id}&response=success`);
     } catch (error) {
       console.error("Error:", error?.response?.data?.message);
+      alert("Something Went Wrong");
     }
   };
 
@@ -115,7 +118,7 @@ function ServiceLocation() {
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     State: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     Pincode: Yup.string()
       .required("Pincode is required")
       .test(
@@ -132,7 +135,7 @@ function ServiceLocation() {
       .matches(/^[A-Za-z]+$/, "Only letters are allowed in District"),
     PickupState: Yup.string()
       .required("State is required")
-      .matches(/^[A-Za-z]+$/, "Only letters are allowed in State"),
+      .matches(/^[A-Za-z ]+$/, "Only letters are allowed in State"),
     PickupPincode: Yup.string()
       .required("Pincode is required")
       .test(
@@ -158,7 +161,7 @@ function ServiceLocation() {
       PickupDistrict: "",
       PickupState: "",
       PickupPincode: "",
-      payment:"",
+      payment: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -172,8 +175,6 @@ function ServiceLocation() {
       sx={{
         background:
           "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -181,11 +182,7 @@ function ServiceLocation() {
         borderRadius: "25",
       }}
     >
-      <Container
-        component="main"
-        maxWidth="sm"
-        sx={{ mt: "1%", mb: "1%", ml: "20%", mr: "20%" }}
-      >
+      <Container component="main" maxWidth="md" sx={{ mt: "5%", mb: "5%" }}>
         <Grid container>
           <Paper elevation={10} style={paperStyle}>
             <Typography
@@ -292,8 +289,7 @@ function ServiceLocation() {
                     variant="h6"
                     sx={{ color: Colors.palette.secondary.main }}
                   >
-                    Addres
-                    s
+                    Address
                     <br />
                   </Typography>
                 </Grid>
@@ -543,26 +539,36 @@ function ServiceLocation() {
                   />
                 </Grid>
               </Grid>
-              <Box align="center">
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {/* <NavLink
+                  to={
+                    apiResponseId
+                      ? `/serviceinvoice?id=${apiResponseId}&response=success`
+                      : "#"
+                  }
+                  style={{
+                    textDecoration: "none",
+                    color: Colors.palette.primary.main,
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                > */}
+
                 <Button
                   type="button"
                   variant="contained"
                   sx={{ ...submitButtonStyle }}
-                  // onClick={formik.handleSubmit}
                   onClick={createServiceLocation}
                 >
-                  {/* <NavLink 
-                    to="/home" 
-                    style={{
-                      textDecoration: "none",
-                      color: Colors.palette.primary.main,
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >  */}
                   Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                  {/* </NavLink> */}
                 </Button>
+                {/* </NavLink> */}
               </Box>
             </form>
           </Paper>

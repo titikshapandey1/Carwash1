@@ -1,10 +1,67 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SupDash from "../../components/SupDash";
-import Table from "../../components/Table";
 import Colors from "../../utils/colors";
-import { Box, Typography } from "@mui/material";
+import Table from "../../components/Table";
+import { useNavigate } from "react-router-dom";
+import { Box, Typography, Button } from "@mui/material";
+import Axios from "../../utils/Axios1";
+import Loader from "../../components/Loader";
 
 const SupPaySucc = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [tableData, setTableData] = useState([]);
+  const tableHeaders = [
+    "Date",
+    "Booking ID",
+    "Service Type",
+    "Amount",
+    "View Details",
+  ];
+
+  const fetchPaymentSucc = async () => {
+    setLoading(true);
+    try {
+      const response = await Axios.get("/get-all-successfull-payments");
+      setTableData(
+        response.data.transactionDetails.map((transactionDetails) => ({
+          d1: transactionDetails.transaction.createdAt,
+          d2: transactionDetails.transaction._id,
+          d3: transactionDetails.serviceRequestDetails.serviceType,
+          d4: transactionDetails.serviceRequestDetails.Amount,
+          d5: (
+            <Button
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                textDecoration: "none",
+                color: Colors.palette.secondary.main,
+                fontSize: "12px",
+              }}
+              onClick={() =>
+                navigate(
+                  `/supervisorpaymentdetails?id=${transactionDetails.transaction._id}`
+                )
+              }
+            >
+              View Details
+            </Button>
+          ),
+        }))
+      );
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }
+  };
+  useEffect(() => {
+    fetchPaymentSucc();
+  }, []);
+
   return (
     <>
       <Box
@@ -40,7 +97,13 @@ const SupPaySucc = () => {
             marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
-          <Table />
+          {loading ? (
+            <h1>
+              <Loader />
+            </h1>
+          ) : (
+            <Table data={tableData} headers={tableHeaders} />
+          )}
         </Box>
       </Box>
     </>

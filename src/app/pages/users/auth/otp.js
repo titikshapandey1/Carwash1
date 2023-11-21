@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Grid,
   Paper,
@@ -12,10 +12,15 @@ import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
-// import Sedan from "../../assests/images/car1guest.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import Axios from "../../../utils/Axios1";
 
 const Otp = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const otpFromAPI = location.state?.otp;
+  const { formData, formType, userData } = location.state;
+
   const [number, setNumber] = useState({
     0: "",
     1: "",
@@ -33,6 +38,8 @@ const Otp = () => {
     4: "",
     5: "",
   });
+
+  const [email, setEmail] = useState("");
 
   const paperStyle = {
     padding: "20px",
@@ -61,48 +68,103 @@ const Otp = () => {
     backgroundColor: Colors.palette.secondary.main,
   };
 
-  // const onChange = (e, index) => {
-  //   const value = e.target.value.replace(/[^0-9]/g, "");
-  // const onChange = (e, index) => {
-  //   //   const value = e.target.value.replace(/[^0-9]/g, "");
-  const onChange = (e, index) => {
-    var onlyNums = e.target.value.replace(/[^0-9]+$/, "");
-    if (onlyNums) {
-      onlyNums = parseInt(onlyNums[0]);
-    }
-    setNumber({
-      ...number,
-      [index]: onlyNums,
-    });
-
-    if (!onlyNums) {
-      setValidationErrors({
-        ...validationErrors,
-        [index]: "Field is required",
+  const resendOtp = async () => {
+    try {
+      const response = await Axios.post("/otp-forgot-password", {
+        userName: formData.userName,
       });
-    } else {
+      console.log("Resend OTP response:", response.data);
+      alert("OTP Resent Successfully");
+    } catch (error) {
+      console.error("Resend OTP failed:", error);
+    }
+  };
+  const textInputRefs = useRef(Array.from({ length: 6 }).map(() => React.createRef()));
+  const onChange = (e, index) => {
+    const inputValue = e.target.value;
+
+    if (inputValue.length === 1 && /^[0-9]$/.test(inputValue)) {
+      setNumber({
+        ...number,
+        [index]: parseInt(inputValue),
+      });
       setValidationErrors({
         ...validationErrors,
         [index]: "",
       });
+      if (index < 5 && textInputRefs.current[index + 1]?.current) {
+        textInputRefs.current[index + 1].current.focus();
+      }
+    } else {
+      setNumber({
+        ...number,
+        [index]: "",
+      });
+      setValidationErrors({
+        ...validationErrors,
+        [index]: "Field is required and must be a single digit (0-9).",
+      });
     }
   };
 
-  const handleFormSubmit = (e) => {
+  const enteredOtp = Object.values(number).join("").trim();
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const isFormValid = Object.values(validationErrors).every(
-      (error) => !error
-    );
+    if (formType === "registerpage") {
+      if (enteredOtp === otpFromAPI) {
+        alert("OTP Matched");
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
+        try {
+          const userData = {
+            userName: formData.userName,
+            passWord: formData.passWord,
+            role: 1,
+            firstName: formData.firstName,
+            surName: formData.surName,
+            mobileNumber: formData.mobileNumber,
+            alternateNumber: formData.alternateNumber,
+            address: formData.address,
+            otp: otpFromAPI,
+          };
 
-    if (isFormValid) {
-      console.log("Form submitted successfully");
+          const response = await Axios.post("/user-register", userData);
+          console.log("User registration response:", response.data);
+          alert("User Registered Successfully");
+          navigate("/home");
+          window.location.reload(); 
+        } catch (error) {
+          console.error("User registration failed:", error);
+        }
+      } else {
+        alert("OTP does not match. Please enter the correct OTP.");
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
+      }
+    } else if (formType === "forgetPassword") {
+      if (enteredOtp === otpFromAPI) {
+        alert("OTP Matched");
+        const userData = {
+          userName: formData.userName,
+          otp: otpFromAPI,
+        };
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
 
-      setTimeout(() => {
+        navigate("/passwordreset", {
+          state: {
+            formData: userData,
+          },
+        });
+
+        console.log("Forget Password Data: ", userData);
+      } else {
+        alert("Wrong OTP, Enter Again");
+        console.log("otp from api: ", otpFromAPI);
+        console.log("entered otp: ", enteredOtp);
         window.location.reload();
-      }, 1000);
-    } else {
-      console.log("Form has errors. Please correct them.");
+      }
     }
   };
 
@@ -154,7 +216,7 @@ const Otp = () => {
                     }}
                   >
                     <NavLink
-                      to="/mobile"
+                      to="/"
                       style={{
                         textDecoration: "none",
                         color: Colors.palette.secondary.main,
@@ -173,10 +235,10 @@ const Otp = () => {
                     variant="body1"
                     sx={{ color: Colors.palette.secondary.main }}
                   >
-                    <b>You have received an OTP on your number xxxxxx6149</b>
+                    You have received an OTP on your <b>{formData.userName}</b>
                   </Typography>
                   <br />
-                  <Box
+                  {/* <Box
                     sx={{
                       display: "flex",
                       justifyContent: "center",
@@ -209,8 +271,42 @@ const Otp = () => {
                         }}
                       />
                     ))}
+                  </Box> */}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {Array.from({ length: 6 }).map((_, index) => (
+                      <TextField
+                        key={index}
+                        name="number"
+                        type="text"
+                        placeholder="-"
+                        variant="outlined"
+                        value={number[index] ?? ""}
+                        onChange={(e) => onChange(e, index)}
+                        sx={{
+                          display: "solid",
+                          width: {
+                            md: "40px",
+                            sm: "35px",
+                          },
+                          mt: 1,
+                          ml: index === 3 ? 3 : 1,
+                        }}
+                        InputProps={{
+                          sx: {
+                            height: "40px",
+                            color: Colors.palette.secondary.main,
+                            border: `1px solid ${Colors.palette.secondary.main}`,
+                          },
+                        }}
+                        inputRef={textInputRefs.current[index]}
+                      />
+                    ))}
                   </Box>
-
                   {Object.values(validationErrors).map((error, index) => (
                     <Typography
                       key={index}
@@ -237,7 +333,9 @@ const Otp = () => {
                         style={{
                           color: Colors.palette.secondary.blue,
                           marginRight: "1.5rem",
+                          cursor: "pointer",
                         }}
+                        onClick={resendOtp}
                       >
                         &nbsp;&nbsp;Resend
                       </span>
@@ -258,17 +356,7 @@ const Otp = () => {
                       sx={{ ...submitButtonStyle }}
                       disabled={isSubmitDisabled}
                     >
-                      <NavLink
-                        to="/home"
-                        style={{
-                          textDecoration: "none",
-                          color: Colors.palette.primary.main,
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                      </NavLink>
+                      Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
                     </Button>
                   </Box>
                 </form>

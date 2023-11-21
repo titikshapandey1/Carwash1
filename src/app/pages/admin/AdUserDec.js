@@ -1,15 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminDash from "../../components/AdDash";
 import Table from "../../components/Table";
 import Colors from "../../utils/colors";
-
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Box, Typography, Button } from "@mui/material";
+import Axios from "../../utils/Axios1";
+import Loader from "../../components/Loader";
 
 const AdUserDec = () => {
-  return ( 
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [tableData, setTableData] = useState([]);
+  const tableHeaders = ["User Name", "Location", "Mobile No.", "View Details"];
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await Axios.get("/get-all-declined-users");
+      const activeUsers = response.data.declinedUsers;
+      setTableData(
+        activeUsers.map((item, index) => ({
+          d1: item.userName,
+          d2: `${item.address.state}, ${item.address.city}`,
+          d3: item.mobileNumber,
+          d4: (
+            <Button
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                textDecoration: "none",
+                color: Colors.palette.secondary.main,
+                fontSize: "12px",
+              }}
+              onClick={() => handleViewDetails(item)}
+            >
+              View Details
+            </Button>
+          ),
+        }))
+      );
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }
+  };
+  const handleViewDetails = (user) => {
+    console.log("user", user);
+    navigate("/adminuserdetails", {
+      state: { userId: user._id, userStatus: "inactive" },
+    });
+    console.log("id: ", user._id);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
     <>
       <Box
         display="block"
@@ -32,7 +82,7 @@ const AdUserDec = () => {
             fontWeight: "600",
           }}
         >
-          Declined Users
+          Inactive Users
         </Typography>
         <Box
           display="flex"
@@ -44,7 +94,13 @@ const AdUserDec = () => {
             marginLeft: { sm: "0%", md: "21.5%", lg: "17%" },
           }}
         >
-          <Table />
+          {loading ? (
+            <h1>
+              <Loader />
+            </h1>
+          ) : (
+            <Table data={tableData} headers={tableHeaders} />
+          )}
         </Box>
       </Box>
     </>

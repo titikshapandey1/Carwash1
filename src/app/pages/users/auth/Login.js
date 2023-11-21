@@ -10,23 +10,19 @@ import {
   IconButton,
   InputAdornment,
 } from "@mui/material";
-import {
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
-
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Axios from "../../../utils/Axios";
-import Mobile from "./Mobile";
 import Colors from "../../../utils/colors";
-
+import Axios from "../../../utils/Axios1";
 
 function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
   const LoginUser = async () => {
     const data = {
       userName: formik.values.userName,
@@ -34,14 +30,13 @@ function Login() {
     };
 
     try {
-      const response = await Axios.post("src/routes/login", data);
-      console.log("API Response:", response.data);
+      const response = await Axios.post("/login", data);
+      console.log("Login successful:", response.data);
+      navigate("/home");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Login failed:", error);
     }
   };
-
-  
 
   const paperStyle = {
     padding: "20px",
@@ -75,9 +70,10 @@ function Login() {
     passWord: Yup.string()
       .required("Password is required")
       .matches(
-        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,8}$/,
-        "Password Should have one Capital Letter, Number, Specical Character and be 6 to 8 characters in length"
-      ),
+        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+        "Password should have one capital letter, one number, and one special character"
+      )
+      .min(6, "Password must be at least 6 characters in length"),
   });
 
   const formik = useFormik({
@@ -87,7 +83,8 @@ function Login() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      // console.log("On Submit: ",values);
+      console.log("On Submit: ", values);
+      // LoginUser();
     },
   });
 
@@ -124,23 +121,23 @@ function Login() {
                 }}
               >
                 <Box sx={{ display: "flex" }}>
-                  <NavLink
+                  {/* <NavLink
                     to="/"
                     style={{
                       textDecoration: "none",
                       color: Colors.palette.secondary.main,
                     }}
+                  > */}
+                  <Button
+                    sx={{
+                      color: Colors.palette.secondary.main,
+                      justifyContent: "flex-start",
+                    }}
+                    onClick={() => navigate("/")}
                   >
-                    <Button
-                      sx={{
-                        color: Colors.palette.secondary.main,
-                        justifyContent: "flex-start",
-                      }}
-                      onClick={Mobile}
-                    >
-                      <ArrowBackIosIcon />
-                    </Button>
-                  </NavLink>
+                    <ArrowBackIosIcon />
+                  </Button>
+                  {/* </NavLink> */}
                   <Typography
                     variant="h4"
                     sx={{
@@ -149,7 +146,7 @@ function Login() {
                       textAlign: "center",
                     }}
                   >
-                    Log in
+                    Log In
                   </Typography>
                 </Box>
 
@@ -174,18 +171,17 @@ function Login() {
                     helperText={
                       formik.touched.userName && formik.errors.userName
                     }
-                    sx={{marginBottom:'20px'}}
+                    sx={{ marginBottom: "20px" }}
                   />
-                  <TextField 
-
+                  <TextField
                     variant="outlined"
                     placeholder="Password"
                     id="passWord"
                     name="passWord"
                     fullWidth
                     size="small"
-                    type={showPassword ? "text" : "password"} 
-                    value={formik.values.passWord}
+                    type={showPassword ? "text" : "passWord"}
+                    value={formik.values.password}
                     onChange={formik.handleChange}
                     error={
                       formik.touched.passWord && Boolean(formik.errors.passWord)
@@ -210,50 +206,33 @@ function Login() {
                       color: Colors.palette.secondary.main,
                       display: "flex",
                       mt: "1.2rem",
+                      cursor: "pointer",
                     }}
+                    onClick={() => navigate(`/email`)}
                   >
                     <LockIcon sx={{ mr: "1rem" }} />
-                    <NavLink
-                      to="/mobile"
-                      style={{
-                        textDecoration: "none",
-                        color: Colors.palette.secondary.main,
-                      }}
-                    >
-                      Forgot password?
-                    </NavLink>
+                    Forgot password?
                   </Typography>
                   <Box align="center">
-                    {/* <NavLink
-                      to="/registerpage"
-                      style={{
-                        textDecoration: "none",
-                        color: Colors.palette.secondary.main,
-                      }}
-                    > */}
                     <Button
                       type="submit"
                       fullWidth
                       variant="contained"
                       style={{ ...submitButtonStyle }}
-                      onClick={LoginUser}
+                      onClick={() => LoginUser()}
                     >
                       Login
                     </Button>
-                    {/* </NavLink> */}
                   </Box>
                   <Box align="center">
-                    <Typography sx={{ color: Colors.palette.secondary.main }}>
-                      Don't have an account?&nbsp;&nbsp;
-                      <NavLink
-                        to="/registerpage"
-                        style={{
-                          textDecoration: "none",
-                          color: Colors.palette.secondary.main,
-                        }}
-                      >
-                        Register here
-                      </NavLink>
+                    <Typography
+                      sx={{
+                        color: Colors.palette.secondary.main,
+                        cursor: "pointer",
+                      }}
+                      onClick={() => navigate(`/registerpage`)}
+                    >
+                      Don't have an account?&nbsp;&nbsp; Register here
                     </Typography>
                   </Box>
                 </form>

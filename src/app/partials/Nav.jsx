@@ -7,15 +7,20 @@ import Button from "@mui/material/Button";
 import Colors from "../utils/colors";
 import DrawerComp from "./Drawer";
 import { NavLink } from "react-router-dom";
-
-// const linkStyle = {
-//   color:Colors.palette.primary.main ,
-//   textDecoration: "none",
-
-// };
+import Logo from "../assests/images/Logo.png";
 
 const Nav = () => {
-  // const [value, setValue] = useState();
+  const buttonStyle = {
+    backgroundColor: Colors.palette.primary.darkBlue,
+    color: Colors.palette.primary.main,
+    "&:hover": {
+      backgroundColor: Colors.palette.primary.lightBlue,
+    },
+    "&.active": {
+      backgroundColor: Colors.palette.primary.main,
+      color: Colors.palette.secondary.black,
+    },
+  };
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -24,17 +29,7 @@ const Nav = () => {
           sx={{ background: Colors.palette.primary.darkBlue }}
         >
           <Toolbar>
-            <DrawerComp />
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{
-                flexGrow: 1,
-                marginLeft: "2%",
-                cursor: "pointer",
-                fontWeight: "600",
-              }}
-            >
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <NavLink
                 to="/"
                 style={{
@@ -42,89 +37,60 @@ const Nav = () => {
                   color: Colors.palette.primary.main,
                 }}
               >
-                Logo
+                <img
+                  src={Logo}
+                  alt=""
+                  style={{
+                    marginTop: "15px",
+                    width: "150px",
+                    maxWidth: "100%",
+                    height: "50px",
+                  }}
+                />
               </NavLink>
             </Typography>
+
             <Box
               sx={{
                 justifyContent: "center",
-                gap: { md: "20px" },
-                display: { xs: "none", sm: "flex" },
+                gap: { md: "30px" },
+                display: { xs: "none", sm: "none", md: "flex" },
               }}
             >
               <Button
-                sx={{
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.lightBlue,
-                    color: "red",
-                  },
-                }}
+                component={NavLink}
+                to="/"
+                exact
+                activeClassName="active"
+                sx={buttonStyle}
               >
-                <NavLink
-                  to="/"
-                  style={{
-                    textDecoration: "none",
-                    color: Colors.palette.primary.main,
-                  }}
-                >
-                  Home
-                </NavLink>
+                Home
               </Button>
 
               <Button
-                sx={{
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.lightBlue,
-                    color: "red",
-                  },
-                }}
+                component={NavLink}
+                to="/services"
+                activeClassName="active"
+                sx={buttonStyle}
               >
-                <NavLink
-                  to="/services"
-                  style={{
-                    textDecoration: "none",
-                    color: Colors.palette.primary.main,
-                  }}
-                >
-                  Services
-                </NavLink>
+                Services
               </Button>
 
               <Button
-                sx={{
-                  cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.lightBlue,
-                  },
-                }}
+                component={NavLink}
+                to="/aboutus"
+                activeClassName="active"
+                sx={buttonStyle}
               >
-                <NavLink
-                  to="/homepage"
-                  style={{
-                    textDecoration: "none",
-                    color: Colors.palette.primary.main,
-                  }}
-                >
-                  About Us
-                </NavLink>
+                About Us
               </Button>
               <Button
-                sx={{
-                  cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: Colors.palette.primary.lightBlue,
-                  },
-                }}
+                component={NavLink}
+                to="/contactus"
+                activeClassName="active"
+                sx={buttonStyle}
               >
-                <NavLink
-                  to="/contactus"
-                  style={{
-                    textDecoration: "none",
-                    color: Colors.palette.primary.main,
-                  }}
-                >
-                  Contact Us
-                </NavLink>
+                Contact Us
               </Button>
               <Button
                 sx={{
@@ -168,6 +134,7 @@ const Nav = () => {
                 </NavLink>
               </Button>
             </Box>
+            <DrawerComp />
           </Toolbar>
         </AppBar>
       </Box>

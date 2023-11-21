@@ -20,6 +20,12 @@ import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
+import Logo from "../assests/images/Logo.png";
+import CheckIcon from "@mui/icons-material/Check";
+import ClearIcon from "@mui/icons-material/Clear";
+import AddIcon from "@mui/icons-material/Add";
+import ChecklistRtlIcon from "@mui/icons-material/ChecklistRtl";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 
 const drawerWidth = 240;
 
@@ -34,9 +40,12 @@ function SupDash(props) {
   const [openDashboard, setopenDashboard] = React.useState(false);
   const [openPayment, setopenPayment] = React.useState(false);
   const [openUsers, setopenUsers] = React.useState(false);
+  const [openService, setopenService] = React.useState(false);
+
   const [selectedPaymentOption, setSelectedPaymentOption] =
     React.useState(null);
   const [selectedUserOption, setSelectedUserOption] = React.useState(null);
+  const [openServiceOption, setServiceOption] = React.useState(null);
 
   const handleDashboardClick = () => {
     setopenDashboard(!openDashboard);
@@ -50,12 +59,20 @@ function SupDash(props) {
     setopenUsers(!openUsers);
   };
 
+  const handleServiceClick = () => {
+    setopenService(!openService);
+  };
+
   const handlePaymentOptionClick = (option) => {
     setSelectedPaymentOption(selectedPaymentOption);
   };
 
   const handleUserOptionClick = (option) => {
     setSelectedUserOption(selectedUserOption);
+  };
+
+  const handleServiceOptionClick = (option) => {
+    setServiceOption(openServiceOption);
   };
 
   const drawer = (
@@ -313,7 +330,7 @@ function SupDash(props) {
             </NavLink>
 
             <NavLink
-              to="/supervisoruserdeclined"
+              to="/supervisoruserinactive"
               style={{ textDecoration: "none" }}
             >
               <ListItem key="declined" disablePadding>
@@ -325,7 +342,7 @@ function SupDash(props) {
                       backgroundColor: Colors.palette.background.lightBlue,
                     },
                   }}
-                  onClick={() => handleUserOptionClick("Declined Users")}
+                  onClick={() => handleUserOptionClick("Inactive Users")}
                 >
                   <ListItemIcon>
                     <FiberManualRecordIcon
@@ -341,7 +358,159 @@ function SupDash(props) {
                         <RadioButtonUncheckedIcon />
                     )} */}
                   </ListItemIcon>
-                  <ListItemText primary="Declined Users" />
+                  <ListItemText primary="Inactive Users" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </List>
+        )}
+
+                 {/* ================ Services ================ */}
+                 <ListItem
+          key="service"
+          disablePadding
+          onClick={handleServiceClick}
+          sx={{
+            color: Colors.palette.secondary.main,
+            backgroundColor: Colors.palette.primary.main,
+            "&:hover": {
+              color: Colors.palette.primary.main,
+              backgroundColor: Colors.palette.secondary.main,
+            },
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <MiscellaneousServicesIcon
+                sx={{
+                  padding: "2px",
+                  color: Colors.palette.primary.main,
+                  backgroundColor: Colors.palette.secondary.main,
+                  borderRadius: "50%",
+                  border: `2px solid ${Colors.palette.secondary.main}`,
+                }}
+              />
+            </ListItemIcon>
+            <ListItemText primary="Services" />
+            {openService ? (
+              <ExpandLess />
+            ) : (
+              <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
+            )}
+          </ListItemButton>
+        </ListItem>
+        {openService && (
+          <List component="div" disablePadding>
+            <NavLink to="/supervisorallservice" style={{ textDecoration: "none" }}>
+              <ListItem key="allservices" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("All Services")}
+                >
+                  <ListItemIcon>
+                    <ChecklistRtlIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="All Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink
+              to="/supervisorrequestedservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="requestservices" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Request Services")}
+                >
+                  <ListItemIcon>
+                    <AddIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Requested Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink
+              to="/supervisoracceptservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="acceptedservices" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Accepted Services")}
+                >
+                  <ListItemIcon>
+                    <CheckIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Accepted Services" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+
+            <NavLink
+              to="/supervisordeniedservice"
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem key="deniedusers" disablePadding>
+                <ListItemButton
+                  sx={{
+                    color: Colors.palette.secondary.main,
+                    "&:hover": {
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.background.lightBlue,
+                    },
+                  }}
+                  onClick={() => handleServiceOptionClick("Denied Services")}
+                >
+                  <ListItemIcon>
+                    <ClearIcon
+                      sx={{
+                        fontSize: "18px",
+                        color: Colors.palette.secondary.main,
+                        marginLeft: "5px",
+                        fontWeight: "600",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Denied Services" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
@@ -360,7 +529,7 @@ function SupDash(props) {
       <AppBar
         position="fixed"
         sx={{
-          background: Colors.palette.secondary.main,
+          background: Colors.palette.primary.darkBlue,
           width: "100%",
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
@@ -376,7 +545,24 @@ function SupDash(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
-            Logo
+            <NavLink
+              to="/"
+              style={{
+                textDecoration: "none",
+                color: Colors.palette.primary.main,
+              }}
+            >
+              <img
+                src={Logo}
+                alt=""
+                style={{
+                  marginTop: "15px",
+                  width: "150px",
+                  maxWidth: "100%",
+                  height: "50px",
+                }}
+              />
+            </NavLink>
           </Typography>
           <Box
             sx={{

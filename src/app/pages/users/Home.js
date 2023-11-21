@@ -6,6 +6,7 @@ import Footer from "../../partials/Footer";
 import Card1 from "../../components/Card";
 import AboutGuest from "../../components/About";
 import Review from "../../components/Review";
+import Work from "../../components/Work";
 const Home = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const Home = () => {
       <BackgroundImg />
       <AboutGuest />
       <Card1 />
+      <Work/>
       <Review />
       <Question />
       <Footer />

@@ -11,30 +11,25 @@ const HomeCards = () => {
   return (
     <>
       <Box
-        sx={{
-          // backgroundImage: `url(${Cardshome})`,
-          // backgroundSize: "contain",
-          // backgroundRepeat: "no-repeat",
-          // backgroundPosition: "center",
-          // opacity: 1,
-          // position: "relative",
-          // width: "100%",
-          // height: "100%",
-          // zIndex: -1,
-          // "@media (max-width: 960px)": {
-          //   backgroundImage: "none",
-          // },
-        }}
+      // sx={
+      //   {
+      //     backgroundImage: `url(${Cardshome})`,
+      //     backgroundSize: "contain",
+      //     backgroundRepeat: "no-repeat",
+      //     backgroundPosition: "center",
+      //     opacity: 1,
+      //     position: "relative",
+      //     minHeight:"600px",
+      //     zIndex: -1,
+      //     "@media (max-width: 960px)": {
+      //       backgroundImage: "none",
+      //     },
+      //   }
+      // }
       >
         <Container sx={{ mt: 10 }}>
-          <Grid
-            container
-            item
-            // justifyContent={"left"}
-            sx={{
-              backdropFilter: "blur(100%)",
-            }}
-          >
+         
+           <Grid container justifyContent="center" alignItems="center">
             <Grid item>
               <Typography
                 fontSize={50}
@@ -51,8 +46,7 @@ const HomeCards = () => {
                 fontSize={16}
                 color={Colors.palette.secondary.main}
                 textAlign={"center"}
-                mt={3}
-                sx={{ marginTop: "16%", ml: 6 }}
+                sx={{ marginTop: "16%", ml: 3 }}
               >
                 WITH
                 <b> MODERN EQUIPMENT</b>
@@ -60,7 +54,7 @@ const HomeCards = () => {
             </Grid>
           </Grid>
 
-          <Grid container item spacing={5} justifyContent={"center"} mt={5}>
+          <Grid container item spacing={5} justifyContent={"center"} mt={2}>
             {/* .......Card No. 1 */}
             <Grid item>
               <Paper
@@ -113,7 +107,7 @@ const HomeCards = () => {
                   padding: 1,
                   backdropFilter: "blur(10%)",
                   background:
-                    "linear-gradient(30deg, #FFFFFF 30%, #B3A8A8 70%)",
+                    "linear-gradient(30deg, #FFFFFF 10%, #B3A8A8 90%)",
                 }}
               >
                 <Typography textAlign={"center"}>
@@ -155,7 +149,7 @@ const HomeCards = () => {
                   padding: 1,
                   backdropFilter: "blur(10%)",
                   background:
-                    "linear-gradient(30deg, #C7C5C5 40%, #B3A6A6 60%)",
+                    "linear-gradient(30deg, #e6e3e3 30%, #c4bbbb 60%)",
                 }}
               >
                 <Typography textAlign={"center"}>
@@ -197,7 +191,7 @@ const HomeCards = () => {
                   padding: 1,
                   backdropFilter: "blur(10%)",
                   background:
-                    "linear-gradient(30deg, #C7C5C5 40%, #B3A6A6 60%)",
+                    "linear-gradient(30deg, #cccaca 40%, #c2baba 60%)",
                 }}
               >
                 <Typography textAlign={"center"}>
