@@ -1,1 +1,0 @@
-export const baseurl='https://e-carwash.onrender.com/v1';
