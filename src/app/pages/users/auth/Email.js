@@ -14,7 +14,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import Colors from "../../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import Axios from "../../../utils/Axios1";
+import Axios from "../../../utils/Axios";
 
 function Email() {
   const [otpFromAPI, setOtpFromAPI] = useState(null);
@@ -26,15 +26,19 @@ function Email() {
     };
 
     try {
-      const response = await Axios.post("/otp-forgot-password", data);
+      const response = await Axios.post("/forget-password", data);
       const otp = response.data.otp;
       setOtpFromAPI(otp);
 
       console.log("OTP sent:", response.data);
+
+      console.log(otp);
+      
       alert("OTP Sent To Email");
       navigate("/otp", {
         state: { formData: data, otp, formType: "forgetPassword" },
       });
+
     } catch (error) {
       console.error("Login failed:", error);
     }

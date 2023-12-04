@@ -100,7 +100,7 @@ function AppRouter() {
       {/*======== PAGES ========== */}
       <Routes>
         {/*======== AUTHENTICATION ========== */}
-         <Route path="/registerpage" element={<RegisterPage />}></Route>
+        <Route path="/registerpage" element={<RegisterPage />}></Route>
         <Route path="/mobile" element={<Mobile />}></Route>
         <Route path="/otp" element={<Otp />}></Route>
         <Route path="/login" element={<Login />}></Route>

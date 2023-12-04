@@ -1,5 +1,5 @@
-import axios from "axios";
-import { baseurl } from "./Variable1";
+// import axios from "axios";
+// import { baseurl } from "./Variable1";
 
-const Axios=axios.create({baseURL:baseurl});
-export default Axios;
+// const Axios=axios.create({baseURL:baseurl});
+// export default Axios;

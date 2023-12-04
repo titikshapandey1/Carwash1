@@ -13,12 +13,12 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import Axios from "../../../utils/Axios1";
+import Axios from "../../../utils/Axios";
 
 const Otp = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const otpFromAPI = location.state?.otp;
+  const [otpFromAPI, setOtpFromAPI] = useState(location.state?.otp);
   const { formData, formType, userData } = location.state;
 
   const [number, setNumber] = useState({
@@ -70,16 +70,21 @@ const Otp = () => {
 
   const resendOtp = async () => {
     try {
-      const response = await Axios.post("/otp-forgot-password", {
+      const response = await Axios.post("/send-otp", {
         userName: formData.userName,
       });
       console.log("Resend OTP response:", response.data);
+      setOtpFromAPI(response.data.otp); 
       alert("OTP Resent Successfully");
     } catch (error) {
       console.error("Resend OTP failed:", error);
     }
   };
-  const textInputRefs = useRef(Array.from({ length: 6 }).map(() => React.createRef()));
+
+  const textInputRefs = useRef(
+    Array.from({ length: 6 }).map(() => React.createRef())
+  );
+
   const onChange = (e, index) => {
     const inputValue = e.target.value;
 
@@ -108,42 +113,43 @@ const Otp = () => {
   };
 
   const enteredOtp = Object.values(number).join("").trim();
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     if (formType === "registerpage") {
-      if (enteredOtp === otpFromAPI) {
-        alert("OTP Matched");
-        console.log("otp from api: ", otpFromAPI);
-        console.log("entered otp: ", enteredOtp);
-        try {
-          const userData = {
-            userName: formData.userName,
-            passWord: formData.passWord,
-            role: 1,
-            firstName: formData.firstName,
-            surName: formData.surName,
-            mobileNumber: formData.mobileNumber,
-            alternateNumber: formData.alternateNumber,
-            address: formData.address,
-            otp: otpFromAPI,
-          };
+    if (enteredOtp == otpFromAPI) {
+      alert("OTP Matched");
+      console.log("otp from api: ", otpFromAPI);
+      console.log("entered otp: ", enteredOtp);
+      try {
+        const userData = {
+          userName: formData.userName,
+          passWord: formData.passWord,
+          role: 1,
+          firstName: formData.firstName,
+          surName: formData.surName,
+          mobileNumber: formData.mobileNumber,
+          alternateNumber: formData.alternateNumber,
+          address: formData.address,
+          otp: otpFromAPI,
+        };
 
-          const response = await Axios.post("/user-register", userData);
-          console.log("User registration response:", response.data);
-          alert("User Registered Successfully");
-          navigate("/home");
-          window.location.reload(); 
-        } catch (error) {
-          console.error("User registration failed:", error);
-        }
-      } else {
-        alert("OTP does not match. Please enter the correct OTP.");
-        console.log("otp from api: ", otpFromAPI);
-        console.log("entered otp: ", enteredOtp);
+        const response = await Axios.post("/user-register", userData);
+        console.log("User registration response:", response.data);
+        alert("User Registered Successfully");
+        navigate("/home");
+        window.location.reload();
+      } catch (error) {
+        console.error("User registration failed:", error);
       }
+    } else {
+      alert("OTP does not match. Please enter the correct OTP.");
+      console.log("otp from api: ", otpFromAPI);
+      console.log("entered otp: ", enteredOtp);
+    }
     } else if (formType === "forgetPassword") {
-      if (enteredOtp === otpFromAPI) {
+      if (enteredOtp == otpFromAPI) {
         alert("OTP Matched");
         const userData = {
           userName: formData.userName,
@@ -200,7 +206,6 @@ const Otp = () => {
             <Grid
               container
               style={{
-                // backgroundImage: `url(${Sedan})`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
@@ -238,40 +243,6 @@ const Otp = () => {
                     You have received an OTP on your <b>{formData.userName}</b>
                   </Typography>
                   <br />
-                  {/* <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {Array.from({ length: 6 }).map((_, index) => (
-                      <TextField
-                        key={index}
-                        name="number"
-                        type="text"
-                        placeholder="-"
-                        variant="outlined"
-                        value={number[index] ?? ""}
-                        onChange={(e) => onChange(e, index)}
-                        sx={{
-                          display: "solid",
-                          width: {
-                            md: "40px",
-                            sm: "35px",
-                          },
-                          mt: 1,
-                          ml: index === 3 ? 3 : 1,
-                        }}
-                        InputProps={{
-                          sx: {
-                            height: "40px",
-                            color: Colors.palette.secondary.main,
-                            border: `1px solid ${Colors.palette.secondary.main}`,
-                          },
-                        }}
-                      />
-                    ))}
-                  </Box> */}
                   <Box
                     sx={{
                       display: "flex",

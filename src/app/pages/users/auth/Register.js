@@ -16,7 +16,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
-import Axios from "../../../utils/Axios1";
+import Axios from "../../../utils/Axios";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +24,7 @@ function RegisterPage() {
   const [otpFromAPI, setOtpFromAPI] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  // const history = useHistory();
+  //const history = useHistory();
 
   const RegiterUser = async () => {
     const data = {
@@ -44,7 +44,7 @@ function RegisterPage() {
     };
 
     try {
-      const response = await Axios.post("/sendOTP", data);
+      const response = await Axios.post("/send-otp", data);
       const otp = response.data.otp;
       setOtpFromAPI(otp);
       console.log(response.data);
@@ -111,12 +111,12 @@ function RegisterPage() {
       .matches(/^[1-9]\d{9}$/, "Invalid Alternate Number"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
-    .required("Password is required")
-    .matches(
-      /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-      "Password should have one capital letter, one number, and one special character"
-    )
-    .min(6, "Password must be at least 6 characters in length"),
+      .required("Password is required")
+      .matches(
+        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+        "Password should have one capital letter, one number, and one special character"
+      )
+      .min(6, "Password must be at least 6 characters in length"),
     locality: Yup.string().required("Locality is required"),
     city: Yup.string()
       .required("City is required")
@@ -164,11 +164,10 @@ function RegisterPage() {
           background:
             "radial-gradient(circle at 100% 100%, #023159, #1F476A, #F5F5F5)",
           display: "flex",
-          minHeight: "100vh", 
+          minHeight: "100vh",
           justifyContent: "center",
           alignItems: "center",
         }}
-   
       >
         <Box
           sx={{
@@ -349,7 +348,7 @@ function RegisterPage() {
                           Boolean(formik.errors.password)
                         }
                         helperText={
-                          formik.touched.password && (formik.errors.password)
+                          formik.touched.password && formik.errors.password
                         }
                         sx={textFieldStyles}
                         InputProps={{

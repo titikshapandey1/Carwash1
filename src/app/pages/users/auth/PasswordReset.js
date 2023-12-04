@@ -15,7 +15,7 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Colors from "../../../utils/colors";
 import { useLocation, useNavigate } from "react-router-dom";
-import Axios from "../../../utils/Axios1";
+import Axios from "../../../utils/Axios";
 
 const validationSchema = yup.object({
   password: yup
@@ -51,7 +51,7 @@ function PasswordReset() {
           newPassword: values.password,
           confirmPassword: values.confirmPassword,
         };
-        const response = await Axios.post("/forgotPassword", resetData);
+        const response = await Axios.post("/reset-password", resetData);
         console.log("New Password:", response.data);
         alert("Password reset successful!");
         navigate("/login");

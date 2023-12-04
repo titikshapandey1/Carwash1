@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Colors from "../../../utils/colors";
-import Axios from "../../../utils/Axios1";
+import Axios from "../../../utils/Axios";
 
 function Login() {
   const navigate = useNavigate();

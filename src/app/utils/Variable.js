@@ -1,1 +1,1 @@
-export const baseurl='https://carwsh.onrender.com/v1';
+export const baseurl="https://carwsh.onrender.com/v1";

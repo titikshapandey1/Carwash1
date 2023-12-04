@@ -92,7 +92,7 @@ function ContactUs() {
     };
 
     try {
-      const response = await Axios.post("/src/routes/fedBack", data);
+      const response = await Axios.post("/feedback", data);
       console.log("API Response:", response.data);
     } catch (error) {
       console.error("Error:", error);
