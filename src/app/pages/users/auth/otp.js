@@ -103,7 +103,7 @@ const Otp = () => {
     } else {
       setNumber({
         ...number,
-        [index]: "",
+        [index]: "", 
       });
       setValidationErrors({
         ...validationErrors,
@@ -111,7 +111,7 @@ const Otp = () => {
       });
     }
   };
-
+  // const enteredOtp = Object.values(number).join("").trim();
   const enteredOtp = Object.values(number).join("").trim();
 
   const handleFormSubmit = async (e) => {
