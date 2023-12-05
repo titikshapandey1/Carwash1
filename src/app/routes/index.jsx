@@ -251,6 +251,7 @@ function AppRouter() {
 
       {/*======== PAGES ========== */}
       <Routes>
+        {/*============= PUBLIC ROUTES ============= */}
         {/*======== AUTHENTICATION ========== */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/registerpage" element={<RegisterPage />}></Route>
@@ -265,7 +266,7 @@ function AppRouter() {
         <Route path="/aboutus" element={<AboutUs />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
 
-        
+        {/*============= PRIVATE ROUTES ============= */}
         <Route path="/home" element={<PrivateRoute element={<Home />}/>}></Route>
         <Route path="/services" element={<PrivateRoute element={<Services />}/>}></Route>
         <Route path="/profile" element={<PrivateRoute element={<Profile />} />}></Route>
