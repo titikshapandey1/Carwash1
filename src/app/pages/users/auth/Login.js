@@ -279,8 +279,10 @@ import * as Yup from "yup";
 import Colors from "../../../utils/colors";
 import Axios from "../../../utils/Axios";
 import Loader from "../../../components/Loader";
+import { useAuth } from "../../../utils/AuthContext";
 
 function Login() {
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -306,6 +308,8 @@ function Login() {
     try {
       const response = await Axios.post("/login", data);
       console.log("Login successful:", response.data);
+      const newToken = response.data.token;
+      login(newToken);
       navigate("/home");
     } catch (error) {
       console.error("Login failed:", error);

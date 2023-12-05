@@ -17,6 +17,7 @@ import OurServices from "../components/OurServices";
 import Colors from "../utils/colors";
 import { NavLink } from "react-router-dom";
 import BookingCard from "./card/Bookingcard";
+import Axios from "../utils/Axios";
 
 const Card1 = () => {
   return (
@@ -314,3 +315,5 @@ const Card1 = () => {
 };
 
 export default Card1;
+
+

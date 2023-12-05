@@ -8,8 +8,10 @@ import Colors from "../utils/colors";
 import DrawerComp from "./Drawer";
 import { NavLink } from "react-router-dom";
 import Logo from "../assests/images/Logo.png";
+import { useAuth } from "../utils/AuthContext";
 
 const Nav = () => {
+  const { token, logout } = useAuth();
   const buttonStyle = {
     backgroundColor: Colors.palette.primary.darkBlue,
     color: Colors.palette.primary.main,
@@ -69,7 +71,7 @@ const Nav = () => {
 
               <Button
                 component={NavLink}
-                to="/services"
+                to="/guest2"
                 activeClassName="active"
                 sx={buttonStyle}
               >
@@ -92,7 +94,8 @@ const Nav = () => {
               >
                 Contact Us
               </Button>
-              <Button
+
+              {/* <Button
                 sx={{
                   backgroundColor: Colors.palette.primary.red,
                   cursor: "pointer",
@@ -132,7 +135,67 @@ const Nav = () => {
                 >
                   Register
                 </NavLink>
-              </Button>
+              </Button> */}
+
+              {/* Conditionally render profile and logout buttons */}
+              {token ? (
+                <>
+                  <Button
+                    component={NavLink}
+                    to="/profile"
+                    activeClassName="active"
+                    sx={buttonStyle}
+                  >
+                    Profile
+                  </Button>
+                  <Button
+                    component={NavLink}
+                    to="/"
+                    onClick={logout}
+                    sx={{
+                      backgroundColor: Colors.palette.primary.red,
+                      color: Colors.palette.primary.main,
+                      cursor: "pointer",
+                      "&:hover": {
+                        backgroundColor: Colors.palette.primary.lightBlue,
+                      },
+                    }}
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    component={NavLink}
+                    to="/login"
+                    sx={{
+                      backgroundColor: Colors.palette.primary.red,
+                      color: Colors.palette.primary.main,
+                      cursor: "pointer",
+                      "&:hover": {
+                        backgroundColor: Colors.palette.primary.lightBlue,
+                      },
+                    }}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    component={NavLink}
+                    to="/registerpage"
+                    sx={{
+                      backgroundColor: Colors.palette.primary.lightBlue,
+                      color: Colors.palette.primary.main,
+                      cursor: "pointer",
+                      "&:hover": {
+                        backgroundColor: Colors.palette.primary.darkBlue,
+                      },
+                    }}
+                  >
+                    Register
+                  </Button>
+                </>
+              )}
             </Box>
             <DrawerComp />
           </Toolbar>
