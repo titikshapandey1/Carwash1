@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Autocomplete, Button, Box, Grid } from "@mui/material";
+import { Select, MenuItem, Button, Box, Grid } from "@mui/material";
 import Colors from "../utils/colors";
 import Axios from "../utils/Axios";
 
-const Searcher = () => {
-  const [inputValue1, setInputValue1] = useState("");
-  const [inputValue2, setInputValue2] = useState("");
+const Searcher = ({ selectedService, selectedCar }) => {
+  const [inputValue1, setInputValue1] = useState(selectedService || "");
+  const [inputValue2, setInputValue2] = useState(selectedCar || "");
   const [serviceTypes, setServiceTypes] = useState([]);
   const [carTypes, setCarTypes] = useState([]);
 
-  const handleServiceTypeChange = (event, newValue) => {
-    setInputValue1(newValue);
+  const handleServiceTypeChange = (event) => {
+    setInputValue1(event.target.value);
   };
 
-  const handleCarTypeChange = (event, newValue) => {
-    setInputValue2(newValue);
+  const handleCarTypeChange = (event) => {
+    setInputValue2(event.target.value);
   };
 
   const fetchData = async () => {
@@ -41,6 +41,11 @@ const Searcher = () => {
     fetchData();
   }, []);
 
+  const handleSearch = () => {
+    console.log("Service Type:", serviceTypes);
+    console.log("Car Type:", carTypes);
+  };
+
   return (
     <Box sx={{ background: Colors.palette.secondary.main }}>
       <Grid container spacing={1}>
@@ -50,29 +55,29 @@ const Searcher = () => {
           sm={4}
           sx={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Autocomplete
+          <Select
             value={inputValue1}
             onChange={handleServiceTypeChange}
-            options={serviceTypes.map((type) => ({
-              key: type._id,
-              value: type._id,
-              label: type.serviceName,
-            }))}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                placeholder="Select Service Type"
-                variant="outlined"
-                size="small"
-                fullWidth
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: "5px",
-                  marginBottom: "2%",
-                }}
-              />
-            )}
-          />
+            displayEmpty
+            placeholder="Select Service Type"
+            variant="outlined"
+            size="small"
+            fullWidth
+            sx={{
+              backgroundColor: "white",
+              borderRadius: "5px",
+              marginBottom: "2%",
+            }}
+          >
+            <MenuItem value="" disabled>
+              Select Service Type
+            </MenuItem>
+            {serviceTypes.map((type) => (
+              <MenuItem key={type._id} value={type._id}>
+                {type.serviceName}
+              </MenuItem>
+            ))}
+          </Select>
         </Grid>
         <Grid
           item
@@ -80,29 +85,29 @@ const Searcher = () => {
           sm={4}
           sx={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Autocomplete
+          <Select
             value={inputValue2}
             onChange={handleCarTypeChange}
-            options={carTypes.map((type) => ({
-              key: type._id,
-              value: type._id,
-              label: type.carName,
-            }))}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                placeholder="Select Car Type"
-                variant="outlined"
-                size="small"
-                fullWidth
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: "5px",
-                  marginBottom: "2%",
-                }}
-              />
-            )}
-          />
+            displayEmpty
+            placeholder="Select Car Type"
+            variant="outlined"
+            size="small"
+            fullWidth
+            sx={{
+              backgroundColor: "white",
+              borderRadius: "5px",
+              marginBottom: "2%",
+            }}
+          >
+            <MenuItem value="" disabled>
+              Select Car Type
+            </MenuItem>
+            {carTypes.map((type) => (
+              <MenuItem key={type._id} value={type._id}>
+                {type.carName}
+              </MenuItem>
+            ))}
+          </Select>
         </Grid>
         <Grid
           item
@@ -110,6 +115,7 @@ const Searcher = () => {
         >
           <Button
             variant="Text"
+            onClick={handleSearch}
             sx={{
               width: "100px",
               borderRadius: "10px",

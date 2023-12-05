@@ -11,13 +11,13 @@ import {
 } from "@mui/material";
 import Colors from "../../utils/colors";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const buttonStyle = {
   background: Colors.palette.secondary.lightBlue,
   color: Colors.palette.primary.main,
   height: "40px",
-  width: "100%",
+  width: "auto",
   marginTop: "7px",
 };
 
@@ -27,11 +27,12 @@ const searcherContainerStyle = {
   padding: "2px",
 };
 
-const Searcher = () => {
+const HomeSearcher = () => {
   const [servicetype, setservicetype] = useState("");
   const [carType, setCarType] = useState("");
   const [serviceTypes, setServiceTypes] = useState([]);
   const [carTypes, setCarTypes] = useState([]);
+  const navigate = useNavigate();
 
   const handleServiceTypeChange = (event) => {
     setservicetype(event.target.value);
@@ -59,6 +60,11 @@ const Searcher = () => {
     } catch (error) {
       console.error("Error fetching data: ", error);
     }
+  };
+
+  const handleGoForItClick = () => {
+    // Navigate to the '/services' page with selected values as state
+    navigate("/services", { state: { servicetype, carType } });
   };
 
   useEffect(() => {
@@ -133,22 +139,23 @@ const Searcher = () => {
               alignItems: "center",
             }}
           >
-            <NavLink
+            {/* <NavLink
               to={servicetype && carType ? "/services" : ""}
               style={{
                 textDecoration: "none",
                 color: Colors.palette.primary.main,
               }}
-            >
+            > */}
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardRoundedIcon />}
                 sx={buttonStyle}
                 disabled={!servicetype || !carType}
+                onClick={handleGoForItClick}
               >
                 Go for it
               </Button>
-            </NavLink>
+            {/* </NavLink> */}
           </FormControl>
         </Grid>
       </Grid>
@@ -156,4 +163,4 @@ const Searcher = () => {
   );
 };
 
-export default Searcher;
+export default HomeSearcher;

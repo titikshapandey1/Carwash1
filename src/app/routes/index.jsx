@@ -265,10 +265,10 @@ function AppRouter() {
         <Route path="/guest2" element={<Guest2 />}></Route>
         <Route path="/aboutus" element={<AboutUs />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
+        <Route path="/services"  element={<Services />}></Route>
 
         {/*============= PRIVATE ROUTES ============= */}
         <Route path="/home" element={<PrivateRoute element={<Home />}/>}></Route>
-        <Route path="/services" element={<PrivateRoute element={<Services />}/>}></Route>
         <Route path="/profile" element={<PrivateRoute element={<Profile />} />}></Route>
         <Route path="/editprofile" element={<PrivateRoute element={<EditProfile />}/>}></Route>
         <Route path="/servicelocation" element={<PrivateRoute element={<ServiceLocation />}/>}></Route>
