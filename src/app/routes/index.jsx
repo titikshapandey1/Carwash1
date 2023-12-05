@@ -100,10 +100,10 @@ function AppRouter() {
       {/*======== PAGES ========== */}
       <Routes>
         {/*======== AUTHENTICATION ========== */}
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/registerpage" element={<RegisterPage />}></Route>
         <Route path="/mobile" element={<Mobile />}></Route>
         <Route path="/otp" element={<Otp />}></Route>
-        <Route path="/login" element={<Login />}></Route>
         <Route path="/email" element={<Email />}></Route>
         <Route path="/passwordreset" element={<PasswordReset />}></Route>
 
@@ -174,3 +174,8 @@ function AppRouter() {
 }
 
 export default AppRouter;
+
+
+
+//================ PRIVATE ROUTING ================//
+
