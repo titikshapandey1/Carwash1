@@ -51,8 +51,7 @@ function AdDash(props) {
   const [openEditSupervisor, setopenEditSupervisor] = React.useState(false);
   const [openService, setopenService] = React.useState(false);
 
-  const [selectedPaymentOption, setSelectedPaymentOption] =
-    React.useState(null);
+  const [selectedPaymentOption, setSelectedPaymentOption] = React.useState(null);
   const [selectedUserOption, setSelectedUserOption] = React.useState(null);
   const [editSupervisorOption, setEditSupervisorOption] = React.useState(null);
   const [openServiceOption, setServiceOption] = React.useState(null);

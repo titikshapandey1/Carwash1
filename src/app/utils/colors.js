@@ -30,6 +30,11 @@ const Colors = createTheme({
       lightRed: "#edd5d6",
       lightskyBlue: "#b3d2f2",
     },
+
+    card:{
+      green:"#22601D",
+      red:"#A32929",
+    }
   },
 });
 

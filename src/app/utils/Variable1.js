@@ -1,1 +1,1 @@
-// export const baseurl='https://e-carwash.onrender.com/v1';
+export const baseurl='https://carwash-jhq6.onrender.com/api/v1';

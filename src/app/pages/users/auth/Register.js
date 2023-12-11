@@ -542,7 +542,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Colors from "../../../utils/colors";
 import { NavLink } from "react-router-dom";
-import Axios from "../../../utils/Axios";
+import Axios from "../../../utils/Axios1";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../../components/Loader";
@@ -566,12 +566,12 @@ function RegisterPage() {
 
   const RegiterUser = async () => {
     const data = {
-      firstName: formik.values.firstName,
-      surName: formik.values.surName,
-      mobileNumber: formik.values.mobileNumber,
+      firstname: formik.values.firstName,
+      lastname: formik.values.surName,
+      mobilenumber: formik.values.mobileNumber,
       alternateNumber: formik.values.alternateNumber,
-      userName: formik.values.email,
-      passWord: formik.values.password,
+      email: formik.values.email,
+      password: formik.values.password,
       address: {
         locality: formik.values.locality,
         city: formik.values.city,
@@ -583,9 +583,11 @@ function RegisterPage() {
 
     try {
       setLoading(true);
-      const response = await Axios.post("/send-otp", data);
-      const otp = response.data.otp;
+      const response = await Axios.post("/sentotp", data);
+      // const otp = response.data.otp;
+      const otp = response.data.otpRecord.otp;
       setOtpFromAPI(otp);
+      console.log(otp);
       console.log(response.data);
 
       navigate("/otp", {

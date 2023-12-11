@@ -277,7 +277,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Colors from "../../../utils/colors";
-import Axios from "../../../utils/Axios";
+import Axios from "../../../utils/Axios1";
 import Loader from "../../../components/Loader";
 import { useAuth } from "../../../utils/AuthContext";
 
@@ -301,14 +301,14 @@ function Login() {
   const LoginUser = async () => {
     setLoading(true);
     const data = {
-      userName: formik.values.userName,
-      passWord: formik.values.passWord,
+      email: formik.values.userName,
+      password: formik.values.passWord,
     };
 
     try {
       const response = await Axios.post("/login", data);
       console.log("Login successful:", response.data);
-      const newToken = response.data.token;
+      const newToken = response.data.user._id;
       login(newToken);
       navigate("/home");
     } catch (error) {
@@ -496,7 +496,7 @@ function Login() {
                       <Loader />
                     ) : (
                       <Button
-                        type="submit"
+                        type="button"
                         fullWidth
                         variant="contained"
                         style={{ ...submitButtonStyle }}
@@ -550,7 +550,7 @@ function Login() {
         <DialogContent sx={{ color: "#fff", paddingTop: "20px" }}>
           <DialogContentText
             id="alert-dialog-description"
-            sx={{ color: "#fff",mt:2 }}
+            sx={{ color: "#fff", mt: 2 }}
           >
             {errorDialogMessage}
           </DialogContentText>

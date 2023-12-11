@@ -247,7 +247,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import Colors from "../../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import Axios from "../../../utils/Axios";
+import Axios from "../../../utils/Axios1";
 import Loader from "../../../components/Loader";
 
 function Email() {
@@ -268,23 +268,29 @@ function Email() {
   const handleErrorDialogClose = () => {
     setErrorDialogOpen(false);
   };
+
   const EmailOTP = async () => {
     setLoading(true);
     const data = {
-      userName: formik.values.userName,
+      email: formik.values.userName,
     };
 
     try {
-      const response = await Axios.post("/forget-password", data);
+      const response = await Axios.post("/forgetpassword", data);
       const otp = response.data.otp;
       setOtpFromAPI(otp);
       console.log("OTP sent:", response.data);
       console.log(otp);
       setDialogMessage("OTP Sent To Email");
       setDialogOpen(true);
+
+      console.log(data);
+      console.log(otp);
+
       navigate("/otp", {
         state: { formData: data, otp, formType: "forgetPassword" },
       });
+      
     } catch (error) {
       console.error("Login failed:", error);
       setErrorDialogMessage("Error sending OTP. Please try again.");

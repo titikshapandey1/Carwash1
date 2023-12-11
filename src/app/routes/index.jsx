@@ -280,7 +280,8 @@ function AppRouter() {
         <Route path="/ourservices" element={<PrivateRoute element={<OurServices />}/>}></Route>
         
         {/*======== ADMIN ========== */}
-        <Route path="/admindashboard" element={<PrivateRoute element={<AdminDashboard />}/>}></Route>
+        <Route path="/admindashboard"  element={<AdminDashboard />}></Route>
+        {/* <Route path="/admindashboard" element={<PrivateRoute element={<AdminDashboard />}/>}></Route> */}
         <Route path="/adminpaysuccessful" element={<PrivateRoute element={<AdPaySucc />}/>}></Route>
         <Route path="/adminpayunsucessful" element={<PrivateRoute element={<AdPayUnsucc />}/>}></Route>
 
