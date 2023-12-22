@@ -9,12 +9,17 @@
 //   Paper,
 //   Grid,
 //   Typography,
+//   Dialog,
+//   DialogTitle,
+//   DialogContent,
+//   DialogContentText,
+//   DialogActions,
 // } from "@mui/material";
 // import { NavLink, useNavigate, useLocation } from "react-router-dom";
 // import Colors from "../../../utils/colors";
 // import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-// import Axios from "../../../utils/Axios";
+// import Axios from "../../../utils/Axios1";
 // import Loader from "../../../components/Loader";
 
 // function Email() {
@@ -22,24 +27,46 @@
 //   const navigate = useNavigate();
 //   const [loading, setLoading] = useState(false);
 
+//   const [dialogOpen, setDialogOpen] = useState(false);
+//   const [dialogMessage, setDialogMessage] = useState("");
+
+//   const [errorDialogOpen, setErrorDialogOpen] = useState(false);
+//   const [errorDialogMessage, setErrorDialogMessage] = useState("");
+
+//   const handleDialogClose = () => {
+//     setDialogOpen(false);
+//   };
+
+//   const handleErrorDialogClose = () => {
+//     setErrorDialogOpen(false);
+//   };
+
 //   const EmailOTP = async () => {
 //     setLoading(true);
 //     const data = {
-//       userName: formik.values.userName,
+//       email: formik.values.userName,
 //     };
 
 //     try {
-//       const response = await Axios.post("/forget-password", data);
+//       const response = await Axios.post("/forgetpassword", data);
 //       const otp = response.data.otp;
 //       setOtpFromAPI(otp);
 //       console.log("OTP sent:", response.data);
 //       console.log(otp);
-//       alert("OTP Sent To Email");
+//       setDialogMessage("OTP Sent To Email");
+//       setDialogOpen(true);
+
+//       console.log(data);
+//       console.log(otp);
+
 //       navigate("/otp", {
 //         state: { formData: data, otp, formType: "forgetPassword" },
 //       });
+
 //     } catch (error) {
 //       console.error("Login failed:", error);
+//       setErrorDialogMessage("Error sending OTP. Please try again.");
+//       setErrorDialogOpen(true);
 //     } finally {
 //       setLoading(false);
 //     }
@@ -220,13 +247,102 @@
 //           </Container>
 //         </Box>
 //       </Box>
+//       {/* Success Dialog */}
+//       <Dialog
+//         open={dialogOpen}
+//         onClose={handleDialogClose}
+//         maxWidth="sm"
+//         fullWidth
+//         PaperProps={{
+//           elevation: 5,
+//           style: {
+//             borderRadius: 20,
+//             backgroundColor: Colors.palette.success.main,
+//           },
+//         }}
+//       >
+//         <DialogTitle
+//           id="alert-dialog-title"
+//           sx={{
+//             borderBottom: "2px solid #fff",
+//             color: "#fff",
+//             textAlign: "center",
+//             fontWeight: "600",
+//           }}
+//         >
+//           {"SUCCESS"}
+//         </DialogTitle>
+//         <DialogContent sx={{ color: "#fff", paddingTop: "20px" }}>
+//           <DialogContentText
+//             id="alert-dialog-description"
+//             sx={{ color: "#fff", mt: 2 }}
+//           >
+//             {dialogMessage}
+//           </DialogContentText>
+//         </DialogContent>
+//         <DialogActions>
+//           <Button
+//             onClick={handleDialogClose}
+//             variant="contained"
+//             sx={{ backgroundColor: "#fff", color: Colors.palette.success.main }}
+//             autoFocus
+//           >
+//             Close
+//           </Button>
+//         </DialogActions>
+//       </Dialog>
+
+//       {/* Error Dialog */}
+//       <Dialog
+//         open={errorDialogOpen}
+//         onClose={handleErrorDialogClose}
+//         maxWidth="sm"
+//         fullWidth
+//         PaperProps={{
+//           elevation: 5,
+//           style: {
+//             borderRadius: 20,
+//             backgroundColor: Colors.palette.error.main,
+//           },
+//         }}
+//       >
+//         <DialogTitle
+//           id="alert-dialog-title"
+//           sx={{
+//             borderBottom: "2px solid #fff",
+//             color: "#fff",
+//             textAlign: "center",
+//             fontWeight: "600",
+//           }}
+//         >
+//           {"ERROR OCCURRED"}
+//         </DialogTitle>
+//         <DialogContent sx={{ color: "#fff", paddingTop: "20px" }}>
+//           <DialogContentText
+//             id="alert-dialog-description"
+//             sx={{ color: "#fff", mt: 2 }}
+//           >
+//             {errorDialogMessage}
+//           </DialogContentText>
+//         </DialogContent>
+//         <DialogActions>
+//           <Button
+//             onClick={handleErrorDialogClose}
+//             variant="contained"
+//             sx={{ backgroundColor: "#fff", color: Colors.palette.error.main }}
+//             autoFocus
+//           >
+//             Close
+//           </Button>
+//         </DialogActions>
+//       </Dialog>
 //     </>
 //   );
 // }
 
 // export default Email;
 
-import React, { useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import {
@@ -237,68 +353,18 @@ import {
   Paper,
   Grid,
   Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
 } from "@mui/material";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import Colors from "../../../utils/colors";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Axios from "../../../utils/Axios1";
-import Loader from "../../../components/Loader";
+import { AuthContext } from "../../../context/AuthContext";
+import { LoadingButton } from "@mui/lab";
 
 function Email() {
-  const [otpFromAPI, setOtpFromAPI] = useState(null);
+  const { forgetPassword, VerifyLoading } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [dialogMessage, setDialogMessage] = useState("");
-
-  const [errorDialogOpen, setErrorDialogOpen] = useState(false);
-  const [errorDialogMessage, setErrorDialogMessage] = useState("");
-
-  const handleDialogClose = () => {
-    setDialogOpen(false);
-  };
-
-  const handleErrorDialogClose = () => {
-    setErrorDialogOpen(false);
-  };
-
-  const EmailOTP = async () => {
-    setLoading(true);
-    const data = {
-      email: formik.values.userName,
-    };
-
-    try {
-      const response = await Axios.post("/forgetpassword", data);
-      const otp = response.data.otp;
-      setOtpFromAPI(otp);
-      console.log("OTP sent:", response.data);
-      console.log(otp);
-      setDialogMessage("OTP Sent To Email");
-      setDialogOpen(true);
-
-      console.log(data);
-      console.log(otp);
-
-      navigate("/otp", {
-        state: { formData: data, otp, formType: "forgetPassword" },
-      });
-      
-    } catch (error) {
-      console.error("Login failed:", error);
-      setErrorDialogMessage("Error sending OTP. Please try again.");
-      setErrorDialogOpen(true);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const paperStyle = {
     padding: "20px",
@@ -337,6 +403,10 @@ function Email() {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       console.log("On Submit: ", values);
+      const data = {
+        email: values.userName,
+      };
+      forgetPassword(data, navigate);
     },
   });
 
@@ -432,19 +502,15 @@ function Email() {
                       alignItems: "center",
                     }}
                   >
-                    {" "}
-                    {loading ? (
-                      <Loader />
-                    ) : (
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        sx={{ ...submitButtonStyle }}
-                        onClick={() => EmailOTP()}
-                      >
-                        Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
-                      </Button>
-                    )}
+                    <LoadingButton
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ ...submitButtonStyle }}
+                      loading={VerifyLoading ? true : false}
+                    >
+                      Submit <ArrowForwardIosIcon sx={{ fontSize: "20px" }} />
+                    </LoadingButton>
                   </Box>
                 </form>
                 <Box
@@ -475,95 +541,6 @@ function Email() {
           </Container>
         </Box>
       </Box>
-      {/* Success Dialog */}
-      <Dialog
-        open={dialogOpen}
-        onClose={handleDialogClose}
-        maxWidth="sm"
-        fullWidth
-        PaperProps={{
-          elevation: 5,
-          style: {
-            borderRadius: 20,
-            backgroundColor: Colors.palette.success.main,
-          },
-        }}
-      >
-        <DialogTitle
-          id="alert-dialog-title"
-          sx={{
-            borderBottom: "2px solid #fff",
-            color: "#fff",
-            textAlign: "center",
-            fontWeight: "600",
-          }}
-        >
-          {"SUCCESS"}
-        </DialogTitle>
-        <DialogContent sx={{ color: "#fff", paddingTop: "20px" }}>
-          <DialogContentText
-            id="alert-dialog-description"
-            sx={{ color: "#fff", mt: 2 }}
-          >
-            {dialogMessage}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleDialogClose}
-            variant="contained"
-            sx={{ backgroundColor: "#fff", color: Colors.palette.success.main }}
-            autoFocus
-          >
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      {/* Error Dialog */}
-      <Dialog
-        open={errorDialogOpen}
-        onClose={handleErrorDialogClose}
-        maxWidth="sm"
-        fullWidth
-        PaperProps={{
-          elevation: 5,
-          style: {
-            borderRadius: 20,
-            backgroundColor: Colors.palette.error.main,
-          },
-        }}
-      >
-        <DialogTitle
-          id="alert-dialog-title"
-          sx={{
-            borderBottom: "2px solid #fff",
-            color: "#fff",
-            textAlign: "center",
-            fontWeight: "600",
-          }}
-        >
-          {"ERROR OCCURRED"}
-        </DialogTitle>
-        <DialogContent sx={{ color: "#fff", paddingTop: "20px" }}>
-          <DialogContentText
-            id="alert-dialog-description"
-            sx={{ color: "#fff", mt: 2 }}
-          >
-            {errorDialogMessage}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleErrorDialogClose}
-            variant="contained"
-            sx={{ backgroundColor: "#fff", color: Colors.palette.error.main }}
-            autoFocus
-          >
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
     </>
   );
 }

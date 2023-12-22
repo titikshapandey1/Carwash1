@@ -310,7 +310,7 @@ function ContactUs() {
                       </CardContent>
                     </CardActionArea>
                   </Card>
-                  <div className="card">
+                  <div >
                     <iframe
                       width="100%"
                       height="400"

@@ -391,13 +391,19 @@ import AddIcon from "@mui/icons-material/Add";
 import Colors from "../../utils/colors";
 import Axios from "../../utils/Axios";
 import { NavLink } from "react-router-dom";
+import userReq from "../../assests/images/userReq.svg";
+import activeReq from "../../assests/images/activeReq.svg";
+import declinedReq from "../../assests/images/declinedReq.svg";
+import man from "../../assests/images/man.svg";
 
 const cardStyle = {
+  maxWidth: { xs: 700, md: 510 },
   borderRadius: "10px",
-  boxShadow: "2px 2px 2px grey",
   height: 100,
   display: "flex",
   alignItems: "center",
+  // background: `linear-gradient(260deg, #013C6B 0%, #728899 50%)`,
+  background: `linear-gradient(260deg, #013C6B 0%, #ededed 80%)`,
 };
 
 const headingStyles = {
@@ -410,7 +416,7 @@ const headingStyles = {
 const subHeading = {
   color: Colors.palette.primary.main,
   display: "flex",
-  // justifyContent: "flex-end",
+  justifyContent: "space-between",
   alignItems: "center",
 };
 
@@ -463,17 +469,14 @@ const AdminDashboard = () => {
                   color: Colors.palette.secondary.main,
                 }}
               >
-                <Card
-                  sx={{
-                    maxWidth: { xs: 700, md: 510 },
-                    background: Colors.palette.card.green,
-                    ...cardStyle,
-                  }}
-                >
+                <Card sx={cardStyle}>
                   <CardActionArea>
                     <CardContent>
-                      <Box sx={subHeading} justifyContent="space-evenly">
-                        <Typography variant="h3" fontWeight="600">
+                      <Box sx={subHeading}>
+                        {/* <Typography>
+                          <img src={} alt="" />
+                        </Typography> */}
+                        <Typography variant="h3" fontWeight="600" mr="20px">
                           24
                         </Typography>
                         <Typography variant="h5">
@@ -493,17 +496,14 @@ const AdminDashboard = () => {
                   color: Colors.palette.secondary.main,
                 }}
               >
-                <Card
-                  sx={{
-                    maxWidth: { xs: 700, md: 510 },
-                    background: Colors.palette.card.red,
-                    ...cardStyle,
-                  }}
-                >
+                <Card sx={cardStyle}>
                   <CardActionArea>
                     <CardContent>
-                      <Box sx={subHeading} justifyContent="space-evenly">
-                        <Typography variant="h3" fontWeight="600">
+                      <Box sx={subHeading}>
+                        {/* <Typography>
+                          <img src={} alt="" />
+                        </Typography> */}
+                        <Typography variant="h3" fontWeight="600" mr="20px">
                           14
                         </Typography>
                         <Typography variant="h5">
@@ -523,7 +523,7 @@ const AdminDashboard = () => {
           alignItems="center"
           justifyContent="center"
           sx={{
-            marginTop: { xs: "7%", sm: "2%" },
+            marginTop: { xs: "7%", sm: "5%" },
           }}
         >
           <Grid container spacing={3}>
@@ -535,17 +535,14 @@ const AdminDashboard = () => {
                   color: Colors.palette.secondary.main,
                 }}
               >
-                <Card
-                  sx={{
-                    maxWidth: { xs: 700, md: 340 },
-                    background: Colors.palette.secondary.main,
-                    ...cardStyle,
-                  }}
-                >
+                <Card sx={cardStyle}>
                   <CardActionArea>
                     <CardContent>
-                      <Box sx={subHeading} justifyContent="space-evenly">
-                        <Typography variant="h3" fontWeight="600">
+                      <Box sx={subHeading}>
+                        <Typography>
+                          <img src={userReq} alt="" />
+                        </Typography>
+                        <Typography variant="h3" fontWeight="600" mr="20px">
                           10
                         </Typography>
                         <Typography variant="h6">
@@ -565,17 +562,14 @@ const AdminDashboard = () => {
                   color: Colors.palette.secondary.main,
                 }}
               >
-                <Card
-                  sx={{
-                    maxWidth: { xs: 700, md: 340 },
-                    background: Colors.palette.card.green,
-                    ...cardStyle,
-                  }}
-                >
+                <Card sx={cardStyle}>
                   <CardActionArea>
                     <CardContent>
-                      <Box sx={subHeading} justifyContent="space-evenly">
-                        <Typography variant="h3" fontWeight="600">
+                      <Box sx={subHeading}>
+                        <Typography>
+                          <img src={activeReq} alt="" />
+                        </Typography>
+                        <Typography variant="h3" fontWeight="600" mr="20px">
                           4
                         </Typography>
                         <Typography variant="h6">
@@ -595,17 +589,14 @@ const AdminDashboard = () => {
                   color: Colors.palette.secondary.main,
                 }}
               >
-                <Card
-                  sx={{
-                    maxWidth: { xs: 700, md: 330 },
-                    background: Colors.palette.card.red,
-                    ...cardStyle,
-                  }}
-                >
+                <Card sx={cardStyle}>
                   <CardActionArea>
                     <CardContent>
-                      <Box sx={subHeading} justifyContent="space-evenly">
-                        <Typography variant="h3" fontWeight="600">
+                      <Box sx={subHeading}>
+                        <Typography>
+                          <img src={declinedReq} alt="" />
+                        </Typography>
+                        <Typography variant="h3" fontWeight="600" mr="20px">
                           1
                         </Typography>
                         <Typography variant="h6">
@@ -625,7 +616,7 @@ const AdminDashboard = () => {
           alignItems="center"
           justifyContent="center"
           sx={{
-            marginTop: { xs: "7%", sm: "2%" },
+            marginTop: { xs: "7%", sm: "5%" },
           }}
         >
           <Grid container spacing={3}>
@@ -639,9 +630,13 @@ const AdminDashboard = () => {
               >
                 <Card
                   sx={{
+                    borderRadius: "10px",
+                    height: 100,
+                    display: "flex",
+                    alignItems: "center",
                     maxWidth: 1000,
-                    background: Colors.palette.secondary.main,
-                    ...cardStyle,
+                    // background: `linear-gradient(260deg, #013C6B 0%, #728899 50%)`,
+                    background: `linear-gradient(260deg, #013C6B 0%, #ededed 80%)`,
                   }}
                 >
                   <CardActionArea>
@@ -655,6 +650,9 @@ const AdminDashboard = () => {
                             justifyContent="center"
                             alignItems="center"
                           >
+                            <Typography>
+                              <img src={man} alt="" />
+                            </Typography>
                             12{" "}
                             <span
                               style={{

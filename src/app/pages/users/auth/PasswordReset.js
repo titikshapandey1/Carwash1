@@ -240,7 +240,7 @@
 
 // export default PasswordReset;
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import {
@@ -262,8 +262,8 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Colors from "../../../utils/colors";
 import { useLocation, useNavigate } from "react-router-dom";
-import Axios from "../../../utils/Axios1";
-import Loader from "../../../components/Loader";
+import { AuthContext } from "../../../context/AuthContext";
+import { LoadingButton } from "@mui/lab";
 
 const validationSchema = yup.object({
   password: yup
@@ -284,8 +284,9 @@ const validationSchema = yup.object({
 function PasswordReset() {
   const navigate = useNavigate();
   const location = useLocation();
-  const userDataFromOTP = location.state?.formData;
-  const [loading, setLoading] = useState(false);
+  const { resetPassword, VerifyLoading } = useContext(AuthContext);
+  const { formData, otp } = location.state || {};
+
   const [successDialogOpen, setSuccessDialogOpen] = useState(false);
   const [errorDialogOpen, setErrorDialogOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState("");
@@ -306,25 +307,14 @@ function PasswordReset() {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      setLoading(true);
-      try {
-        const resetData = {
-          ...userDataFromOTP,
-          newPassword: values.password,
-          
-        };
-        const response = await Axios.post("/resetpassword", resetData);
-        console.log("New Password:", response.data);
-        setDialogMessage("Password reset successful!");
-        setSuccessDialogOpen(true);
-        // navigate("/login");
-      } catch (error) {
-        console.error("Password reset failed:", error);
-        setDialogMessage("Password reset Unsuccessful!");
-        setErrorDialogOpen(true);
-      } finally {
-        setLoading(false);
-      }
+      const data = {
+        newPassword: values.password,
+        confirmPassword: values.confirmPassword,
+        email: formData.email, 
+        otp: otp, 
+      };
+      console.log("dataaa",data);
+      resetPassword(data, navigate);
     },
   });
 
@@ -474,20 +464,17 @@ function PasswordReset() {
                       alignItems: "center",
                     }}
                   >
-                    {loading ? (
-                      <Loader />
-                    ) : (
-                      <Button
-                        variant="contained"
-                        type="submit"
-                        disabled={!formik.isValid}
-                        fullWidth
-                        style={{ ...submitButtonStyle }}
-                        // onClick={LoginUser }
-                      >
-                        Reset Password
-                      </Button>
-                    )}
+                    <LoadingButton
+                      variant="contained"
+                      type="submit"
+                      disabled={!formik.isValid}
+                      fullWidth
+                      style={{ ...submitButtonStyle }}
+                      // onClick={LoginUser }
+                      loading={VerifyLoading ? true : false}
+                    >
+                      Reset Password
+                    </LoadingButton>
                   </Box>
                 </form>
               </Paper>

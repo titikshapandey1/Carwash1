@@ -3,7 +3,7 @@ import { Container, Grid, Paper, Typography, Box, Button } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Colors from "../../utils/colors";
 import EditIcon from "@mui/icons-material/Edit";
-import Axios from "../../utils/Axios";
+import Axios from "../../utils/Axios1";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
