@@ -706,9 +706,9 @@ const RegisterOtp = () => {
 
   const { formData, otp, formType } = location.state;
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   const [number, setNumber] = useState({
     0: "",

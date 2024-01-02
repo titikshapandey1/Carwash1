@@ -379,6 +379,13 @@ const Subscribe = () => {
     <>
       <Container>
         <Box sx={{ textAlign: "center", marginTop: "5%" }}>
+          <Typography
+            variant="h4"
+            sx={{ marginLeft: "5%", color: Colors.palette.secondary.main }}
+            gutterBottom
+          >
+            Most Popular Services
+          </Typography>
           <Grid
             container
             spacing={2}

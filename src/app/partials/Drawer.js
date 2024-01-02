@@ -62,7 +62,6 @@
 
 // export default DrawerComp;
 
-
 import React, { useState } from "react";
 import {
   Drawer,
@@ -79,9 +78,9 @@ import ServicesIcon from "@mui/icons-material/Work";
 import AboutUsIcon from "@mui/icons-material/Info";
 import ContactUsIcon from "@mui/icons-material/Email";
 import LoginIcon from "@mui/icons-material/Login";
-import RegisterIcon from "@mui/icons-material/PersonAdd";
+import SearchIcon from '@mui/icons-material/Search';
 import Colors from "../utils/colors";
-
+import Gallery  from '@mui/icons-material/Collections';
 const pages = [
   {
     title: "Home",
@@ -89,14 +88,24 @@ const pages = [
     icon: <HomeIcon sx={{ mr: 5 }} />,
   },
   {
-    title: "Services",
+    title: "About Us",
+    path: "/aboutus",
+    icon: <AboutUsIcon sx={{ mr: 5 }} />,
+  },
+  {
+    title: "Our Services",
     path: "/services",
     icon: <ServicesIcon sx={{ mr: 5 }} />,
   },
   {
-    title: "About Us",
-    path: "/aboutus",
-    icon: <AboutUsIcon sx={{ mr: 5 }} />,
+    title: "Why Us",
+    path: "/whyus",
+    icon: <SearchIcon sx={{ mr: 5 }} />,
+  },
+  {
+    title: "Gallery",
+    path: "/gallery",
+    icon: <Gallery sx={{ mr: 5 }} />,
   },
   {
     title: "Contact Us",
@@ -108,11 +117,11 @@ const pages = [
     path: "/login",
     icon: <LoginIcon sx={{ mr: 5 }} />,
   },
-  {
-    title: "Register",
-    path: "/registerpage",
-    icon: <RegisterIcon sx={{ mr: 5 }} />,
-  },
+  // {
+  //   title: "Register",
+  //   path: "/registerpage",
+  //   icon: <RegisterIcon sx={{ mr: 5 }} />,
+  // },
 ];
 
 const DrawerComp = () => {

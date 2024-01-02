@@ -784,11 +784,12 @@ const ForgetPassOtp = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (enteredOtp == otp) {
+      console.log("formdata   ", formData);
       console.log("EnterOTP", enteredOtp);
       console.log("Otp from API", otp);
       navigate("/passwordreset", {
         state: {
-          formData: formData.email,
+          formData: formData,
           otp: otp,
         },
       });

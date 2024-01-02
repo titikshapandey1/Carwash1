@@ -15,7 +15,7 @@ const Dryclean = () => {
                 fontSize={{ xs: 25, sm: 30, md: 35, lg: 37, xl: 37 }}
                 sx={{ color: Colors.palette.secondary.main }}
               >
-                <b>Dry Cleaning Any Dirt <br/>Inside The Car.</b>
+                <b>Dry Cleaning Any Dirt <br/>Inside The Car</b>
               </Typography>
               <Typography
                 fontSize={{ xs: 13, sm: 13, md: 13, lg: 15, xl: 15 }}

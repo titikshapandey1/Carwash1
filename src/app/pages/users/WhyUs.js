@@ -2,18 +2,17 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import vector from "../../assests/images/Vector.png";
 import vector2 from "../../assests/images/Vector2.png";
-import HomeCards from "../Home/HomeCards";
 import Nav from "../../partials/Nav";
 import AboutUsImg from "../../assests/images/About.png";
 import doubleinverted from "../../assests/images/doubleinverted.png";
 import car2 from "../../assests/images/AboutCar.png";
-import Dryclean from "./Dryclean";
-import Question from "../Question";
+
+import Question from "../../components/Question";
 import Footer from "../../partials/Footer";
 import Colors from "../../utils/colors";
 import { NavLink } from "react-router-dom";
 
-const HomePage = () => {
+const WhyUs = () => {
   return (
     <>
       <Nav />
@@ -56,13 +55,13 @@ const HomePage = () => {
       <Box>
         <Grid container spacing={4} sx={{ marginTop: "3%" }}>
           {" "}
-          <Grid item xs={12} sm={6} md={8}>
+          <Grid item xs={12} md={8}>
             <Typography
               variant="h4"
               sx={{ marginLeft: "5%", color: Colors.palette.secondary.main }}
               gutterBottom
             >
-              <b> About Us</b>
+              <b> Highly Trained & Verified Staff</b>
             </Typography>
 
             <Typography
@@ -80,15 +79,8 @@ const HomePage = () => {
               cleaning offers more than meets the eye, clearing away the dirt
               and grime that accumulates on cars.
             </Typography>
-            <Typography
-              variant="h5"
-              sx={{ marginLeft: "5%",mt:2, color: Colors.palette.secondary.main }}
-              gutterBottom
-            >
-              <b> ESTD. 2023  </b>
-            </Typography>
           </Grid>
-          <Grid item xs={12} sm={6} md={4} sx={{ position: "auto" }}>
+          {/* <Grid item xs={12} sm={6} md={4} sx={{ position: "auto" }}>
             <img
               src={car2}
               alt=""
@@ -98,7 +90,7 @@ const HomePage = () => {
                 marginTop: { xs: "0%", sm: "10%" },
               }}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
       {/* {..........................................................} */}
@@ -128,7 +120,7 @@ const HomePage = () => {
                   color: Colors.palette.secondary.main,
                 }}
               >
-                <b>Professional Washing And Cleaning</b>
+                <b>Groomed Staff </b>
               </Typography>
               <Typography
                 sx={{
@@ -149,7 +141,7 @@ const HomePage = () => {
                 services. <br />
                 Your satisfaction is our priority.
               </Typography>
-              <Button
+              {/* <Button
                 variant="contained"
                 size="large"
                 sx={{
@@ -199,7 +191,7 @@ const HomePage = () => {
                 >
                   Our Services
                 </NavLink>
-              </Button>
+              </Button> */}
             </Box>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
@@ -219,9 +211,6 @@ const HomePage = () => {
           </Grid>
         </Grid>
       </Container>
-
-      <Dryclean />
-      <HomeCards />
 
       {/* ..................................................................... */}
 
@@ -246,7 +235,7 @@ const HomePage = () => {
                 fontSize={{ xs: 25, sm: 30, md: 32, lg: 35, xl: 35 }}
                 color={Colors.palette.secondary.main}
               >
-                <b>Who We Are?</b>
+                <b>Best Quality Products </b>
               </Typography>
               <Typography
                 fontSize={{ xs: 12, sm: 12, md: 13, lg: 15, xl: 15 }}
@@ -262,30 +251,62 @@ const HomePage = () => {
                 <br />
                 <br />
               </Typography>
-
+            </Box>
+          </Grid>
+          <Grid item>
+            <Box width={{ xs: 250, sm: 500, md: 700, lg: 800, xl: 800 }}>
               <Typography
-                fontSize={{ sm: 12, md: 13, lg: 18 }}
-                mt={2}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
+                fontSize={{ xs: 25, sm: 30, md: 32, lg: 35, xl: 35 }}
+                color={Colors.palette.secondary.main}
               >
-                <img
-                  src={doubleinverted}
-                  alt=""
-                  style={{ marginRight: "2%" }}
-                />
-                "Drive clean, drive happy. We make your journey shine."
+                <b>Technical Equipments </b>
+              </Typography>
+              <Typography
+                fontSize={{ xs: 12, sm: 12, md: 13, lg: 15, xl: 15 }}
+                mt={3}
+                sx={{ color: Colors.palette.secondary.grey, lineHeight: "1.8" }}
+              >
+                “Our aim is to redefine car care, providing unmatched quality
+                and convenience. We strive to
+                <br /> ensure a seamless, top-tier experience for our customers,
+                setting new standards in the industry
+                <br /> with our innovative approach and customer-centric
+                services.”
+                <br />
+                <br />
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item>
+            <Box width={{ xs: 250, sm: 500, md: 700, lg: 800, xl: 800 }}>
+              <Typography
+                fontSize={{ xs: 25, sm: 30, md: 32, lg: 35, xl: 35 }}
+                color={Colors.palette.secondary.main}
+              >
+                <b>Provide Inspection Feedback to Keep your car maintained. </b>
+              </Typography>
+              <Typography
+                fontSize={{ xs: 12, sm: 12, md: 13, lg: 15, xl: 15 }}
+                mt={3}
+                sx={{ color: Colors.palette.secondary.grey, lineHeight: "1.8" }}
+              >
+                “Our aim is to redefine car care, providing unmatched quality
+                and convenience. We strive to
+                <br /> ensure a seamless, top-tier experience for our customers,
+                setting new standards in the industry
+                <br /> with our innovative approach and customer-centric
+                services.”
+                <br />
+                <br />
               </Typography>
             </Box>
           </Grid>
         </Grid>
-        <Question />
+        {/* <Question /> */}
       </Container>
       <Footer />
     </>
   );
 };
 
-export default HomePage;
+export default WhyUs;

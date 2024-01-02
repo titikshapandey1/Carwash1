@@ -48,7 +48,7 @@ function Work() {
             <Paper
               elevation={3}
               style={{
-                height: "90%",
+                height: "85%",
                 padding: "20px",
                 textAlign: "center",
                 cursor: "pointer",

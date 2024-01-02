@@ -236,7 +236,7 @@
 //               )}
 //             </Box>
 //             <DrawerComp drawerContent={drawerContent} />
-            
+
 //             {/* Logout Confirmation Dialog
 //             <Dialog
 //               open={logoutDialogOpen}
@@ -276,7 +276,6 @@
 // };
 
 // export default Nav;
-
 
 import React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -346,16 +345,6 @@ const Nav = () => {
               >
                 Home
               </Button>
-
-              <Button
-                component={NavLink}
-                to="/services"
-                activeClassName="active"
-                sx={buttonStyle}
-              >
-                Services
-              </Button>
-
               <Button
                 component={NavLink}
                 to="/aboutus"
@@ -363,6 +352,31 @@ const Nav = () => {
                 sx={buttonStyle}
               >
                 About Us
+              </Button>
+              <Button
+                component={NavLink}
+                to="/services"
+                activeClassName="active"
+                sx={buttonStyle}
+              >
+                Our Services
+              </Button>
+
+              <Button
+                component={NavLink}
+                to="/whyus"
+                activeClassName="active"
+                sx={buttonStyle}
+              >
+                Why Us
+              </Button>
+              <Button
+                component={NavLink}
+                to="/gallery"
+                activeClassName="active"
+                sx={buttonStyle}
+              >
+                Gallery
               </Button>
               <Button
                 component={NavLink}
@@ -393,7 +407,7 @@ const Nav = () => {
                 </NavLink>
               </Button>
 
-              <Button
+              {/* <Button
                 sx={{
                   backgroundColor: Colors.palette.primary.lightBlue,
                   cursor: "pointer",
@@ -412,7 +426,7 @@ const Nav = () => {
                 >
                   Register
                 </NavLink>
-              </Button>
+              </Button> */}
             </Box>
             <DrawerComp />
           </Toolbar>

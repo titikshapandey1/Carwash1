@@ -20,7 +20,7 @@ const Services = () => {
       <Nav />
       <Searcher selectedService={selectedService} selectedCar={selectedCar} />
       <Ourplans />
-      <Cards />
+      {/* <Cards /> */}
       <Subscribe />
       <Review />
       <Question />

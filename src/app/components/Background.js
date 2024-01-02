@@ -11,7 +11,7 @@ const BackgroundImg = () => {
         sx={{
           display: "flex",
           position: "relative",
-          minHeight: "500px",
+          minHeight: "450px",
         }}
       >
         <video
@@ -59,11 +59,11 @@ const BackgroundImg = () => {
               </Typography>
             </Container>
           </Grid>
-          <Grid item xs={12} sm={12} md={8} padding={"2%"}>
+          {/* <Grid item xs={12} sm={12} md={8} padding={"2%"}>
             <Container>
               <HomeSearcher />
             </Container>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
     </>

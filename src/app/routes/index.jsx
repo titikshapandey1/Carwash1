@@ -24,6 +24,7 @@ import Home from "../pages/users/Home";
 import Guest2 from "../pages/users/Guest2";
 import Services from "../pages/users/Services";
 import AboutUs from "../components/Home/Homepage";
+import WhyUs from "../pages/users/WhyUs";
 import Contactus from "../pages/users/Contactus";
 import Login from "../pages/users/auth/Login";
 import Email from "../pages/users/auth/Email";
@@ -115,6 +116,7 @@ function AppRouter() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/services" element={<Services />}></Route>
         <Route path="/aboutus" element={<AboutUs />}></Route>
+        <Route path="/whyus" element={<WhyUs />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/editprofile" element={<EditProfile />}></Route>

@@ -366,7 +366,7 @@ const Card1 = () => {
   return (
     <>
       <OurServices />
-      <Container sx={{ mt: 5 }}>
+      {/* <Container sx={{ mt: 5 }}>
         <Grid container item spacing={2} justifyContent="center">
           {servicePlans.map((data, index) => (
             <Grid key={index} item xs={12} sm={6} md={4}>
@@ -436,7 +436,7 @@ const Card1 = () => {
             </Grid>
           ))}
         </Grid>
-      </Container>
+      </Container> */}
     </>
   );
 };

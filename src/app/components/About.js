@@ -21,7 +21,7 @@ const AboutGuest = () => {
             variant="body1"
             sx={{ marginLeft: "5%", lineHeight: "1.8" }}
           >
-            Welcome to our premier car wash service center in Noida. We offer an
+            {/* Welcome to our premier car wash service center in Noida. We offer an
             unparalleled car cleaning experience
             <br /> with three comprehensive packages: Routine clean, Dry clean,
             and Deep clean. Our cutting-edge
@@ -30,8 +30,14 @@ const AboutGuest = () => {
             vehicle. For added convenience,
             <br /> we provide pick-up and drop-off services exclusively for deep
             cleans, allowing you to focus <br />
-            on your day while we pamper your car....
-            <NavLink
+            on your day while we pamper your car.... */}
+            We are part of Cleaning Industry having many years of experience in
+            housekeeping services after a deep analyses in routine car cleaning
+            industry ; we feel that your car should be well being like your home
+            with spotless and dirt free. We pamper your car with high quality
+            cleaning services through our specific hygine products, equipments,
+            well trained and groomed staff.
+            {/* <NavLink
               to="/aboutus"
               style={{
                 textDecoration: "none",
@@ -39,7 +45,7 @@ const AboutGuest = () => {
               }}
             >
               (see more)
-            </NavLink>
+            </NavLink> */}
             {/* At our center, customer satisfaction
             is our priority, and we take pride in delivering excellence in every
             wash. Join us to experience the ultimate care for your vehicle with

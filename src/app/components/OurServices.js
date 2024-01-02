@@ -48,19 +48,18 @@ const OurServices = () => {
         >
           Our Services&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;•
         </Typography>
-   <Divider
-  sx={{
-    backgroundColor: Colors.palette.secondary.main,
-    height: "2px",
-    flex: 1,
-    marginLeft: "2%",
-    display: {
-      xs: "none", 
-      sm: "block", 
-    },
-  }}
-/>
-
+        <Divider
+          sx={{
+            backgroundColor: Colors.palette.secondary.main,
+            height: "2px",
+            flex: 1,
+            marginLeft: "2%",
+            display: {
+              xs: "none",
+              sm: "block",
+            },
+          }}
+        />
 
         <Typography
           sx={{
